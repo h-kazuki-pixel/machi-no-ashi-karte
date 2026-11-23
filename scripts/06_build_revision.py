@@ -10,7 +10,7 @@
   routes   路線名
   trips    バス1本ごとの [路線, 行き先, [[停留所, 着, 発], ...]]（時刻は 0時からの分）
   patterns その日に走るバスの組（trips の番号の並び）。同じ中身の日はまとめる
-  days     日付 → {版, パターン, 印}（変更日の前35日は古い版、変更日から35日は新しい版）
+  days     日付 → {版, パターン, 印}（変更日の前70日は古い版、変更日から70日は新しい版）
 
 停留所の対応:
   1. 同じ ID で 30m 以内 → 同じ停留所（名前が変わっていれば old_name に残す）
@@ -36,7 +36,7 @@ from common import CACHE, DATA
 
 dv = import_module("03_diff_versions")
 MATCH_M = 30
-WINDOW_DAYS = 35
+WINDOW_DAYS = 70  # 月1回の移動のため。毎週の移動は判定の側で前後35日に絞る
 
 
 def read(z, names, n):

@@ -11,6 +11,9 @@ export const THRESHOLDS = {
   betterWait: 5,    // 待つ時間が5分以上へる → 良くなる
   nearbyMeters: 300, // 代わりに使える近くの停留所（直線）
   compareCount: 4,  // 変更日の前とあとで比べる日の数
+  weeklyWindow: 35, // 毎週の移動：変更日の前後35日から選ぶ
+  monthlyWindow: 70, // 月1回の移動（毎月第1日曜だけ）：前後70日から選ぶ
+  movedMeters: 50,  // 同じ ID のまま、これ以上動いたのりばは知らせる
 };
 
 export const LEVELS = {
@@ -20,6 +23,8 @@ export const LEVELS = {
   tiny: { order: 3, label: "ほぼ同じ" },
   same: { order: 4, label: "変わらない" },
   better: { order: 5, label: "良くなる" },
+  will_be_able: { order: 6, label: "行けるようになる" }, // 前は1本で行けず、新しい時刻表では行ける
+  no_route: { order: 7, label: "1本では行けない" },      // 前も後も1本で行けない（登録はできる）
 };
 
 const WEEKDAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
@@ -95,9 +100,16 @@ export function isExcluded(P, s, reg) {
 }
 
 // 変更日の前の n 回と、あとの n 回（印の付いた日は外す。範囲は改正のデータの35日ずつ）
+export function isMonthly(reg) {
+  return reg.days.length > 0 && reg.days.every((d) => d === "first_sun");
+}
+
 export function compareDates(P, reg, n = THRESHOLDS.compareCount) {
   const change = P.meta.change_date;
-  const all = Object.keys(P.days).sort();
+  const w = isMonthly(reg) ? THRESHOLDS.monthlyWindow : THRESHOLDS.weeklyWindow;
+  const lo = addDays(change, -w);
+  const hi = addDays(change, w - 1);
+  const all = Object.keys(P.days).sort().filter((s) => s >= lo && s <= hi);
   const ok = (s) => matchesDays(reg.days, s) && !isExcluded(P, s, reg);
   const before = all.filter((s) => s < change && ok(s)).slice(-n);
   const after = all.filter((s) => s >= change && ok(s)).slice(0, n);
@@ -183,7 +195,7 @@ function waitOf(r, cond) {
 }
 
 export function classify(oldR, newR, cond) {
-  if (!oldR) return { level: "no_route_before" };
+  if (!oldR) return { level: newR ? "will_be_able" : "no_route" };
   if (!newR) return { level: "cannot" };
   const dDep = newR.dep - oldR.dep;
   const dArr = newR.arr - oldR.arr;
@@ -254,17 +266,52 @@ export function alternatives(P, reg, date) {
   for (const n of nearbyGroups(P, reg.from)) tryPair(n.name, reg.to, { changed: "from", name: n.name, meters: n.meters });
   for (const n of nearbyGroups(P, reg.to)) tryPair(reg.from, n.name, { changed: "to", name: n.name, meters: n.meters });
   nearby.sort((a, b) => waitOf(a, reg.cond) - waitOf(b, reg.cond) || a.note.meters - b.note.meters);
-  return { same, nearby: nearby.slice(0, 3) };
+  // 300m以内に代わりが無いとき：その日にバスが止まる、いちばん近いバス停（代わりとは呼ばない）
+  const nearest = [];
+  if (!nearby.length) {
+    for (const [role, name] of [["from", reg.from], ["to", reg.to]]) {
+      if (servedOn(P, date, name)) continue;
+      const n = nearestServed(P, date, name);
+      if (n) nearest.push({ role, of: name, ...n });
+    }
+  }
+  return { same, nearby: nearby.slice(0, 3), nearest };
+}
+
+export function nearestServed(P, date, name) {
+  const g = groupOf(P, name);
+  let best = null;
+  for (const h of P.groups.values()) {
+    if (h.name === name || !servedOn(P, date, h.name)) continue;
+    const d = groupDistance(P, g, h);
+    if (!best || d < best.meters) best = { name: h.name, meters: Math.round(d) };
+  }
+  return best;
+}
+
+export function rideMinutes(r) {
+  return r.arr - r.dep;
 }
 
 // ---------- まとめ ----------
 
 // その日に、その停留所に止まるバスがあるか
+const servedCache = new WeakMap();
+function servedStops(P, s) {
+  let byDate = servedCache.get(P);
+  if (!byDate) servedCache.set(P, (byDate = new Map()));
+  if (!byDate.has(s)) {
+    const set = new Set();
+    const day = P.days[s];
+    if (day) for (const ti of P.patterns[day.p]) for (const st of P.tripObjs[ti].stops) set.add(st.stop);
+    byDate.set(s, set);
+  }
+  return byDate.get(s);
+}
+
 export function servedOn(P, s, name) {
-  const day = P.days[s];
-  if (!day) return false;
-  const m = new Set(groupOf(P, name).members);
-  return P.patterns[day.p].some((ti) => P.tripObjs[ti].stops.some((st) => m.has(st.stop)));
+  const set = servedStops(P, s);
+  return groupOf(P, name).members.some((i) => set.has(i));
 }
 
 export function judge(P, reg) {
@@ -284,6 +331,7 @@ export function judge(P, reg) {
       if (wasServed && !isServed) out.notes.push({ kind: "stop_not_served", role, name });
     }
   }
+  for (const m of movedStops(P, reg)) out.notes.push({ kind: "stop_moved", ...m });
   if (b.split) out.notes.push({ kind: "split", side: "before" });
   if (a.split) out.notes.push({ kind: "split", side: "after" });
   if (b.tooFewDates || a.tooFewDates) out.notes.push({ kind: "too_few_dates", before: b.dates.length, after: a.dates.length });
@@ -294,6 +342,18 @@ export function judge(P, reg) {
 }
 
 // 登録の時点で：古い版（いまの時刻表）で1本で行けるか
+// 同じ ID のまま 50m 以上動いたのりば（データの上で）
+export function movedStops(P, reg) {
+  const out = [];
+  for (const name of [reg.from, reg.to]) {
+    for (const i of groupOf(P, name).members) {
+      const s = P.stops[i];
+      if (s.moved_m >= THRESHOLDS.movedMeters) out.push({ name, meters: s.moved_m });
+    }
+  }
+  return out;
+}
+
 export function checkRegistration(P, reg, today) {
   const { before } = compareDates(P, reg);
   const dates = today >= P.meta.change_date ? compareDates(P, reg).after : before;

@@ -22,6 +22,8 @@ const DEMO_REGS = [
   { id: "d6", name: "第1日曜、駅へ", from: "福祉の里入口", to: "米沢駅前", days: ["first_sun"], cond: { type: "departAfter", time: 540 } },
   { id: "d7", name: "平日の夕方、通町へ", from: "米沢駅前", to: "通町六丁目", days: ["mon", "tue", "wed", "thu", "fri"], cond: { type: "departAfter", time: 1060 } },
   { id: "d8", name: "平日の夕方、上杉神社へ", from: "米沢駅前", to: "上杉神社前", days: ["mon", "tue", "wed", "thu", "fri"], cond: { type: "departAfter", time: 1050 } },
+  { id: "d9", name: "平日の夕方、芳泉町へ", from: "米沢駅前", to: "芳泉町", days: ["mon", "tue", "wed", "thu", "fri"], cond: { type: "departAfter", time: 1060 } },
+  { id: "d10", name: "平日の朝、スキー場から病院へ", from: "米沢スキー場前", to: "国立米沢病院前", days: ["mon", "tue", "wed", "thu", "fri"], cond: { type: "arriveBy", time: 600 } },
 ];
 
 let P = null;
@@ -75,9 +77,10 @@ function minutesPhrase(d, early, late) {
 function levelInfo(res, ph = phase()) {
   const past = ph === "after";
   const L = res.level;
-  if (L === "no_route_before") {
-    return past ? { cls: "lv-better", badge: "1本で行けるようになりました" } : { cls: "lv-none", badge: "いまは1本では行けません" };
+  if (L === "will_be_able") {
+    return past ? { cls: "lv-better", badge: "1本で行けるようになりました" } : { cls: "lv-better", badge: "1本で行けるようになります" };
   }
+  if (L === "no_route") return { cls: "lv-none", badge: "いまは1本では行けません" };
   const map = {
     cannot: ["lv-cannot", "1本で行けるバスがなくなります", "1本で行けるバスがなくなりました"],
     big: ["lv-big", "時刻が大きく変わります", "時刻が大きく変わりました"],
@@ -93,17 +96,22 @@ function levelInfo(res, ph = phase()) {
 function detailLines(res) {
   const out = [];
   if (res.level === "cannot") {
+    out.push(`${P.meta.feed_name}では、1本で行けるバスがなくなります。`);
     const firstSunEnds = res.notes.some((n) => n.kind === "first_sunday_service_ends");
     if (firstSunEnds) out.push("第1日曜だけ走っていたバスが、なくなります。");
     for (const n of res.notes) {
       if (n.kind === "stop_not_served" && !firstSunEnds) out.push(`${daysText(res.reg.days)}は、バスが「${n.name}」に止まりません。`);
     }
-    if (!out.length) out.push(`「${condText(res.reg.cond)}」に合うバスが、なくなります。`);
+    if (out.length === 1) out.push(`「${condText(res.reg.cond)}」に合うバスが、なくなります。`);
     return out;
   }
-  if (res.level === "no_route_before") {
-    out.push("いまの時刻表では、この組み合わせを1本で行けるバスがありません。");
-    if (res.after.ride) out.push(`${jDate(P.meta.change_date)}からは、${busText(res.after.ride)} のバスがあります。`);
+  if (res.level === "will_be_able") {
+    out.push(`いままでは、${P.meta.feed_name}に1本で行けるバスがありませんでした。`);
+    out.push(`${jDate(firstDay(res))}からは、${busText(res.after.ride)} のバスがあります。`);
+    return out;
+  }
+  if (res.level === "no_route") {
+    out.push(`${P.meta.feed_name}には、この組み合わせを1本で行けるバスがありません。行けるようになったら知らせます。`);
     return out;
   }
   if (res.level === "better") {
@@ -177,12 +185,12 @@ function homeView() {
     return render(html);
   }
   const items = regs.map((r) => ({ reg: r, ...evaluate(r) }));
-  const changing = items.filter((x) => !["same", "tiny"].includes(x.res.level));
+  const changing = items.filter((x) => !["same", "tiny", "no_route"].includes(x.res.level));
   if (ph !== "before" && changing.length) {
     const verb = ph === "after" ? "変わりました" : "変わります";
     html += `<p class="lead"><strong>${jDate(P.meta.change_date)}から、バスの時刻表が${verb}。</strong>あなたの移動のうち ${changing.length}件 に関係があります。</p>`;
   }
-  const order = { cannot: 0, big: 1, small: 2, no_route_before: 3, better: 4, tiny: 5, same: 6 };
+  const order = { cannot: 0, big: 1, small: 2, will_be_able: 3, better: 4, no_route: 5, tiny: 6, same: 7 };
   items.sort((a, b) => order[a.res.level] - order[b.res.level]);
   for (const x of items) {
     const li = levelInfo(x.res);
@@ -190,6 +198,8 @@ function homeView() {
     if (ph === "before") {
       const nowHtml = x.now.ride ? `<div class="muted">いまのバス</div><div class="now nowrap">${busText(x.now.ride)}</div>` : `<div class="now">${esc(nowLine)}</div>`;
       html += `<a class="card" href="#trip/${esc(x.reg.id)}"><div class="name">${esc(x.reg.name)}</div>${nowHtml}</a>`;
+    } else if (x.res.level === "no_route") {
+      html += `<a class="card" href="#trip/${esc(x.reg.id)}"><div class="name">${esc(x.reg.name)}</div><div class="muted">いまは1本で行けるバスがありません。行けるようになったら知らせます。</div></a>`;
     } else if (["same", "tiny"].includes(x.res.level)) {
       const word = x.res.level === "same" ? "変わりません" : `ほとんど変わりません（${x.res.shift}分）`;
       html += `<a class="card" href="#trip/${esc(x.reg.id)}"><div class="name">${esc(x.reg.name)}　<span class="badge lv-same">${word}</span></div><div class="muted nowrap">${esc(nowLine)}</div></a>`;
@@ -221,6 +231,12 @@ function tripView(id) {
     html += `<p class="muted">いまのところ、時刻表が変わるお知らせはありません。</p>`;
     return render(html + `<a class="btn secondary" href="#home">もどる</a>` + delBtn(reg));
   }
+  if (res.level === "no_route") {
+    html += `<h1>『${esc(reg.name)}』</h1>`;
+    for (const l of detailLines(res)) html += `<p class="lead">${esc(l)}</p>`;
+    html += movedHtml(res);
+    return render(html + `<a class="btn secondary" href="#home">もどる</a>` + delBtn(reg));
+  }
   if (["same", "tiny"].includes(res.level)) {
     html += `<h1>${jDate(P.meta.change_date)}から時刻表が${verb}が、『${esc(reg.name)}』は変わりません</h1>`;
   } else {
@@ -230,6 +246,7 @@ function tripView(id) {
   html += `<div class="compare ${li.cls}" style="background:none">${col("いままで", res.before.ride, "")}${col(`${jDateShort(firstDay(res))}から`, res.after.ride, "after")}</div>`;
   for (const l of detailLines(res)) html += `<p class="lead">${esc(l)}</p>`;
   if (res.level === "tiny") html += `<p class="muted">（${Math.max(Math.abs(res.dDep), Math.abs(res.dArr))}分ほどのちがいです）</p>`;
+  html += movedHtml(res);
   if (res.alternatives) html += altHtml(res);
   for (const l of noteLines(res)) html += `<p class="muted">${esc(l)}</p>`;
   html += `<div class="source"><p>${esc(sourceLine())}</p><p class="small">${esc(P.meta.attribution)}</p></div>`;
@@ -241,26 +258,45 @@ function addDaysSafe(s, n) {
   return J.addDays(s, n);
 }
 
+function kmText(m) {
+  return m < 1000 ? `約${Math.round(m / 10) * 10}m` : `約${(m / 1000).toFixed(1)}km`;
+}
+
+function rideText(r, res) {
+  const mins = J.rideMinutes(r);
+  const before = res.before.ride ? J.rideMinutes(res.before.ride) : null;
+  const detour = before && mins >= before * 2 ? "　遠回りです" : "";
+  return `（乗っている時間 ${mins}分${detour}）`;
+}
+
+function movedHtml(res) {
+  return res.notes.filter((n) => n.kind === "stop_moved")
+    .map((n) => `<p class="warn">「${esc(n.name)}」ののりばの場所が、データの上で${kmText(n.meters)} 動いています。現地の案内を確かめてください。</p>`).join("");
+}
+
 function altHtml(res) {
   const a = res.alternatives;
-  let html = `<h2>代わりに使えるバス</h2>`;
+  let html = "";
+  if (a.same.length || a.nearby.length) html += `<h2>代わりに使えるバス</h2>`;
   if (a.same.length) {
     html += `<p class="muted">同じバス停で</p>`;
     for (const r of a.same) {
       const label = r.which === "prev" ? "ひとつ前のバス" : "ひとつあとのバス";
-      html += `<div class="alt">${label}<br><strong>${busText(r)}</strong>　<span class="muted">${esc(r.route)}</span></div>`;
+      html += `<div class="alt">${label}<br><strong>${busText(r)}</strong>　<span class="muted">${esc(r.route)}</span><br><span class="muted">${esc(rideText(r, res))}</span></div>`;
     }
   }
   if (a.nearby.length) {
     html += `<p class="muted">近くのバス停を使うと（300m以内）</p>`;
     for (const r of a.nearby) {
-      const where = r.note.changed === "from" ? `「${r.from}」から乗る（約${r.note.meters}m）` : `「${r.to}」で降りる（約${r.note.meters}m）`;
-      html += `<div class="alt">${esc(where)}<br><strong>${busText(r)}</strong>　<span class="muted">${esc(r.route)}</span></div>`;
+      const where = r.note.changed === "from" ? `「${r.from}」から乗る（${kmText(r.note.meters)}）` : `「${r.to}」で降りる（${kmText(r.note.meters)}）`;
+      html += `<div class="alt">${esc(where)}<br><strong>${busText(r)}</strong>　<span class="muted">${esc(r.route)}</span><br><span class="muted">${esc(rideText(r, res))}</span></div>`;
     }
-  } else {
-    html += `<p class="muted">近く（300m以内）に、代わりに使えるバス停はありません。</p>`;
   }
-  if (!a.same.length && !a.nearby.length) html += `<p>市役所やバス会社に、ほかの行き方を相談してください。</p>`;
+  if (!a.nearby.length) {
+    html += `<h2>近くのバス停</h2><p>300m以内に、バスが止まるバス停はありません。</p>`;
+    for (const n of a.nearest) html += `<p>「${esc(n.of)}」からいちばん近いバス停は、「${esc(n.name)}」（${kmText(n.meters)}）です。</p>`;
+  }
+  if (!a.same.length && !a.nearby.length) html += `<p>${esc(P.meta.operator)}やバス会社に、ほかの行き方を相談してください。</p>`;
   return html;
 }
 
@@ -340,16 +376,12 @@ function timeView() {
 function checkView() {
   const reg = { ...draft };
   const chk = J.checkRegistration(P, reg, TODAY);
-  if (!chk.ok) {
-    const res = J.judge(P, reg);
-    let extra = "";
-    if (phase() !== "after" && res.after.ride) extra = `<p>${jDate(P.meta.change_date)}からは、${busText(res.after.ride)} のバスがあります。</p>`;
-    return render(`<h1>この組み合わせは、1本では行けません</h1>
-      <p class="lead">「${esc(reg.from)}」から「${esc(reg.to)}」へ、${esc(daysText(reg.days))}の「${esc(condText(reg.cond))}」に合うバスが、いまの時刻表にありません。</p>${extra}
-      <a class="btn" href="#add/from">バス停を選びなおす</a><a class="btn secondary" href="#add/time">時刻を変える</a>`);
-  }
+  const nowText = chk.ok
+    ? `いまのバス：${busText(chk.ride)}`
+    : `いまは1本で行けるバスがありません。行けるようになったら知らせます。`;
   render(`<p class="steps">5 / 5</p><h1>この移動に名前をつけてください</h1>
-    <p class="muted">${esc(reg.from)} → ${esc(reg.to)}<br>${esc(daysText(reg.days))}　${esc(condText(reg.cond))}<br>いまのバス：${busText(chk.ride)}</p>
+    <p class="muted">${esc(reg.from)} → ${esc(reg.to)}<br>${esc(daysText(reg.days))}　${esc(condText(reg.cond))}</p>
+    <p class="${chk.ok ? "lead" : "warn"}">${esc(nowText)}</p>
     <input type="text" id="n" placeholder="例：火曜の病院（行き）" value="">
     <button class="btn" id="save">登録する</button><a class="btn secondary" href="#home">やめる</a>`);
   document.getElementById("save").addEventListener("click", () => {

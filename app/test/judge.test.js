@@ -35,17 +35,19 @@ test("3. 学園都市線が国立米沢病院前に止まらなくなる：行�
   assert.equal(fmt(r.before.ride), "9:00→9:13");
   assert.equal(r.level, "cannot");
   assert.ok(r.notes.some((n) => n.kind === "stop_not_served" && n.name === "国立米沢病院前"));
-  assert.deepEqual(r.alternatives.nearby, []); // いちばん近い停留所は 916m（通町三丁目。これも無くなる）
+  assert.deepEqual(r.alternatives.nearby, []);
+  // 300m以内に代わりは無い。12月1日にバスが止まるいちばん近いバス停を、距離つきで出す（通町三丁目 916m は無くなる）
+  assert.deepEqual(r.alternatives.nearest.map((n) => [n.role, n.name]), [["to", "通町二丁目"]]);
+  assert.ok(r.alternatives.nearest[0].meters > 1500 && r.alternatives.nearest[0].meters < 1600);
   assert.equal(r.before.dates.includes("2026-11-03"), false); // 文化の日は外す
 });
 
-test("4. 米沢駅前→鶴城高校前 平日 8:30までに着きたい：前は1本では行けず、新しい直行便 8:10 で行けるようになる", () => {
+test("4. 米沢駅前→鶴城高校前 平日 8:30までに着きたい：新しい直行便 8:10 で「行けるようになる」", () => {
   const r = J.judge(P, { from: "米沢駅前", to: "鶴城高校前", days: WEEKDAYS, cond: { type: "arriveBy", time: t(8, 30) } });
   assert.equal(r.before.ride, null);
   assert.equal(fmt(r.after.ride), "8:10→8:19");
   assert.equal(r.after.ride.route, "万世線（直行便）");
-  // 期待は「良くなる」。いまの決まりでは「前は1本では行けない」になる（報告して判断を仰ぐ）
-  assert.equal(r.level, "no_route_before");
+  assert.equal(r.level, "will_be_able");
 });
 
 test("5. 市街地循環（右回り）の昼の 11:54 が無くなる：大きく変わる、前後のバスと近くの停留所の代わりが出る", () => {
@@ -61,8 +63,9 @@ test("5. 市街地循環（右回り）の昼の 11:54 が無くなる：大き�
 
 test("6. 第1日曜の万世線：12月からは第1日曜の運行が無い", () => {
   const r = J.judge(P, { from: "福祉の里入口", to: "米沢駅前", days: ["first_sun"], cond: { type: "departAfter", time: t(9, 0) } });
-  assert.deepEqual(r.before.dates, ["2026-11-01"]);
-  assert.deepEqual(r.after.dates, ["2026-12-06"]);
+  // 月1回の移動は前後70日から選ぶ（2027-01-03 は年末年始なので外す）
+  assert.deepEqual(r.before.dates, ["2026-10-04", "2026-11-01"]);
+  assert.deepEqual(r.after.dates, ["2026-12-06", "2027-02-07"]);
   assert.equal(fmt(r.before.ride), "9:00→9:20");
   assert.equal(r.level, "cannot");
   assert.ok(r.notes.some((n) => n.kind === "first_sunday_service_ends"));
@@ -102,4 +105,22 @@ test("停留所はひらがな・カタカナ・漢字・前の名前で探せ�
   assert.ok(names("病院").includes("国立米沢病院前"));
   assert.ok(names("成島一丁目").includes("成島町一丁目")); // 名前が変わった停留所は前の名前でも
   assert.ok(names("ｱﾊﾟｰﾄ").length > 0); // 半角カナの名前
+});
+
+test("いまは1本で行けない移動も登録できる（前も後も行けない：no_route）", () => {
+  const r = J.judge(P, { from: "米沢スキー場前", to: "国立米沢病院前", days: WEEKDAYS, cond: { type: "arriveBy", time: t(10, 0) } });
+  assert.equal(r.level, "no_route");
+  const c = J.checkRegistration(P, { from: "米沢スキー場前", to: "国立米沢病院前", days: WEEKDAYS, cond: { type: "arriveBy", time: t(10, 0) } }, "2026-11-25");
+  assert.equal(c.ok, false);
+});
+
+test("同じ ID のまま 50m 以上動いたのりばに印が付く", () => {
+  const m = J.movedStops(P, { from: "米沢駅前", to: "芳泉町" });
+  assert.deepEqual(m, [{ name: "芳泉町", meters: 330 }]);
+  assert.deepEqual(J.movedStops(P, { from: "米沢駅前", to: "太田町五丁目" }), []); // 48m は出さない
+});
+
+test("毎週の移動は前後35日から選ぶ", () => {
+  const d = J.compareDates(P, { days: ["tue"], from: "米沢駅前", to: "上杉神社前" });
+  assert.ok(d.before[0] >= "2026-10-27" && d.after.at(-1) <= "2027-01-04");
 });

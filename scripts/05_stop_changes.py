@@ -11,7 +11,7 @@
   組にならない便は、1便あたり GAP の費用で「無くなる」「新しくできる」とする。
   停留所は名前で同じとみなす（stop_id の付け替えに左右されない）。
 
-  組になった便で:
+  組になった便で（同じ停留所に2回以上止まるときは、その停留所に止まる時刻どうしを近い順に組にする）:
     共通する停留所で時刻が違う   → その停留所では「時刻が変わる便」（ずれの分）
     旧の便だけが止まる停留所     → その停留所では「無くなる便」
     新の便だけが止まる停留所     → その停留所では「新しくできる便」
@@ -99,6 +99,34 @@ def first_common_shift(a, b):
     return nb[common[0]] - m0
 
 
+def align_times(xs, ys):
+    """1本のバスの中の、ある停留所に止まる時刻の並び（旧 xs・新 ys）を、順番を保って組にする。
+    ずれが MAX_SHIFT 分を超える組は作らない。戻り値は (旧の時刻 or None, 新の時刻 or None) の並び。"""
+    xs, ys = sorted(xs), sorted(ys)
+    n, m = len(xs), len(ys)
+    INF = float("inf")
+    cost = [[INF] * (m + 1) for _ in range(n + 1)]
+    back = [[None] * (m + 1) for _ in range(n + 1)]
+    cost[0][0] = 0
+    for i in range(n + 1):
+        for j in range(m + 1):
+            c = cost[i][j]
+            if c == INF:
+                continue
+            if i < n and c + GAP < cost[i + 1][j]:
+                cost[i + 1][j], back[i + 1][j] = c + GAP, (i, j, "old")
+            if j < m and c + GAP < cost[i][j + 1]:
+                cost[i][j + 1], back[i][j + 1] = c + GAP, (i, j, "new")
+            if i < n and j < m and abs(ys[j] - xs[i]) <= MAX_SHIFT and c + abs(ys[j] - xs[i]) < cost[i + 1][j + 1]:
+                cost[i + 1][j + 1], back[i + 1][j + 1] = c + abs(ys[j] - xs[i]), (i, j, "pair")
+    out, i, j = [], n, m
+    while (i, j) != (0, 0):
+        pi, pj, kind = back[i][j]
+        out.append((xs[pi] if kind in ("old", "pair") else None, ys[pj] if kind in ("new", "pair") else None))
+        i, j = pi, pj
+    return out[::-1]
+
+
 def align(olds, news):
     """順序を保つ対応づけ（編集距離と同じ動的計画法）"""
     olds = sorted(olds, key=lambda t: t["seq"][0][1])
@@ -152,21 +180,32 @@ def main():
         for route, (olds, news) in sorted(groups.items()):
             for a, b in align(olds, news):
                 if a and b:
-                    om = dict((n, m) for n, m in reversed(a["seq"]))  # 同じ名前が2回あれば最初の時刻
-                    nm = dict((n, m) for n, m in reversed(b["seq"]))
-                    shifts = {n: nm[n] - om[n] for n in om if n in nm}
-                    only_old = [n for n, _ in a["seq"] if n not in nm]
-                    only_new = [n for n, _ in b["seq"] if n not in om]
-                    changed = any(abs(v) > 0.01 for v in shifts.values()) or only_old or only_new
+                    # 同じ停留所に2回以上止まるバスがあるので、停留所ごとに止まる時刻を全部並べ、
+                    # 新旧で時刻の近いものどうしを（順番を保って）組にする
+                    shifts, only_old, only_new = [], [], []
+                    oo, nn = defaultdict(list), defaultdict(list)
+                    for n_, m_ in a["seq"]:
+                        oo[n_].append(m_)
+                    for n_, m_ in b["seq"]:
+                        nn[n_].append(m_)
+                    for n_ in set(oo) | set(nn):
+                        for x, y in align_times(oo.get(n_, []), nn.get(n_, [])):
+                            if x is not None and y is not None:
+                                shifts.append((n_, x, y))
+                            elif x is not None:
+                                only_old.append((n_, x))
+                            else:
+                                only_new.append((n_, y))
+                    changed = any(abs(y - x) > 0.01 for _, x, y in shifts) or only_old or only_new
                     status = "時刻・停留所が変わる" if changed else "変わらない"
-                    for n, v in shifts.items():
-                        if abs(v) > 0.01:
-                            by_stop[n][label]["shifted"].append((om[n], nm[n], v, route))
-                    for n in only_old:
-                        by_stop[n][label]["removed"].append((om[n], route))
-                    for n in only_new:
-                        by_stop[n][label]["added"].append((nm[n], route))
-                    sv = sorted(round(v) for v in shifts.values() if abs(v) > 0.01)
+                    for n_, x, y in shifts:
+                        if abs(y - x) > 0.01:
+                            by_stop[n_][label]["shifted"].append((x, y, y - x, route))
+                    for n_, x in only_old:
+                        by_stop[n_][label]["removed"].append((x, route))
+                    for n_, y in only_new:
+                        by_stop[n_][label]["added"].append((y, route))
+                    sv = sorted(round(y - x) for _, x, y in shifts if abs(y - x) > 0.01)
                     detail = (f"ずれ {sv[0]:+d}〜{sv[-1]:+d}分" if sv else "") + (
                         f" 止まらなくなる {len(only_old)}" if only_old else "") + (
                         f" 新たに止まる {len(only_new)}" if only_new else "")
