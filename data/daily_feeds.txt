@@ -1,0 +1,12 @@
+kuma-bus/kuma-bus
+kumamoto-toshibus/kumamoto-toshibus
+kumamotodentetsu/kumamotodentetsu-bus
+mie-kotsu/sancochusei
+mie-kotsu/sancoiga
+mie-kotsu/sancoinanki
+mie-kotsu/sancoise
+mie-kotsu/sancokuwana
+mie-kotsu/sancomatsusaka
+mie-kotsu/sancoshima
+mie-kotsu/sancoyokkaichi
+sankobus/sankobus

@@ -1,0 +1,24 @@
+feed,organization_name,feed_name,feed_pref_id,rid,published_at,from_date,to_date,meta_lead_days,declared_kind,license,dec_jan
+gamagoricity/communitybus,蒲郡市,蒲郡市コミュニティバス,23,next_1,2026-10-16T16:13,2026-11-24,2027-11-23,39,停留所,CC BY 4.0,
+keneibus/nagasaki-kenei-bus,長崎県営バス,長崎県営バス,42,next_1,2026-11-11T11:13,2026-11-24,2026-11-30,13,停留所,CC BY 4.0,
+shinjocity/ShinjoCity,新庄市,新庄市営バス,6,next_1,2026-11-19T09:50,2026-11-30,2027-11-29,11,時刻表+路線,CC BY 4.0,
+towadakankodentetsu/toutetsu_airport_line,十和田観光電鉄株式会社,十和田観光電鉄（八戸～三沢空港線）,2,next_1,2026-11-17T11:56,2026-12-01,2026-12-31,14,時刻表,CC BY 4.0,★
+ugokotsu/ugokotsu_honjo,羽後交通株式会社,羽後交通（本荘地区）,5,next_1,2026-09-03T15:04,2026-12-01,2027-03-19,89,その他,CC BY 4.0,★
+ugokotsu/ugokotsu_tazawako,羽後交通株式会社,羽後交通（田沢湖地区）,5,next_1,2026-08-10T14:49,2026-12-01,2027-03-31,113,その他,CC BY 4.0,★
+kahokutown/KahokuTown,河北町,河北町営バス,6,next_1,2026-10-21T10:44,2026-12-01,2027-03-31,41,時刻表+路線+停留所,CC BY 4.0,★
+yonezawacity/Yonezawa,米沢市,米沢市営バス,6,next_1,2026-11-19T10:32,2026-12-01,2027-03-31,12,時刻表,CC BY 4.0,★
+miyoshitown/miyo-bus,三芳町,MIYOバス,11,next_1,2026-11-09T21:01,2026-12-01,2027-09-30,22,時刻表+路線+停留所+運賃+期間+臨時ダイヤ+その他,CC0 1.0,★
+kaetsunou/kaetsunouippan,加越能バス,加越能バス（一般路線）,16,next_1,2026-10-30T17:50,2026-12-01,2027-11-30,32,時刻表,CC0 1.0,★
+omachicity/omachiraicholiner,大町市,特急バス「雷鳥ライナー」,20,next_1,2026-11-02T10:42,2026-12-01,2027-04-14,29,時刻表,CC BY 4.0,★
+tohtetsu/tohtetsu_kani,東濃鉄道,東濃鉄道（東鉄バス）可児営業所管内,21,next_1,2026-11-20T20:04,2026-12-01,2027-03-31,11,運賃,CC BY 4.0,★
+tokonamecity/Gruun,常滑市,コミュニティバスグルーン,23,next_1,2026-11-10T17:08,2026-12-01,2027-12-31,21,時刻表+路線+停留所+運賃+期間,CC0 1.0,★
+toyotacity/kikanbus,豊田市,とよたおいでんバス,23,next_1,2026-10-14T20:49,2026-12-01,2027-03-31,48,その他,CC BY 4.0,★
+toyoyamatown/communitybus,豊山町,とよやまタウンバス,23,next_1,2026-11-04T10:37,2026-12-01,2028-01-31,27,路線+停留所+期間,CC BY 4.0,★
+meikobus/meikobus,明光バス株式会社,明光バス,30,next_1,2026-11-15T22:48,2026-12-01,2027-12-31,16,時刻表+停留所,CC BY 4.0,★
+kochi-ekimae-kanko/GTFS-Ekimae_Expressbus,株式会社高知駅前観光,高速バス,39,next_1,2026-11-20T15:39,2026-12-01,2027-03-13,11,その他,CC BY 4.0,★
+kochi-ekimae-kanko/GTFS-Ekimae_Airportbus,株式会社高知駅前観光,空港連絡バス,39,next_1,2026-11-20T15:36,2026-12-01,2027-01-15,11,時刻表,CC BY 4.0,★
+keneibus/nagasaki-kenei-bus,長崎県営バス,長崎県営バス,42,next_2,2026-11-19T17:01,2026-12-01,2027-01-04,12,時刻表+停留所+その他,CC BY 4.0,★
+kochi-ekimae-kanko/GTFS-Ekimae_Expressbus,株式会社高知駅前観光,高速バス,39,next_2,2026-11-21T11:47,2026-12-03,2027-03-13,12,その他,CC BY 4.0,★
+hakubavalley/bus-hakubavalley-nagano-jp,HAKUBAVALLEY事務局,HAKUBAVALLEY Shuttlebus,20,next_1,2026-11-18T15:37,2026-12-14,2027-04-26,26,時刻表+路線+停留所+運賃+期間,CC BY 4.0,★
+uchinadatown/communitybus,内灘町,コミュニティバス,17,next_1,2026-11-18T11:04,2027-01-01,2027-12-31,44,期間,CC BY 4.0,★
+ugokotsu/ugokotsu_honjo,羽後交通株式会社,羽後交通（本荘地区）,5,next_2,2026-09-03T15:05,2027-03-20,2027-03-31,198,その他,CC BY 4.0,

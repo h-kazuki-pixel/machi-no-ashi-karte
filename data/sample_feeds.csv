@@ -1,0 +1,51 @@
+feed,feed_name,organization_name,kind,region,pairs,reason
+nemurokotsu/nemurobus,根室交通株式会社,根室交通株式会社,民間バス等,北海道,5,試しの5フィード
+hachinohe/hachinohe-citybus,八戸市営バス,八戸市交通部,自治体・協議会,東北,2,試しの5フィード
+yonezawacity/Yonezawa,米沢市営バス,米沢市,自治体・協議会,東北,6,試しの5フィード
+keneibus/nagasaki-kenei-bus,長崎県営バス,長崎県営バス,自治体・協議会,九州沖縄,3,試しの5フィード
+gan-wu/shiokazeline,しおかぜライン,岩宇地域公共交通活性化協議会,自治体・協議会,北海道,2,試しの5フィード
+otonekotu/otonekotubus,大利根交通バス,大利根交通自動車株式会社,民間バス等,関東,3,地域の最低数（関東）
+matsudocity/matsudo,松戸市ゆめいろバス,松戸市,自治体・協議会,関東,3,地域の最低数（関東）
+hachikanbus/hachimanbus,八幡バス,八幡観光バス,民間バス等,中部,7,地域の最低数（中部）
+nouhibus/nouhibus_kanko,濃飛バス（観光路線）,濃飛乗合自動車（濃飛バス）,民間バス等,中部,2,地域の最低数（中部）
+ichikawatown/communitybus,コミュニティバス,市川町,自治体・協議会,近畿,3,地域の最低数（近畿）
+odaitown/choeibus,大台町営バス,大台町,自治体・協議会,近畿,4,地域の最低数（近畿）
+masudacity/noriai,益田市乗合タクシー,益田市,自治体・協議会,中国,2,地域の最低数（中国）
+kagaminotown/kagaminotownbus,鏡野町営バス,鏡野町,自治体・協議会,中国,4,地域の最低数（中国）
+kuroiwa-kanko/GTFS-Kuroiwakanko_Localbus,路線バス,有限会社黒岩観光,民間バス等,四国,9,地域の最低数（四国）
+sukumocity/GTFS-Sukumocity_Ferry,宿毛市営定期船航路「沖の島航路」,宿毛市,鉄道・船,四国,2,地域の最低数（四国）
+kitakyushucity/koyanose-kusubashi-hoshigaoka,八幡西区木屋瀬・楠橋・星ヶ丘地区,北九州市,自治体・協議会,九州沖縄,3,地域の最低数（九州沖縄）
+takeyakoutu/takeyakotsu,株式会社タケヤ交通,株式会社タケヤ交通,民間バス等,東北,9,割り当ての残りを乱数順で
+kakogawacity/kakobuskakobusmini,かこバス/かこバスミニ,加古川市,自治体・協議会,近畿,3,割り当ての残りを乱数順で
+khkhokubu-kotsu/GTFS-Hokubutraffic_Localbus,路線バス,株式会社県交北部交通,民間バス等,四国,4,割り当ての残りを乱数順で
+uozucity/junkai,魚津市民バス,魚津市,自治体・協議会,中部,5,割り当ての残りを乱数順で
+yamagata-yamagatacity/YamagataCity,山形市営バス,山形市,自治体・協議会,東北,8,割り当ての残りを乱数順で
+niyodogawatown/GTFS-Niyodogawatown_Townsbus,仁淀川町町民バス,仁淀川町,自治体・協議会,四国,7,割り当ての残りを乱数順で
+kakegawacity/kakegawa6,桜木、居尻、倉真、東山、粟本線、市街地循環線南回り、市街地循環線北回り,掛川市,自治体・協議会,中部,3,割り当ての残りを乱数順で
+tokushimacity/kamihachimanbus,上八万コミュニティバス,徳島市,自治体・協議会,四国,2,割り当ての残りを乱数順で
+shimanto-kotsu/GTFS-Shimantotraffic_Feederbus,路線バス フィーダー線,株式会社四万十交通,民間バス等,四国,4,割り当ての残りを乱数順で
+yanaizutown/yanaizutown-bus,柳津町町民バス”ふれあい号”,柳津町,自治体・協議会,東北,4,割り当ての残りを乱数順で
+motosucity/shieibus,本巣市営バス,本巣市,自治体・協議会,中部,4,割り当ての残りを乱数順で
+kihotown/chominbus,紀宝町民バス,紀宝町,自治体・協議会,近畿,2,割り当ての残りを乱数順で
+jr-shikoku-bus-kochi/GTFS-JRbus_Otochi,路線バス,ジェイアール四国バス株式会社 高知支店,民間バス等,四国,5,割り当ての残りを乱数順で
+hannocity/odekakemuma-minamikoma,飯能市乗合ワゴン　南高麗,飯能市,自治体・協議会,関東,2,割り当ての残りを乱数順で
+tachikawacity/kururinbus,くるりんバス,立川市,自治体・協議会,関東,2,割り当ての残りを乱数順で
+kumamoto-shiden/kumamotoshiden,熊本市電,熊本市交通局,鉄道・船,九州沖縄,2,割り当ての残りを乱数順で
+nasushiobaracity/chiikibasu,那須塩原市地域バス,那須塩原市,自治体・協議会,関東,2,割り当ての残りを乱数順で
+otsukitown/GTFS-Otsukitown_Bus,大月町「まちなか循環線」,大月町,自治体・協議会,四国,2,割り当ての残りを乱数順で
+tatsunocity/communitybus,コミュニティバス,たつの市,自治体・協議会,近畿,2,割り当ての残りを乱数順で
+joetsucity/joetsu,上越市市営バス,上越市,自治体・協議会,中部,2,割り当ての残りを乱数順で
+kumanocity/communitybus,熊野市バス、御浜町自主運行バス,熊野市,自治体・協議会,近畿,4,割り当ての残りを乱数順で
+sukumocity/GTFS-Sukumocity_Yururinbus,宿毛市「ゆるりんバス」,宿毛市,自治体・協議会,四国,2,割り当ての残りを乱数順で
+soedatown/soedamachibus,添田町バス,添田町,自治体・協議会,九州沖縄,7,割り当ての残りを乱数順で
+towadakankodentetsu/toutetsu_airport_line,十和田観光電鉄（八戸～三沢空港線）,十和田観光電鉄株式会社,民間バス等,東北,7,割り当ての残りを乱数順で
+yamagatatetsudo/flowerliner,山形鉄道,山形鉄道株式会社,鉄道・船,東北,3,割り当ての残りを乱数順で
+kumanogobobus/kumanogobobus_gobo,熊野御坊南海バス 御坊エリア,熊野御坊南海バス株式会社,民間バス等,近畿,3,割り当ての残りを乱数順で
+shimanto-kotsu/GTFS-Shimantotraffic_Localbus,路線バス,株式会社四万十交通,民間バス等,四国,14,割り当ての残りを乱数順で
+shinjobankotsu/SHINJOBANKOTSU,新常磐交通,新常磐交通株式会社,民間バス等,東北,4,割り当ての残りを乱数順で
+aketetsu/akechirailway,明知鉄道,明知鉄道,鉄道・船,中部,2,割り当ての残りを乱数順で
+nouhibus/takayama_shuyu,飛騨高山周遊バス,濃飛乗合自動車（濃飛バス）,民間バス等,中部,3,割り当ての残りを乱数順で
+rinkan/hashimoto-rinkandenentoshi,南海りんかんバス橋本・林間田園都市エリア,南海りんかんバス株式会社,民間バス等,近畿,2,割り当ての残りを乱数順で
+isetetu/iserailway,伊勢鉄道,伊勢鉄道,鉄道・船,近畿,2,割り当ての残りを乱数順で
+kumamotodentetsu/kumamotodentetsu,熊本電鉄電車,熊本電鉄,鉄道・船,九州沖縄,6,割り当ての残りを乱数順で
+asatetu/asakaigantetsudo,阿佐海岸鉄道株式会社【DMV】,阿佐海岸鉄道株式会社,鉄道・船,四国,2,割り当ての残りを乱数順で

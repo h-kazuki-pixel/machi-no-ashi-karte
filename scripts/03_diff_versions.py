@@ -5,8 +5,9 @@
   その日に走る便の署名の集まり（多重集合）が違えば「その日は食い違う」とする。
 
   除外日（比べる相手にしない日）:
-    国の祝日（data/jp_holidays.csv）、旧版・新版どちらかの calendar_dates に指定がある日、
-    12/29〜1/3、8/13〜8/16。
+    国の祝日（data/jp_holidays.csv）、12/29〜1/3、8/13〜8/16、
+    旧版・新版どちらかで「calendar_dates に指定があり、その日の前後4週の同じ曜日で
+    いちばん多い運行の組み合わせと違う日」。
 
   1. 両方の版が有効な日（API の from_date〜to_date の重なり）があるとき:
      除外日以外を1日ずつ比べ、食い違った日 d について、
@@ -92,7 +93,9 @@ class Feed:
             st[r["trip_id"]].append((seq, r.get("arrival_time", ""), r.get("departure_time", "")))
         sig = {t: tuple((a, d) for _, a, d in sorted(lst)) for t, lst in st.items()}
         self.by_service = defaultdict(Counter)
-        for t in rd("trips.txt"):
+        trips = rd("trips.txt")
+        self.n_trips = len(trips)
+        for t in trips:
             s = sig.get(t["trip_id"])
             if s is not None:
                 self.by_service[t["service_id"]][s] += 1
@@ -143,10 +146,27 @@ def ndiff(a, b):
 class Comparer:
     def __init__(self, old, new):
         self.old, self.new = old, new
+        self._ex = {}
+
+    def special(self, f, day, lo, hi):
+        """calendar_dates に指定があり、かつ前後4週の同じ曜日でいちばん多い運行の組み合わせと違う日。
+        （運行日を calendar_dates に全部書くフィードや、版の途中の改正後の日を特別な日としないため）"""
+        if day not in f.exc or not (lo <= day <= hi):
+            return False
+        neigh = [day + dt.timedelta(days=7 * k) for k in range(-PERSIST_WEEKS, PERSIST_WEEKS + 1) if k]
+        cnt = Counter(f.services_on(x) for x in neigh if lo <= x <= hi)
+        if not cnt:
+            return False
+        top = max(cnt.values())
+        return f.services_on(day) not in {k for k, v in cnt.items() if v == top}
 
     def excluded(self, day):
-        return (day in HOLIDAYS or season_excluded(day)
-                or day in self.old.exc or day in self.new.exc)
+        key = day
+        if key not in self._ex:
+            self._ex[key] = (day in HOLIDAYS or season_excluded(day)
+                             or self.special(self.old, day, *self.orange)
+                             or self.special(self.new, day, *self.nrange))
+        return self._ex[key]
 
     def next_same_weekday(self, d, limit):
         for k in range(1, PERSIST_WEEKS + 1):
@@ -159,8 +179,9 @@ class Comparer:
 
     def run(self, o_from, o_to, n_from, n_to):
         res = {"method": "", "actual_change_date": None, "compared_days": 0, "first_diff_trips": "",
-               "change_censored": "", "persistence": "", "temp_diff_dates": "", "note": ""}
+               "change_censored": "", "last_equal_day": "", "persistence": "", "temp_diff_dates": "", "note": ""}
         temps = []
+        self.orange, self.nrange = (o_from, o_to), (n_from, n_to)
         lo, hi = max(o_from, n_from), min(o_to, n_to)
         if lo <= hi:
             res["method"] = "overlap"
@@ -172,6 +193,7 @@ class Comparer:
                 a, b = self.old.day_sig(d), self.new.day_sig(d)
                 if a == b:
                     seen_equal = True
+                    res["last_equal_day"] = d.isoformat()
                     continue
                 p = self.next_same_weekday(d, hi)
                 if p is not None and self.old.day_sig(p) == self.new.day_sig(p):
@@ -272,6 +294,7 @@ def compare_pair(key, o, n, granularity="all"):
             "feed_info_start": fi_start,
             "feed_info_start_matches_api": (d8(fi_start) == d8(n["from_date"])) if fi_start else "",
             "has_frequencies": fo.has_freq or fn.has_freq,
+            "old_trips": fo.n_trips, "new_trips": fn.n_trips,
             "beyond_holiday_list": d8(n["to_date"]) > HOLIDAY_LIST_END,
         })
     except Exception as e:  # noqa: BLE001
