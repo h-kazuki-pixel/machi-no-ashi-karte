@@ -42,6 +42,7 @@ import io
 import zipfile
 from collections import Counter, defaultdict
 
+from calendar_rules import HOLIDAY_LIST_END, HOLIDAYS, is_special, season_excluded
 from common import CACHE, DATA, fetch
 
 JST = dt.timezone(dt.timedelta(hours=9))
@@ -50,18 +51,11 @@ PERIOD_ONLY = {"calendar.txt", "calendar_dates.txt", "feed_info.txt"}
 LATE_DAYS = 30  # 公開日 − 有効開始日 がこれを超えたら late_publish
 PERSIST_WEEKS = 4
 
-HOLIDAYS = {dt.date.fromisoformat(r["date"]) for r in csv.DictReader(open(DATA / "jp_holidays.csv", encoding="utf-8"))}
-HOLIDAY_LIST_END = max(HOLIDAYS)
 
 
 def d8(s):
     s = (s or "").strip().replace("-", "")
     return dt.date(int(s[:4]), int(s[4:6]), int(s[6:8]))
-
-
-def season_excluded(day):
-    md = (day.month, day.day)
-    return md >= (12, 29) or md <= (1, 3) or (8, 13) <= md <= (8, 16)
 
 
 def read_csv(z, name):
@@ -149,16 +143,8 @@ class Comparer:
         self._ex = {}
 
     def special(self, f, day, lo, hi):
-        """calendar_dates に指定があり、かつ前後4週の同じ曜日でいちばん多い運行の組み合わせと違う日。
-        （運行日を calendar_dates に全部書くフィードや、版の途中の改正後の日を特別な日としないため）"""
-        if day not in f.exc or not (lo <= day <= hi):
-            return False
-        neigh = [day + dt.timedelta(days=7 * k) for k in range(-PERSIST_WEEKS, PERSIST_WEEKS + 1) if k]
-        cnt = Counter(f.services_on(x) for x in neigh if lo <= x <= hi)
-        if not cnt:
-            return False
-        top = max(cnt.values())
-        return f.services_on(day) not in {k for k, v in cnt.items() if v == top}
+        """一日だけの特別な日（決まりは calendar_rules.is_special）"""
+        return is_special(f, day, lo, hi)
 
     def excluded(self, day):
         key = day
