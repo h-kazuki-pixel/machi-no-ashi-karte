@@ -117,7 +117,7 @@ def main():
     sample = {r["feed"]: r for r in csv.DictReader(open(DATA / "sample_feeds.csv", encoding="utf-8"))}
     pairs = []
     for name, grp in [("diff_pairs_sample.csv", "50フィード"), ("diff_pairs_meikobus.csv", "明光バス"),
-                      ("diff_pairs_daily.csv", "毎日更新")]:
+                      ("diff_pairs_daily.csv", "毎日更新"), ("diff_pairs_large.csv", "大きいフィード")]:
         p = DATA / name
         if not p.exists():
             continue
@@ -133,8 +133,12 @@ def main():
         for (g, gr, k), x in sorted(Counter((r["group"], r["granularity"], r["kind"]) for r in pairs).items())])
 
     # 毎日更新は「daily」で特定できた最初の変更版だけを A の版として数える
+    def reversed_period(r):
+        # あとから公開された版のほうが前の期間だけを持つ組（変更日を測れない）
+        return r["kind"] != "error" and r["new_to"] < r["old_from"]
+
     def is_a(r):
-        if r["kind"] != "A":
+        if r["kind"] != "A" or reversed_period(r):
             return False
         if r["group"] == "毎日更新":
             return r["granularity"] == "daily"
@@ -150,14 +154,20 @@ def main():
     def add(label, rs):
         meas.append({"区分": label, **dist(rs, "feed", "lead_days")})
 
-    add("A全部（公開遅れを除く・50フィード＋明光）", [r for r in main_rows if r["group"] != "毎日更新"])
+    g50 = ("50フィード", "明光バス")
+    add("A全部（公開遅れを除く・50フィード＋明光）", [r for r in main_rows if r["group"] in g50])
     add("A全部（公開遅れを除く・打ち切りの印なし）",
-        [r for r in main_rows if r["group"] != "毎日更新" and r["change_censored"] != "True"])
+        [r for r in main_rows if r["group"] in g50 and r["change_censored"] != "True"])
     add("A全部（公開遅れを除く・打ち切りの印あり）",
-        [r for r in main_rows if r["group"] != "毎日更新" and r["change_censored"] == "True"])
-    add("A（公開遅れのみ）", [r for r in a_rows if r["late_publish"] == "True" and r["group"] != "毎日更新"])
+        [r for r in main_rows if r["group"] in g50 and r["change_censored"] == "True"])
+    add("A（公開遅れのみ）", [r for r in a_rows if r["late_publish"] == "True" and r["group"] in g50])
     add("A 毎日更新（伊勢・熊本都市）", [r for r in main_rows if r["group"] == "毎日更新"])
-    base = [r for r in main_rows if r["group"] != "毎日更新"]
+    base = [r for r in main_rows if r["group"] in ("50フィード", "明光バス")]
+    large = [r for r in main_rows if r["group"] == "大きいフィード"]
+    add("大きいフィード（民間バスの便の多い10、公開遅れを除く）", large)
+    add("大きいフィード・打ち切りの印なし", [r for r in large if r["change_censored"] != "True"])
+    add("大きいフィード（公開遅れのみ）", [r for r in a_rows if r["late_publish"] == "True" and r["group"] == "大きいフィード"])
+    add("50フィード＋明光＋大きいフィード（公開遅れを除く）", base + large)
     for k in ["自治体・協議会", "民間バス等", "鉄道・船"]:
         add(f"種類:{k}", [r for r in base if r["kind_op"] == k])
     for reg in ["北海道", "東北", "関東", "中部", "近畿", "中国", "四国", "九州沖縄"]:
@@ -227,7 +237,8 @@ def main():
     print("meta 3組:", dict(groups3))
     print("申告(毎日更新を除く) 上位:", c_nd.most_common(6), tn)
     print("比較の結果:", Counter((r["group"], r["kind"]) for r in pairs if r["granularity"] != "daily"))
-    print("A の版（公開遅れを除く、毎日更新以外）:", len(base), " メタと一致:", same)
+    print("A の版（公開遅れを除く、50＋明光）:", len(base), " メタと一致:", same)
+    print("期間が逆向きの組:", [(r["feed"], r["old_rid"], r["new_rid"]) for r in pairs if reversed_period(r)])
     print("feed_info 一致:", dict(fi), "不一致の例:",
           [(r["feed"], r["new_from"], r["feed_info_start"]) for r in fi_bad[:5]])
     print("次の版:", len(nxt), "フィード", len({r['feed'] for r in nxt}), "12〜1月:", sum(r["dec_jan"] == "★" for r in nxt))

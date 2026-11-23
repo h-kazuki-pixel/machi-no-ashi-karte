@@ -1,0 +1,10 @@
+tokubus/tokushimabus
+chitetsu/chitetsubus
+yamakobus/YAMAKOBUS
+keisei-transitbus/keiseitransitbus
+tosaden-kotsu/GTFS-Tosadentraffic_Regularbus
+tohtetsu/tohtetsu_tajimi
+nagai-unyu/Nagaibus
+kaetsunou/kaetsunouippan
+nouhibus/nouhibus
+kitaena/kitaena
