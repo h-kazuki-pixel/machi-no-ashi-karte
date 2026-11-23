@@ -227,14 +227,24 @@ export function nearbyGroups(P, name, meters = THRESHOLDS.nearbyMeters) {
   return out.sort((a, b) => a.meters - b.meters);
 }
 
-// ①同じ停留所の組の、条件の前後のバス ②300m以内の別の停留所を使うバス
+// ①同じ停留所の組の、前後のバス（いちばん合うバスの、ひとつ前とひとつあと。
+//   合うバスが無いときは、条件の時刻の前とあと）
+// ②300m以内の別の停留所を使うバス
 export function alternatives(P, reg, date) {
   const rides = ridesOn(P, date, reg.from, reg.to);
-  const t = reg.cond.time;
-  const key = reg.cond.type === "arriveBy" ? (r) => r.arr : (r) => r.dep;
-  const beforeT = rides.filter((r) => (reg.cond.type === "arriveBy" ? key(r) <= t : key(r) < t)).sort((a, b) => key(b) - key(a));
-  const afterT = rides.filter((r) => (reg.cond.type === "arriveBy" ? key(r) > t : key(r) >= t)).sort((a, b) => key(a) - key(b));
-  const same = [...beforeT.slice(0, 1), ...afterT.slice(0, 1)].sort((a, b) => a.dep - b.dep);
+  const best = bestRide(rides, reg.cond);
+  let prev, next;
+  if (best) {
+    prev = rides.filter((r) => r.dep < best.dep).at(-1);
+    next = rides.find((r) => r.dep > best.dep);
+  } else {
+    const key = reg.cond.type === "arriveBy" ? (r) => r.arr : (r) => r.dep;
+    prev = rides.filter((r) => key(r) <= reg.cond.time).at(-1);
+    next = rides.find((r) => key(r) > reg.cond.time);
+  }
+  const same = [];
+  if (prev) same.push({ ...prev, which: "prev" });
+  if (next) same.push({ ...next, which: "next" });
 
   const nearby = [];
   const tryPair = (from, to, note) => {

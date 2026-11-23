@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><title>スマートフォンの幅で見る（確認用）</title>
+<style>body{margin:0;background:#888}iframe{display:block;border:0;width:390px;background:#fff}</style></head>
+<body><iframe id="f"></iframe>
+<script>
+// 確認用：幅390pxの枠の中にアプリを開く。
+//   ?src=（アプリの URL の ? 以降）&h=（高さ）
+//   &do=手順を「;;」で区切る。type:セレクタ=文字 / click:セレクタ / time:値
+const p = new URLSearchParams(location.search);
+const f = document.getElementById("f");
+f.style.height = (p.get("h") || "1600") + "px";
+f.src = "../index.html?" + (p.get("src") || "");
+const steps = (p.get("do") || "").split(";;").filter(Boolean);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+f.addEventListener("load", async () => {
+  await sleep(600);
+  const d = f.contentDocument;
+  for (const s of steps) {
+    const [kind, ...rest] = s.split(":");
+    const arg = rest.join(":");
+    if (kind === "type") {
+      const [sel, val] = arg.split("=");
+      const el = d.querySelector(sel); el.value = val; el.dispatchEvent(new Event("input", { bubbles: true }));
+    } else if (kind === "time") {
+      d.querySelector("#t").value = arg;
+    } else if (kind === "click") {
+      d.querySelector(arg).click();
+    }
+    await sleep(400);
+  }
+});
+</script></body></html>
