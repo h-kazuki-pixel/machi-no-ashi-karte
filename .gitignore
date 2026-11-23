@@ -1,0 +1,5 @@
+# 取得したAPI応答・zipのキャッシュ（zipは再配布条件がライセンスごとに違うのでコミットしない）
+cache/
+*.zip
+__pycache__/
+.DS_Store

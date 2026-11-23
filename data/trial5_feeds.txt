@@ -1,0 +1,5 @@
+nemurokotsu/nemurobus
+hachinohe/hachinohe-citybus
+yonezawacity/Yonezawa
+keneibus/nagasaki-kenei-bus
+gan-wu/shiokazeline
