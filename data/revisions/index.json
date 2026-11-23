@@ -1,0 +1,15 @@
+[
+ {
+  "feed": "kamishihorotown/kamishihoro-self-bus",
+  "feed_name": "上士幌町自動運転バス",
+  "operator": "上士幌町",
+  "change_date": "2026-06-20",
+  "published_at": "2026-11-24T06:39:03.835131+09:00",
+  "first_seen_at": "2026-11-24T08:14:25+09:00",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+  "path": "data/revisions/kamishihorotown__kamishihoro-self-bus/2026-06-20__f5ba1bff.json",
+  "old_uid": "7413b8c4-6588-499f-a715-58acf971e7b6",
+  "new_uid": "f5ba1bff-ce05-459b-b196-bd027cfad7a1"
+ }
+]
