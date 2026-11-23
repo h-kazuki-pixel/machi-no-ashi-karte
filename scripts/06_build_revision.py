@@ -59,9 +59,9 @@ def dist(a, b):
 
 
 class Version:
-    def __init__(self, uid):
+    def __init__(self, uid, path=None):
         self.uid = uid
-        path = CACHE / "zips" / f"{uid}.zip"
+        path = path or (CACHE / "zips" / f"{uid}.zip")
         self.feed = dv.Feed(path)  # services_on / exc（調査と同じ読み方）
         z = zipfile.ZipFile(path)
         names = {n.split("/")[-1]: n for n in z.namelist()}
@@ -87,22 +87,17 @@ class Version:
                                             "seq": [(sid, a, d) for _, sid, a, d in seq]}
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--feed", required=True)
-    ap.add_argument("--old", required=True)
-    ap.add_argument("--new", required=True)
-    ap.add_argument("--change-date", required=True)
-    ap.add_argument("--out", required=True)
-    args = ap.parse_args()
-    change = dt.date.fromisoformat(args.change_date)
+# 加工したデータの公開（加工・再配布）を確かめたライセンス
+ALLOWED_LICENSES = ("CC BY 4.0", "CC0 1.0", "CC BY 2.1 JP")
 
-    meta_rows = {r["gtfs_file_uid"]: r for r in csv.DictReader(open(DATA / "versions.csv", encoding="utf-8"))}
-    mo, mn = meta_rows[args.old], meta_rows[args.new]
+
+def build_revision(feed_key, mo, mn, change, old_path=None, new_path=None, built_at=None):
+    """mo, mn は版のメタデータ（gtfs_file_uid, published_at, from_date, to_date, feed_license,
+    feed_license_url, organization_name, feed_name, memo）。戻り値は (改正のデータ, 停留所の報告)。"""
     for m in (mo, mn):
-        if m["feed_license"] not in ("CC BY 4.0", "CC0 1.0", "CC BY 2.1 JP"):
-            sys.exit(f"ライセンス {m['feed_license']} は加工データの公開を確かめていないので止めます")
-    old, new = Version(args.old), Version(args.new)
+        if m["feed_license"] not in ALLOWED_LICENSES:
+            raise ValueError(f"ライセンス {m['feed_license']} は加工データの公開を確かめていない")
+    old, new = Version(mo["gtfs_file_uid"], old_path), Version(mn["gtfs_file_uid"], new_path)
 
     # --- 停留所の対応 ---
     report = {"same_id": 0, "renamed": [], "moved": [], "matched_by_name": [], "unmatched": []}
@@ -177,21 +172,39 @@ def main():
     out = {
         "format": 1,
         "meta": {
-            "feed": args.feed, "feed_name": fname, "operator": org,
+            "feed": feed_key, "feed_name": fname, "operator": org,
             "license": mn["feed_license"], "license_url": mn["feed_license_url"],
             "attribution": f"出典：{org}「{fname}」GTFSデータ（{mn['feed_license']}）、GTFSデータリポジトリ（https://gtfs-data.jp/）。まちの足カルテが加工して作成。",
-            "old": {"uid": args.old, "published_at": pub(mo).isoformat(), "from": mo["from_date"], "to": mo["to_date"]},
-            "new": {"uid": args.new, "published_at": pub(mn).isoformat(), "from": mn["from_date"], "to": mn["to_date"],
+            "old": {"uid": mo["gtfs_file_uid"], "published_at": pub(mo).isoformat(), "from": mo["from_date"], "to": mo["to_date"]},
+            "new": {"uid": mn["gtfs_file_uid"], "published_at": pub(mn).isoformat(), "from": mn["from_date"], "to": mn["to_date"],
                     "memo": mn["memo"]},
             "change_date": change.isoformat(),
             "lead_days": (change - pub(mn).date()).days,
             "window": {"from": (change - dt.timedelta(days=WINDOW_DAYS)).isoformat(),
                        "to": (change + dt.timedelta(days=WINDOW_DAYS - 1)).isoformat()},
-            "built_at": dt.date.today().isoformat(),
+            "built_at": built_at or dt.date.today().isoformat(),
         },
         "stops": stops, "routes": routes, "trips": trips, "patterns": patterns, "days": days,
         "stop_report": report,
     }
+    return out, report
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--feed", required=True)
+    ap.add_argument("--old", required=True)
+    ap.add_argument("--new", required=True)
+    ap.add_argument("--change-date", required=True)
+    ap.add_argument("--out", required=True)
+    args = ap.parse_args()
+    change = dt.date.fromisoformat(args.change_date)
+    meta_rows = {r["gtfs_file_uid"]: r for r in csv.DictReader(open(DATA / "versions.csv", encoding="utf-8"))}
+    try:
+        out, report = build_revision(args.feed, meta_rows[args.old], meta_rows[args.new], change)
+    except ValueError as e:
+        sys.exit(f"{e}ので止めます")
+    stops, routes, trips, patterns, days = (out[k] for k in ("stops", "routes", "trips", "patterns", "days"))
     from pathlib import Path
     p = Path(args.out)
     p.parent.mkdir(parents=True, exist_ok=True)

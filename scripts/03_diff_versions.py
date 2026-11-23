@@ -252,7 +252,9 @@ def load(v):
     return _loaded[uid]
 
 
-def compare_pair(key, o, n, granularity="all"):
+def compare_pair(key, o, n, granularity="all", loader=None):
+    """loader(v) → Feed。省略すると cache/zips に落として読む（調査用）。"""
+    loader = loader or load
     pub = jst_date(n["published_at"])
     meta_lead = (dt.date.fromisoformat(n["from_date"]) - pub).days
     row = {
@@ -266,7 +268,7 @@ def compare_pair(key, o, n, granularity="all"):
         "late_publish": -meta_lead > LATE_DAYS,
     }
     try:
-        fo, fn = load(o), load(n)
+        fo, fn = loader(o), loader(n)
         r = Comparer(fo, fn).run(d8(o["from_date"]), d8(o["to_date"]), d8(n["from_date"]), d8(n["to_date"]))
         day = r.pop("actual_change_date")
         kind, changed = classify(fo, fn, day)

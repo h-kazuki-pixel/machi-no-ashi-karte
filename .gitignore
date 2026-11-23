@@ -3,3 +3,6 @@ cache/
 *.zip
 __pycache__/
 .DS_Store
+
+# 公開用のブランチの中身（Actions では別のブランチ。手元で試すときもコミットしない）
+site/

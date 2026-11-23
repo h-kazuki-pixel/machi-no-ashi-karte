@@ -1,4 +1,5 @@
 """共通：API への控えめなアクセス（1秒以上あける・キャッシュ・再開）"""
+import gzip
 import json
 import os
 import sys
@@ -16,6 +17,10 @@ MIN_INTERVAL = 1.2  # 秒。指示は「1秒以上」
 _last = 0.0
 
 
+# 呼び出しの回数（毎日の仕組みの記録用）
+REQUESTS = {"count": 0}
+
+
 def user_agent() -> str:
     contact = os.environ.get("GTFS_CONTACT", "").strip()
     if not contact:
@@ -28,6 +33,7 @@ def user_agent() -> str:
 
 def _wait():
     global _last
+    REQUESTS["count"] += 1
     dt = time.monotonic() - _last
     if dt < MIN_INTERVAL:
         time.sleep(MIN_INTERVAL - dt)
@@ -46,6 +52,10 @@ def fetch(url: str, dest: Path, retries: int = 3) -> Path:
             req = urllib.request.Request(url, headers={"User-Agent": ua})
             with urllib.request.urlopen(req, timeout=120) as r:
                 body = r.read()
+                enc = (r.headers.get("Content-Encoding") or "").lower()
+            # 頼んでいなくても gzip で返ることがある（/files で確認）。zip（PK…）はそのまま
+            if enc == "gzip" or (body[:2] == b"\x1f\x8b" and dest.suffix == ".json"):
+                body = gzip.decompress(body)
             tmp = dest.with_suffix(dest.suffix + ".part")
             tmp.write_bytes(body)
             tmp.replace(dest)  # 途中で止まっても壊れたファイルを残さない

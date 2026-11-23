@@ -429,7 +429,23 @@ async function main() {
   } catch {
     return alertBox("時刻表のデータを読みこめませんでした。");
   }
+  showChecked();
   window.addEventListener("hashchange", route);
   route();
+}
+
+// 「最後に確かめた日時」（GitHub Pages では data/status.json がある。手元で開くときは無いこともある）
+async function showChecked() {
+  const el = document.getElementById("checked");
+  try {
+    const st = await (await fetch("data/status.json", { cache: "no-store" })).json();
+    if (!st.last_checked_at) return;
+    const t = new Date(st.last_checked_at);
+    const jst = new Intl.DateTimeFormat("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit" }).format(t);
+    const hours = (Date.now() - t.getTime()) / 3600000;
+    el.textContent = `時刻表を最後に確かめた日時：${jst}` + (hours > 48 ? "（しばらく確かめられていません）" : "");
+  } catch {
+    el.textContent = "";
+  }
 }
 main();
