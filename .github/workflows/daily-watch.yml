@@ -19,6 +19,7 @@ permissions:
   contents: write   # site ブランチに push する
   pages: write      # GitHub Pages に出す
   id-token: write   # GitHub Pages に出す
+  actions: read     # deploy-pages が、この実行の成果物（github-pages）を探すのに要る（v4 以降）
 
 concurrency:
   group: daily-watch
@@ -33,7 +34,7 @@ jobs:
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - name: コード（main）を取り出す
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: 記録（site ブランチ）を取り出す
         run: |
@@ -41,7 +42,7 @@ jobs:
           git worktree add site origin/site
           cd site && git switch -c site
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -81,9 +82,9 @@ jobs:
             git push origin HEAD:main
           fi
 
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site
       - id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
