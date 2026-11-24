@@ -66,6 +66,21 @@ jobs:
           git diff --cached --quiet || git commit -q -m "見に行った記録 $(date -u +%Y-%m-%dT%H:%MZ)"
           git push origin site
 
+      - name: 60日の対策：main に50日コミットが無ければ、中身の無いコミットを1つ入れる
+        # 公開リポジトリでは、60日間動きが無いと定時実行が止まる。site ブランチへのコミットが
+        # 「動き」に数えられるかは公式の説明で確かめられないので、main にも時々コミットする（案1）
+        run: |
+          git fetch --depth=1 origin main
+          last=$(git log -1 --format=%ct origin/main)
+          days=$(( ( $(date +%s) - last ) / 86400 ))
+          echo "main の最後のコミットから ${days} 日"
+          if [ "$days" -ge 50 ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -q -m "定時実行を止めないための中身の無いコミット（main に${days}日コミットが無かったため）"
+            git push origin HEAD:main
+          fi
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

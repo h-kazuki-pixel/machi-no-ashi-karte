@@ -19,6 +19,12 @@ site/ は GitHub Pages の中身そのもの（Actions では main と別のブ�
 決まり:
   - 1.2秒以上あけて順番に取る。User-Agent の連絡先は環境変数 GTFS_CONTACT（ログに出さない）。
   - zip は作業用の一時フォルダにだけ置き、終わったら消す。
+  - found.csv の種類（category）:
+      これからの改正 … 変更日が見つけた日より後
+      当日          … 変更日が見つけた日
+      過ぎた改正    … 変更日が見つけた日より前
+      登録し直し    … 新しい版の有効期間が、見つけた日にはもう終わっている（過去のデータの登録し直し）
+    「登録し直し」と、変更日が30日より前の「過ぎた改正」は、found.csv に残すが改正のデータは作らない。
   - 毎日更新のフィードは、新しい版の指紋（この先60日の、日ごとの便と時刻）を前の版の指紋と比べ、
     変わったときだけ前の版を API から取り直して、調査と同じ方法で比べる。
 """
@@ -47,8 +53,9 @@ BOOTSTRAP_CHECKED_AT = "2026-11-23T12:00:00+09:00"  # 調査で全部の版を�
 SEEN_COLS = ["feed", "gtfs_file_uid", "first_seen_at", "source", "published_at", "from_date", "to_date",
              "rid_at_first_seen", "declared_kind", "license", "kind", "actual_change_date", "lead_days_seen",
              "revision", "gone_at"]
-FOUND_COLS = ["found_at", "feed", "feed_name", "operator", "new_uid", "published_at", "from_date",
-              "change_date", "lead_days_seen", "lead_days_published", "change_censored", "late_publish",
+PAST_LIMIT_DAYS = 30  # 変更日がこれより前の改正は、改正のデータを作らない
+FOUND_COLS = ["found_at", "category", "feed", "feed_name", "operator", "new_uid", "published_at", "from_date",
+              "to_date", "change_date", "lead_days_seen", "lead_days_published", "change_censored", "late_publish",
               "license", "revision"]
 RUN_COLS = ["started_at", "finished_at", "mode", "feeds_checked", "requests", "new_versions", "found", "errors"]
 
@@ -103,6 +110,24 @@ def clean_feed(f):
 def daily_feed_keys():
     p = DATA / "daily_feeds.txt"
     return {l.strip() for l in open(p, encoding="utf-8") if l.strip()} if p.exists() else set()
+
+
+def found_category(change, found_date, to_date):
+    if to_date < found_date:
+        return "登録し直し"
+    if change > found_date:
+        return "これからの改正"
+    if change == found_date:
+        return "当日"
+    return "過ぎた改正"
+
+
+def skip_reason(category, change, found_date):
+    if category == "登録し直し":
+        return "作らない（登録し直し）"
+    if category == "過ぎた改正" and (found_date - change).days > PAST_LIMIT_DAYS:
+        return f"作らない（{PAST_LIMIT_DAYS}日より前の改正）"
+    return ""
 
 
 # ---------- 指紋 ----------
@@ -269,8 +294,12 @@ class Watch:
         row["actual_change_date"] = change.isoformat()
         row["lead_days_seen"] = (change - seen_date).days
         lic_ok = m["feed_license"] in br.ALLOWED_LICENSES and prev.get("feed_license", m["feed_license"]) in br.ALLOWED_LICENSES
+        category = found_category(change, seen_date, dt.date.fromisoformat(m["to_date"]))
+        skip = skip_reason(category, change, seen_date)
         revision = ""
-        if lic_ok:
+        if skip:
+            revision = skip
+        elif lic_ok:
             try:
                 prev_meta = {**prev, "feed_license": prev.get("feed_license") or m["feed_license"],
                              "feed_license_url": prev.get("feed_license_url") or m["feed_license_url"],
@@ -296,15 +325,42 @@ class Watch:
             revision = "作らない（ライセンス）"
         row["revision"] = revision
         self.found_rows.append({
-            "found_at": self.started.isoformat(), "feed": key, "feed_name": m["feed_name"],
+            "found_at": self.started.isoformat(), "category": category, "feed": key, "feed_name": m["feed_name"],
             "operator": m["organization_name"], "new_uid": m["gtfs_file_uid"], "published_at": m["published_at"],
-            "from_date": m["from_date"], "change_date": change.isoformat(),
+            "from_date": m["from_date"], "to_date": m["to_date"], "change_date": change.isoformat(),
             "lead_days_seen": (change - seen_date).days,
             "lead_days_published": (change - jst_date(m["published_at"])).days,
             "change_censored": res.get("change_censored"), "late_publish": res.get("late_publish"),
             "license": m["feed_license"], "revision": revision})
 
+    def migrate_found(self):
+        """前の決まりで書いた found.csv に種類の列を足し、作らない決まりに当たる改正のデータを取り下げる"""
+        p = self.data / "found.csv"
+        rows = read_csv(p)
+        if not rows or "category" in rows[0]:
+            return
+        seen = {r["gtfs_file_uid"]: r for r in self.seen}
+        for r in rows:
+            fd = jst_date(r["found_at"])
+            to = r.get("to_date") or seen.get(r["new_uid"], {}).get("to_date", "9999-12-31")
+            r["to_date"] = to
+            change = dt.date.fromisoformat(r["change_date"])
+            r["category"] = found_category(change, fd, dt.date.fromisoformat(to))
+            skip = skip_reason(r["category"], change, fd)
+            if skip and r["revision"].startswith("data/revisions/"):
+                f = self.site / r["revision"]
+                f.unlink(missing_ok=True)
+                if f.parent.exists() and not any(f.parent.iterdir()):
+                    f.parent.rmdir()
+                self.index = [x for x in self.index if x["path"] != r["revision"]]
+                if r["new_uid"] in seen:
+                    seen[r["new_uid"]]["revision"] = skip
+                r["revision"] = skip
+        write_csv(p, FOUND_COLS, rows)
+        print(f"  found.csv を新しい決まりに直しました（{len(rows)}行）")
+
     def finish(self, feeds_checked):
+        self.migrate_found()
         fin = now_jst()
         write_csv(self.state / "versions_seen.csv", SEEN_COLS, self.seen)
         write_json(self.state / "fingerprints.json", self.fps)
@@ -350,14 +406,20 @@ class Watch:
         return 0 if ok else 1
 
 
-def write_attributions(site, index):
-    """出典の一覧（改正のデータを公開しているフィードごと）を自動で作る"""
+def write_attributions(site, index=None):
+    """出典の一覧を、公開している改正のデータ（data/revisions/ の JSON 全部）から自動で作る"""
     feeds = {}
-    for x in index:
-        feeds.setdefault(x["feed"], x)
-    items = [{"feed": k, "operator": v["operator"], "feed_name": v["feed_name"], "license": v["license"],
-              "license_url": v["license_url"],
-              "text": f"{v['operator']}「{v['feed_name']}」GTFSデータ（{v['license']}）"} for k, v in sorted(feeds.items())]
+    for p in sorted((site / "data" / "revisions").rglob("*.json")):
+        if p.name == "index.json":
+            continue
+        try:
+            m = json.loads(p.read_text(encoding="utf-8"))["meta"]
+        except Exception:  # noqa: BLE001
+            continue
+        feeds.setdefault(m["feed"], {"operator": m["operator"], "feed_name": m["feed_name"],
+                                     "license": m["license"], "license_url": m["license_url"]})
+    items = [{"feed": k, **v, "text": f"{v['operator']}「{v['feed_name']}」GTFSデータ（{v['license']}）"}
+             for k, v in sorted(feeds.items())]
     write_json(site / "data" / "attributions.json", {
         "note": "このサイトの改正のデータは、GTFSデータリポジトリ（https://gtfs-data.jp/）で公開されている次のGTFSデータを、まちの足カルテが加工して作成したものです。",
         "items": items})
@@ -413,9 +475,9 @@ def main():
     site = Path(args.site)
     if args.bootstrap:
         bootstrap(site)
-    rc = Watch(site, args.full).run()
     if not args.no_app:
-        publish_app(site)
+        publish_app(site)  # 先にアプリ（とアプリに入れた改正のデータ）を写し、出典の一覧に含める
+    rc = Watch(site, args.full).run()
     sys.exit(rc)
 
 
