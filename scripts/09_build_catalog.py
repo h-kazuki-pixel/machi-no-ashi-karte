@@ -102,8 +102,10 @@ def build_catalog(site, seen, feeds, index, today):
             by_feed.setdefault(r["feed"], []).append(r)
     revs = {}
     for x in index:
-        revs.setdefault(x["feed"], []).append({"change_date": x["change_date"], "path": x["path"],
-                                               "published_at": x["published_at"]})
+        r = {"change_date": x["change_date"], "path": x["path"], "published_at": x["published_at"]}
+        if x.get("change_date_known") is False:
+            r["change_date_known"] = False  # 変わる日が分からない（zip の置き換えを見つけた日にもう違っていた）
+        revs.setdefault(x["feed"], []).append(r)
     prefs = {}
     items = []
     referenced = set()

@@ -165,3 +165,24 @@ test("定時の処理：1年間更新の無い宛先を消す", async () => {
   assert.equal(await expire(e, "2026-11-24"), 1);
   assert.equal(e.SUBS.m.size, 1);
 });
+
+test("送る：変わる日が分からない改正（一覧に change_date_known: false）は、中身に known: false を入れる", async () => {
+  const e = env();
+  const k = uaKeys();
+  await call(e, "/subscribe", subBody(1, ["yonezawacity/Yonezawa"], k), app);
+  CATALOG.feeds[0].revisions.push({ change_date: "2026-11-24", change_date_known: false });
+  pushed.length = 0;
+  await withDate("2026-11-24T03:00:00Z", () => call(e, "/notify", { feed: "yonezawacity/Yonezawa", change_date: "2026-11-24" }, { Authorization: "Bearer secret-token" }));
+  CATALOG.feeds[0].revisions.pop();
+  assert.equal(pushed.length, 1);
+  // 受け手の鍵で読み戻す
+  const body = new Uint8Array(await new Response(pushed[0].init.body).arrayBuffer());
+  const salt = body.subarray(0, 16), idlen = body[20], asPub = body.subarray(21, 21 + idlen), ct = body.subarray(21 + idlen);
+  const h = (key, data) => nodeCrypto.createHmac("sha256", key).update(data).digest();
+  const ikm = h(h(unb64u(k.auth), k.ecdh.computeSecret(asPub)), Buffer.concat([Buffer.from("WebPush: info\0"), unb64u(k.p256dh), asPub, Buffer.from([1])]));
+  const prk = h(salt, ikm);
+  const d = nodeCrypto.createDecipheriv("aes-128-gcm", h(prk, Buffer.from("Content-Encoding: aes128gcm\0\x01")).subarray(0, 16), h(prk, Buffer.from("Content-Encoding: nonce\0\x01")).subarray(0, 12));
+  d.setAuthTag(ct.subarray(ct.length - 16));
+  const plain = Buffer.concat([d.update(ct.subarray(0, ct.length - 16)), d.final()]).subarray(0, -1).toString();
+  assert.deepEqual(JSON.parse(plain), { feed: "yonezawacity/Yonezawa", change_date: "2026-11-24", known: false });
+});

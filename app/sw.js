@@ -1,6 +1,6 @@
 // まちの足カルテ：service worker（通知を受けて表示する。画面やデータの読みこみには関わらない）
 //
-// 届く中身は { feed: バスの番号, change_date: 変わる日 } だけ。
+// 届く中身は { feed: バスの番号, change_date: 変わる日 }（変わる日が分からないときは known: false も）だけ。
 // 通知の文は決まった文：変わる日より前「◯◯の時刻表が、◯月◯日から変わります。」
 //                       当日かあと  「◯◯の時刻表が、◯月◯日に変わりました。」
 // バスの名前は、端末の中（IndexedDB）に保存した一覧から引く。行き先や時刻は、通知の文に入れない。
@@ -32,7 +32,9 @@ function todayJst() {
   return new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
 }
 
-function noticeText(name, change, today) {
+function noticeText(name, change, today, known = true) {
+  // 変わる日が分からない（同じ版の番号のまま zip が置き換わった）ときは、日付を入れない
+  if (known === false) return `${name}の時刻表が変わりました。`;
   if (!/^\d{4}-\d{2}-\d{2}$/.test(change || "")) return `${name}の時刻表が変わります。`;
   const [, m, d] = change.split("-").map(Number);
   return today < change ? `${name}の時刻表が、${m}月${d}日から変わります。` : `${name}の時刻表が、${m}月${d}日に変わりました。`;
@@ -64,7 +66,7 @@ self.addEventListener("push", (e) => {
     }
     const feed = typeof d.feed === "string" ? d.feed : "";
     const change = typeof d.change_date === "string" ? d.change_date : "";
-    const body = noticeText(await feedName(feed), change, todayJst());
+    const body = noticeText(await feedName(feed), change, todayJst(), d.known !== false);
     // iPhone では、届いた通知は必ず表示する決まり
     await self.registration.showNotification("まちの足カルテ", {
       body, tag: `${feed}|${change}`, icon: "icons/icon-192.png", lang: "ja",

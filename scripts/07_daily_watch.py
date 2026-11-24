@@ -571,6 +571,7 @@ class Watch:
                  "first_seen_at": found_at.isoformat(), "first_seen_basis": basis,
                  "license": m["feed_license"], "license_url": m["feed_license_url"], "path": rel,
                  "old_uid": rev["meta"]["old"]["uid"], "new_uid": m["gtfs_file_uid"],
+                 "change_date_known": rev["meta"].get("change_date_known", True),
                  "check": check}
         self.index = [x for x in self.index if x["path"] != rel]
         if held:

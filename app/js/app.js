@@ -249,6 +249,11 @@ function firstDay(res) {
 const hasNote = (res, kind) => res.notes && res.notes.some((n) => n.kind === kind);
 
 // 見出し：「12月1日（火）から、『名前』が変わります」。路線の運行が始まる・終わるときは、そう書く
+// 変わる日が分からない改正（同じ版の番号のまま zip が置き換わり、見つけた日にもう違っていた）
+const unknownDate = (P) => P.meta.change_date_known === false;
+const unknownHead = (P) => `いまの時刻表は、前と変わっています（${jDateShort(P.meta.change_date)}に分かりました）`;
+const fromText = (res) => (unknownDate(res.P) ? "いまは" : `${fromText(res)}`);
+
 const SEASON = ["冬", "冬", "春", "春", "春", "夏", "夏", "夏", "秋", "秋", "秋", "冬"];
 // 前の運行の最後の日：「4月14日」。変わる日と年が違えば「2025年4月14日」
 function prevLastText(prev, first) {
@@ -257,6 +262,7 @@ function prevLastText(prev, first) {
   return `${y}${d.getUTCMonth() + 1}月${d.getUTCDate()}日`;
 }
 function headline(res, name) {
+  if (unknownDate(res.P)) return unknownHead(res.P);
   const past = res.ph === "after";
   const starts = res.notes && res.notes.find((n) => n.kind === "route_starts");
   if (starts && starts.prevLast) {
@@ -304,7 +310,7 @@ function detailLines(res) {
   }
   if (starts) {
     out.push(`${daysText(res.reg.days)}に、${kq(starts.route)}が走り始めます。`);
-    out.push(`${jDate(firstDay(res))}からは、${busText(res.after.ride)} のバスがあります。`);
+    out.push(`${fromText(res)}、${busText(res.after.ride)} のバスがあります。`);
     return out;
   }
   if (res.level === "cannot") {
@@ -319,14 +325,14 @@ function detailLines(res) {
   }
   if (res.level === "will_be_able") {
     out.push(`いままでは、${m.feed_name}に1本で行けるバスがありませんでした。`);
-    out.push(`${jDate(firstDay(res))}からは、${busText(res.after.ride)} のバスがあります。`);
+    out.push(`${fromText(res)}、${busText(res.after.ride)} のバスがあります。`);
     return out;
   }
   if (res.level === "no_compare") {
     out.push(res.missing === "before"
       ? `${jDate(m.change_date)}より前の時刻表のデータが無いため、くらべられません。`
       : `${jDate(m.change_date)}からの時刻表のデータが無いため、くらべられません。`);
-    if (res.after.ride) out.push(`${jDate(firstDay(res))}からは、${busText(res.after.ride)} のバスがあります。`);
+    if (res.after.ride) out.push(`${fromText(res)}、${busText(res.after.ride)} のバスがあります。`);
     return out;
   }
   if (res.level === "no_route") {
@@ -372,6 +378,7 @@ function noteLines(res) {
 
 function sourceLine(res) {
   const m = res.P.meta;
+  if (unknownDate(res.P)) return `${jDateShort(m.new.published_at.slice(0, 10))}に、時刻表のデータが差し替えられました（同じ版の番号のまま）。変わった日は分かりません。`;
   return `${jDateShort(m.new.published_at.slice(0, 10))}に新しい時刻表が公開されました（変わる日の${m.lead_days}日前）。`;
 }
 
@@ -541,10 +548,13 @@ async function pushBox(el) {
 async function noticeView(feed, change) {
   const item = feedItem(feed);
   if (!item) return alertBox("このバスのデータが見つかりません。");
-  const verb = TODAY < change ? `${jDateShort(change)}から変わります` : `${jDateShort(change)}に変わりました`;
+  // 通知の文と同じ見出し（変わる日が分からないときは、日付を入れない）
+  const rv = (item.revisions || []).find((r) => r.change_date === change);
+  const head = rv && rv.change_date_known === false ? `${item.name}の時刻表が変わりました。`
+    : `${item.name}の時刻表が、${TODAY < change ? `${jDateShort(change)}から変わります` : `${jDateShort(change)}に変わりました`}。`;
   render(`<p class="muted">読みこんでいます…</p>`);
   const regs = loadRegs().filter((r) => r.feed === feed);
-  let html = `<h1>${esc(item.name)}の時刻表が、${esc(verb)}。</h1>`;
+  let html = `<h1>${esc(head)}</h1>`;
   if (!regs.length) {
     html += `<p class="lead">この端末には、このバスの移動が登録されていません。</p>`;
     return render(html + `<a class="btn secondary" href="#home">わたしの移動へ</a>`);
@@ -579,7 +589,9 @@ function revisionHtml(res) {
   const verb = res.ph === "after" ? "変わりました" : "変わります";
   let html = "";
   if (["same", "tiny"].includes(res.level)) {
-    html += `<h1>${jDate(res.P.meta.change_date)}から時刻表が${verb}が、『${esc(res.reg.name)}』は変わりません</h1>`;
+    html += unknownDate(res.P)
+      ? `<h1>${esc(unknownHead(res.P))}が、『${esc(res.reg.name)}』は変わりません</h1>`
+      : `<h1>${jDate(res.P.meta.change_date)}から時刻表が${verb}が、『${esc(res.reg.name)}』は変わりません</h1>`;
   } else if (res.level === "no_route") {
     html += `<h1>『${esc(res.reg.name)}』</h1>`;
   } else {
@@ -587,7 +599,7 @@ function revisionHtml(res) {
   }
   if (res.level !== "no_route") {
     const col = (label, r, cls) => `<div class="col ${cls}"><div class="label">${label}</div>${r ? `<div class="time">${busText(r)}</div><div class="muted">${esc(r.route)}</div>` : `<div class="time">バスがありません</div>`}</div>`;
-    html += `<div class="compare ${li.cls}" style="background:none">${col("いままで", res.before.ride, "")}${col(`${jDateShort(firstDay(res))}から`, res.after.ride, "after")}</div>`;
+    html += `<div class="compare ${li.cls}" style="background:none">${col("いままで", res.before.ride, "")}${col(unknownDate(res.P) ? "いまの時刻表" : `${jDateShort(firstDay(res))}から`, res.after.ride, "after")}</div>`;
   }
   for (const l of detailLines(res)) html += `<p class="lead">${esc(l)}</p>`;
   html += cautionHtml(res.before.ride, res.after.ride);
@@ -848,7 +860,7 @@ async function bizResultView() {
   const first = after[0] || P.meta.change_date;
   const hb = J.stopHours(P, bizDraft.stop, before, bizDraft.open, bizDraft.close);
   const ha = J.stopHours(P, bizDraft.stop, after, bizDraft.open, bizDraft.close);
-  html += `<h1>${jDate(first)}から、バスの時刻が変わります</h1>`;
+  html += unknownDate(P) ? `<h1>${esc(unknownHead(P))}</h1>` : `<h1>${jDate(first)}から、バスの時刻が変わります</h1>`;
   const dirs = [...new Set([...Object.keys(hb.dirs), ...Object.keys(ha.dirs)])].sort();
   const cell = (b, a, unit) => {
     const changed = b !== a;
@@ -858,7 +870,7 @@ async function bizResultView() {
     const b = hb.dirs[k] || {}, a = ha.dirs[k] || {};
     const x = hb.dirs[k] || ha.dirs[k];
     html += `<div class="card"><div class="name">${esc(x.route)}（${esc(x.headsign)}行き）</div>
-      <table class="hours"><tr><th></th><th>いままで</th><th>${jDateShort(first)}から</th></tr>
+      <table class="hours"><tr><th></th><th>いままで</th><th>${unknownDate(P) ? "いま" : `${jDateShort(first)}から`}</th></tr>
       <tr><th>開く時刻までに着く、いちばん遅いバス</th>${cell(b.latestArr, a.latestArr, "着")}</tr>
       <tr><th>閉まる時刻のあとに乗れる、いちばん早いバス</th>${cell(b.firstDepAfter, a.firstDepAfter, "発")}</tr>
       <tr><th>最終のバス</th>${cell(b.lastDep, a.lastDep, "発")}</tr></table>${stopCautionHtml((b.f || 0) | (a.f || 0))}</div>`;
@@ -900,8 +912,11 @@ async function posterView() {
     <p class="noprint"><button class="btn" onclick="window.print()">印刷する</button><a class="btn secondary" href="#biz/result">もどる</a></p>
     <div class="sheet-wrap"><div class="sheet fixed">
       <p class="pkicker">${kq(esc(bizDraft.stop))}バス停（${esc(item.name)}）</p>
-      <h1 class="ptitle">${jDate(first)}から<br>${dt.label}のバスの時刻が変わります</h1>
-      <p class="plead">このバス停から出るバスのうち、時刻が変わるもの（いまの時刻 → ${jDateShort(first)}からの時刻）です。</p>
+      ${unknownDate(P)
+        ? `<h1 class="ptitle">${dt.label}のバスの時刻が<br>前と変わっています</h1>
+      <p class="plead">このバス停から出るバスのうち、時刻が変わったもの（前の時刻 → いまの時刻）です。${jDateShort(P.meta.change_date)}に分かりました。</p>`
+        : `<h1 class="ptitle">${jDate(first)}から<br>${dt.label}のバスの時刻が変わります</h1>
+      <p class="plead">このバス停から出るバスのうち、時刻が変わるもの（いまの時刻 → ${jDateShort(first)}からの時刻）です。</p>`}
       ${body}
       <div class="pfoot">
         <p>くわしくは、${esc(item.operator)}の時刻表でご確認ください。</p>

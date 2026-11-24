@@ -144,7 +144,8 @@ async function notify(req, env) {
   const cat = await catalog(env, true);
   const item = cat.feeds.find((f) => f.feed === feed);
   const today = todayJst();
-  if (!item || !item.revisions.some((r) => r.change_date === change) || daysBetween(change, today) > RECENT_DAYS) {
+  const rev = item && item.revisions.find((r) => r.change_date === change);
+  if (!rev || daysBetween(change, today) > RECENT_DAYS) {
     return json({ error: "not_published" }, 409);
   }
   const mark = `n:${feed}:${change}`;
@@ -156,7 +157,8 @@ async function notify(req, env) {
   const targets = (await listAll(env, "s:")).filter((k) => k.metadata && k.metadata.h && k.metadata.h.includes(h))
     .map((k) => k.name).sort().filter((n) => !after || n > after);
   const batch = targets.slice(0, BATCH);
-  const payload = JSON.stringify({ feed, change_date: change }); // 中身はバスの番号と変わる日だけ
+  // 中身はバスの番号と変わる日だけ（変わる日が分からない改正は、その印も。一覧から決める）
+  const payload = JSON.stringify({ feed, change_date: change, ...(rev.change_date_known === false ? { known: false } : {}) });
   const authCache = new Map();
   let sent = 0, removed = 0, failed = 0;
   for (const name of batch) {
