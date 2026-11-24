@@ -11,7 +11,29 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/ugokotsu__ugokotsu_tazawako/2026-12-01__51e79a8f.json",
   "old_uid": "cfcfd0d8-20ae-4344-a501-a1b8a04cbf8f",
-  "new_uid": "51e79a8f-6dcc-4b86-8312-c2f9563dfd21"
+  "new_uid": "51e79a8f-6dcc-4b86-8312-c2f9563dfd21",
+  "check": {
+   "revision": "data/revisions/ugokotsu__ugokotsu_tazawako/2026-12-01__51e79a8f.json",
+   "n": 200,
+   "counts": {
+    "same": 164,
+    "better": 9,
+    "cannot": 10,
+    "big": 7,
+    "tiny": 3,
+    "small": 7
+   },
+   "shares": {
+    "same": 0.82,
+    "better": 0.045,
+    "cannot": 0.05,
+    "big": 0.035,
+    "tiny": 0.015,
+    "small": 0.035
+   },
+   "old_days": 33,
+   "new_days": 29
+  }
  },
  {
   "feed": "ugokotsu/ugokotsu_honjo",
@@ -25,7 +47,23 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/ugokotsu__ugokotsu_honjo/2026-12-01__e8d8d555.json",
   "old_uid": "0a5fdc4a-78e9-4e0c-9398-ae1b4ce21ca8",
-  "new_uid": "e8d8d555-f37d-4dfc-9e25-6571c06008c2"
+  "new_uid": "e8d8d555-f37d-4dfc-9e25-6571c06008c2",
+  "check": {
+   "revision": "data/revisions/ugokotsu__ugokotsu_honjo/2026-12-01__e8d8d555.json",
+   "n": 200,
+   "counts": {
+    "same": 180,
+    "better": 14,
+    "will_be_able": 6
+   },
+   "shares": {
+    "same": 0.9,
+    "better": 0.07,
+    "will_be_able": 0.03
+   },
+   "old_days": 33,
+   "new_days": 26
+  }
  },
  {
   "feed": "ugokotsu/ugokotsu_honjo",
@@ -39,7 +77,27 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/ugokotsu__ugokotsu_honjo/2027-03-23__ad35c1ae.json",
   "old_uid": "e8d8d555-f37d-4dfc-9e25-6571c06008c2",
-  "new_uid": "ad35c1ae-aa34-42a5-a6ec-f9cc2abc8527"
+  "new_uid": "ad35c1ae-aa34-42a5-a6ec-f9cc2abc8527",
+  "check": {
+   "revision": "data/revisions/ugokotsu__ugokotsu_honjo/2027-03-23__ad35c1ae.json",
+   "n": 200,
+   "counts": {
+    "same": 191,
+    "tiny": 1,
+    "no_compare": 6,
+    "cannot": 1,
+    "big": 1
+   },
+   "shares": {
+    "same": 0.955,
+    "tiny": 0.005,
+    "no_compare": 0.03,
+    "cannot": 0.005,
+    "big": 0.005
+   },
+   "old_days": 21,
+   "new_days": 8
+  }
  },
  {
   "feed": "toyotacity/kikanbus",
@@ -53,7 +111,21 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/toyotacity__kikanbus/2026-12-01__f84814a5.json",
   "old_uid": "32b8089d-3d0a-4cd6-89f6-e243fb01ba52",
-  "new_uid": "f84814a5-fb1e-4445-ba2e-608c426678f3"
+  "new_uid": "f84814a5-fb1e-4445-ba2e-608c426678f3",
+  "check": {
+   "revision": "data/revisions/toyotacity__kikanbus/2026-12-01__f84814a5.json",
+   "n": 200,
+   "counts": {
+    "same": 199,
+    "better": 1
+   },
+   "shares": {
+    "same": 0.995,
+    "better": 0.005
+   },
+   "old_days": 25,
+   "new_days": 29
+  }
  },
  {
   "feed": "kahokutown/KahokuTown",
@@ -67,7 +139,31 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/kahokutown__KahokuTown/2026-12-01__5fce754e.json",
   "old_uid": "e8be4aa9-a9f6-47ed-8fc6-4db28628508d",
-  "new_uid": "5fce754e-3bef-4e58-a70e-1d05d685b6a1"
+  "new_uid": "5fce754e-3bef-4e58-a70e-1d05d685b6a1",
+  "check": {
+   "revision": "data/revisions/kahokutown__KahokuTown/2026-12-01__5fce754e.json",
+   "n": 200,
+   "counts": {
+    "same": 113,
+    "will_be_able": 21,
+    "tiny": 8,
+    "better": 20,
+    "small": 21,
+    "cannot": 6,
+    "big": 11
+   },
+   "shares": {
+    "same": 0.565,
+    "will_be_able": 0.105,
+    "tiny": 0.04,
+    "better": 0.1,
+    "small": 0.105,
+    "cannot": 0.03,
+    "big": 0.055
+   },
+   "old_days": 33,
+   "new_days": 29
+  }
  },
  {
   "feed": "kaetsunou/kaetsunouippan",
@@ -81,21 +177,23 @@
   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
   "path": "data/revisions/kaetsunou__kaetsunouippan/2026-12-01__34bb7836.json",
   "old_uid": "f5ba85f9-8ce5-4857-9652-32c52319943e",
-  "new_uid": "34bb7836-e530-404b-8117-2a473ae8ecd6"
- },
- {
-  "feed": "omachicity/omachiraicholiner",
-  "feed_name": "特急バス「雷鳥ライナー」",
-  "operator": "大町市",
-  "change_date": "2026-12-01",
-  "published_at": "2026-11-02T10:42:50.580176+09:00",
-  "first_seen_at": "2026-11-02T10:42:50+09:00",
-  "first_seen_basis": "API の公開日時（見る仕組みを始める前に出ていた版。初めて見た日時は分からない）",
-  "license": "CC BY 4.0",
-  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
-  "path": "data/revisions/omachicity__omachiraicholiner/2026-12-01__f65b2c54.json",
-  "old_uid": "29c03abf-9efb-474f-b4fd-7aa10ed48009",
-  "new_uid": "f65b2c54-0c33-4adb-b830-008b72a257c5"
+  "new_uid": "34bb7836-e530-404b-8117-2a473ae8ecd6",
+  "check": {
+   "revision": "data/revisions/kaetsunou__kaetsunouippan/2026-12-01__34bb7836.json",
+   "n": 200,
+   "counts": {
+    "same": 194,
+    "tiny": 3,
+    "better": 3
+   },
+   "shares": {
+    "same": 0.97,
+    "tiny": 0.015,
+    "better": 0.015
+   },
+   "old_days": 33,
+   "new_days": 29
+  }
  },
  {
   "feed": "tokonamecity/Gruun",
@@ -109,7 +207,31 @@
   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
   "path": "data/revisions/tokonamecity__Gruun/2026-12-01__06caf724.json",
   "old_uid": "ba6c7730-3937-4da4-81c2-cf55bcd7f3b9",
-  "new_uid": "06caf724-3955-4071-a414-bdf94168ea65"
+  "new_uid": "06caf724-3955-4071-a414-bdf94168ea65",
+  "check": {
+   "revision": "data/revisions/tokonamecity__Gruun/2026-12-01__06caf724.json",
+   "n": 200,
+   "counts": {
+    "big": 8,
+    "same": 143,
+    "cannot": 19,
+    "better": 12,
+    "small": 5,
+    "will_be_able": 12,
+    "tiny": 1
+   },
+   "shares": {
+    "big": 0.04,
+    "same": 0.715,
+    "cannot": 0.095,
+    "better": 0.06,
+    "small": 0.025,
+    "will_be_able": 0.06,
+    "tiny": 0.005
+   },
+   "old_days": 33,
+   "new_days": 29
+  }
  },
  {
   "feed": "meikobus/meikobus",
@@ -123,7 +245,29 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/meikobus__meikobus/2026-12-05__8af5b399.json",
   "old_uid": "4622628b-120d-4308-8eae-1abbc89f84e0",
-  "new_uid": "8af5b399-00e9-4e8d-b2a6-c2d061393485"
+  "new_uid": "8af5b399-00e9-4e8d-b2a6-c2d061393485",
+  "check": {
+   "revision": "data/revisions/meikobus__meikobus/2026-12-05__8af5b399.json",
+   "n": 200,
+   "counts": {
+    "same": 173,
+    "better": 5,
+    "small": 3,
+    "no_compare": 14,
+    "big": 3,
+    "tiny": 2
+   },
+   "shares": {
+    "same": 0.865,
+    "better": 0.025,
+    "small": 0.015,
+    "no_compare": 0.07,
+    "big": 0.015,
+    "tiny": 0.01
+   },
+   "old_days": 29,
+   "new_days": 22
+  }
  },
  {
   "feed": "towadakankodentetsu/toutetsu_airport_line",
@@ -137,7 +281,25 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/towadakankodentetsu__toutetsu_airport_line/2026-12-01__8ba49830.json",
   "old_uid": "80c65d7c-01b1-4f50-ab04-30059c866c46",
-  "new_uid": "8ba49830-c5a9-4f0f-8935-27f0706809d7"
+  "new_uid": "8ba49830-c5a9-4f0f-8935-27f0706809d7",
+  "check": {
+   "revision": "data/revisions/towadakankodentetsu__toutetsu_airport_line/2026-12-01__8ba49830.json",
+   "n": 200,
+   "counts": {
+    "same": 162,
+    "big": 4,
+    "better": 15,
+    "small": 19
+   },
+   "shares": {
+    "same": 0.81,
+    "big": 0.02,
+    "better": 0.075,
+    "small": 0.095
+   },
+   "old_days": 33,
+   "new_days": 28
+  }
  },
  {
   "feed": "shinjocity/ShinjoCity",
@@ -151,7 +313,31 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/shinjocity__ShinjoCity/2026-11-30__7d028444.json",
   "old_uid": "6e75263b-2e88-4b40-a881-0b85902a578e",
-  "new_uid": "7d028444-d623-400f-81c5-9a1689f288a2"
+  "new_uid": "7d028444-d623-400f-81c5-9a1689f288a2",
+  "check": {
+   "revision": "data/revisions/shinjocity__ShinjoCity/2026-11-30__7d028444.json",
+   "n": 200,
+   "counts": {
+    "same": 69,
+    "will_be_able": 54,
+    "cannot": 42,
+    "big": 14,
+    "better": 16,
+    "small": 4,
+    "tiny": 1
+   },
+   "shares": {
+    "same": 0.345,
+    "will_be_able": 0.27,
+    "cannot": 0.21,
+    "big": 0.07,
+    "better": 0.08,
+    "small": 0.02,
+    "tiny": 0.005
+   },
+   "old_days": 23,
+   "new_days": 21
+  }
  },
  {
   "feed": "yonezawacity/Yonezawa",
@@ -165,7 +351,31 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/yonezawacity__Yonezawa/2026-12-01__be34d058.json",
   "old_uid": "02b67c85-efb0-4dd3-a273-2e2aa80860b1",
-  "new_uid": "be34d058-22c0-4421-8418-7925e6e12378"
+  "new_uid": "be34d058-22c0-4421-8418-7925e6e12378",
+  "check": {
+   "revision": "data/revisions/yonezawacity__Yonezawa/2026-12-01__be34d058.json",
+   "n": 200,
+   "counts": {
+    "big": 30,
+    "better": 56,
+    "small": 24,
+    "same": 64,
+    "cannot": 2,
+    "tiny": 18,
+    "will_be_able": 6
+   },
+   "shares": {
+    "big": 0.15,
+    "better": 0.28,
+    "small": 0.12,
+    "same": 0.32,
+    "cannot": 0.01,
+    "tiny": 0.09,
+    "will_be_able": 0.03
+   },
+   "old_days": 32,
+   "new_days": 29
+  }
  },
  {
   "feed": "keneibus/nagasaki-kenei-bus",
@@ -179,7 +389,23 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/keneibus__nagasaki-kenei-bus/2026-12-01__9dc8e290.json",
   "old_uid": "76535bce-a661-4ff3-861f-aaa6b8131b78",
-  "new_uid": "9dc8e290-c7c9-4f6a-9234-5f37605d6d1a"
+  "new_uid": "9dc8e290-c7c9-4f6a-9234-5f37605d6d1a",
+  "check": {
+   "revision": "data/revisions/keneibus__nagasaki-kenei-bus/2026-12-01__9dc8e290.json",
+   "n": 200,
+   "counts": {
+    "same": 198,
+    "better": 1,
+    "small": 1
+   },
+   "shares": {
+    "same": 0.99,
+    "better": 0.005,
+    "small": 0.005
+   },
+   "old_days": 33,
+   "new_days": 29
+  }
  },
  {
   "feed": "kochi-ekimae-kanko/GTFS-Ekimae_Airportbus",
@@ -193,6 +419,26 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/kochi-ekimae-kanko__GTFS-Ekimae_Airportbus/2026-12-01__334ddb40.json",
   "old_uid": "3eec778c-e07c-47d8-8147-6dcaf0315c07",
-  "new_uid": "334ddb40-aef1-4ce3-b600-e46afa60f9f3"
+  "new_uid": "334ddb40-aef1-4ce3-b600-e46afa60f9f3",
+  "check": {
+   "revision": "data/revisions/kochi-ekimae-kanko__GTFS-Ekimae_Airportbus/2026-12-01__334ddb40.json",
+   "n": 200,
+   "counts": {
+    "same": 175,
+    "better": 11,
+    "tiny": 3,
+    "small": 9,
+    "big": 2
+   },
+   "shares": {
+    "same": 0.875,
+    "better": 0.055,
+    "tiny": 0.015,
+    "small": 0.045,
+    "big": 0.01
+   },
+   "old_days": 33,
+   "new_days": 29
+  }
  }
 ]

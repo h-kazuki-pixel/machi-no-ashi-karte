@@ -1304,7 +1304,7 @@ okuwavillage/kuwachan-bus,44133b8d-3502-4365-a9d0-6ccbec4d21fa,,調査(2026-11-2
 okuwavillage/kuwachan-bus,056ec9fc-9c70-4981-b791-3fe8370d3d5e,,調査(2026-11-23),2026-01-23T12:09:47.756890+09:00,2026-01-23,2027-01-22,prev_1,停留所,CC0 1.0,,,,,
 okuwavillage/kuwachan-bus,679e9d07-3c94-485b-a533-a2a4305f6c46,,調査(2026-11-23),2025-10-08T16:08:27.519555+09:00,2025-10-08,2026-10-07,prev_2,停留所,CC0 1.0,,,,,
 okuwavillage/kuwachan-bus,c19067d7-8a24-4bc9-b227-47b0073fa483,,調査(2026-11-23),2025-09-17T09:47:05.871861+09:00,2025-10-01,2026-09-30,prev_3,時刻表+路線+停留所+期間,CC0 1.0,,,,,
-omachicity/omachiraicholiner,f65b2c54-0c33-4adb-b830-008b72a257c5,,調査(2026-11-23),2026-11-02T10:42:50.580176+09:00,2026-12-01,2027-04-14,next_1,時刻表,CC BY 4.0,A,2026-12-01,29,data/revisions/omachicity__omachiraicholiner/2026-12-01__f65b2c54.json,
+omachicity/omachiraicholiner,f65b2c54-0c33-4adb-b830-008b72a257c5,,調査(2026-11-23),2026-11-02T10:42:50.580176+09:00,2026-12-01,2027-04-14,next_1,時刻表,CC BY 4.0,A,2026-12-01,29,止めた（点検）: will_be_able 100%（上限 40%）、cannot＋will_be_able 100%（上限 60%）,
 omachicity/omachiraicholiner,29c03abf-9efb-474f-b4fd-7aa10ed48009,,調査(2026-11-23),2026-03-23T18:27:07.812769+09:00,2026-03-23,2026-11-30,current,路線,CC BY 4.0,,,,,
 omachicity/omachisiminbus,49954ff7-1642-4e3c-b195-4e5fbc3fe317,,調査(2026-11-23),2026-03-17T09:31:15.605106+09:00,2026-04-01,2027-03-31,current,時刻表+停留所+期間,CC BY 4.0,,,,,
 omachicity/omachisiminbus,9839fd3b-ec9c-4d47-862f-36b5feb5c892,,調査(2026-11-23),2025-03-07T17:25:58.076717+09:00,2025-04-01,2026-03-31,prev_1,時刻表+停留所+期間+その他,CC BY 4.0,,,,,
