@@ -1120,6 +1120,15 @@ async function main() {
   registerSw(); // ホーム画面のアプリとして動かす・通知を受ける
   if (!DEMO) syncPush(loadRegs(), CATALOG);
   window.addEventListener("hashchange", route);
+  // 通知を押して開いたとき（?notice=バスの番号/変わる日[/test]）：知らせの画面の「#notice/…」に直して開く
+  const notice = params.get("notice");
+  if (notice && /^[\w.-]+\/[\w.-]+\/\d{4}-\d{2}-\d{2}(\/test)?$/.test(notice)) {
+    const [org, fid, ...rest] = notice.split("/");
+    const u = new URL(location.href);
+    u.searchParams.delete("notice");
+    u.hash = `#notice/${encodeURIComponent(`${org}/${fid}`)}/${rest.join("/")}`;
+    history.replaceState(null, "", u.href);
+  }
   route();
 }
 main();

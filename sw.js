@@ -69,9 +69,12 @@ self.addEventListener("push", (e) => {
     // 試し（/notify の test）：本物と同じ文に「（試し）」を付ける
     const body = noticeText(await feedName(feed), change, todayJst(), d.known !== false) + (d.test === true ? "（試し）" : "");
     // iPhone では、届いた通知は必ず表示する決まり
-    await self.registration.showNotification("まちの足カルテ", {
+    // 題名は「時刻表の知らせ」（iPhone は「題名 from ホーム画面の名前」と出すので、アプリの名前と重ねない）
+    await self.registration.showNotification("時刻表の知らせ", {
       body, tag: `${feed}|${change}${d.test === true ? "|test" : ""}`, icon: "icons/icon-192.png", lang: "ja",
-      data: { url: `./#notice/${encodeURIComponent(feed)}/${change}${d.test === true ? "/test" : ""}` },
+      // 知らせの画面の URL。iPhone のホーム画面のアプリは、開くときに「#」より後ろを落とすことがあるため、
+      // 「?notice=」で渡し、アプリが読みこんだときに「#notice/…」に直す
+      data: { url: `./?notice=${encodeURIComponent(`${feed}/${change}${d.test === true ? "/test" : ""}`)}` },
     });
   })());
 });
@@ -80,13 +83,19 @@ self.addEventListener("notificationclick", (e) => {
   e.notification.close();
   const url = new URL((e.notification.data && e.notification.data.url) || "./", self.registration.scope).href;
   e.waitUntil((async () => {
+    // アプリが開いたまま（裏にある）とき：その画面を前に出してから、知らせの画面に移る
     const list = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
-    for (const c of list) {
-      if (c.url.startsWith(self.registration.scope)) {
+    const c = list.find((w) => w.url.startsWith(self.registration.scope));
+    if (c) {
+      try {
         await c.focus();
-        return c.navigate(url);
+        const moved = await c.navigate(url);
+        if (moved) return;
+      } catch {
+        // 移れなかったときは、下で知らせの画面を開く
       }
     }
+    // 閉じているとき（または、開いている画面を移せなかったとき）：知らせの画面を開く
     return self.clients.openWindow(url);
   })());
 });
