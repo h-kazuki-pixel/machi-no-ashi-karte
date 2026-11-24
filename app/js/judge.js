@@ -32,6 +32,9 @@ const WEEKDAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
 // ---------- 改正のデータ ----------
 
+export const NO_PICKUP = 1;
+export const NO_DROP_OFF = 2;
+
 export function prepare(rev) {
   // 停留所を名前でまとめる（利用者が選ぶのは名前。同じ名前ののりばはまとめる）
   const groups = new Map();
@@ -50,7 +53,8 @@ export function prepare(rev) {
   const trips = rev.trips.map(([r, headsign, seq]) => ({
     route: rev.routes[r],
     headsign,
-    stops: seq.map((x) => ({ stop: x[0], arr: x[1], dep: x.length > 2 ? x[2] : x[1] })),
+    // f：乗り降りの決まり（1 = 乗れない、2 = 降りられない。時刻表のデータの4つ目）
+    stops: seq.map((x) => ({ stop: x[0], arr: x[1], dep: x.length > 2 ? x[2] : x[1], f: x[3] || 0 })),
   }));
   return { ...rev, groups, tripObjs: trips };
 }
@@ -121,6 +125,7 @@ export function compareDates(P, reg, n = THRESHOLDS.compareCount) {
 
 // その日に、from から to へ1本で行けるバス（乗る停留所のあとに降りる停留所に着くものだけ）。
 // 同じ停留所に2回止まる循環のバスでは、降りる停留所の直前に乗れる所から乗るとする。
+// 乗れない停留所（pickup_type=1）からは乗らず、降りられない停留所（drop_off_type=1）では降りない。
 export function ridesOn(P, s, fromName, toName) {
   const day = P.days[s];
   if (!day) return [];
@@ -131,13 +136,13 @@ export function ridesOn(P, s, fromName, toName) {
     const t = P.tripObjs[ti];
     let board = null;
     t.stops.forEach((st, k) => {
-      if (board !== null && to.has(st.stop) && k > board) {
+      if (board !== null && to.has(st.stop) && k > board && !(st.f & NO_DROP_OFF)) {
         const b = t.stops[board];
         rides.push({ trip: ti, route: t.route, headsign: t.headsign, dep: b.dep, arr: st.arr,
                      boardStop: b.stop, alightStop: st.stop, version: day.v });
         board = null;
       }
-      if (from.has(st.stop)) board = k;
+      if (from.has(st.stop) && !(st.f & NO_PICKUP)) board = k;
     });
   }
   return rides.sort((a, b) => a.dep - b.dep || a.arr - b.arr);
@@ -304,7 +309,8 @@ function servedStops(P, s) {
   if (!byDate.has(s)) {
     const set = new Set();
     const day = P.days[s];
-    if (day) for (const ti of P.patterns[day.p]) for (const st of P.tripObjs[ti].stops) set.add(st.stop);
+    // 乗ることも降りることもできない停留所（通過と同じ）は、止まるとみなさない
+    if (day) for (const ti of P.patterns[day.p]) for (const st of P.tripObjs[ti].stops) if (st.f !== 3) set.add(st.stop);
     byDate.set(s, set);
   }
   return byDate.get(s);
@@ -392,8 +398,11 @@ export function stopEvents(P, date, name) {
     const t = P.tripObjs[ti];
     t.stops.forEach((st, k) => {
       if (!m.has(st.stop)) return;
-      out.push({ route: t.route, headsign: t.headsign, dir: `${t.route}｜${t.headsign}`,
-                 arr: k > 0 ? st.arr : null, dep: k < t.stops.length - 1 ? st.dep : null });
+      // 着く時刻は降りられるときだけ、出る時刻は乗れるときだけ
+      const arr = k > 0 && !(st.f & NO_DROP_OFF) ? st.arr : null;
+      const dep = k < t.stops.length - 1 && !(st.f & NO_PICKUP) ? st.dep : null;
+      if (arr == null && dep == null) return;
+      out.push({ route: t.route, headsign: t.headsign, dir: `${t.route}｜${t.headsign}`, arr, dep });
     });
   }
   return out.sort((a, b) => (a.dep ?? a.arr) - (b.dep ?? b.arr));

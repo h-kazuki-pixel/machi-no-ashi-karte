@@ -58,6 +58,26 @@ def dist(a, b):
         math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2))
 
 
+def kq(s):
+    """名前を「」でくくる。名前の中にかぎかっこがあるときは、外側を『』にする"""
+    return f"『{s}』" if ("「" in s or "」" in s) else f"「{s}」"
+
+
+NO_PICKUP = 1   # pickup_type=1：この停留所からは乗れない（降りるだけ）
+NO_DROP_OFF = 2  # drop_off_type=1：この停留所では降りられない（乗るだけ）
+
+
+def board_flags(r):
+    """stop_times の pickup_type / drop_off_type。1（できない）だけを印にする。
+    2（事業者に電話）・3（運転士と調整）は、乗り降りできるものとして扱う。"""
+    f = 0
+    if (r.get("pickup_type") or "").strip() == "1":
+        f |= NO_PICKUP
+    if (r.get("drop_off_type") or "").strip() == "1":
+        f |= NO_DROP_OFF
+    return f
+
+
 class Version:
     def __init__(self, uid, path=None):
         self.uid = uid
@@ -77,14 +97,16 @@ class Version:
         for r in read(z, names, "stop_times.txt"):
             st[r["trip_id"]].append((int(float(r["stop_sequence"])), r["stop_id"],
                                      mins(r["arrival_time"]) if r["arrival_time"] else mins(r["departure_time"]),
-                                     mins(r["departure_time"]) if r["departure_time"] else mins(r["arrival_time"])))
+                                     mins(r["departure_time"]) if r["departure_time"] else mins(r["arrival_time"]),
+                                     board_flags(r)))
         self.trips = {}
         for t in read(z, names, "trips.txt"):
             seq = sorted(st.get(t["trip_id"], []))
             if seq:
                 self.trips[t["trip_id"]] = {"service_id": t["service_id"], "route": self.routes.get(t["route_id"], t["route_id"]),
                                             "headsign": t.get("trip_headsign", ""),
-                                            "seq": [(sid, a, d) for _, sid, a, d in seq]}
+                                            "seq": [(sid, a, d) for _, sid, a, d, _f in seq],
+                                            "flags": [f for *_, f in seq]}
 
 
 def compare_stops(old, new):
@@ -184,7 +206,7 @@ def build_revision(feed_key, mo, mn, change, old_path=None, new_path=None, built
         "meta": {
             "feed": feed_key, "feed_name": fname, "operator": org,
             "license": mn["feed_license"], "license_url": mn["feed_license_url"],
-            "attribution": f"出典：{org}「{fname}」GTFSデータ（{mn['feed_license']}）、GTFSデータリポジトリ（https://gtfs-data.jp/）。まちの足カルテが加工して作成。",
+            "attribution": f"出典：{org}{kq(fname)}GTFSデータ（{mn['feed_license']}）、GTFSデータリポジトリ（https://gtfs-data.jp/）。まちの足カルテが加工して作成。",
             "old": {"uid": mo["gtfs_file_uid"], "published_at": pub(mo).isoformat(), "from": mo["from_date"], "to": mo["to_date"]},
             "new": {"uid": mn["gtfs_file_uid"], "published_at": pub(mn).isoformat(), "from": mn["from_date"], "to": mn["to_date"],
                     "memo": mn["memo"]},

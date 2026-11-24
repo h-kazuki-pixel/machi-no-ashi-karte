@@ -90,7 +90,7 @@ def build_revision2(feed_key, new, candidates, change, zip_of, built_at):
         "meta": {
             "feed": feed_key, "feed_name": fname, "operator": org,
             "license": new["feed_license"], "license_url": new["feed_license_url"],
-            "attribution": f"出典：{org}「{fname}」GTFSデータ（{new['feed_license']}）、GTFSデータリポジトリ（https://gtfs-data.jp/）。まちの足カルテが加工して作成。",
+            "attribution": f"出典：{org}{br.kq(fname)}GTFSデータ（{new['feed_license']}）、GTFSデータリポジトリ（https://gtfs-data.jp/）。まちの足カルテが加工して作成。",
             "old": {"uid": prev["gtfs_file_uid"], "published_at": pub(prev).isoformat(), "from": prev["from_date"], "to": prev["to_date"]},
             "new": {"uid": new["gtfs_file_uid"], "published_at": pub(new).isoformat(), "from": new["from_date"],
                     "to": new["to_date"], "memo": new.get("memo", "")},

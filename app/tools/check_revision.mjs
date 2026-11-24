@@ -50,6 +50,8 @@ while (used < N && tried < N * 20) {
   if (t.stops.length < 2) continue;
   const i = Math.floor(rand() * (t.stops.length - 1));
   const j = i + 1 + Math.floor(rand() * (t.stops.length - 1 - i));
+  // 乗れない停留所からは乗らず、降りられない停留所では降りない（乱数の並びは変えない）
+  if (t.stops[i].f & J.NO_PICKUP || t.stops[j].f & J.NO_DROP_OFF) continue;
   const from = P.stops[t.stops[i].stop].name, to = P.stops[t.stops[j].stop].name;
   if (from === to) continue;
   const cond = used % 4 < 2
