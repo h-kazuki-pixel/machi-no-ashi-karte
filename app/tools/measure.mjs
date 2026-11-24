@@ -50,6 +50,11 @@ const send = (method, params = {}, sessionId) => new Promise((r) => {
 const { result: { targetId } } = await send("Target.createTarget", { url: "about:blank" });
 const { result: { sessionId } } = await send("Target.attachToTarget", { targetId, flatten: true });
 await send("Page.enable", {}, sessionId);
+// 時刻表を端末に残せない状態（NOCACHE=hang：Cache Storage が返事をしない。NOCACHE=reject：開けないと返す）
+if (process.env.NOCACHE) {
+  const body = process.env.NOCACHE === "hang" ? "() => new Promise(() => {})" : "() => Promise.reject(new DOMException('no', 'SecurityError'))";
+  await send("Page.addScriptToEvaluateOnNewDocument", { source: `try { Object.defineProperty(CacheStorage.prototype, "open", { value: ${body} }); } catch (e) {}` }, sessionId);
+}
 // 端末の速さ（THROTTLE=phone：CPU を 1/4、回線を 4G ほど：下り 9Mbps・上り 1.5Mbps・往復 70ms）
 if (process.env.THROTTLE === "phone") {
   await send("Emulation.setCPUThrottlingRate", { rate: 4 }, sessionId);

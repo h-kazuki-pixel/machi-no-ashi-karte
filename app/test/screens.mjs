@@ -143,13 +143,13 @@ for (const c of cases) {
   const day = c.today || TODAY;
   const q = c.biz ? `today=${day}&biz=${biz}` : `today=${day}&try=${tryParam}`;
   // ヘッドレスの Chrome は、仮想の時間の進み方で、まれに読みこみの途中で打ち切ることがある。
-  // 画面の誤りが無いのに止まったときだけ、4回までやり直す（本当に止まる誤りは、何度やっても止まる）
+  // 画面の誤りが無いのに止まったときだけ、2回までやり直す（本当に止まる誤りは、何度やっても止まる）
   let html, errs, t, tries = 0;
   do {
     ({ html, errs } = await dump(`http://127.0.0.1:${port}/?${q}${hash}`));
     t = text(html);
     tries++;
-  } while (!errs.length && t.includes("読みこんでいます") && tries < 5);
+  } while (!errs.length && t.includes("読みこんでいます") && tries < 3);
   const problems = errs.map((e) => `画面の誤り：${e}`);
   if (!t.trim()) problems.push("画面が空");
   if (t.includes("読みこんでいます")) problems.push("「読みこんでいます…」で止まった");

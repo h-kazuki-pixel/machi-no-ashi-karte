@@ -80,10 +80,16 @@ function saveRegs(regs) {
 // 版ごとの時刻表は、版の番号（uid）ごとに中身が変わらないので、一度読んだら端末（Cache Storage）に残す。
 // 版が変わるとファイルの名前が変わるので、そのときだけ取り直す。一覧と改正のデータは毎回取る。
 const TT_CACHE = "machi-no-ashi-karte-timetables-v1";
-// Cache Storage が開けない・返事が無い環境（一部のブラウザの設定など）では、端末に残さずに読む
+// Cache Storage が開けない・返事が無い環境（プライベートブラウズ、一部のブラウザの設定など）では、端末に残さずに読む。
+// 開くのは1回だけ試し、その結果をこのページのあいだ使う（開けなかったら、あとは待たずにふつうに読む）
+let cacheP = null;
 function openCache() {
-  if (typeof caches === "undefined") return Promise.reject(new Error("no-cache-storage"));
-  return Promise.race([caches.open(TT_CACHE), new Promise((_, rej) => setTimeout(() => rej(new Error("cache-timeout")), 1500))]);
+  if (!cacheP) {
+    cacheP = typeof caches === "undefined" ? Promise.reject(new Error("no-cache-storage"))
+      : Promise.race([caches.open(TT_CACHE), new Promise((_, rej) => setTimeout(() => rej(new Error("cache-timeout")), 1500))]);
+    cacheP.catch(() => {}); // 開けなかったことは、呼ぶ側で扱う
+  }
+  return cacheP;
 }
 async function fetchTimetable(path) {
   try {
@@ -149,8 +155,9 @@ async function timetableP(item) {
   const key = `tt:${item.feed}`;
   if (!cache.has(key)) {
     cache.set(key, (async () => {
-      const tts = {};
-      for (const t of item.timetables) tts[t.uid] = await getJSON(t.path);
+      // 時刻表は同時に読む（順番に待たない）
+      const list = await Promise.all(item.timetables.map((t) => getJSON(t.path)));
+      const tts = Object.fromEntries(item.timetables.map((t, i) => [t.uid, list[i]]));
       return J.prepare(assembleTimetables(tts, TODAY, 35, CATALOG.holidays));
     })());
   }
@@ -163,8 +170,10 @@ async function revisionP(path) {
   if (!cache.has(key)) {
     cache.set(key, (async () => {
       const raw = await getJSON(path);
-      const tts = {};
-      for (const [u, p] of Object.entries(raw.meta.timetables)) tts[u] = await getJSON(p);
+      // 前の版と後の版の時刻表は、同時に読む
+      const ents = Object.entries(raw.meta.timetables);
+      const list = await Promise.all(ents.map(([, p]) => getJSON(p)));
+      const tts = Object.fromEntries(ents.map(([u], i) => [u, list[i]]));
       return J.prepare(assembleRevision(raw, tts));
     })());
   }
