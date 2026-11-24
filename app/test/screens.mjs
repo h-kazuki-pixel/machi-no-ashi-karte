@@ -104,6 +104,9 @@ const cases = [
   ...regs.map((r) => ({ name: `移動の画面：${r.id}`, hash: `#trip/${r.id}`, want: [expect[r.id]] })),
   { name: "ホーム（全部の移動）", hash: "#home", want: ["わたしの移動", ...regs.map((r) => `例${r.id}`)] },
   { name: "通知を押して開く画面", hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["米沢市営バスの時刻表が、12月1日から変わります。", "あなたの移動は変わりません"] },
+  // 通知を押したときは「?notice=」で開く（iPhone のホーム画面のアプリが「#」より後ろを落とすことがあるため）
+  { name: "通知を押して開く画面（?notice= で開く）", hash: "", q: `notice=${encodeURIComponent(`${Y}/2026-12-01`)}`, want: ["米沢市営バスの時刻表が、12月1日から変わります。", "あなたの移動は変わりません"] },
+  { name: "通知を押して開く画面（?notice= で開く・試し）", hash: "", q: `notice=${encodeURIComponent(`${Y}/2026-12-01/test`)}`, want: ["（試し）"] },
   { name: "通知を押して開く画面（変わる日が分からない）", hash: `#notice/${encodeURIComponent("test/unknown")}/2026-12-01`, want: ["米沢市営バスの時刻表が変わりました。"] },
   { name: "バスを選ぶ画面（ふだん何日前）", hash: "#add/feed/6", want: ["このバスの新しい時刻表は、ふだん、変わる日の約12日前に出ています（これまでの5回。早いときは3か月以上前、遅いときは3日前）"] },
   { name: "改正の知らせの出典の行（ふだん何日前）", hash: "#trip/big", want: ["約12日前に出ています"] },
@@ -145,7 +148,7 @@ let fail = 0;
 for (const c of cases) {
   const hash = c.hash.startsWith("#trip/") ? `#trip/${idOf[c.hash.slice(6)]}` : c.hash;
   const day = c.today || TODAY;
-  const q = c.biz ? `today=${day}&biz=${biz}` : `today=${day}&try=${tryParam}`;
+  const q = (c.biz ? `today=${day}&biz=${biz}` : `today=${day}&try=${tryParam}`) + (c.q ? `&${c.q}` : "");
   // ヘッドレスの Chrome は、仮想の時間の進み方で、まれに読みこみの途中で打ち切ることがある。
   // 画面の誤りが無いのに止まったときだけ、2回までやり直す（本当に止まる誤りは、何度やっても止まる）
   let html, errs, t, tries = 0;
