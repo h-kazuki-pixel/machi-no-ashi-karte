@@ -10036,7 +10036,7 @@ yanbaru-expressbus/yanbaru-express-bus,64ef9f23-1fa5-4403-ac08-066645e2313f,,調
 yanbaru-expressbus/yanbaru-express-bus,710bdb9d-200f-477b-bda0-d44215e69edf,,調査(2026-11-23),2023-05-12T06:44:38.000370+09:00,2023-05-16,2024-05-15,prev_13,時刻表+その他,CC BY 4.0,,,,,
 yanbaru-expressbus/yanbaru-express-bus,87a6284b-655a-44e2-bfc5-1989b6071025,,調査(2026-11-23),2023-02-27T17:00:48.067826+09:00,2022-12-23,2023-06-22,prev_14,臨時ダイヤ,CC BY 4.0,,,,,
 kamishihorotown/kamishihoro,69ea1fbc-e368-4f0e-9816-62154bb94162,2026-11-24T08:14:25+09:00,watch,2026-11-24T06:47:06.432041+09:00,2025-12-01,2027-03-31,current,期間,CC BY 4.0,B,,,,
-kamishihorotown/kamishihoro-self-bus,f5ba1bff-ce05-459b-b196-bd027cfad7a1,2026-11-24T08:14:25+09:00,watch,2026-11-24T06:39:03.835131+09:00,2025-11-28,2026-10-31,prev_1,期間+その他,CC BY 4.0,A,2026-06-20,-157,data/revisions/kamishihorotown__kamishihoro-self-bus/2026-06-20__f5ba1bff.json,
+kamishihorotown/kamishihoro-self-bus,f5ba1bff-ce05-459b-b196-bd027cfad7a1,2026-11-24T08:14:25+09:00,watch,2026-11-24T06:39:03.835131+09:00,2025-11-28,2026-10-31,prev_1,期間+その他,CC BY 4.0,A,2026-06-20,-157,作らない（登録し直し）,
 mie-kotsu/sancoinanki,aca25f28-02db-46e4-bd5a-bfde09f81602,2026-11-24T08:14:25+09:00,watch,2026-11-24T04:05:45.653663+09:00,2026-04-01,2027-02-24,current,申告なし,CC BY 4.0,B,,,,
 mie-kotsu/sancochusei,fd6e9597-f565-40e0-9296-f90f9b6c750a,2026-11-24T08:14:25+09:00,watch,2026-11-24T04:05:43.214957+09:00,2026-10-07,2027-02-24,current,申告なし,CC BY 4.0,B,,,,
 mie-kotsu/sancoiga,2d40af38-12e7-420d-8408-3ec24dd77687,2026-11-24T08:14:25+09:00,watch,2026-11-24T04:05:43.142407+09:00,2026-10-01,2027-02-24,current,申告なし,CC BY 4.0,B,,,,
@@ -10049,3 +10049,4 @@ kuma-bus/kuma-bus,e44d355c-68d2-4f0d-8d29-54b5b609d8bf,2026-11-24T08:14:25+09:00
 kumamoto-toshibus/kumamoto-toshibus,c340b426-d603-4467-ad56-3ae0c2bada6a,2026-11-24T08:14:25+09:00,watch,2026-11-24T04:05:46.005746+09:00,2026-06-06,2027-02-25,current,申告なし,CC BY 4.0,B,,,,
 kumamotodentetsu/kumamotodentetsu-bus,3c28c886-e8ee-4752-bfd9-0263e5df4723,2026-11-24T08:14:25+09:00,watch,2026-11-24T04:05:46.279802+09:00,2026-11-23,2027-03-02,current,申告なし,CC BY 4.0,B,,,,
 sankobus/sankobus,7e8979a7-8114-44ff-9ead-7e9d19f89556,2026-11-24T08:14:25+09:00,watch,2026-11-24T04:05:51.702572+09:00,2026-11-04,2027-02-25,current,申告なし,CC BY 4.0,B,,,,
+tagawacity/TagawaCityCommunityBus,d321e088-0021-4989-b1f9-d80d3996a433,2026-11-24T09:00:51+09:00,watch,2026-11-24T08:39:52.940013+09:00,2026-12-01,2027-09-30,next_1,停留所,CC BY 4.0,C,,,,

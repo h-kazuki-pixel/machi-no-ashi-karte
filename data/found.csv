@@ -1,2 +1,2 @@
-found_at,feed,feed_name,operator,new_uid,published_at,from_date,change_date,lead_days_seen,lead_days_published,change_censored,late_publish,license,revision
-2026-11-24T08:14:25+09:00,kamishihorotown/kamishihoro-self-bus,上士幌町自動運転バス,上士幌町,f5ba1bff-ce05-459b-b196-bd027cfad7a1,2026-11-24T06:39:03.835131+09:00,2025-11-28,2026-06-20,-157,-157,False,True,CC BY 4.0,data/revisions/kamishihorotown__kamishihoro-self-bus/2026-06-20__f5ba1bff.json
+found_at,category,feed,feed_name,operator,new_uid,published_at,from_date,to_date,change_date,lead_days_seen,lead_days_published,change_censored,late_publish,license,revision
+2026-11-24T08:14:25+09:00,登録し直し,kamishihorotown/kamishihoro-self-bus,上士幌町自動運転バス,上士幌町,f5ba1bff-ce05-459b-b196-bd027cfad7a1,2026-11-24T06:39:03.835131+09:00,2025-11-28,2026-10-31,2026-06-20,-157,-157,False,True,CC BY 4.0,作らない（登録し直し）

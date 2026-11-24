@@ -2,12 +2,12 @@
  "note": "このサイトの改正のデータは、GTFSデータリポジトリ（https://gtfs-data.jp/）で公開されている次のGTFSデータを、まちの足カルテが加工して作成したものです。",
  "items": [
   {
-   "feed": "kamishihorotown/kamishihoro-self-bus",
-   "operator": "上士幌町",
-   "feed_name": "上士幌町自動運転バス",
+   "feed": "yonezawacity/Yonezawa",
+   "operator": "米沢市",
+   "feed_name": "米沢市営バス",
    "license": "CC BY 4.0",
    "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
-   "text": "上士幌町「上士幌町自動運転バス」GTFSデータ（CC BY 4.0）"
+   "text": "米沢市「米沢市営バス」GTFSデータ（CC BY 4.0）"
   }
  ]
 }
