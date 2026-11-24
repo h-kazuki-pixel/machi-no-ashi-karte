@@ -95,3 +95,59 @@ input[type="text"], input[type="search"], input[type="time"] {
 .source { font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; margin-top: 24px; }
 .nowrap { white-space: nowrap; }
 .compare .col:not(.after) { color: var(--fg); }
+.hours { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 0.95rem; }
+.hours th, .hours td { border-top: 1px solid var(--line); padding: 8px 4px; text-align: left; vertical-align: top; }
+.hours th { font-weight: 400; color: var(--muted); }
+.hours td { font-weight: 700; white-space: nowrap; }
+.chg { color: var(--big); }
+/* 貼り紙（A4 1枚） */
+.poster .sheet { background: #fff; color: #000; padding: 24px; border: 1px solid var(--line); }
+.pkicker { font-size: 1.2rem; font-weight: 700; margin: 0; }
+.ptitle { font-size: 2rem; line-height: 1.3; margin: 8px 0 12px; }
+.plead { font-size: 1.1rem; }
+.poster h2 { font-size: 1.3rem; margin: 18px 0 6px; border-bottom: 3px solid #000; }
+.ptable { width: 100%; border-collapse: collapse; font-size: 1.5rem; }
+.ptable th { font-size: 1rem; text-align: left; border-bottom: 1px solid #000; }
+.ptable td { padding: 4px 0; border-bottom: 1px solid #ccc; font-weight: 700; }
+.ptable td.chg { color: #000; }
+.psame { font-size: 1rem; }
+.pfoot { margin-top: 24px; font-size: 0.75rem; border-top: 1px solid #000; padding-top: 8px; }
+@media print {
+  @page { size: A4 portrait; margin: 14mm; }
+  body.printing .bar, body.printing .foot, .noprint { display: none !important; }
+  body.printing { background: #fff; }
+  body.printing main { max-width: none; padding: 0; }
+  .poster .sheet { border: none; padding: 0; }
+}
+.pgrid { display: grid; gap: 2px 16px; margin: 4px 0; }
+.pgrid.cols1 { grid-template-columns: 1fr; font-size: 1.5rem; }
+.pgrid.cols2 { grid-template-columns: 1fr 1fr; font-size: 1.15rem; }
+.pgrid.cols3 { grid-template-columns: 1fr 1fr 1fr; font-size: 0.95rem; }
+.pitem { font-weight: 700; border-bottom: 1px solid #ccc; padding: 2px 0; white-space: nowrap; }
+.pitem small { font-weight: 400; font-size: 0.7em; }
+@media print {
+  .ptitle { font-size: 1.6rem; margin: 4px 0 6px; }
+  .plead, .pkicker { font-size: 1rem; }
+  .poster h2 { font-size: 1.05rem; margin: 10px 0 4px; }
+  .pgrid.cols2 { font-size: 1rem; }
+  .pgrid.cols3 { font-size: 0.85rem; }
+  .psame { font-size: 0.8rem; margin: 2px 0; }
+}
+@media print {
+  .poster .sheet { line-height: 1.3; }
+  .pitem { padding: 1px 0; }
+  .pfoot { margin-top: 10px; }
+}
+/* 貼り紙の紙面：画面でも印刷でも同じ組み方（A4 の印刷できる幅）。高さが余れば JS が縮めて1枚に収める */
+.sheet-wrap { overflow-x: auto; }
+.poster .sheet.fixed { width: 182mm; box-sizing: border-box; line-height: 1.3; margin: 0 auto; }
+.sheet.fixed .pkicker { font-size: 16pt; }
+.sheet.fixed .ptitle { font-size: 26pt; margin: 4px 0 8px; }
+.sheet.fixed .plead { font-size: 13pt; }
+.sheet.fixed h2 { font-size: 15pt; margin: 12px 0 4px; }
+.sheet.fixed .pgrid.cols1 { font-size: 20pt; }
+.sheet.fixed .pgrid.cols2 { font-size: 15pt; }
+.sheet.fixed .pgrid.cols3 { font-size: 12pt; }
+.sheet.fixed .psame { font-size: 11pt; margin: 2px 0; }
+.sheet.fixed .pfoot { font-size: 9pt; margin-top: 12px; }
+@media print { .sheet-wrap { overflow: visible; } }

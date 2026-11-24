@@ -45,6 +45,14 @@ const DEMO_REGS = [
 
 let CATALOG = null;
 let draft = null;
+// 事業者の画面：{ feed, stop, open, close, day }。?biz={...}（JSON）で入れて開ける（確認用）
+let bizDraft = (() => {
+  try {
+    return JSON.parse(params.get("biz") || "null");
+  } catch {
+    return null;
+  }
+})();
 const cache = new Map(); // パス → JSON
 
 // ---------- 保存 ----------
@@ -397,7 +405,8 @@ async function homeView() {
   let html = `<h1>わたしの移動</h1>`;
   if (!regs.length) {
     html += `<p class="lead">よく使うバスの移動を登録すると、時刻表が変わるときに、あなたの移動がどうなるかをお知らせします。</p>
-      <a class="btn" href="#add/pref">移動を登録する</a>`;
+      <a class="btn" href="#add/pref">移動を登録する</a>
+      <a class="btn secondary" href="#biz/pref">お店や施設の方へ（時刻の変わり目を調べる・貼り紙を作る）</a>`;
     return render(html);
   }
   render(`<h1>わたしの移動</h1><p class="muted">読みこんでいます…</p>`);
@@ -434,6 +443,7 @@ async function homeView() {
     }
   }
   html += `<a class="btn secondary" href="#add/pref">移動を登録する</a>`;
+  html += `<a class="btn secondary" href="#biz/pref">お店や施設の方へ</a>`;
   if (DEMO) html += `<p class="muted small">例の表示です（保存されません）。</p>`;
   render(html);
 }
@@ -496,30 +506,37 @@ function delBtn(reg) {
 }
 
 // ---------- 登録 ----------
-function prefView() {
-  draft = { days: [] };
+function prefView(mode = "add") {
+  if (mode === "add") draft = { days: [] };
+  else bizDraft = {};
   const list = CATALOG.prefs.filter((p) => p.code > 0);
   render(`<p class="steps">1 / 7</p><h1>どこのバスですか</h1><p class="muted">都道府県を選んでください。</p>
     ${list.map((p) => `<button class="choice" data-pref="${p.code}">${esc(p.name)}<span class="kana">${p.feeds}のバス</span></button>`).join("")}
     <a class="btn secondary" href="#home">やめる</a>`);
   screen().addEventListener("click", (e) => {
     const b = e.target.closest("[data-pref]");
-    if (b) location.hash = `#add/feed/${b.dataset.pref}`;
+    if (b) location.hash = `#${mode}/feed/${b.dataset.pref}`;
   });
 }
 
-function feedView(pref) {
-  if (!draft) draft = { days: [] };
+function feedView(pref, mode = "add") {
+  if (mode === "add" && !draft) draft = { days: [] };
+  if (mode === "biz" && !bizDraft) bizDraft = {};
   const list = CATALOG.feeds.filter((f) => String(f.pref) === String(pref)).sort((a, b) => a.name.localeCompare(b.name, "ja"));
   render(`<p class="steps">2 / 7</p><h1>どのバスですか</h1>
     ${list.map((f) => `<button class="choice" data-feed="${esc(f.feed)}">${esc(f.name)}<span class="kana">${esc(f.operator)}${f.usable ? "" : "（まだ使えません）"}</span></button>`).join("")}
-    <a class="btn secondary" href="#add/pref">都道府県を選びなおす</a>`);
+    <a class="btn secondary" href="#${mode}/pref">都道府県を選びなおす</a>`);
   screen().addEventListener("click", (e) => {
     const b = e.target.closest("[data-feed]");
     if (!b) return;
     const item = feedItem(b.dataset.feed);
     if (!item.usable) {
-      render(`<h1>${esc(item.name)}</h1><p class="lead">${esc(item.note)}</p><a class="btn secondary" href="#add/feed/${pref}">ほかのバスを選ぶ</a>`);
+      render(`<h1>${esc(item.name)}</h1><p class="lead">${esc(item.note)}</p><a class="btn secondary" href="#${mode}/feed/${pref}">ほかのバスを選ぶ</a>`);
+      return;
+    }
+    if (mode === "biz") {
+      bizDraft.feed = item.feed;
+      location.hash = "#biz/stop";
       return;
     }
     draft.feed = item.feed;
@@ -618,6 +635,168 @@ async function checkView() {
   });
 }
 
+// ---------- 事業者の画面と貼り紙 ----------
+const DAY_TYPES = { wk: { label: "平日", days: WK }, sat: { label: "土曜", days: ["sat"] }, sun: { label: "日曜・祝日", days: ["sun"] } };
+
+async function bizStopView() {
+  const item = feedItem(bizDraft.feed);
+  const tp = await timetableP(item);
+  render(`<p class="steps">お店や施設の方へ</p><p class="muted">${esc(item.name)}</p><h1>お店や施設の近くのバス停は</h1>
+    <input type="search" id="q" placeholder="バス停の名前（ひらがなでも）" autocomplete="off"><div id="results"></div>
+    <a class="btn secondary" href="#home">やめる</a>`);
+  const q = document.getElementById("q");
+  const show = () => {
+    const list = searchStops(tp, q.value);
+    document.getElementById("results").innerHTML = list.map((g) => `<button class="choice" data-stop="${esc(g.name)}">${esc(g.name)}<span class="kana">${esc(g.kana)}</span></button>`).join("");
+  };
+  q.addEventListener("input", show);
+  show();
+  document.getElementById("results").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-stop]");
+    if (!b) return;
+    bizDraft.stop = b.dataset.stop;
+    location.hash = "#biz/hours";
+  });
+}
+
+function bizHoursView() {
+  render(`<p class="steps">お店や施設の方へ</p><h1>開く時刻と閉まる時刻</h1>
+    <p>開く時刻<input type="time" id="o" value="${J.hhmm(bizDraft.open ?? 540).padStart(5, "0")}" step="300"></p>
+    <p>閉まる時刻<input type="time" id="c" value="${J.hhmm(bizDraft.close ?? 1080).padStart(5, "0")}" step="300"></p>
+    <p class="muted">曜日</p>
+    ${Object.entries(DAY_TYPES).map(([k, v]) => `<button class="choice" data-dt="${k}" aria-pressed="${(bizDraft.day || "wk") === k}">${v.label}</button>`).join("")}
+    <button class="btn" id="next">調べる</button><a class="btn secondary" href="#home">やめる</a>`);
+  let dayType = bizDraft.day || "wk";
+  screen().addEventListener("click", (e) => {
+    const b = e.target.closest("[data-dt]");
+    if (b) {
+      dayType = b.dataset.dt;
+      screen().querySelectorAll("[data-dt]").forEach((x) => x.setAttribute("aria-pressed", x === b));
+    }
+    if (e.target.id === "next") {
+      const t = (id) => document.getElementById(id).value.split(":").map(Number).reduce((h, m) => h * 60 + m);
+      Object.assign(bizDraft, { open: t("o"), close: t("c"), day: dayType });
+      location.hash = "#biz/result";
+    }
+  });
+}
+
+// その停留所に関わる改正（公開済みで、変更日から30日以内）。無ければ null
+async function bizRevision(item) {
+  for (const r of activeRevisions(item)) {
+    try {
+      const P = await revisionP(r.path);
+      J.groupOf(P, bizDraft.stop);
+      return P;
+    } catch {
+      /* その停留所が出てこない改正は飛ばす */
+    }
+  }
+  return null;
+}
+
+async function bizResultView() {
+  render(`<p class="muted">読みこんでいます…</p>`);
+  const item = feedItem(bizDraft.feed);
+  const dt = DAY_TYPES[bizDraft.day];
+  const reg = { days: dt.days };
+  const P = await bizRevision(item);
+  const tm = (v) => (v == null ? "なし" : J.hhmm(v));
+  let html = `<p class="muted">${esc(item.name)}<br>「${esc(bizDraft.stop)}」バス停・${dt.label}<br>開く ${J.hhmm(bizDraft.open)}・閉まる ${J.hhmm(bizDraft.close)}</p>`;
+  if (!P) {
+    const tp = await timetableP(item);
+    const h = J.stopHours(tp, bizDraft.stop, nextDates(tp, reg), bizDraft.open, bizDraft.close);
+    html += `<h1>いまのバス</h1><p class="lead">いまのところ、時刻が変わる知らせはありません。</p>`;
+    for (const d of Object.values(h.dirs)) {
+      html += `<div class="card"><div class="name">${esc(d.route)}（${esc(d.headsign)}行き）</div>
+        <p>開く時刻までに着く、いちばん遅いバス：<strong>${tm(d.latestArr)}</strong>着</p>
+        <p>閉まる時刻のあとに乗れる、いちばん早いバス：<strong>${tm(d.firstDepAfter)}</strong>発</p>
+        <p>最終のバス：<strong>${tm(d.lastDep)}</strong>発</p></div>`;
+    }
+    html += `<div class="source"><p class="small">${esc(attribution(item))}</p></div>`;
+    return render(html + `<a class="btn secondary" href="#biz/hours">時刻を変える</a><a class="btn secondary" href="#home">はじめに戻る</a>`);
+  }
+  const { before, after } = J.compareDates(P, reg);
+  const first = after[0] || P.meta.change_date;
+  const hb = J.stopHours(P, bizDraft.stop, before, bizDraft.open, bizDraft.close);
+  const ha = J.stopHours(P, bizDraft.stop, after, bizDraft.open, bizDraft.close);
+  html += `<h1>${jDate(first)}から、バスの時刻が変わります</h1>`;
+  const dirs = [...new Set([...Object.keys(hb.dirs), ...Object.keys(ha.dirs)])].sort();
+  const cell = (b, a, unit) => {
+    const changed = b !== a;
+    return `<td>${tm(b)}${b != null ? unit : ""}</td><td${changed ? ' class="chg"' : ""}>${tm(a)}${a != null ? unit : ""}${changed ? " ●" : ""}</td>`;
+  };
+  for (const k of dirs) {
+    const b = hb.dirs[k] || {}, a = ha.dirs[k] || {};
+    const x = hb.dirs[k] || ha.dirs[k];
+    html += `<div class="card"><div class="name">${esc(x.route)}（${esc(x.headsign)}行き）</div>
+      <table class="hours"><tr><th></th><th>いままで</th><th>${jDateShort(first)}から</th></tr>
+      <tr><th>開く時刻までに着く、いちばん遅いバス</th>${cell(b.latestArr, a.latestArr, "着")}</tr>
+      <tr><th>閉まる時刻のあとに乗れる、いちばん早いバス</th>${cell(b.firstDepAfter, a.firstDepAfter, "発")}</tr>
+      <tr><th>最終のバス</th>${cell(b.lastDep, a.lastDep, "発")}</tr></table></div>`;
+  }
+  html += `<p class="muted small">● は変わる時刻です。比べた日：${before.map(jDateShort).join("・")} と ${after.map(jDateShort).join("・")}${hb.split || ha.split ? "（日によって分かれたため、いちばん多い結果）" : ""}</p>`;
+  html += `<div class="source"><p>${esc(`${jDateShort(P.meta.new.published_at.slice(0, 10))}に新しい時刻表が公開されました。`)}</p><p class="small">${esc(P.meta.attribution)}</p></div>`;
+  html += `<a class="btn" href="#poster">貼り紙を作る（A4 1枚）</a><a class="btn secondary" href="#biz/hours">時刻を変える</a><a class="btn secondary" href="#home">はじめに戻る</a>`;
+  render(html);
+}
+
+async function posterView() {
+  const item = feedItem(bizDraft.feed);
+  const P = await bizRevision(item);
+  if (!P) return alertBox("このバス停には、いま時刻が変わる知らせがありません。");
+  const dt = DAY_TYPES[bizDraft.day];
+  const { before, after } = J.compareDates(P, { days: dt.days });
+  const first = after[0] || P.meta.change_date;
+  const ch = J.stopChanges(P, bizDraft.stop, before, after);
+  const tm = (v) => J.hhmm(v);
+  // 変わる本数に合わせて並べ方を変える（A4 1枚に収める）：15本まで 1列、40本まで 2列、それより多いと 3列
+  const total = ch.dirs.reduce((n, d) => n + d.rows.filter((r) => r.kind !== "same").length, 0);
+  const cols = total <= 15 ? 1 : total <= 40 ? 2 : 3;
+  let body = "";
+  for (const d of ch.dirs) {
+    const changed = d.rows.filter((r) => r.kind !== "same");
+    const same = d.rows.length - changed.length;
+    if (!changed.length) continue;
+    body += `<h2>${esc(d.route)}（${esc(d.headsign)}行き）</h2><div class="pgrid cols${cols}">`;
+    for (const r of changed) {
+      const left = r.old == null ? "―" : tm(r.old);
+      const right = r.kind === "removed" ? "なし" : tm(r.new);
+      const note = r.kind === "removed" ? "なくなります" : r.kind === "added" ? "新しく走ります" : `${Math.abs(r.shift)}分${r.shift < 0 ? "早く" : "おそく"}`;
+      body += `<div class="pitem"><span class="pold">${left}</span> → <span class="pnew">${right}</span> <small>${note}</small></div>`;
+    }
+    body += `</div>${same ? `<p class="psame">ほかの${same}本は、時刻が変わりません。</p>` : ""}`;
+  }
+  if (!body) body = `<p class="plead">この停留所から出るバスの時刻は、${dt.label}は変わりません。</p>`;
+  view().innerHTML = `<section id="screen" class="poster">
+    <p class="noprint"><button class="btn" onclick="window.print()">印刷する</button><a class="btn secondary" href="#biz/result">もどる</a></p>
+    <div class="sheet-wrap"><div class="sheet fixed">
+      <p class="pkicker">「${esc(bizDraft.stop)}」バス停（${esc(item.name)}）</p>
+      <h1 class="ptitle">${jDate(first)}から<br>${dt.label}のバスの時刻が変わります</h1>
+      <p class="plead">このバス停から出るバスのうち、時刻が変わるもの（いまの時刻 → ${jDateShort(first)}からの時刻）です。</p>
+      ${body}
+      <div class="pfoot">
+        <p>くわしくは、${esc(item.operator)}の時刻表でご確認ください。</p>
+        <p>${esc(P.meta.attribution)}</p>
+        <p>作った日：${jDate(TODAY)}　まちの足カルテ</p>
+      </div>
+    </div></div></section>`;
+  fitSheet();
+  document.body.classList.add("printing");
+  window.addEventListener("hashchange", () => document.body.classList.remove("printing"), { once: true });
+}
+
+// 貼り紙を A4 1枚に収める：A4 の印刷できる高さ（297mm − 上下の余白 28mm）を超えたら、紙面を縮める
+function fitSheet() {
+  const sheet = document.querySelector(".sheet.fixed");
+  if (!sheet) return;
+  const mm = 96 / 25.4;
+  const avail = (297 - 28) * mm - 4;
+  sheet.style.zoom = "";
+  const h = sheet.scrollHeight;
+  if (h > avail) sheet.style.zoom = String(Math.floor((avail / h) * 1000) / 1000);
+}
+
 // ---------- 道しるべ ----------
 function route() {
   const h = location.hash || "#home";
@@ -625,6 +804,18 @@ function route() {
   if (h.startsWith("#trip/")) return tripView(decodeURIComponent(h.slice(6)));
   if (h === "#add/pref") return prefView();
   if (h.startsWith("#add/feed/")) return feedView(h.slice(10));
+  if (h === "#biz/pref") return prefView("biz");
+  if (h.startsWith("#biz/feed/")) return feedView(h.slice(10), "biz");
+  if (h.startsWith("#biz/") || h === "#poster") {
+    if (!bizDraft || !bizDraft.feed) {
+      location.hash = "#biz/pref";
+      return;
+    }
+    if (h === "#biz/stop") return bizStopView();
+    if (h === "#biz/hours") return bizHoursView();
+    if (h === "#biz/result") return bizResultView();
+    if (h === "#poster") return posterView();
+  }
   if (h.startsWith("#add/")) {
     if (!draft || !draft.feed) {
       location.hash = "#add/pref";

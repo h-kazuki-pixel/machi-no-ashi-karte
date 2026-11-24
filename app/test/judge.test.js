@@ -152,3 +152,23 @@ test("運行が始まる・終わるの印は、路線がもう片方の側で�
   const b = J.judge(P, { from: "米沢駅前", to: "鶴城高校前", days: WEEKDAYS, cond: { type: "arriveBy", time: t(8, 30) } });
   assert.ok(b.notes.some((n) => n.kind === "route_starts" && n.route === "万世線（直行便）"));
 });
+
+test("事業者：上杉神社前（平日）の出るバスの対応。学園都市線の 7:47 は 7:49 になり、7:18 が新しくできる", () => {
+  const { before, after } = J.compareDates(P, { days: WEEKDAYS, from: "上杉神社前", to: "米沢駅前" });
+  const ch = J.stopChanges(P, "上杉神社前", before, after);
+  const gakuen = ch.dirs.filter((d) => d.route === "学園都市線").flatMap((d) => d.rows);
+  const f = (r) => `${r.old == null ? "-" : J.hhmm(r.old)}>${r.new == null ? "-" : J.hhmm(r.new)}`;
+  assert.ok(gakuen.some((r) => f(r) === "7:47>7:49"));
+  assert.ok(gakuen.some((r) => r.kind === "added" && J.hhmm(r.new) === "7:18"));
+});
+
+test("事業者：開く時刻までに着く・閉まる時刻のあとに出る・最終（前と後）", () => {
+  const { before, after } = J.compareDates(P, { days: WEEKDAYS, from: "米沢駅前（東口）", to: "上杉神社前" });
+  const b = J.stopHours(P, "上杉神社前", before, 9 * 60, 12 * 60);
+  const a = J.stopHours(P, "上杉神社前", after, 9 * 60, 12 * 60);
+  const right = (h) => Object.values(h.dirs).find((d) => d.route === "市街地循環路線（右回り）");
+  // 右回りの 12時よりあとに出るバス：11:54 発（東口）は上杉神社前に 12:11 → 新しい時刻表では 12:52
+  assert.equal(J.hhmm(right(b).firstDepAfter), "12:11");
+  assert.equal(J.hhmm(right(a).firstDepAfter), "12:52");
+  assert.ok(right(b).lastDep >= right(b).firstDepAfter);
+});

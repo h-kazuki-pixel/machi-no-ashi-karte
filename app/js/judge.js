@@ -378,3 +378,103 @@ export function hhmm(m) {
   const mm = m % 60;
   return `${h}:${String(mm).padStart(2, "0")}`;
 }
+
+// ---------- 停留所から見た時刻（事業者の画面・貼り紙） ----------
+
+// その日に、その停留所（名前でまとめたのりば）に止まるバス。同じバスが2回止まるときは2つ
+//   arr: 着く時刻（始発の停留所では null）、dep: 出る時刻（終点では null）
+export function stopEvents(P, date, name) {
+  const day = P.days[date];
+  if (!day) return [];
+  const m = new Set(groupOf(P, name).members);
+  const out = [];
+  for (const ti of P.patterns[day.p]) {
+    const t = P.tripObjs[ti];
+    t.stops.forEach((st, k) => {
+      if (!m.has(st.stop)) return;
+      out.push({ route: t.route, headsign: t.headsign, dir: `${t.route}｜${t.headsign}`,
+                 arr: k > 0 ? st.arr : null, dep: k < t.stops.length - 1 ? st.dep : null });
+    });
+  }
+  return out.sort((a, b) => (a.dep ?? a.arr) - (b.dep ?? b.arr));
+}
+
+// 何日かのうち、いちばん多い結果（同じ数なら先の日）
+function majorityBy(perDate, keyOf) {
+  const cnt = new Map();
+  for (const x of perDate) cnt.set(keyOf(x.v), (cnt.get(keyOf(x.v)) || 0) + 1);
+  let best = null;
+  for (const x of perDate) if (!best || cnt.get(keyOf(x.v)) > cnt.get(keyOf(best.v))) best = x;
+  return best ? { ...best, split: cnt.size > 1 } : null;
+}
+
+// 開く時刻・閉まる時刻から見たバス（行き先ごと）。dates は比べる日（compareDates などで選ぶ）
+export function stopHours(P, name, dates, openT, closeT) {
+  const perDate = dates.map((d) => {
+    const ev = stopEvents(P, d, name);
+    const dirs = {};
+    for (const e of ev) {
+      const x = (dirs[e.dir] ||= { route: e.route, headsign: e.headsign, latestArr: null, firstDepAfter: null, lastDep: null });
+      if (e.arr != null && e.arr <= openT && (x.latestArr == null || e.arr > x.latestArr)) x.latestArr = e.arr;
+      if (e.dep != null && e.dep >= closeT && (x.firstDepAfter == null || e.dep < x.firstDepAfter)) x.firstDepAfter = e.dep;
+      if (e.dep != null && (x.lastDep == null || e.dep > x.lastDep)) x.lastDep = e.dep;
+    }
+    return { date: d, v: dirs };
+  });
+  const m = majorityBy(perDate, (v) => JSON.stringify(v));
+  return { dirs: m ? m.v : {}, date: m ? m.date : null, dates, split: m ? m.split : false };
+}
+
+// 出る時刻を、前と後で組にする（順番を保つ。ずれが maxShift 分を超える組は作らない）
+export function alignTimes(xs, ys, maxShift = 30) {
+  const gap = maxShift / 2;
+  const n = xs.length, m = ys.length;
+  const cost = Array.from({ length: n + 1 }, () => Array(m + 1).fill(Infinity));
+  const back = Array.from({ length: n + 1 }, () => Array(m + 1).fill(null));
+  cost[0][0] = 0;
+  for (let i = 0; i <= n; i++) {
+    for (let j = 0; j <= m; j++) {
+      const c = cost[i][j];
+      if (c === Infinity) continue;
+      if (i < n && c + gap < cost[i + 1][j]) { cost[i + 1][j] = c + gap; back[i + 1][j] = [i, j, "old"]; }
+      if (j < m && c + gap < cost[i][j + 1]) { cost[i][j + 1] = c + gap; back[i][j + 1] = [i, j, "new"]; }
+      if (i < n && j < m) {
+        const d = Math.abs(ys[j] - xs[i]);
+        if (d <= maxShift && c + d < cost[i + 1][j + 1]) { cost[i + 1][j + 1] = c + d; back[i + 1][j + 1] = [i, j, "pair"]; }
+      }
+    }
+  }
+  const out = [];
+  let i = n, j = m;
+  while (i || j) {
+    const [pi, pj, k] = back[i][j];
+    out.push({ old: k !== "new" ? xs[pi] : null, new: k !== "old" ? ys[pj] : null });
+    i = pi; j = pj;
+  }
+  return out.reverse();
+}
+
+// 停留所から出るバスの時刻の、前と後の対応（行き先ごと）。貼り紙に使う
+export function stopChanges(P, name, beforeDates, afterDates) {
+  const deps = (dates) => {
+    const perDate = dates.map((d) => {
+      const by = {};
+      for (const e of stopEvents(P, d, name)) if (e.dep != null) (by[e.dir] ||= { route: e.route, headsign: e.headsign, times: [] }).times.push(e.dep);
+      return { date: d, v: by };
+    });
+    const m = majorityBy(perDate, (v) => JSON.stringify(v));
+    return { by: m ? m.v : {}, split: m ? m.split : false };
+  };
+  const b = deps(beforeDates), a = deps(afterDates);
+  const dirs = [...new Set([...Object.keys(b.by), ...Object.keys(a.by)])];
+  const rows = dirs.map((dir) => {
+    const x = b.by[dir] || a.by[dir];
+    const pairs = alignTimes((b.by[dir] || { times: [] }).times.sort((p, q) => p - q), (a.by[dir] || { times: [] }).times.sort((p, q) => p - q));
+    return { dir, route: x.route, headsign: x.headsign, rows: pairs.map((p) => ({ ...p,
+      kind: p.old == null ? "added" : p.new == null ? "removed" : p.old === p.new ? "same" : "shifted",
+      shift: p.old != null && p.new != null ? p.new - p.old : 0 }))
+      .sort((p, q) => (p.old ?? p.new) - (q.old ?? q.new) || (p.new ?? p.old) - (q.new ?? q.old)) }; // 時刻の順
+  });
+  rows.sort((p, q) => p.route.localeCompare(q.route, "ja") || p.headsign.localeCompare(q.headsign, "ja"));
+  return { dirs: rows, split: b.split || a.split };
+}
