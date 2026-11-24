@@ -100,34 +100,40 @@ def main():
 
 
 def rebuild(site):
-    """目次（data/revisions/index.json）にある改正のデータを、いまの作り方で作り直す"""
-    br = import_module("06_build_revision")
+    """目次にある改正のデータを、いまの作り方（revision-2：前の版をつなげる、点検つき）で作り直す"""
     watch = w.Watch(site, full=False)
     survey = {r["gtfs_file_uid"]: r for r in csv.DictReader(open(DATA / "versions.csv", encoding="utf-8"))}
-    for x in watch.index:
-        org, fid = x["feed"].split("/")
-        metas = []
-        for uid in (x["old_uid"], x["new_uid"]):
-            r = watch.seen_by_uid[uid]
-            s = survey.get(uid, {})
-            metas.append({"gtfs_file_uid": uid, "published_at": r["published_at"], "from_date": r["from_date"],
-                          "to_date": r["to_date"], "feed_license": r["license"],
-                          "feed_license_url": s.get("feed_license_url") or x["license_url"],
-                          "organization_name": x["operator"], "feed_name": x["feed_name"], "memo": s.get("memo", ""),
-                          "gtfs_url": f"https://api.gtfs-data.jp/v2/organizations/{org}/feeds/{fid}/files/feed.zip?uid={uid}"})
-        for mm in metas:
-            watch.loader(mm)  # 一時フォルダに落とす
-        p = site / x["path"]
-        old = json.loads(p.read_text(encoding="utf-8"))["meta"]
-        out, _ = br.build_revision(x["feed"], metas[0], metas[1], dt.date.fromisoformat(x["change_date"]),
-                                   watch.zip_path(x["old_uid"]), watch.zip_path(x["new_uid"]), built_at=w.now_jst().isoformat())
-        out["meta"]["first_seen_at"] = old.get("first_seen_at")
-        out["meta"]["first_seen_basis"] = old.get("first_seen_basis")
-        p.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-        outside = sum(1 for d in out["days"].values() if any(m["kind"] == "outside" for m in d["marks"]))
-        print(f"{x['feed_name']} {x['change_date']}: 作り直した（有効期間の外の日 {outside}）")
+    old_index = list(watch.index)
+    found = w.read_csv(watch.data / "found.csv")
+    for x in old_index:
+        key = x["feed"]
+        org, fid = key.split("/")
+        r = watch.seen_by_uid[x["new_uid"]]
+        sv = survey.get(x["new_uid"], {})
+        m = {**r, "feed": key, "feed_name": x["feed_name"], "organization_name": x["operator"],
+             "feed_license": r["license"], "feed_license_url": sv.get("feed_license_url") or x["license_url"],
+             "memo": sv.get("memo", ""),
+             "gtfs_url": f"https://api.gtfs-data.jp/v2/organizations/{org}/feeds/{fid}/files/feed.zip?uid={x['new_uid']}"}
+        found_at = dt.datetime.fromisoformat(x["first_seen_at"])
+        res = watch.publish_revision(key, m, dt.date.fromisoformat(x["change_date"]), found_at, x.get("first_seen_basis", ""))
+        for f in found:
+            if f["new_uid"] == x["new_uid"]:
+                f["revision"] = res
+        if x["new_uid"] in watch.seen_by_uid:
+            watch.seen_by_uid[x["new_uid"]]["revision"] = res
+        ent = next((e for e in watch.index if e["path"] == res), None)
+        sh = (ent or {}).get("check", {}).get("shares", {})
+        print(f"{x['feed_name']} {x['change_date']}: {res}  " + " ".join(f"{k} {v:.0%}" for k, v in sorted(sh.items(), key=lambda kv: -kv[1])))
+    w.write_csv(watch.state / "versions_seen.csv", w.SEEN_COLS, watch.seen)
+    w.write_csv(watch.data / "found.csv", w.FOUND_COLS, found)
+    w.write_json(watch.data / "revisions" / "index.json", watch.index)
+    if watch.held_rows:
+        w.append_csv(watch.data / "held.csv", w.HELD_COLS, watch.held_rows)
+    w.write_attributions(site)
     shutil.rmtree(watch.tmp, ignore_errors=True)
-    print(f"リクエスト {REQUESTS['count']}")
+    print(f"リクエスト {REQUESTS['count']}、エラー {len(watch.errors)}")
+    for e in watch.errors:
+        print("  エラー:", e)
 
 
 if __name__ == "__main__":

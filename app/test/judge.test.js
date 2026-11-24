@@ -4,7 +4,12 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import * as J from "../js/judge.js";
 
-const rev = JSON.parse(fs.readFileSync(new URL("../data/revisions/yonezawa_20261201.json", import.meta.url), "utf8"));
+import { assembleRevision } from "../js/timetable.js";
+// 改正のデータ（revision-2）＝ 日ごとの情報 ＋ 版ごとの時刻表（scripts/revision2.py で作ったもの）
+const fx = new URL("./fixtures/yonezawa_rev/", import.meta.url);
+const read = (name) => JSON.parse(fs.readFileSync(new URL(name, fx), "utf8"));
+const revRaw = read("revision.json");
+const rev = assembleRevision(revRaw, Object.fromEntries(Object.keys(revRaw.meta.timetables).map((u) => [u, read(`${u}.json`)])));
 const P = J.prepare(rev);
 const WEEKDAYS = ["mon", "tue", "wed", "thu", "fri"];
 const t = (h, m) => h * 60 + m;

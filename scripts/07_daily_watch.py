@@ -44,6 +44,9 @@ from common import API, DATA, REQUESTS, ROOT, fetch, fetch_json
 
 dv = import_module("03_diff_versions")
 br = import_module("06_build_revision")
+rv = import_module("revision2")
+ttm = import_module("timetable")
+TIMETABLE_REFRESH_DAYS = 7
 
 JST = dt.timezone(dt.timedelta(hours=9))
 MAX_PREV = 5
@@ -59,6 +62,37 @@ PAST_LIMIT_DAYS = 30  # 変更日がこれより前の改正は、改正のデ�
 FOUND_COLS = ["found_at", "found_at_basis", "category", "feed", "feed_name", "operator", "new_uid", "published_at", "from_date",
               "to_date", "change_date", "lead_days_seen", "lead_days_published", "change_censored", "late_publish",
               "license", "revision"]
+HELD_COLS = ["held_at", "feed", "feed_name", "operator", "change_date", "old_uid", "new_uid", "reason", "shares"]
+RULES_PATH = ROOT / "scripts" / "publish_rules.json"
+
+
+def run_check(site, rel):
+    """公開の前の点検（app/tools/check_revision.mjs）。停留所の組を無作為に選んで判定し、段階ごとの割合を返す"""
+    import subprocess
+    rules = json.loads(RULES_PATH.read_text(encoding="utf-8")) if RULES_PATH.exists() else {}
+    r = subprocess.run(["node", str(ROOT / "app" / "tools" / "check_revision.mjs"), str(site), rel,
+                        str(rules.get("sample_pairs", 200))], capture_output=True, text=True, timeout=600)
+    if r.returncode != 0:
+        return {"error": r.stderr[-300:]}
+    return json.loads(r.stdout.strip().splitlines()[-1])
+
+
+def hold_reason(check):
+    """しきい値（scripts/publish_rules.json の max_share）を超える段階があれば、その理由"""
+    if "error" in check:
+        return f"点検が動かなかった: {check['error'][:100]}"
+    rules = json.loads(RULES_PATH.read_text(encoding="utf-8")) if RULES_PATH.exists() else {}
+    over = [f"{k} {check['shares'].get(k, 0):.0%}（上限 {v:.0%}）" for k, v in rules.get("max_share", {}).items()
+            if check["shares"].get(k, 0) > v]
+    for rule in rules.get("max_share_sum", []):
+        tot = sum(check["shares"].get(k, 0) for k in rule["levels"])
+        if tot > rule["max"]:
+            over.append(f"{'＋'.join(rule['levels'])} {tot:.0%}（上限 {rule['max']:.0%}）")
+    if check.get("n", 0) == 0:
+        over.append("点検で組を1つも選べなかった")
+    return "、".join(over)
+
+
 RUN_COLS = ["started_at", "finished_at", "mode", "feeds_checked", "requests", "new_versions", "found", "errors"]
 
 
@@ -182,7 +216,7 @@ class Watch:
         self.status = read_json(self.data / "status.json", {})
         self.index = read_json(self.data / "revisions" / "index.json", [])
         self.daily = daily_feed_keys()
-        self.new_rows, self.found_rows = [], []
+        self.new_rows, self.found_rows, self.held_rows = [], [], []
         self._feeds = {}
 
     # zip は一時フォルダにだけ置く
@@ -278,6 +312,7 @@ class Watch:
         prev = self.previous(key, m, meta)
         if prev is None:
             row["kind"] = "first"
+            self.maybe_timetable(key, m, force=True)
             return
         try:
             # 毎日更新のフィード：指紋が同じなら、前の版は取らない
@@ -285,10 +320,13 @@ class Watch:
                 fn = self.loader(m)
                 today = self.started.date()
                 fp_new = fingerprint(fn, today, dt.date.fromisoformat(m["from_date"]), dt.date.fromisoformat(m["to_date"]))
-                stored = self.fps.get(key)
-                self.fps[key] = {"uid": m["gtfs_file_uid"], "computed_at": self.started.isoformat(), "days": fp_new}
+                stored = self.fps.get(key) or {}
+                self.fps[key] = {"uid": m["gtfs_file_uid"], "computed_at": self.started.isoformat(), "days": fp_new,
+                                 "timetable_built_at": stored.get("timetable_built_at", "")}
                 if stored and stored.get("uid") == prev["gtfs_file_uid"] and same_fingerprint(stored["days"], fp_new):
                     row["kind"] = "same(指紋)"
+                    # 便と時刻は同じ。時刻表は、前に作ってから TIMETABLE_REFRESH_DAYS 日たったときだけ作り直す
+                    self.maybe_timetable(key, m, force=False)
                     return
             res = dv.compare_pair(key, prev, m, loader=self.loader)
             if res.get("kind") == "error":
@@ -296,9 +334,27 @@ class Watch:
             row["kind"] = res["kind"]
             if res["kind"] == "A" and res.get("actual_change_date"):
                 self.found(key, f, prev, m, res, row)
+            self.maybe_timetable(key, m, force=True)
         except Exception as e:  # noqa: BLE001
             row["kind"] = "error"
             self.errors.append(f"{key} {m['gtfs_file_uid'][:8]}: {e!r}"[:200])
+
+    def maybe_timetable(self, key, m, force):
+        """新しい版の時刻表を作る（加工・再配布を確かめたライセンスだけ）。毎日更新のフィードで指紋が同じときは、
+        前に作ってから TIMETABLE_REFRESH_DAYS 日たったときだけ作る"""
+        if m["feed_license"] not in br.ALLOWED_LICENSES:
+            return
+        if not force and key in self.daily:
+            last = self.fps.get(key, {}).get("timetable_built_at") or ""
+            if last and (self.started - dt.datetime.fromisoformat(last)).days < TIMETABLE_REFRESH_DAYS:
+                return
+        try:
+            tt = ttm.build_timetable(self.zip_for(m), m, built_at=self.started.isoformat())
+            self.write_timetable(key, m["gtfs_file_uid"], tt)
+            if key in self.daily and key in self.fps:
+                self.fps[key]["timetable_built_at"] = self.started.isoformat()
+        except Exception as e:  # noqa: BLE001
+            self.errors.append(f"{key} {m['gtfs_file_uid'][:8]} 時刻表: {e!r}"[:200])
 
     def found(self, key, f, prev, m, res, row, found_at=None, basis=FOUND_BASIS_WATCH):
         found_at = found_at or self.started
@@ -314,25 +370,7 @@ class Watch:
             revision = skip
         elif lic_ok:
             try:
-                prev_meta = {**prev, "feed_license": prev.get("feed_license") or m["feed_license"],
-                             "feed_license_url": prev.get("feed_license_url") or m["feed_license_url"],
-                             "organization_name": m["organization_name"], "feed_name": m["feed_name"], "memo": prev.get("memo", "")}
-                out, _ = br.build_revision(key, prev_meta, m, change, self.zip_path(prev["gtfs_file_uid"]),
-                                           self.zip_path(m["gtfs_file_uid"]), built_at=self.started.isoformat())
-                out["meta"]["first_seen_at"] = found_at.isoformat()
-                out["meta"]["first_seen_basis"] = basis
-                org, fid = key.split("/")
-                rel = f"data/revisions/{org}__{fid}/{change.isoformat()}__{m['gtfs_file_uid'][:8]}.json"
-                p = self.site / rel
-                p.parent.mkdir(parents=True, exist_ok=True)
-                p.write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-                revision = rel
-                self.index.append({"feed": key, "feed_name": m["feed_name"], "operator": m["organization_name"],
-                                   "change_date": change.isoformat(), "published_at": m["published_at"],
-                                   "first_seen_at": found_at.isoformat(), "first_seen_basis": basis,
-                                   "license": m["feed_license"],
-                                   "license_url": m["feed_license_url"], "path": rel,
-                                   "old_uid": prev["gtfs_file_uid"], "new_uid": m["gtfs_file_uid"]})
+                revision = self.publish_revision(key, m, change, found_at, basis)
             except Exception as e:  # noqa: BLE001
                 revision = f"作れなかった: {e!r}"[:120]
                 self.errors.append(f"{key} 改正のデータ: {e!r}"[:200])
@@ -347,6 +385,60 @@ class Watch:
             "lead_days_published": (change - jst_date(m["published_at"])).days,
             "change_censored": res.get("change_censored"), "late_publish": res.get("late_publish"),
             "license": m["feed_license"], "revision": revision})
+
+    # ---------- 改正のデータ（revision-2）と時刻表、公開の前の点検 ----------
+
+    def zip_for(self, m):
+        return fetch(m["gtfs_url"], self.tmp / "zips" / f"{m['gtfs_file_uid']}.zip")
+
+    def feed_versions(self, key):
+        """見た版の一覧から、そのフィードの版のメタデータ（改正のデータの「前の版をつなげる」ため）"""
+        org, fid = key.split("/")
+        out = []
+        for r in self.seen:
+            if r["feed"] != key or r.get("gone_at"):
+                continue
+            out.append({**r, "feed": key,
+                        "gtfs_url": f"{API}/organizations/{org}/feeds/{fid}/files/feed.zip?uid={r['gtfs_file_uid']}"})
+        return out
+
+    def write_timetable(self, key, uid, tt):
+        p = self.site / rv.timetable_path(key, uid)
+        if not p.exists():
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(json.dumps(tt, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+
+    def publish_revision(self, key, m, change, found_at, basis):
+        """改正のデータを作り、点検に通れば公開する（目次に載せる）。止めたら held.csv に記録する。"""
+        rev, tts = rv.build_revision2(key, m, self.feed_versions(key), change, self.zip_for, self.started.isoformat())
+        rev["meta"]["first_seen_at"] = found_at.isoformat()
+        rev["meta"]["first_seen_basis"] = basis
+        for uid, tt in tts.items():
+            self.write_timetable(key, uid, tt)
+        rel = rv.revision_path(key, change, m["gtfs_file_uid"])
+        p = self.site / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(json.dumps(rev, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        check = run_check(self.site, rel)
+        held = hold_reason(check)
+        entry = {"feed": key, "feed_name": m["feed_name"], "operator": m["organization_name"],
+                 "change_date": change.isoformat(), "published_at": m["published_at"],
+                 "first_seen_at": found_at.isoformat(), "first_seen_basis": basis,
+                 "license": m["feed_license"], "license_url": m["feed_license_url"], "path": rel,
+                 "old_uid": rev["meta"]["old"]["uid"], "new_uid": m["gtfs_file_uid"],
+                 "check": check}
+        self.index = [x for x in self.index if x["path"] != rel]
+        if held:
+            p.unlink()  # 公開しない（Pages に出さない）。版の番号から、いつでも作り直せる
+            if p.parent.exists() and not any(p.parent.iterdir()):
+                p.parent.rmdir()
+            self.held_rows.append({"held_at": self.started.isoformat(), "feed": key, "feed_name": m["feed_name"],
+                                   "operator": m["organization_name"], "change_date": change.isoformat(),
+                                   "old_uid": entry["old_uid"], "new_uid": entry["new_uid"], "reason": held,
+                                   "shares": json.dumps(check.get("shares", {}), ensure_ascii=False)})
+            return f"止めた（点検）: {held}"
+        self.index.append(entry)
+        return rel
 
     def migrate_found(self):
         """前の決まりで書いた found.csv に種類の列を足し、作らない決まりに当たる改正のデータを取り下げる"""
@@ -391,7 +483,15 @@ class Watch:
         elif not (self.data / "found.csv").exists():
             write_csv(self.data / "found.csv", FOUND_COLS, [])
         write_json(self.data / "revisions" / "index.json", self.index)
+        if self.held_rows:
+            append_csv(self.data / "held.csv", HELD_COLS, self.held_rows)
         write_attributions(self.site, self.index)
+        try:  # バスの一覧を作り直し、使われなくなった時刻表を消す
+            cat = import_module("09_build_catalog")
+            _, referenced = cat.build_catalog(self.site, self.seen, self.prev_feeds, self.index, self.started.date())
+            cat.prune_timetables(self.site, referenced)
+        except Exception as e:  # noqa: BLE001
+            self.errors.append(f"バスの一覧: {e!r}"[:200])
         ok = feeds_checked > 0 or not self.errors
         status = {
             **self.status,
@@ -478,8 +578,6 @@ def publish_app(site):
             shutil.rmtree(site / d)
         shutil.copytree(app / d, site / d)
     (site / "data" / "revisions").mkdir(parents=True, exist_ok=True)
-    for p in (app / "data" / "revisions").glob("*.json"):
-        shutil.copy2(p, site / "data" / "revisions" / p.name)
     (site / ".nojekyll").write_text("")
     readme = site / "README.md"
     if not readme.exists():

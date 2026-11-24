@@ -1,0 +1,6 @@
+{
+  "note": "公開の前の点検のしきい値（案：2026-11-24。14の改正の実際の割合から）。超えたら公開せず data/held.csv に載せる",
+  "sample_pairs": 200,
+  "max_share": { "cannot": 0.40, "will_be_able": 0.40, "no_compare": 0.20 },
+  "max_share_sum": [ { "levels": ["cannot", "will_be_able"], "max": 0.60 } ]
+}

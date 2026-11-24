@@ -87,19 +87,8 @@ class Version:
                                             "seq": [(sid, a, d) for _, sid, a, d in seq]}
 
 
-# 加工したデータの公開（加工・再配布）を確かめたライセンス
-ALLOWED_LICENSES = ("CC BY 4.0", "CC0 1.0", "CC BY 2.1 JP")
-
-
-def build_revision(feed_key, mo, mn, change, old_path=None, new_path=None, built_at=None):
-    """mo, mn は版のメタデータ（gtfs_file_uid, published_at, from_date, to_date, feed_license,
-    feed_license_url, organization_name, feed_name, memo）。戻り値は (改正のデータ, 停留所の報告)。"""
-    for m in (mo, mn):
-        if m["feed_license"] not in ALLOWED_LICENSES:
-            raise ValueError(f"ライセンス {m['feed_license']} は加工データの公開を確かめていない")
-    old, new = Version(mo["gtfs_file_uid"], old_path), Version(mn["gtfs_file_uid"], new_path)
-
-    # --- 停留所の対応 ---
+def compare_stops(old, new):
+    """古い版と新しい版の停留所の対応（同じ ID・名前の変化・場所の移動・名前で対応・対応できない）"""
     report = {"same_id": 0, "renamed": [], "moved": [], "matched_by_name": [], "unmatched": []}
     stops, idx = [], {}
 
@@ -135,6 +124,23 @@ def build_revision(feed_key, mo, mn, change, old_path=None, new_path=None, built
                 report["unmatched"].append({"id": sid, "name": cur["stop_name"], "only_in": "old" if so else "new"})
         idx[sid] = len(stops)
         stops.append(rec)
+
+    return stops, idx, report
+
+
+# 加工したデータの公開（加工・再配布）を確かめたライセンス
+ALLOWED_LICENSES = ("CC BY 4.0", "CC0 1.0", "CC BY 2.1 JP")
+
+
+def build_revision(feed_key, mo, mn, change, old_path=None, new_path=None, built_at=None):
+    """mo, mn は版のメタデータ（gtfs_file_uid, published_at, from_date, to_date, feed_license,
+    feed_license_url, organization_name, feed_name, memo）。戻り値は (改正のデータ, 停留所の報告)。"""
+    for m in (mo, mn):
+        if m["feed_license"] not in ALLOWED_LICENSES:
+            raise ValueError(f"ライセンス {m['feed_license']} は加工データの公開を確かめていない")
+    old, new = Version(mo["gtfs_file_uid"], old_path), Version(mn["gtfs_file_uid"], new_path)
+
+    stops, idx, report = compare_stops(old, new)
 
     # --- バスと日ごとの運行 ---
     routes, ridx = [], {}
