@@ -181,6 +181,34 @@ function nextDates(P, reg, n = 4) {
   return Object.keys(P.days).sort().filter((d) => d >= TODAY && J.matchesDays(reg.days, d) && !J.isExcluded(P, d, reg)).slice(0, n);
 }
 
+// いまの時刻表に無い、登録した停留所について、その停留所が無くなった改正（前の版にはあり、後の版に無い）を探す
+async function removedStops(item, tp, reg) {
+  const out = [];
+  const missing = [reg.from, reg.to].filter((n) => !tp.groups.has(n));
+  const revs = (item.revisions || []).filter((r) => r.change_date <= TODAY).sort((a, b) => (a.change_date < b.change_date ? 1 : -1));
+  for (const name of missing) {
+    for (const r of revs) {
+      try {
+        const g = (await revisionP(r.path)).groups.get(name);
+        if (g && g.inOld && !g.inNew) {
+          out.push({ name, change: r.change_date });
+          break;
+        }
+      } catch {
+        /* 読めない改正は飛ばす */
+      }
+    }
+    if (!out.some((x) => x.name === name)) out.push({ name, change: null });
+  }
+  return out;
+}
+// 「12月1日から、米沢市営バスはこのバス停に止まらなくなりました」（無くなった改正が分からなければ、いまの時刻表に無いとだけ言う）
+function removedLines(item, now) {
+  return (now.removed || [{ name: null, change: null }]).map((x) => (x.change
+    ? `${x.name ? `${kq(x.name)}：` : ""}${jDateShort(x.change)}から、${item.name}はこのバス停に止まらなくなりました`
+    : `${x.name ? `${kq(x.name)}：` : ""}登録した停留所が、いまの時刻表にありません`));
+}
+
 async function evaluate(reg) {
   const item = feedItem(reg.feed);
   if (!item) return { reg, missing: true };
@@ -191,7 +219,7 @@ async function evaluate(reg) {
   try {
     nowOnly = J.bestOverDates(tp, reg, nextDates(tp, reg));
   } catch {
-    nowOnly = { ride: null, missingStop: true };
+    nowOnly = { ride: null, missingStop: true, removed: await removedStops(item, tp, reg) };
   }
   const results = [];
   for (const r of activeRevisions(item)) {
@@ -516,7 +544,8 @@ async function homeView() {
   const items = await Promise.all(regs.map(evaluate));
   const changing = items.filter((x) => x.notice && !["same", "tiny", "no_route"].includes(x.notice.level));
   if (changing.length) {
-    html += `<p class="lead"><strong>バスの時刻表が変わります。</strong>あなたの移動のうち ${changing.length}件 に関係があります。</p>`;
+    const allPast = changing.every((x) => x.notice.ph === "after");
+    html += `<p class="lead"><strong>バスの時刻表が${allPast ? "変わりました" : "変わります"}。</strong>あなたの移動のうち ${changing.length}件 に関係があります。</p>`;
   }
   const rank = (x) => (x.notice ? ORDER[x.notice.level] : 9);
   items.sort((a, b) => rank(a) - rank(b));
@@ -528,7 +557,7 @@ async function homeView() {
       continue;
     }
     const nowLine = x.now.ride ? `いまのバス　${busText(x.now.ride)}`
-      : x.now.missingStop ? "登録した停留所が、いまの時刻表にありません" : "いまは1本で行けるバスがありません";
+      : x.now.missingStop ? removedLines(x.item, x.now).join("。") : "いまは1本で行けるバスがありません";
     const n = x.notice;
     if (!n) {
       const nowHtml = x.now.ride ? `<div class="muted">いまのバス</div><div class="now nowrap">${busText(x.now.ride)}</div>` : `<div class="now">${esc(nowLine)}</div>`;
@@ -695,7 +724,7 @@ async function tripView(id) {
   }
   if (!shown.length) {
     html += `<h1>${esc(reg.name)}</h1>`;
-    html += x.now.missingStop ? `<p class="warn">登録した停留所が、いまの時刻表にありません。停留所の名前が変わったか、止まらなくなったかもしれません。</p>`
+    html += x.now.missingStop ? removedLines(x.item, x.now).map((l) => `<p class="warn">${esc(l)}</p>`).join("")
       : x.now.ride ? `<div class="compare"><div class="col"><div class="label">いまのバス</div><div class="time">${busText(x.now.ride)}</div><div class="muted">${esc(x.now.ride.route)}</div></div></div>`
       : `<p class="warn">いまの時刻表では、1本で行けるバスがありません。行けるようになったら知らせます。</p>`;
     html += cautionHtml(x.now.ride);
@@ -931,7 +960,8 @@ async function bizResultView() {
   const first = after[0] || P.meta.change_date;
   const hb = J.stopHours(P, bizDraft.stop, before, bizDraft.open, bizDraft.close);
   const ha = J.stopHours(P, bizDraft.stop, after, bizDraft.open, bizDraft.close);
-  html += unknownDate(P) ? `<h1>${esc(unknownHead(P))}</h1>` : `<h1>${jDate(first)}から、バスの時刻が変わります</h1>`;
+  const bizVerb = TODAY >= P.meta.change_date ? "変わりました" : "変わります";
+  html += unknownDate(P) ? `<h1>${esc(unknownHead(P))}</h1>` : `<h1>${jDate(first)}から、バスの時刻が${bizVerb}</h1>`;
   const dirs = [...new Set([...Object.keys(hb.dirs), ...Object.keys(ha.dirs)])].sort();
   const cell = (b, a, unit) => {
     const changed = b !== a;
@@ -986,7 +1016,10 @@ async function posterView() {
       ${unknownDate(P)
         ? `<h1 class="ptitle">${dt.label}のバスの時刻が<br>前と変わっています</h1>
       <p class="plead">このバス停から出るバスのうち、時刻が変わったもの（前の時刻 → いまの時刻）です。${jDateShort(P.meta.change_date)}に分かりました。</p>`
-        : `<h1 class="ptitle">${jDate(first)}から<br>${dt.label}のバスの時刻が変わります</h1>
+        : TODAY >= P.meta.change_date
+          ? `<h1 class="ptitle">${jDate(first)}から<br>${dt.label}のバスの時刻が変わりました</h1>
+      <p class="plead">このバス停から出るバスのうち、時刻が変わったもの（前の時刻 → ${jDateShort(first)}からの時刻）です。</p>`
+          : `<h1 class="ptitle">${jDate(first)}から<br>${dt.label}のバスの時刻が変わります</h1>
       <p class="plead">このバス停から出るバスのうち、時刻が変わるもの（いまの時刻 → ${jDateShort(first)}からの時刻）です。</p>`}
       ${body}
       <div class="pfoot">

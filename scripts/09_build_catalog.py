@@ -96,11 +96,25 @@ def runs_within(sizes, tts, today, days=HORIZON_DAYS):
     return False
 
 
+def seamless(x):
+    """印の付いた組でも、古い版と新しい版がすき間なくつながり、変わる日が新しい版の有効開始日と同じなら、印の無い組として数える"""
+    try:
+        return (x["change"] == x["new_from"]
+                and (dt.date.fromisoformat(x["old_to"]) + dt.timedelta(days=1)).isoformat() == x["new_from"])
+    except (KeyError, ValueError, TypeError):
+        return False
+
+
 def feed_leads(site):
     """バスごとの「何日前に分かるか」：調査の版の組（data/feed_leads.json）に、見る仕組みが見つけた改正（found.csv）を足す。
     公開が遅い版と、変わる日がはっきりしない組は、真ん中の日数に入れず、回数だけ数える。"""
     p = DATA / "feed_leads.json"
     pairs = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    # 見る仕組みが見つけた版の、ひとつ前の版の有効期間の終わり（すき間なくつながっているかを見るため）
+    seen = w.read_csv(site / "state" / "versions_seen.csv")
+    by_feed = {}
+    for r in seen:
+        by_feed.setdefault(r["feed"], []).append(r)
     fp = site / "data" / "found.csv"
     if fp.exists():
         for r in csv.DictReader(open(fp, encoding="utf-8")):
@@ -109,14 +123,18 @@ def feed_leads(site):
             lst = pairs.setdefault(r["feed"], [])
             if any(x["new_uid"] == r["new_uid"] for x in lst):
                 continue
+            prev = [v for v in by_feed.get(r["feed"], []) if v["published_at"] < r["published_at"] and v["gtfs_file_uid"] != r["new_uid"]]
+            old_to = max(prev, key=lambda v: v["published_at"])["to_date"] if prev else ""
             lst.append({"new_uid": r["new_uid"], "published": r["published_at"][:10], "change": r["change_date"],
                         "lead": int(float(r["lead_days_published"])), "late": r.get("late_publish") == "True",
-                        "censored": r.get("change_censored") == "True", "src": "found"})
+                        "censored": r.get("change_censored") == "True", "src": "found",
+                        "old_to": old_to, "new_from": r.get("from_date", "")})
     out = {}
     for feed, lst in pairs.items():
-        clean = sorted(x["lead"] for x in lst if not x["late"] and not x["censored"])
+        ok = [x for x in lst if not x["late"] and (not x["censored"] or seamless(x))]
+        clean = sorted(x["lead"] for x in ok)
         info = {"n": len(clean), "late": sum(1 for x in lst if x["late"]),
-                "censored": sum(1 for x in lst if x["censored"] and not x["late"])}
+                "censored": sum(1 for x in lst if x["censored"] and not x["late"] and not seamless(x))}
         if len(clean) >= LEAD_MIN_PAIRS:
             k = len(clean)
             info["median"] = clean[k // 2] if k % 2 else round((clean[k // 2 - 1] + clean[k // 2]) / 2)

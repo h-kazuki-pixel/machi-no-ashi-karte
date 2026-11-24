@@ -7,7 +7,9 @@
 "lead": 3,
 "late": false,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-04-03",
+"new_from": "2025-01-01"
 },
 {
 "new_uid": "f3bce84e-b094-4d00-a3ad-75df1c273810",
@@ -16,7 +18,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-03-31",
+"new_from": "2025-01-01"
 },
 {
 "new_uid": "c71c4e60-06f3-4613-a9a2-0b8fc7d99337",
@@ -25,7 +29,9 @@
 "lead": -33,
 "late": true,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-06-05",
+"new_from": "2025-02-01"
 },
 {
 "new_uid": "2a8adbcb-52c5-4603-a80d-e666a151507e",
@@ -34,7 +40,9 @@
 "lead": -36,
 "late": true,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-06-02",
+"new_from": "2025-02-01"
 },
 {
 "new_uid": "d92f556b-d3c0-4dff-82c4-145682261e1b",
@@ -43,7 +51,9 @@
 "lead": 12,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-06-20",
+"new_from": "2025-02-01"
 },
 {
 "new_uid": "58fd3ea8-34e4-4964-9d0f-37bd01522e47",
@@ -52,7 +62,9 @@
 "lead": 10,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-06-16",
+"new_from": "2025-02-01"
 },
 {
 "new_uid": "7e2a2d8e-4029-48f4-9dfb-fe70a6afd61b",
@@ -61,7 +73,9 @@
 "lead": 5,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-12-27",
+"new_from": "2025-05-14"
 },
 {
 "new_uid": "64d95672-ba55-477b-88b9-ad0398d7e139",
@@ -70,7 +84,9 @@
 "lead": 4,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-12-22",
+"new_from": "2025-05-14"
 },
 {
 "new_uid": "d69c66e1-9ff0-4d70-9c4c-984716c7a3df",
@@ -79,7 +95,9 @@
 "lead": -139,
 "late": true,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-01-02",
+"new_from": "2025-05-14"
 },
 {
 "new_uid": "5e829575-3717-4098-be3d-000df544a656",
@@ -88,7 +106,9 @@
 "lead": -3,
 "late": false,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-01-02",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "2d5d3d98-0ceb-4378-abdf-9d4c95e51ca2",
@@ -97,7 +117,9 @@
 "lead": 8,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-03-28",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "4821c0d0-83f1-4bba-a251-efbc99b23fb0",
@@ -106,7 +128,9 @@
 "lead": 7,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-03-23",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "66d4dbe7-73e9-4cfc-b733-c638ef441c5b",
@@ -115,7 +139,9 @@
 "lead": -1,
 "late": false,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-04-06",
+"new_from": "2026-01-01"
 },
 {
 "new_uid": "d6486c4e-a9cd-4f65-b9d6-1021b3a51785",
@@ -124,7 +150,9 @@
 "lead": -7,
 "late": false,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-04-06",
+"new_from": "2026-01-01"
 },
 {
 "new_uid": "7d297e8e-85a7-4e4c-bbc0-b74f77641216",
@@ -133,7 +161,9 @@
 "lead": 2,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-06-30",
+"new_from": "2026-02-02"
 },
 {
 "new_uid": "a624d21a-ad2b-469c-a9cf-f03d310f2898",
@@ -142,7 +172,9 @@
 "lead": -3,
 "late": false,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-06-29",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "b655cba0-a703-4554-b205-5673985adeec",
@@ -151,7 +183,9 @@
 "lead": 1,
 "late": false,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-12-31",
+"new_from": "2026-09-01"
 },
 {
 "new_uid": "9f806daa-4357-4473-9467-f77569084fa4",
@@ -160,7 +194,9 @@
 "lead": -2,
 "late": false,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-12-28",
+"new_from": "2026-10-01"
 }
 ],
 "kumamoto-toshibus/kumamoto-toshibus": [
@@ -171,7 +207,9 @@
 "lead": 50,
 "late": false,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-12-13",
+"new_from": "2025-09-12"
 },
 {
 "new_uid": "0b962e30-160b-42d0-bb8e-9eb29b587743",
@@ -180,7 +218,9 @@
 "lead": 83,
 "late": false,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2025-12-09",
+"new_from": "2025-09-12"
 },
 {
 "new_uid": "fdf7e9c3-5492-474d-98b9-0247270e544d",
@@ -189,7 +229,9 @@
 "lead": 3,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-02-28",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "04e1c685-38b0-40a6-84f8-2f32139810fd",
@@ -198,7 +240,9 @@
 "lead": 1,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-02-24",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "c0f3d34f-2647-4a7d-850c-5173a0c1e253",
@@ -207,7 +251,9 @@
 "lead": 12,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-06-20",
+"new_from": "2026-01-04"
 },
 {
 "new_uid": "0b0687c3-3c98-49e1-bf76-3e5a6c5da49e",
@@ -216,7 +262,9 @@
 "lead": 10,
 "late": true,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-06-16",
+"new_from": "2026-01-04"
 },
 {
 "new_uid": "ef05a680-e00f-4d05-9426-c5c92905ce12",
@@ -225,7 +273,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-07-08",
+"new_from": "2026-04-07"
 },
 {
 "new_uid": "d0fa6b94-8807-4802-92fd-803b354b534a",
@@ -234,7 +284,9 @@
 "lead": -5,
 "late": false,
 "censored": true,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-07-07",
+"new_from": "2026-04-07"
 },
 {
 "new_uid": "121a31c1-6d90-4d28-b472-9fda1eb48964",
@@ -243,7 +295,9 @@
 "lead": 17,
 "late": false,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-08-20",
+"new_from": "2026-05-07"
 },
 {
 "new_uid": "0cbb2fba-79b5-493c-b3cc-811a6966b663",
@@ -252,7 +306,9 @@
 "lead": 13,
 "late": false,
 "censored": false,
-"src": "daily"
+"src": "daily",
+"old_to": "2026-08-18",
+"new_from": "2026-05-07"
 }
 ],
 "tokubus/tokushimabus": [
@@ -263,7 +319,9 @@
 "lead": 13,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-12-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "fb0624aa-91d5-417d-a71d-a18a963db4ea",
@@ -272,7 +330,9 @@
 "lead": 9,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "57d1eebc-1897-4561-a80c-03b4404b9066",
@@ -281,7 +341,9 @@
 "lead": 11,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-12-31",
+"new_from": "2026-01-10"
 },
 {
 "new_uid": "6d4cd33f-de49-4fa7-98ba-f5be6770752f",
@@ -290,7 +352,9 @@
 "lead": 5,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-12-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "db508029-0181-4981-9727-085d0ce891c4",
@@ -299,7 +363,9 @@
 "lead": 4,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-03-31",
+"new_from": "2026-05-30"
 },
 {
 "new_uid": "d0b6ec39-917c-42d9-ac76-560e0df27102",
@@ -308,7 +374,9 @@
 "lead": 6,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-03-31",
+"new_from": "2026-06-01"
 },
 {
 "new_uid": "d02c649c-4443-4d91-810e-687211f39058",
@@ -317,7 +385,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
 }
 ],
 "chitetsu/chitetsubus": [
@@ -328,7 +398,9 @@
 "lead": -4,
 "late": false,
 "censored": false,
-"src": "large"
+"src": "large",
+"old_to": "2025-10-10",
+"new_from": "2025-03-14"
 },
 {
 "new_uid": "8895ef37-be5b-41f1-bd49-2dfbc415806a",
@@ -337,7 +409,9 @@
 "lead": 11,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-13",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "e5e83a8a-cc10-433c-921f-b18163aec7c1",
@@ -346,7 +420,9 @@
 "lead": -6,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2025-04-02"
 },
 {
 "new_uid": "368444ac-ecab-44e1-8827-c57b0e5e3019",
@@ -355,7 +431,9 @@
 "lead": -20,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-04-01",
+"new_from": "2025-05-16"
 },
 {
 "new_uid": "048d4f20-6e5a-4d8e-879d-c842ee4bade2",
@@ -364,7 +442,9 @@
 "lead": 5,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-07-01",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "6d399755-e25c-4da7-ab85-b9fa9e71c199",
@@ -373,7 +453,9 @@
 "lead": -2,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-09-30",
+"new_from": "2025-10-07"
 },
 {
 "new_uid": "21af3af6-d6ee-430c-8b61-bfc4474f8909",
@@ -382,7 +464,9 @@
 "lead": -5,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-10-06",
+"new_from": "2025-10-16"
 },
 {
 "new_uid": "67b6390c-3315-4d6a-89b7-df7c09189be9",
@@ -391,7 +475,9 @@
 "lead": -41,
 "late": true,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-10-15",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "1257bce7-727d-4181-a089-f29d03c54155",
@@ -400,7 +486,9 @@
 "lead": 1,
 "late": false,
 "censored": false,
-"src": "large"
+"src": "large",
+"old_to": "2027-05-25",
+"new_from": "2026-10-01"
 },
 {
 "new_uid": "ee5d89a6-eec7-4dc0-bbd8-2ae92f94445c",
@@ -409,7 +497,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-09-30",
+"new_from": "2026-10-19"
 }
 ],
 "yamakobus/YAMAKOBUS": [
@@ -420,7 +510,9 @@
 "lead": -38,
 "late": true,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2023-12-03",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "aaec6a87-aa28-40e3-a873-f072d10a7f89",
@@ -429,7 +521,9 @@
 "lead": -12,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-09-30",
+"new_from": "2025-09-10"
 },
 {
 "new_uid": "402d5349-599f-4d3c-88a9-c6236e1a4885",
@@ -438,7 +532,9 @@
 "lead": -3,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-09",
+"new_from": "2025-12-10"
 },
 {
 "new_uid": "dffb65c9-2211-45e7-bb00-4da4ff07d59f",
@@ -447,7 +543,9 @@
 "lead": 8,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-06-09",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "b635b67f-2655-419b-a676-7fe955139b76",
@@ -456,7 +554,9 @@
 "lead": -108,
 "late": true,
 "censored": false,
-"src": "large"
+"src": "large",
+"old_to": "2026-09-30",
+"new_from": "2026-05-25"
 },
 {
 "new_uid": "d906f637-f479-4d37-90e7-6100bd0d4222",
@@ -465,7 +565,9 @@
 "lead": -6,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-11-24",
+"new_from": "2026-10-31"
 }
 ],
 "keisei-transitbus/keiseitransitbus": [
@@ -476,7 +578,9 @@
 "lead": -10,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-04-01",
+"new_from": "2024-12-06"
 },
 {
 "new_uid": "baa08cb6-4b31-418c-872d-cea98e340df3",
@@ -485,7 +589,9 @@
 "lead": 5,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-12-06",
+"new_from": "2025-02-01"
 },
 {
 "new_uid": "6f271026-ab63-4b1f-8b89-593c91a4503e",
@@ -494,7 +600,9 @@
 "lead": 13,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-01",
+"new_from": "2025-04-01"
 }
 ],
 "tosaden-kotsu/GTFS-Tosadentraffic_Regularbus": [
@@ -505,7 +613,9 @@
 "lead": 9,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "d7592e8d-6299-44e1-ad6f-8a68f07c115b",
@@ -514,7 +624,9 @@
 "lead": 16,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
 },
 {
 "new_uid": "f45b07ac-deb9-4669-b169-4acec5a16916",
@@ -523,7 +635,9 @@
 "lead": -18,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-09-30",
+"new_from": "2026-09-01"
 },
 {
 "new_uid": "89ea5822-8509-43a5-b210-5a171e31f347",
@@ -532,7 +646,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
 }
 ],
 "tohtetsu/tohtetsu_tajimi": [
@@ -543,7 +659,9 @@
 "lead": 17,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-12-31",
+"new_from": "2026-10-01"
 }
 ],
 "nagai-unyu/Nagaibus": [
@@ -554,7 +672,9 @@
 "lead": -165,
 "late": true,
 "censored": false,
-"src": "large"
+"src": "large",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "b1be1add-3553-4b31-86bc-348479c25526",
@@ -563,7 +683,9 @@
 "lead": 5,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "17ab34e1-dcb8-4b2e-9cda-ae2b68f4c444",
@@ -572,7 +694,9 @@
 "lead": -98,
 "late": true,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "63b5bea3-9b56-4992-8ec0-0206eefeb46b",
@@ -581,7 +705,9 @@
 "lead": 7,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
 }
 ],
 "kaetsunou/kaetsunouippan": [
@@ -592,7 +718,9 @@
 "lead": -21,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-03-31",
+"new_from": "2025-02-20"
 },
 {
 "new_uid": "cdb9e5e5-81bf-433d-b04b-c4e713f2c59a",
@@ -601,7 +729,9 @@
 "lead": 22,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-10-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "9a65d655-f073-4d21-8769-b4828f757317",
@@ -610,7 +740,9 @@
 "lead": 3,
 "late": false,
 "censored": false,
-"src": "large"
+"src": "large",
+"old_to": "2026-11-30",
+"new_from": "2025-11-01"
 },
 {
 "new_uid": "206c3a12-1db5-4947-9e7d-7dc86a3b1816",
@@ -619,7 +751,9 @@
 "lead": 10,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-11-30",
+"new_from": "2025-12-01"
 },
 {
 "new_uid": "14355ff1-2762-49a4-9472-f2d276eae52d",
@@ -628,7 +762,9 @@
 "lead": -96,
 "late": true,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "3250d0af-f7c3-4931-8917-3cd2b44a15e1",
@@ -637,7 +773,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-03-31",
+"new_from": "2026-07-07"
 },
 {
 "new_uid": "6a8ae3fb-4126-4b9a-b158-2fc4af6bdb13",
@@ -646,7 +784,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-03-31",
+"new_from": "2026-07-14"
 },
 {
 "new_uid": "f5ba85f9-8ce5-4857-9652-32c52319943e",
@@ -655,7 +795,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-03-31",
+"new_from": "2026-07-16"
 },
 {
 "new_uid": "34bb7836-e530-404b-8117-2a473ae8ecd6",
@@ -664,7 +806,9 @@
 "lead": 32,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2027-03-31",
+"new_from": "2026-12-01"
 }
 ],
 "nouhibus/nouhibus": [
@@ -675,7 +819,9 @@
 "lead": 4,
 "late": false,
 "censored": false,
-"src": "large"
+"src": "large",
+"old_to": "2025-03-31",
+"new_from": "2024-12-21"
 },
 {
 "new_uid": "c237bc06-a46a-499f-a0e6-842759ad15ce",
@@ -684,7 +830,9 @@
 "lead": 8,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "50b3a6be-d6af-47af-a4e1-0228f32581b4",
@@ -693,7 +841,9 @@
 "lead": 2,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "531117f9-e19b-4bfe-a3f2-c78fffb13a8a",
@@ -702,7 +852,9 @@
 "lead": 1,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2026-01-13"
 },
 {
 "new_uid": "c573b738-d266-4a1e-9a4d-49b663e4543d",
@@ -711,7 +863,9 @@
 "lead": 8,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-04-30",
+"new_from": "2026-04-01"
 }
 ],
 "kitaena/kitaena": [
@@ -722,7 +876,9 @@
 "lead": 39,
 "late": false,
 "censored": false,
-"src": "large"
+"src": "large",
+"old_to": "2026-01-06",
+"new_from": "2025-03-08"
 },
 {
 "new_uid": "b4560e88-4df3-4018-a4d2-4675a84cff86",
@@ -731,7 +887,9 @@
 "lead": 8,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "bd9ebb9a-ffe2-4c2a-91e8-a23736c7185c",
@@ -740,7 +898,9 @@
 "lead": 11,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2025-06-01"
 },
 {
 "new_uid": "2a37f2df-894b-4897-ad3c-192268fdf204",
@@ -749,7 +909,9 @@
 "lead": 23,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2025-09-06"
 },
 {
 "new_uid": "3554f51a-daa8-442b-adf8-3cb9fe3bed5e",
@@ -758,7 +920,9 @@
 "lead": 7,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "995decfa-2263-455c-a859-99e2e58bccf5",
@@ -767,7 +931,9 @@
 "lead": 40,
 "late": false,
 "censored": true,
-"src": "large"
+"src": "large",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "b86d1dec-98dc-4874-a7b4-a9887078511e",
@@ -776,7 +942,9 @@
 "lead": 4,
 "late": false,
 "censored": false,
-"src": "large"
+"src": "large",
+"old_to": "2027-03-31",
+"new_from": "2026-09-14"
 }
 ],
 "meikobus/meikobus": [
@@ -787,7 +955,9 @@
 "lead": 29,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2025-12-31",
+"new_from": "2025-01-24"
 },
 {
 "new_uid": "bf33818e-d585-4580-aa14-fb267eb078e9",
@@ -796,7 +966,9 @@
 "lead": 18,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2025-12-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "b853f3c5-1e03-4be8-9ac3-306ade256493",
@@ -805,7 +977,9 @@
 "lead": 7,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-03-31",
+"new_from": "2025-04-30"
 },
 {
 "new_uid": "51472669-7108-49d4-80b2-ecd87eed2a16",
@@ -814,7 +988,9 @@
 "lead": 12,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-03-31",
+"new_from": "2025-07-01"
 },
 {
 "new_uid": "d3c2e7ed-e247-4b14-a406-07fa432e5e73",
@@ -823,7 +999,9 @@
 "lead": 25,
 "late": false,
 "censored": false,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-03-31",
+"new_from": "2025-07-08"
 },
 {
 "new_uid": "340a5dd3-625a-45db-823c-7bbc04f59418",
@@ -832,7 +1010,9 @@
 "lead": 13,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-03-31",
+"new_from": "2025-08-19"
 },
 {
 "new_uid": "e7fa1ad8-f28c-4165-9c83-7b0e7e2aeb06",
@@ -841,7 +1021,9 @@
 "lead": 7,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-03-31",
+"new_from": "2025-09-24"
 },
 {
 "new_uid": "8e289490-b1dc-473c-a818-8e89bcba6144",
@@ -850,7 +1032,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-12-31",
+"new_from": "2025-10-03"
 },
 {
 "new_uid": "d7f35422-e80e-41f1-ae10-7e31919ab629",
@@ -859,7 +1043,9 @@
 "lead": 32,
 "late": false,
 "censored": false,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-12-31",
+"new_from": "2025-10-30"
 },
 {
 "new_uid": "062d23d5-78fc-46d6-ab9e-37590f37a393",
@@ -868,7 +1054,9 @@
 "lead": 9,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-12-31",
+"new_from": "2025-12-29"
 },
 {
 "new_uid": "912574ee-4763-4b2c-9d85-85f74bd9266e",
@@ -877,7 +1065,9 @@
 "lead": 10,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-12-31",
+"new_from": "2026-02-19"
 },
 {
 "new_uid": "2e9b9da4-3115-4b60-8b30-897947a0c1d9",
@@ -886,7 +1076,9 @@
 "lead": 19,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-12-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "d2ea4373-1f0e-4203-849a-a165e0e77a7a",
@@ -895,7 +1087,9 @@
 "lead": 1,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2027-03-31",
+"new_from": "2026-03-24"
 },
 {
 "new_uid": "5f28ed8a-a0d5-49d4-bcd0-d1929dd93ca8",
@@ -904,7 +1098,9 @@
 "lead": 4,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2026-03-31",
+"new_from": "2026-04-24"
 },
 {
 "new_uid": "5e0773a6-4671-4e94-8da8-fd03492690cd",
@@ -913,7 +1109,9 @@
 "lead": -21,
 "late": false,
 "censored": false,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2027-03-31",
+"new_from": "2026-05-28"
 },
 {
 "new_uid": "75c58c26-67bf-48c2-a931-14b1bb89c41a",
@@ -922,7 +1120,9 @@
 "lead": 24,
 "late": false,
 "censored": false,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2027-03-31",
+"new_from": "2026-06-22"
 },
 {
 "new_uid": "a1973ade-e756-4df8-9e15-57b959798be2",
@@ -931,7 +1131,9 @@
 "lead": -9,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2027-03-31",
+"new_from": "2026-07-21"
 },
 {
 "new_uid": "6e15854b-e520-440a-a84b-275c2032a56d",
@@ -940,7 +1142,9 @@
 "lead": 5,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2027-03-31",
+"new_from": "2026-08-27"
 },
 {
 "new_uid": "cf49374d-ff03-426d-ad60-4828ce950cdc",
@@ -949,7 +1153,9 @@
 "lead": -7,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2027-03-31",
+"new_from": "2026-09-07"
 },
 {
 "new_uid": "4622628b-120d-4308-8eae-1abbc89f84e0",
@@ -958,7 +1164,9 @@
 "lead": 11,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2027-03-31",
+"new_from": "2026-10-14"
 },
 {
 "new_uid": "8af5b399-00e9-4e8d-b2a6-c2d061393485",
@@ -967,7 +1175,9 @@
 "lead": 20,
 "late": false,
 "censored": true,
-"src": "meikobus"
+"src": "meikobus",
+"old_to": "2027-04-30",
+"new_from": "2026-12-01"
 }
 ],
 "nemurokotsu/nemurobus": [
@@ -978,7 +1188,9 @@
 "lead": -41,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "c197d5ac-cd34-4f45-bd8b-3d9fc611122c",
@@ -987,7 +1199,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-08-06"
 },
 {
 "new_uid": "88361647-7ff3-4819-ae53-1b079189b8e6",
@@ -996,7 +1210,9 @@
 "lead": 13,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-08-05",
+"new_from": "2025-08-07"
 },
 {
 "new_uid": "d7ca4ac5-3b7c-4007-9207-2662cba91a94",
@@ -1005,7 +1221,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-08-06",
+"new_from": "2025-12-24"
 },
 {
 "new_uid": "31577a0e-b0e1-47fe-aeef-a839516856dc",
@@ -1014,7 +1232,9 @@
 "lead": 1,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-12-23",
+"new_from": "2026-05-26"
 }
 ],
 "hachinohe/hachinohe-citybus": [
@@ -1025,7 +1245,9 @@
 "lead": -231,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 }
 ],
 "yonezawacity/Yonezawa": [
@@ -1036,7 +1258,9 @@
 "lead": 4,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2024-11-30",
+"new_from": "2024-12-01"
 },
 {
 "new_uid": "6d20786b-be35-4d12-a20c-e9a0f269d1b8",
@@ -1045,7 +1269,9 @@
 "lead": 4,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "ebb5e51c-a180-49f1-855f-fd523c709f71",
@@ -1054,7 +1280,9 @@
 "lead": 11,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-11-30",
+"new_from": "2025-12-01"
 },
 {
 "new_uid": "2bc35528-daf1-47f7-b5c3-fd38ed8b3240",
@@ -1063,7 +1291,9 @@
 "lead": 23,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "be34d058-22c0-4421-8418-7925e6e12378",
@@ -1072,7 +1302,9 @@
 "lead": 12,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-11-30",
+"new_from": "2026-12-01"
 }
 ],
 "keneibus/nagasaki-kenei-bus": [
@@ -1083,7 +1315,9 @@
 "lead": -16,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-04-01",
+"new_from": "2026-10-25"
 },
 {
 "new_uid": "9dc8e290-c7c9-4f6a-9234-5f37605d6d1a",
@@ -1092,7 +1326,9 @@
 "lead": 12,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-11-30",
+"new_from": "2026-12-01"
 }
 ],
 "matsudocity/matsudo": [
@@ -1103,7 +1339,9 @@
 "lead": 29,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 }
 ],
 "hachikanbus/hachimanbus": [
@@ -1114,7 +1352,9 @@
 "lead": 11,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-09-30",
+"new_from": "2025-07-09"
 },
 {
 "new_uid": "7989e09e-015d-4b68-9102-57590db4f131",
@@ -1123,7 +1363,9 @@
 "lead": 15,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-12-31",
+"new_from": "2025-10-18"
 },
 {
 "new_uid": "9d1ed744-1c8c-4eb7-b3ba-c4b24c60e6c2",
@@ -1132,7 +1374,9 @@
 "lead": 22,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-10",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "baa286a4-27cb-4df8-a264-d8adc877b123",
@@ -1141,7 +1385,9 @@
 "lead": 1,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-03-31",
+"new_from": "2026-07-21"
 }
 ],
 "nouhibus/nouhibus_kanko": [
@@ -1152,7 +1398,9 @@
 "lead": 6,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-04-20",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "ec8d8a5e-95cd-4067-88fd-80489832ad6d",
@@ -1161,7 +1409,9 @@
 "lead": 5,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-20",
+"new_from": "2026-04-01"
 }
 ],
 "ichikawatown/communitybus": [
@@ -1172,7 +1422,9 @@
 "lead": -32,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "93a5e922-1c0a-4516-bbdb-960bb00ffe1f",
@@ -1181,7 +1433,9 @@
 "lead": 3,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-30",
+"new_from": "2025-06-02"
 },
 {
 "new_uid": "47693508-f1f1-4842-8836-aee6c0be7920",
@@ -1190,7 +1444,9 @@
 "lead": 2,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-30",
+"new_from": "2026-05-01"
 }
 ],
 "masudacity/noriai": [
@@ -1201,7 +1457,9 @@
 "lead": 18,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-12-04",
+"new_from": "2026-01-01"
 }
 ],
 "kagaminotown/kagaminotownbus": [
@@ -1212,7 +1470,9 @@
 "lead": 26,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "86e819a4-4b15-47b6-80c3-99aa92116757",
@@ -1221,7 +1481,9 @@
 "lead": 91,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-10-06"
 }
 ],
 "kuroiwa-kanko/GTFS-Kuroiwakanko_Localbus": [
@@ -1232,7 +1494,9 @@
 "lead": 8,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-24",
+"new_from": "2025-03-15"
 },
 {
 "new_uid": "8f06cd08-3c8a-460b-b7ef-df69299fc471",
@@ -1241,7 +1505,9 @@
 "lead": 14,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-07-26",
+"new_from": "2025-07-01"
 },
 {
 "new_uid": "4adf155a-907a-426f-b544-3591d8783e2e",
@@ -1250,7 +1516,9 @@
 "lead": 14,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-07-30",
+"new_from": "2026-07-01"
 }
 ],
 "sukumocity/GTFS-Sukumocity_Ferry": [
@@ -1261,7 +1529,9 @@
 "lead": 7,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-08-10",
+"new_from": "2025-08-01"
 }
 ],
 "takeyakoutu/takeyakotsu": [
@@ -1272,7 +1542,9 @@
 "lead": 2,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2024-12-31",
+"new_from": "2024-12-01"
 },
 {
 "new_uid": "6c181e4b-c3af-4162-9ac7-666e46a57c33",
@@ -1281,7 +1553,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "bb606502-c047-43d0-a5ee-b1af9b99f6e9",
@@ -1290,7 +1564,9 @@
 "lead": -24,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-07-01"
 },
 {
 "new_uid": "eeeacaaf-98d3-4714-9990-ce8f7a9472c8",
@@ -1299,7 +1575,9 @@
 "lead": -55,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "94255f1a-b685-4d55-bba4-f09f2c1e4b7b",
@@ -1308,7 +1586,9 @@
 "lead": -2,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-01-01"
 },
 {
 "new_uid": "6e3e9a42-c46f-410e-ad06-5eb4cba2f0c3",
@@ -1317,7 +1597,9 @@
 "lead": 17,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "3d1c8dc1-ceeb-46af-9cb0-5e163d1033e8",
@@ -1326,7 +1608,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-09-30",
+"new_from": "2026-07-21"
 },
 {
 "new_uid": "4bca2d63-80de-4274-a6c2-003e64999773",
@@ -1335,7 +1619,9 @@
 "lead": 8,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-03-31",
+"new_from": "2026-09-01"
 },
 {
 "new_uid": "44f88d5c-5d53-406f-baea-6ff3f63dc925",
@@ -1344,7 +1630,9 @@
 "lead": -29,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
 }
 ],
 "kakogawacity/kakobuskakobusmini": [
@@ -1355,7 +1643,9 @@
 "lead": 18,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "2d502580-c0f5-426a-b435-1921193cf14a",
@@ -1364,7 +1654,9 @@
 "lead": -8,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-30",
+"new_from": "2025-12-01"
 }
 ],
 "khkhokubu-kotsu/GTFS-Hokubutraffic_Localbus": [
@@ -1375,7 +1667,9 @@
 "lead": 23,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-01-03",
+"new_from": "2026-10-01"
 }
 ],
 "uozucity/junkai": [
@@ -1386,7 +1680,9 @@
 "lead": 4,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2024-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "5808003f-abcf-4259-8613-1cbfc6022d53",
@@ -1395,7 +1691,9 @@
 "lead": 3,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-12-01"
 },
 {
 "new_uid": "32f34f07-a27e-433f-9932-e0dba7d33fc0",
@@ -1404,7 +1702,9 @@
 "lead": -79,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-12-02"
 },
 {
 "new_uid": "4f3a392b-db17-4105-bca0-80462ff22839",
@@ -1413,7 +1713,9 @@
 "lead": 1,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "6e2f3b1b-6e6e-42af-9d59-2a8d2a4142d2",
@@ -1422,7 +1724,9 @@
 "lead": -6,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-03-31",
+"new_from": "2026-04-02"
 }
 ],
 "yamagata-yamagatacity/YamagataCity": [
@@ -1433,7 +1737,9 @@
 "lead": 23,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-01-08"
 },
 {
 "new_uid": "6d15fff5-1ad6-4177-920c-f027ab65dd0b",
@@ -1442,7 +1748,9 @@
 "lead": -45,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-10-07"
 },
 {
 "new_uid": "cc7d121a-c196-4020-9e17-0eb340a46bcd",
@@ -1451,7 +1759,9 @@
 "lead": 29,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-03-31",
+"new_from": "2026-07-07"
 },
 {
 "new_uid": "a329e905-2409-4dea-ae40-e54f26d04a88",
@@ -1460,7 +1770,9 @@
 "lead": 23,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-03-31",
+"new_from": "2026-09-02"
 }
 ],
 "niyodogawatown/GTFS-Niyodogawatown_Townsbus": [
@@ -1471,7 +1783,9 @@
 "lead": -4,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-07-31",
+"new_from": "2025-03-15"
 }
 ],
 "kakegawacity/kakegawa6": [
@@ -1482,7 +1796,9 @@
 "lead": -51,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "9ed6b556-3407-4409-a384-e347fb4a1392",
@@ -1491,7 +1807,9 @@
 "lead": 11,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-06-30",
+"new_from": "2026-10-19"
 }
 ],
 "tokushimacity/kamihachimanbus": [
@@ -1502,7 +1820,9 @@
 "lead": -486,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2024-05-25",
+"new_from": "2024-04-30"
 },
 {
 "new_uid": "ca69ee7b-4ac2-454c-84ad-082890e87564",
@@ -1511,7 +1831,9 @@
 "lead": 21,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-08-28",
+"new_from": "2026-04-01"
 }
 ],
 "shimanto-kotsu/GTFS-Shimantotraffic_Feederbus": [
@@ -1522,7 +1844,9 @@
 "lead": 36,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-04-01",
+"new_from": "2026-10-01"
 }
 ],
 "yanaizutown/yanaizutown-bus": [
@@ -1533,7 +1857,9 @@
 "lead": 2,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
 },
 {
 "new_uid": "77c6e8a9-ce02-4bfe-99da-80958b4df7e5",
@@ -1542,7 +1868,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-12-28",
+"new_from": "2026-10-19"
 }
 ],
 "motosucity/shieibus": [
@@ -1553,7 +1881,9 @@
 "lead": 210,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-09-30",
+"new_from": "2024-12-24"
 },
 {
 "new_uid": "1251a4f1-771e-4be9-877a-0ebde0982e7b",
@@ -1562,7 +1892,9 @@
 "lead": -45,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "33334508-c96c-438b-979d-ff149a8de5e9",
@@ -1571,7 +1903,9 @@
 "lead": 2,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
 },
 {
 "new_uid": "401afc22-34c1-41de-a957-07eaba5369f0",
@@ -1580,7 +1914,9 @@
 "lead": 8,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-10-14",
+"new_from": "2026-10-15"
 }
 ],
 "jr-shikoku-bus-kochi/GTFS-JRbus_Otochi": [
@@ -1591,7 +1927,9 @@
 "lead": 43,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-04-01",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "c021be10-8e28-4d6e-bff6-1da8c85b7de4",
@@ -1600,7 +1938,9 @@
 "lead": -21,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-07-01"
 }
 ],
 "hannocity/odekakemuma-minamikoma": [
@@ -1611,7 +1951,9 @@
 "lead": -450,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2024-12-31",
+"new_from": "2024-10-01"
 }
 ],
 "kumamoto-shiden/kumamotoshiden": [
@@ -1622,7 +1964,9 @@
 "lead": 2,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-04-05"
 }
 ],
 "nasushiobaracity/chiikibasu": [
@@ -1633,7 +1977,9 @@
 "lead": 6,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 }
 ],
 "tatsunocity/communitybus": [
@@ -1644,7 +1990,9 @@
 "lead": 18,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "12ed4186-192c-4a7e-b87b-94ea850a6273",
@@ -1653,7 +2001,9 @@
 "lead": 15,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-30",
+"new_from": "2026-04-01"
 }
 ],
 "joetsucity/joetsu": [
@@ -1664,7 +2014,9 @@
 "lead": -143,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "64d2ed81-d4bb-4fb2-9475-c8ed30aaf518",
@@ -1673,7 +2025,9 @@
 "lead": 4,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 }
 ],
 "kumanocity/communitybus": [
@@ -1684,7 +2038,9 @@
 "lead": 4,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-01-31",
+"new_from": "2026-06-01"
 }
 ],
 "soedatown/soedamachibus": [
@@ -1695,7 +2051,9 @@
 "lead": 52,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-06-20",
+"new_from": "2025-02-01"
 },
 {
 "new_uid": "93c645dd-3084-4d90-abf8-8d8d296440de",
@@ -1704,7 +2062,9 @@
 "lead": 15,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-01-31",
+"new_from": "2025-03-15"
 },
 {
 "new_uid": "0ad1d672-6120-4604-be5f-c5af03e8735c",
@@ -1713,7 +2073,9 @@
 "lead": 32,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-14",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "cbd316f7-d307-4ff0-b77b-277fa09b2e80",
@@ -1722,7 +2084,9 @@
 "lead": 40,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-04-21"
 },
 {
 "new_uid": "b32dc735-f3e7-4906-ba25-231d0d19ed0a",
@@ -1731,7 +2095,9 @@
 "lead": 42,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-20",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "f901a41b-751f-44e6-b6a4-c5602d215f68",
@@ -1740,7 +2106,9 @@
 "lead": 26,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-12-01",
+"new_from": "2026-04-01"
 }
 ],
 "towadakankodentetsu/toutetsu_airport_line": [
@@ -1751,7 +2119,9 @@
 "lead": 6,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-06-30",
+"new_from": "2026-07-01"
 },
 {
 "new_uid": "e8584a65-fde1-4f6e-bb87-2a231d75b784",
@@ -1760,7 +2130,9 @@
 "lead": 22,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-07-16",
+"new_from": "2026-07-17"
 },
 {
 "new_uid": "c55792e2-1e43-4c1d-b144-c4951196d685",
@@ -1769,7 +2141,9 @@
 "lead": 15,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-07-31",
+"new_from": "2026-08-01"
 },
 {
 "new_uid": "24d97900-0f03-4a22-9657-f60421f476a3",
@@ -1778,7 +2152,9 @@
 "lead": 12,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-08-31",
+"new_from": "2026-09-01"
 },
 {
 "new_uid": "179cec35-fb53-4d9b-8f91-ef7203a44fa8",
@@ -1787,7 +2163,9 @@
 "lead": 15,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
 },
 {
 "new_uid": "80c65d7c-01b1-4f50-ab04-30059c866c46",
@@ -1796,7 +2174,9 @@
 "lead": 10,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-10-24",
+"new_from": "2026-10-25"
 },
 {
 "new_uid": "8ba49830-c5a9-4f0f-8935-27f0706809d7",
@@ -1805,7 +2185,9 @@
 "lead": 14,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-11-30",
+"new_from": "2026-12-01"
 }
 ],
 "yamagatatetsudo/flowerliner": [
@@ -1816,7 +2198,9 @@
 "lead": 10,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-15",
+"new_from": "2025-03-15"
 },
 {
 "new_uid": "fd236e73-4fba-4ae8-962f-bacf63dd9a95",
@@ -1825,7 +2209,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-14",
+"new_from": "2025-04-14"
 },
 {
 "new_uid": "f62087b1-e6f3-4d37-b6fa-b3fc18020d75",
@@ -1834,7 +2220,9 @@
 "lead": 5,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-13",
+"new_from": "2026-03-14"
 }
 ],
 "kumanogobobus/kumanogobobus_gobo": [
@@ -1845,7 +2233,9 @@
 "lead": -95,
 "late": true,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "e533dd5c-1665-4d7e-a72b-5e695f39d982",
@@ -1854,7 +2244,9 @@
 "lead": 146,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
 }
 ],
 "shimanto-kotsu/GTFS-Shimantotraffic_Localbus": [
@@ -1865,7 +2257,9 @@
 "lead": 27,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-01-02",
+"new_from": "2024-12-01"
 },
 {
 "new_uid": "7592af6e-3f60-4c7c-9327-405a6bdf4f26",
@@ -1874,7 +2268,9 @@
 "lead": 8,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-26",
+"new_from": "2025-03-15"
 },
 {
 "new_uid": "512aaad5-3e1f-4bc2-9da8-04d3698c1977",
@@ -1883,7 +2279,9 @@
 "lead": 7,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "f1162c02-c452-4f6a-b862-0435f31d47ba",
@@ -1892,7 +2290,9 @@
 "lead": 17,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-07-31",
+"new_from": "2025-07-01"
 },
 {
 "new_uid": "82eea645-088d-4e24-b7bc-bb311fd74f81",
@@ -1901,7 +2301,9 @@
 "lead": 14,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-10-04",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "de11667c-f64f-48be-8def-3bdf4b3729cd",
@@ -1910,7 +2312,9 @@
 "lead": 5,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-09-30",
+"new_from": "2025-10-08"
 },
 {
 "new_uid": "6373fe89-2473-45b3-8b3e-09e4305db73e",
@@ -1919,7 +2323,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-01-02",
+"new_from": "2025-10-17"
 },
 {
 "new_uid": "57fcc520-abe6-4f78-b7a4-9d3c4dd047d1",
@@ -1928,7 +2334,9 @@
 "lead": 13,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-01-02",
+"new_from": "2025-11-01"
 },
 {
 "new_uid": "45dc8efa-460d-4b5d-9b31-4d000ab60998",
@@ -1937,7 +2345,9 @@
 "lead": 27,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
 },
 {
 "new_uid": "8a72f00d-e82d-4fb3-9c3f-66c96719b754",
@@ -1946,7 +2356,9 @@
 "lead": 24,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-04-01",
+"new_from": "2026-10-01"
 }
 ],
 "shinjobankotsu/SHINJOBANKOTSU": [
@@ -1957,7 +2369,9 @@
 "lead": 14,
 "late": false,
 "censored": false,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
 },
 {
 "new_uid": "e832bbfa-4d9f-4ae5-bb8a-cf5ad1df9e76",
@@ -1966,7 +2380,9 @@
 "lead": 15,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-30",
+"new_from": "2025-10-01"
 },
 {
 "new_uid": "dd8a5f4b-07c3-4d68-83d8-1db4a632cec5",
@@ -1975,7 +2391,9 @@
 "lead": 1,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-30",
+"new_from": "2025-12-15"
 },
 {
 "new_uid": "a7da0dc6-c2ca-47df-9833-7c62a90b39ea",
@@ -1984,7 +2402,9 @@
 "lead": 9,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-04-30",
+"new_from": "2026-04-01"
 }
 ],
 "aketetsu/akechirailway": [
@@ -1995,7 +2415,9 @@
 "lead": 10,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-03-15"
 },
 {
 "new_uid": "a2767f5e-23e9-4280-84af-6c4fa27d106d",
@@ -2004,7 +2426,9 @@
 "lead": 13,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-14",
+"new_from": "2026-03-14"
 }
 ],
 "nouhibus/takayama_shuyu": [
@@ -2015,7 +2439,9 @@
 "lead": 10,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2027-03-31",
+"new_from": "2026-11-02"
 }
 ],
 "rinkan/hashimoto-rinkandenentoshi": [
@@ -2026,7 +2452,9 @@
 "lead": 3,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-12-31",
+"new_from": "2026-03-28"
 }
 ],
 "isetetu/iserailway": [
@@ -2037,7 +2465,9 @@
 "lead": 2,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-31",
+"new_from": "2025-03-15"
 },
 {
 "new_uid": "a45ff368-7894-47f7-ae2b-3aa3c59c6605",
@@ -2046,7 +2476,9 @@
 "lead": 9,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-31",
+"new_from": "2026-03-14"
 }
 ],
 "kumamotodentetsu/kumamotodentetsu": [
@@ -2057,7 +2489,9 @@
 "lead": 26,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-12-28",
+"new_from": "2025-02-03"
 },
 {
 "new_uid": "4d8e3a90-47f8-43d9-8d37-aaa72a5034c0",
@@ -2066,7 +2500,9 @@
 "lead": -184,
 "late": true,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-12-28",
+"new_from": "2026-05-11"
 }
 ],
 "asatetu/asakaigantetsudo": [
@@ -2077,7 +2513,9 @@
 "lead": 5,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2025-03-15",
+"new_from": "2025-03-15"
 },
 {
 "new_uid": "ab83931e-1e5f-4f79-b5f7-5577778a0ff8",
@@ -2086,7 +2524,9 @@
 "lead": 0,
 "late": false,
 "censored": true,
-"src": "sample"
+"src": "sample",
+"old_to": "2026-03-14",
+"new_from": "2026-06-11"
 }
 ]
 }

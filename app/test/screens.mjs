@@ -104,6 +104,17 @@ const cases = [
   { name: "通知を押して開く画面（変わる日が分からない）", hash: `#notice/${encodeURIComponent("test/unknown")}/2026-12-01`, want: ["米沢市営バスの時刻表が変わりました。"] },
   { name: "バスを選ぶ画面（ふだん何日前）", hash: "#add/feed/6", want: ["このバスの新しい時刻表は、ふだん、変わる日の約12日前に出ています（これまでの5回。早いときは20日前、遅いときは3日前）"] },
   { name: "改正の知らせの出典の行（ふだん何日前）", hash: "#trip/big", want: ["約12日前に出ています"] },
+  // 変わる日を過ぎたあと（12/2）：「変わりました」。古い版はバスの一覧に無いが、改正のデータは古い版の時刻表を読む
+  { today: "2026-12-02", name: "12/2 移動の画面：行けなくなる（国立米沢病院前）", hash: "#trip/cannot", want: ["1本で行けるバスがなくなりました", "12月1日（火）から、『例cannot』が変わりました", "9:00発 → 9:13着"] },
+  { today: "2026-12-02", name: "12/2 移動の画面：ほぼ変わらない", hash: "#trip/tiny", want: ["12月1日（火）から時刻表が変わりましたが、『例tiny』は変わりません"] },
+  { today: "2026-12-02", name: "12/2 ホーム", hash: "#home", want: ["バスの時刻表が変わりました。"] },
+  { today: "2026-12-02", name: "12/2 通知を押して開く画面", hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["米沢市営バスの時刻表が、12月1日に変わりました。"] },
+  { today: "2026-12-02", name: "12/2 事業者の画面", hash: "#biz/result", biz: true, want: ["から、バスの時刻が変わりました"] },
+  { today: "2026-12-02", name: "12/2 貼り紙", hash: "#poster", biz: true, want: ["バスの時刻が変わりました", "前の時刻"] },
+  // 30日を過ぎたあと（2027/1/5）：知らせは出さない。無くなった停留所は、無くなった改正を言う
+  { today: "2027-01-05", name: "1/5 移動の画面：国立米沢病院前", hash: "#trip/cannot", want: ["「国立米沢病院前」：12月1日から、米沢市営バスはこのバス停に止まらなくなりました"] },
+  { today: "2027-01-05", name: "1/5 移動の画面：ほぼ変わらない", hash: "#trip/tiny", want: ["いまのところ、時刻が変わる知らせはありません", "いまのバス"] },
+  { today: "2027-01-05", name: "1/5 ホーム", hash: "#home", want: ["止まらなくなりました", "いまのバス"] },
   { name: "事業者の画面", hash: "#biz/result", biz: true, want: ["から、バスの時刻が変わります", "最終のバス"] },
   { name: "貼り紙", hash: "#poster", biz: true, want: ["バスの時刻が変わります", "作った日"] },
 ];
@@ -129,15 +140,16 @@ const text = (html) => {
 let fail = 0;
 for (const c of cases) {
   const hash = c.hash.startsWith("#trip/") ? `#trip/${idOf[c.hash.slice(6)]}` : c.hash;
-  const q = c.biz ? `today=${TODAY}&biz=${biz}` : `today=${TODAY}&try=${tryParam}`;
+  const day = c.today || TODAY;
+  const q = c.biz ? `today=${day}&biz=${biz}` : `today=${day}&try=${tryParam}`;
   // ヘッドレスの Chrome は、仮想の時間の進み方で、まれに読みこみの途中で打ち切ることがある。
-  // 画面の誤りが無いのに止まったときだけ、2回までやり直す（本当に止まる誤りは、何度やっても止まる）
+  // 画面の誤りが無いのに止まったときだけ、4回までやり直す（本当に止まる誤りは、何度やっても止まる）
   let html, errs, t, tries = 0;
   do {
     ({ html, errs } = await dump(`http://127.0.0.1:${port}/?${q}${hash}`));
     t = text(html);
     tries++;
-  } while (!errs.length && t.includes("読みこんでいます") && tries < 3);
+  } while (!errs.length && t.includes("読みこんでいます") && tries < 5);
   const problems = errs.map((e) => `画面の誤り：${e}`);
   if (!t.trim()) problems.push("画面が空");
   if (t.includes("読みこんでいます")) problems.push("「読みこんでいます…」で止まった");
