@@ -1,0 +1,2092 @@
+{
+"mie-kotsu/sancoise": [
+{
+"new_uid": "9dad6ca8-309d-4f44-ad44-798a15edaafb",
+"published": "2025-01-02",
+"change": "2025-01-05",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "f3bce84e-b094-4d00-a3ad-75df1c273810",
+"published": "2025-01-05",
+"change": "2025-01-05",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "c71c4e60-06f3-4613-a9a2-0b8fc7d99337",
+"published": "2025-03-06",
+"change": "2025-02-01",
+"lead": -33,
+"late": true,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "2a8adbcb-52c5-4603-a80d-e666a151507e",
+"published": "2025-03-09",
+"change": "2025-02-01",
+"lead": -36,
+"late": true,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "d92f556b-d3c0-4dff-82c4-145682261e1b",
+"published": "2025-03-21",
+"change": "2025-04-02",
+"lead": 12,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "58fd3ea8-34e4-4964-9d0f-37bd01522e47",
+"published": "2025-03-23",
+"change": "2025-04-02",
+"lead": 10,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "7e2a2d8e-4029-48f4-9dfb-fe70a6afd61b",
+"published": "2025-09-27",
+"change": "2025-10-02",
+"lead": 5,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "64d95672-ba55-477b-88b9-ad0398d7e139",
+"published": "2025-09-28",
+"change": "2025-10-02",
+"lead": 4,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "d69c66e1-9ff0-4d70-9c4c-984716c7a3df",
+"published": "2025-09-30",
+"change": "2025-05-14",
+"lead": -139,
+"late": true,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "5e829575-3717-4098-be3d-000df544a656",
+"published": "2025-10-05",
+"change": "2025-10-02",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "2d5d3d98-0ceb-4378-abdf-9d4c95e51ca2",
+"published": "2025-12-27",
+"change": "2026-01-04",
+"lead": 8,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "4821c0d0-83f1-4bba-a251-efbc99b23fb0",
+"published": "2025-12-28",
+"change": "2026-01-04",
+"lead": 7,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "66d4dbe7-73e9-4cfc-b733-c638ef441c5b",
+"published": "2026-01-05",
+"change": "2026-01-04",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "d6486c4e-a9cd-4f65-b9d6-1021b3a51785",
+"published": "2026-01-11",
+"change": "2026-01-04",
+"lead": -7,
+"late": false,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "7d297e8e-85a7-4e4c-bbc0-b74f77641216",
+"published": "2026-03-31",
+"change": "2026-04-02",
+"lead": 2,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "a624d21a-ad2b-469c-a9cf-f03d310f2898",
+"published": "2026-04-05",
+"change": "2026-04-02",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "b655cba0-a703-4554-b205-5673985adeec",
+"published": "2026-10-01",
+"change": "2026-10-02",
+"lead": 1,
+"late": false,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "9f806daa-4357-4473-9467-f77569084fa4",
+"published": "2026-10-04",
+"change": "2026-10-02",
+"lead": -2,
+"late": false,
+"censored": true,
+"src": "daily"
+}
+],
+"kumamoto-toshibus/kumamoto-toshibus": [
+{
+"new_uid": "ef2f0477-e682-4d05-97a2-3b359e409841",
+"published": "2025-09-12",
+"change": "2025-11-01",
+"lead": 50,
+"late": false,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "0b962e30-160b-42d0-bb8e-9eb29b587743",
+"published": "2025-09-14",
+"change": "2025-12-06",
+"lead": 83,
+"late": false,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "fdf7e9c3-5492-474d-98b9-0247270e544d",
+"published": "2025-11-28",
+"change": "2025-12-01",
+"lead": 3,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "04e1c685-38b0-40a6-84f8-2f32139810fd",
+"published": "2025-11-30",
+"change": "2025-12-01",
+"lead": 1,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "c0f3d34f-2647-4a7d-850c-5173a0c1e253",
+"published": "2026-03-20",
+"change": "2026-04-01",
+"lead": 12,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "0b0687c3-3c98-49e1-bf76-3e5a6c5da49e",
+"published": "2026-03-22",
+"change": "2026-04-01",
+"lead": 10,
+"late": true,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "ef05a680-e00f-4d05-9426-c5c92905ce12",
+"published": "2026-04-07",
+"change": "2026-04-07",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "d0fa6b94-8807-4802-92fd-803b354b534a",
+"published": "2026-04-12",
+"change": "2026-04-07",
+"lead": -5,
+"late": false,
+"censored": true,
+"src": "daily"
+},
+{
+"new_uid": "121a31c1-6d90-4d28-b472-9fda1eb48964",
+"published": "2026-05-20",
+"change": "2026-06-06",
+"lead": 17,
+"late": false,
+"censored": false,
+"src": "daily"
+},
+{
+"new_uid": "0cbb2fba-79b5-493c-b3cc-811a6966b663",
+"published": "2026-05-24",
+"change": "2026-06-06",
+"lead": 13,
+"late": false,
+"censored": false,
+"src": "daily"
+}
+],
+"tokubus/tokushimabus": [
+{
+"new_uid": "f88afe0d-69d8-40a0-8ff1-10d1b7291156",
+"published": "2025-03-19",
+"change": "2025-04-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "fb0624aa-91d5-417d-a71d-a18a963db4ea",
+"published": "2025-09-22",
+"change": "2025-10-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "57d1eebc-1897-4561-a80c-03b4404b9066",
+"published": "2025-12-30",
+"change": "2026-01-10",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "6d4cd33f-de49-4fa7-98ba-f5be6770752f",
+"published": "2026-03-27",
+"change": "2026-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "db508029-0181-4981-9727-085d0ce891c4",
+"published": "2026-05-26",
+"change": "2026-05-30",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "d0b6ec39-917c-42d9-ac76-560e0df27102",
+"published": "2026-05-26",
+"change": "2026-06-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "d02c649c-4443-4d91-810e-687211f39058",
+"published": "2026-10-01",
+"change": "2026-10-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "large"
+}
+],
+"chitetsu/chitetsubus": [
+{
+"new_uid": "69b88be9-64e3-4c44-8571-a22e4f35bf62",
+"published": "2025-03-21",
+"change": "2025-03-17",
+"lead": -4,
+"late": false,
+"censored": false,
+"src": "large"
+},
+{
+"new_uid": "8895ef37-be5b-41f1-bd49-2dfbc415806a",
+"published": "2025-03-21",
+"change": "2025-04-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "e5e83a8a-cc10-433c-921f-b18163aec7c1",
+"published": "2025-04-08",
+"change": "2025-04-02",
+"lead": -6,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "368444ac-ecab-44e1-8827-c57b0e5e3019",
+"published": "2025-06-05",
+"change": "2025-05-16",
+"lead": -20,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "048d4f20-6e5a-4d8e-879d-c842ee4bade2",
+"published": "2025-09-26",
+"change": "2025-10-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "6d399755-e25c-4da7-ab85-b9fa9e71c199",
+"published": "2025-10-09",
+"change": "2025-10-07",
+"lead": -2,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "21af3af6-d6ee-430c-8b61-bfc4474f8909",
+"published": "2025-10-21",
+"change": "2025-10-16",
+"lead": -5,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "67b6390c-3315-4d6a-89b7-df7c09189be9",
+"published": "2026-05-12",
+"change": "2026-04-01",
+"lead": -41,
+"late": true,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "1257bce7-727d-4181-a089-f29d03c54155",
+"published": "2026-10-01",
+"change": "2026-10-02",
+"lead": 1,
+"late": false,
+"censored": false,
+"src": "large"
+},
+{
+"new_uid": "ee5d89a6-eec7-4dc0-bbd8-2ae92f94445c",
+"published": "2026-10-19",
+"change": "2026-10-19",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "large"
+}
+],
+"yamakobus/YAMAKOBUS": [
+{
+"new_uid": "f1313b1d-c3e3-4f8e-ba89-9b8120093ce9",
+"published": "2025-05-09",
+"change": "2025-04-01",
+"lead": -38,
+"late": true,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "aaec6a87-aa28-40e3-a873-f072d10a7f89",
+"published": "2025-09-22",
+"change": "2025-09-10",
+"lead": -12,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "402d5349-599f-4d3c-88a9-c6236e1a4885",
+"published": "2025-12-16",
+"change": "2025-12-13",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "dffb65c9-2211-45e7-bb00-4da4ff07d59f",
+"published": "2026-03-24",
+"change": "2026-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "b635b67f-2655-419b-a676-7fe955139b76",
+"published": "2026-09-15",
+"change": "2026-05-30",
+"lead": -108,
+"late": true,
+"censored": false,
+"src": "large"
+},
+{
+"new_uid": "d906f637-f479-4d37-90e7-6100bd0d4222",
+"published": "2026-11-06",
+"change": "2026-10-31",
+"lead": -6,
+"late": false,
+"censored": true,
+"src": "large"
+}
+],
+"keisei-transitbus/keiseitransitbus": [
+{
+"new_uid": "72b1ae52-5f98-439f-88f3-aa406751c86b",
+"published": "2024-12-16",
+"change": "2024-12-06",
+"lead": -10,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "baa08cb6-4b31-418c-872d-cea98e340df3",
+"published": "2025-01-27",
+"change": "2025-02-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "6f271026-ab63-4b1f-8b89-593c91a4503e",
+"published": "2025-03-19",
+"change": "2025-04-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "large"
+}
+],
+"tosaden-kotsu/GTFS-Tosadentraffic_Regularbus": [
+{
+"new_uid": "7bcd5997-f217-4335-aa34-466116eb9c5f",
+"published": "2025-09-22",
+"change": "2025-10-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "d7592e8d-6299-44e1-ad6f-8a68f07c115b",
+"published": "2026-09-15",
+"change": "2026-10-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "f45b07ac-deb9-4669-b169-4acec5a16916",
+"published": "2026-09-19",
+"change": "2026-09-01",
+"lead": -18,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "89ea5822-8509-43a5-b210-5a171e31f347",
+"published": "2026-10-01",
+"change": "2026-10-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "large"
+}
+],
+"tohtetsu/tohtetsu_tajimi": [
+{
+"new_uid": "c4d1ed37-8e25-4acb-855d-2b1e6e7b554a",
+"published": "2026-09-14",
+"change": "2026-10-01",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "large"
+}
+],
+"nagai-unyu/Nagaibus": [
+{
+"new_uid": "4a4a81e7-166c-4671-bd5e-bf20c6dc52e0",
+"published": "2025-09-19",
+"change": "2025-04-07",
+"lead": -165,
+"late": true,
+"censored": false,
+"src": "large"
+},
+{
+"new_uid": "b1be1add-3553-4b31-86bc-348479c25526",
+"published": "2025-09-26",
+"change": "2025-10-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "17ab34e1-dcb8-4b2e-9cda-ae2b68f4c444",
+"published": "2026-07-08",
+"change": "2026-04-01",
+"lead": -98,
+"late": true,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "63b5bea3-9b56-4992-8ec0-0206eefeb46b",
+"published": "2026-09-24",
+"change": "2026-10-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "large"
+}
+],
+"kaetsunou/kaetsunouippan": [
+{
+"new_uid": "2632f08c-400f-4f26-82df-1e52689f844d",
+"published": "2025-03-14",
+"change": "2025-02-21",
+"lead": -21,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "cdb9e5e5-81bf-433d-b04b-c4e713f2c59a",
+"published": "2025-03-14",
+"change": "2025-04-05",
+"lead": 22,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "9a65d655-f073-4d21-8769-b4828f757317",
+"published": "2025-10-30",
+"change": "2025-11-02",
+"lead": 3,
+"late": false,
+"censored": false,
+"src": "large"
+},
+{
+"new_uid": "206c3a12-1db5-4947-9e7d-7dc86a3b1816",
+"published": "2025-11-21",
+"change": "2025-12-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "14355ff1-2762-49a4-9472-f2d276eae52d",
+"published": "2026-07-06",
+"change": "2026-04-01",
+"lead": -96,
+"late": true,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "3250d0af-f7c3-4931-8917-3cd2b44a15e1",
+"published": "2026-07-07",
+"change": "2026-07-07",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "6a8ae3fb-4126-4b9a-b158-2fc4af6bdb13",
+"published": "2026-07-14",
+"change": "2026-07-14",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "f5ba85f9-8ce5-4857-9652-32c52319943e",
+"published": "2026-07-16",
+"change": "2026-07-16",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "34bb7836-e530-404b-8117-2a473ae8ecd6",
+"published": "2026-10-30",
+"change": "2026-12-01",
+"lead": 32,
+"late": false,
+"censored": true,
+"src": "large"
+}
+],
+"nouhibus/nouhibus": [
+{
+"new_uid": "8eac3811-4acd-4f28-b04c-d36aa91dc4b4",
+"published": "2024-12-19",
+"change": "2024-12-23",
+"lead": 4,
+"late": false,
+"censored": false,
+"src": "large"
+},
+{
+"new_uid": "c237bc06-a46a-499f-a0e6-842759ad15ce",
+"published": "2025-03-28",
+"change": "2025-04-05",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "50b3a6be-d6af-47af-a4e1-0228f32581b4",
+"published": "2025-09-29",
+"change": "2025-10-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "531117f9-e19b-4bfe-a3f2-c78fffb13a8a",
+"published": "2026-01-12",
+"change": "2026-01-13",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "c573b738-d266-4a1e-9a4d-49b663e4543d",
+"published": "2026-03-27",
+"change": "2026-04-04",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "large"
+}
+],
+"kitaena/kitaena": [
+{
+"new_uid": "7820c8b4-f2ee-4f4d-bab2-d34a3a0eead3",
+"published": "2025-02-21",
+"change": "2025-04-01",
+"lead": 39,
+"late": false,
+"censored": false,
+"src": "large"
+},
+{
+"new_uid": "b4560e88-4df3-4018-a4d2-4675a84cff86",
+"published": "2025-03-24",
+"change": "2025-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "bd9ebb9a-ffe2-4c2a-91e8-a23736c7185c",
+"published": "2025-05-21",
+"change": "2025-06-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "2a37f2df-894b-4897-ad3c-192268fdf204",
+"published": "2025-08-14",
+"change": "2025-09-06",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "3554f51a-daa8-442b-adf8-3cb9fe3bed5e",
+"published": "2025-09-24",
+"change": "2025-10-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "995decfa-2263-455c-a859-99e2e58bccf5",
+"published": "2026-02-20",
+"change": "2026-04-01",
+"lead": 40,
+"late": false,
+"censored": true,
+"src": "large"
+},
+{
+"new_uid": "b86d1dec-98dc-4874-a7b4-a9887078511e",
+"published": "2026-09-15",
+"change": "2026-09-19",
+"lead": 4,
+"late": false,
+"censored": false,
+"src": "large"
+}
+],
+"meikobus/meikobus": [
+{
+"new_uid": "8060f14c-51d5-4e38-9d96-e7df8bf33823",
+"published": "2024-12-26",
+"change": "2025-01-24",
+"lead": 29,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "bf33818e-d585-4580-aa14-fb267eb078e9",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "b853f3c5-1e03-4be8-9ac3-306ade256493",
+"published": "2025-04-30",
+"change": "2025-05-07",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "51472669-7108-49d4-80b2-ecd87eed2a16",
+"published": "2025-06-19",
+"change": "2025-07-01",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "d3c2e7ed-e247-4b14-a406-07fa432e5e73",
+"published": "2025-07-08",
+"change": "2025-08-02",
+"lead": 25,
+"late": false,
+"censored": false,
+"src": "meikobus"
+},
+{
+"new_uid": "340a5dd3-625a-45db-823c-7bbc04f59418",
+"published": "2025-08-19",
+"change": "2025-09-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "e7fa1ad8-f28c-4165-9c83-7b0e7e2aeb06",
+"published": "2025-09-24",
+"change": "2025-10-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "8e289490-b1dc-473c-a818-8e89bcba6144",
+"published": "2025-10-03",
+"change": "2025-10-03",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "d7f35422-e80e-41f1-ae10-7e31919ab629",
+"published": "2025-10-30",
+"change": "2025-12-01",
+"lead": 32,
+"late": false,
+"censored": false,
+"src": "meikobus"
+},
+{
+"new_uid": "062d23d5-78fc-46d6-ab9e-37590f37a393",
+"published": "2025-12-29",
+"change": "2026-01-07",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "912574ee-4763-4b2c-9d85-85f74bd9266e",
+"published": "2026-02-19",
+"change": "2026-03-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "2e9b9da4-3115-4b60-8b30-897947a0c1d9",
+"published": "2026-03-14",
+"change": "2026-04-02",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "d2ea4373-1f0e-4203-849a-a165e0e77a7a",
+"published": "2026-03-24",
+"change": "2026-03-25",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "5f28ed8a-a0d5-49d4-bcd0-d1929dd93ca8",
+"published": "2026-04-20",
+"change": "2026-04-24",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "5e0773a6-4671-4e94-8da8-fd03492690cd",
+"published": "2026-06-22",
+"change": "2026-06-01",
+"lead": -21,
+"late": false,
+"censored": false,
+"src": "meikobus"
+},
+{
+"new_uid": "75c58c26-67bf-48c2-a931-14b1bb89c41a",
+"published": "2026-06-22",
+"change": "2026-07-16",
+"lead": 24,
+"late": false,
+"censored": false,
+"src": "meikobus"
+},
+{
+"new_uid": "a1973ade-e756-4df8-9e15-57b959798be2",
+"published": "2026-08-11",
+"change": "2026-08-02",
+"lead": -9,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "6e15854b-e520-440a-a84b-275c2032a56d",
+"published": "2026-08-28",
+"change": "2026-09-02",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "cf49374d-ff03-426d-ad60-4828ce950cdc",
+"published": "2026-09-14",
+"change": "2026-09-07",
+"lead": -7,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "4622628b-120d-4308-8eae-1abbc89f84e0",
+"published": "2026-10-14",
+"change": "2026-10-25",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "meikobus"
+},
+{
+"new_uid": "8af5b399-00e9-4e8d-b2a6-c2d061393485",
+"published": "2026-11-15",
+"change": "2026-12-05",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "meikobus"
+}
+],
+"nemurokotsu/nemurobus": [
+{
+"new_uid": "b830a268-697b-4935-824d-a3558ba333be",
+"published": "2025-05-12",
+"change": "2025-04-01",
+"lead": -41,
+"late": true,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "c197d5ac-cd34-4f45-bd8b-3d9fc611122c",
+"published": "2025-08-06",
+"change": "2025-08-06",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "88361647-7ff3-4819-ae53-1b079189b8e6",
+"published": "2025-08-07",
+"change": "2025-08-20",
+"lead": 13,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "d7ca4ac5-3b7c-4007-9207-2662cba91a94",
+"published": "2025-12-24",
+"change": "2025-12-24",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "31577a0e-b0e1-47fe-aeef-a839516856dc",
+"published": "2026-05-26",
+"change": "2026-05-27",
+"lead": 1,
+"late": false,
+"censored": false,
+"src": "sample"
+}
+],
+"hachinohe/hachinohe-citybus": [
+{
+"new_uid": "af1488df-5a99-42f6-bffe-fb63cd86b0e6",
+"published": "2026-11-18",
+"change": "2026-04-01",
+"lead": -231,
+"late": true,
+"censored": true,
+"src": "sample"
+}
+],
+"yonezawacity/Yonezawa": [
+{
+"new_uid": "ef355014-36ff-4e91-951b-136996058d49",
+"published": "2024-11-27",
+"change": "2024-12-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "6d20786b-be35-4d12-a20c-e9a0f269d1b8",
+"published": "2025-03-28",
+"change": "2025-04-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "ebb5e51c-a180-49f1-855f-fd523c709f71",
+"published": "2025-11-20",
+"change": "2025-12-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "2bc35528-daf1-47f7-b5c3-fd38ed8b3240",
+"published": "2026-03-09",
+"change": "2026-04-01",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "be34d058-22c0-4421-8418-7925e6e12378",
+"published": "2026-11-19",
+"change": "2026-12-01",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"keneibus/nagasaki-kenei-bus": [
+{
+"new_uid": "153356a8-4fff-4f8c-b45e-4ca2f50ebd76",
+"published": "2026-11-11",
+"change": "2026-10-26",
+"lead": -16,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "9dc8e290-c7c9-4f6a-9234-5f37605d6d1a",
+"published": "2026-11-19",
+"change": "2026-12-01",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"matsudocity/matsudo": [
+{
+"new_uid": "9ac33576-ed4f-4afb-b75a-3f7fbae8aa48",
+"published": "2025-03-03",
+"change": "2025-04-01",
+"lead": 29,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"hachikanbus/hachimanbus": [
+{
+"new_uid": "a8769570-1936-404a-9c28-677e041f059c",
+"published": "2025-07-11",
+"change": "2025-07-22",
+"lead": 11,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "7989e09e-015d-4b68-9102-57590db4f131",
+"published": "2025-10-03",
+"change": "2025-10-18",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "9d1ed744-1c8c-4eb7-b3ba-c4b24c60e6c2",
+"published": "2026-03-13",
+"change": "2026-04-04",
+"lead": 22,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "baa286a4-27cb-4df8-a264-d8adc877b123",
+"published": "2026-07-20",
+"change": "2026-07-21",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"nouhibus/nouhibus_kanko": [
+{
+"new_uid": "0817be1b-ae34-4cad-811d-70a6e98d914c",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "ec8d8a5e-95cd-4067-88fd-80489832ad6d",
+"published": "2026-03-27",
+"change": "2026-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"ichikawatown/communitybus": [
+{
+"new_uid": "3f2288b3-dec4-4514-9789-4ce040b45663",
+"published": "2025-05-03",
+"change": "2025-04-01",
+"lead": -32,
+"late": true,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "93a5e922-1c0a-4516-bbdb-960bb00ffe1f",
+"published": "2025-05-30",
+"change": "2025-06-02",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "47693508-f1f1-4842-8836-aee6c0be7920",
+"published": "2026-04-29",
+"change": "2026-05-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"masudacity/noriai": [
+{
+"new_uid": "9db2346a-af2c-4fb3-b29f-241eeb23c499",
+"published": "2025-12-18",
+"change": "2026-01-05",
+"lead": 18,
+"late": false,
+"censored": false,
+"src": "sample"
+}
+],
+"kagaminotown/kagaminotownbus": [
+{
+"new_uid": "64dab569-0d31-4c70-a5e6-84a2252a3291",
+"published": "2025-03-06",
+"change": "2025-04-01",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "86e819a4-4b15-47b6-80c3-99aa92116757",
+"published": "2025-10-06",
+"change": "2026-01-05",
+"lead": 91,
+"late": false,
+"censored": false,
+"src": "sample"
+}
+],
+"kuroiwa-kanko/GTFS-Kuroiwakanko_Localbus": [
+{
+"new_uid": "87b62dfc-7208-426e-9ec5-e93c73d55acf",
+"published": "2025-03-07",
+"change": "2025-03-15",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "8f06cd08-3c8a-460b-b7ef-df69299fc471",
+"published": "2025-07-08",
+"change": "2025-07-22",
+"lead": 14,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "4adf155a-907a-426f-b544-3591d8783e2e",
+"published": "2026-07-07",
+"change": "2026-07-21",
+"lead": 14,
+"late": false,
+"censored": false,
+"src": "sample"
+}
+],
+"sukumocity/GTFS-Sukumocity_Ferry": [
+{
+"new_uid": "e6da6455-285e-4e25-8360-4ca3e01d5781",
+"published": "2025-07-25",
+"change": "2025-08-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"takeyakoutu/takeyakotsu": [
+{
+"new_uid": "3c71a70b-d8a5-43fe-a2f7-8b20cbf70e72",
+"published": "2024-11-29",
+"change": "2024-12-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "6c181e4b-c3af-4162-9ac7-666e46a57c33",
+"published": "2025-04-01",
+"change": "2025-04-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "bb606502-c047-43d0-a5ee-b1af9b99f6e9",
+"published": "2025-07-25",
+"change": "2025-07-01",
+"lead": -24,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "eeeacaaf-98d3-4714-9990-ce8f7a9472c8",
+"published": "2025-11-25",
+"change": "2025-10-01",
+"lead": -55,
+"late": true,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "94255f1a-b685-4d55-bba4-f09f2c1e4b7b",
+"published": "2026-01-06",
+"change": "2026-01-04",
+"lead": -2,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "6e3e9a42-c46f-410e-ad06-5eb4cba2f0c3",
+"published": "2026-03-18",
+"change": "2026-04-04",
+"lead": 17,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "3d1c8dc1-ceeb-46af-9cb0-5e163d1033e8",
+"published": "2026-07-21",
+"change": "2026-07-21",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "4bca2d63-80de-4274-a6c2-003e64999773",
+"published": "2026-08-29",
+"change": "2026-09-06",
+"lead": 8,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "44f88d5c-5d53-406f-baea-6ff3f63dc925",
+"published": "2026-10-30",
+"change": "2026-10-01",
+"lead": -29,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"kakogawacity/kakobuskakobusmini": [
+{
+"new_uid": "22486a96-5b6b-4979-b693-7bfb5ecd8fdb",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "2d502580-c0f5-426a-b435-1921193cf14a",
+"published": "2025-12-09",
+"change": "2025-12-01",
+"lead": -8,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"khkhokubu-kotsu/GTFS-Hokubutraffic_Localbus": [
+{
+"new_uid": "d3727e76-4b3b-4fc5-a18a-98bd73f1f164",
+"published": "2026-09-08",
+"change": "2026-10-01",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"uozucity/junkai": [
+{
+"new_uid": "53b3d4ff-b6bb-414f-92d2-68811898da25",
+"published": "2025-03-28",
+"change": "2025-04-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "5808003f-abcf-4259-8613-1cbfc6022d53",
+"published": "2025-11-28",
+"change": "2025-12-01",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "32f34f07-a27e-433f-9932-e0dba7d33fc0",
+"published": "2026-02-19",
+"change": "2025-12-02",
+"lead": -79,
+"late": true,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "4f3a392b-db17-4105-bca0-80462ff22839",
+"published": "2026-03-31",
+"change": "2026-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "6e2f3b1b-6e6e-42af-9d59-2a8d2a4142d2",
+"published": "2026-04-08",
+"change": "2026-04-02",
+"lead": -6,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"yamagata-yamagatacity/YamagataCity": [
+{
+"new_uid": "6c1af768-feb2-4d76-bcf2-0d48a0af5ae5",
+"published": "2024-12-16",
+"change": "2025-01-08",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "6d15fff5-1ad6-4177-920c-f027ab65dd0b",
+"published": "2025-11-21",
+"change": "2025-10-07",
+"lead": -45,
+"late": true,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "cc7d121a-c196-4020-9e17-0eb340a46bcd",
+"published": "2026-06-08",
+"change": "2026-07-07",
+"lead": 29,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "a329e905-2409-4dea-ae40-e54f26d04a88",
+"published": "2026-08-10",
+"change": "2026-09-02",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"niyodogawatown/GTFS-Niyodogawatown_Townsbus": [
+{
+"new_uid": "3f17d72e-e9ac-4f83-9c28-17cd4d0fe85b",
+"published": "2025-03-19",
+"change": "2025-03-15",
+"lead": -4,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"kakegawacity/kakegawa6": [
+{
+"new_uid": "1c4a940f-f617-4e70-8ca5-ab518f3ad61d",
+"published": "2026-05-22",
+"change": "2026-04-01",
+"lead": -51,
+"late": true,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "9ed6b556-3407-4409-a384-e347fb4a1392",
+"published": "2026-10-09",
+"change": "2026-10-20",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"tokushimacity/kamihachimanbus": [
+{
+"new_uid": "ecf5dbdb-f9a9-4fe1-9028-33ef201a0ce3",
+"published": "2025-08-29",
+"change": "2024-04-30",
+"lead": -486,
+"late": true,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "ca69ee7b-4ac2-454c-84ad-082890e87564",
+"published": "2026-03-11",
+"change": "2026-04-01",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"shimanto-kotsu/GTFS-Shimantotraffic_Feederbus": [
+{
+"new_uid": "0c3fdaf3-7a46-406a-9351-13b4c3cef09a",
+"published": "2026-09-01",
+"change": "2026-10-07",
+"lead": 36,
+"late": false,
+"censored": false,
+"src": "sample"
+}
+],
+"yanaizutown/yanaizutown-bus": [
+{
+"new_uid": "d161da9b-2856-4874-9a3f-85379350ab6f",
+"published": "2026-09-29",
+"change": "2026-10-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "77c6e8a9-ce02-4bfe-99da-80958b4df7e5",
+"published": "2026-10-19",
+"change": "2026-10-19",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"motosucity/shieibus": [
+{
+"new_uid": "bcabc476-d3f7-452a-8f31-5078569dc9fc",
+"published": "2024-12-24",
+"change": "2025-07-22",
+"lead": 210,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "1251a4f1-771e-4be9-877a-0ebde0982e7b",
+"published": "2026-05-16",
+"change": "2026-04-01",
+"lead": -45,
+"late": true,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "33334508-c96c-438b-979d-ff149a8de5e9",
+"published": "2026-09-29",
+"change": "2026-10-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "401afc22-34c1-41de-a957-07eaba5369f0",
+"published": "2026-10-07",
+"change": "2026-10-15",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"jr-shikoku-bus-kochi/GTFS-JRbus_Otochi": [
+{
+"new_uid": "3d3a1778-f694-4f3a-b0cf-8fb2be267154",
+"published": "2025-02-17",
+"change": "2025-04-01",
+"lead": 43,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "c021be10-8e28-4d6e-bff6-1da8c85b7de4",
+"published": "2025-07-22",
+"change": "2025-07-01",
+"lead": -21,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"hannocity/odekakemuma-minamikoma": [
+{
+"new_uid": "32674ac1-24b5-4857-be4a-d88271e54e29",
+"published": "2025-12-25",
+"change": "2024-10-01",
+"lead": -450,
+"late": true,
+"censored": true,
+"src": "sample"
+}
+],
+"kumamoto-shiden/kumamotoshiden": [
+{
+"new_uid": "39ab3b94-d8b4-484f-932c-9437e0f2f3c7",
+"published": "2025-04-03",
+"change": "2025-04-05",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"nasushiobaracity/chiikibasu": [
+{
+"new_uid": "1b1e492a-f98f-47b2-80c2-294541d435e3",
+"published": "2025-04-01",
+"change": "2025-04-07",
+"lead": 6,
+"late": false,
+"censored": false,
+"src": "sample"
+}
+],
+"tatsunocity/communitybus": [
+{
+"new_uid": "ddac8905-e91c-4c87-b493-9fd7be1e89d5",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "12ed4186-192c-4a7e-b87b-94ea850a6273",
+"published": "2026-03-17",
+"change": "2026-04-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"joetsucity/joetsu": [
+{
+"new_uid": "b85227f1-1cdf-4a3b-a2c7-04510520aac9",
+"published": "2025-08-27",
+"change": "2025-04-06",
+"lead": -143,
+"late": true,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "64d2ed81-d4bb-4fb2-9475-c8ed30aaf518",
+"published": "2026-03-31",
+"change": "2026-04-04",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"kumanocity/communitybus": [
+{
+"new_uid": "4d9105e2-212e-4687-8d6d-be63271830e3",
+"published": "2026-05-28",
+"change": "2026-06-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"soedatown/soedamachibus": [
+{
+"new_uid": "d7806841-9dcd-418d-8deb-ab6513063d1f",
+"published": "2024-12-11",
+"change": "2025-02-01",
+"lead": 52,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "93c645dd-3084-4d90-abf8-8d8d296440de",
+"published": "2025-02-28",
+"change": "2025-03-15",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "0ad1d672-6120-4604-be5f-c5af03e8735c",
+"published": "2025-02-28",
+"change": "2025-04-01",
+"lead": 32,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "cbd316f7-d307-4ff0-b77b-277fa09b2e80",
+"published": "2025-03-12",
+"change": "2025-04-21",
+"lead": 40,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "b32dc735-f3e7-4906-ba25-231d0d19ed0a",
+"published": "2025-08-20",
+"change": "2025-10-01",
+"lead": 42,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "f901a41b-751f-44e6-b6a4-c5602d215f68",
+"published": "2026-03-06",
+"change": "2026-04-01",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"towadakankodentetsu/toutetsu_airport_line": [
+{
+"new_uid": "8180f39f-c2ed-449c-94ac-a9e76c30e1a3",
+"published": "2026-06-25",
+"change": "2026-07-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "e8584a65-fde1-4f6e-bb87-2a231d75b784",
+"published": "2026-06-25",
+"change": "2026-07-17",
+"lead": 22,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "c55792e2-1e43-4c1d-b144-c4951196d685",
+"published": "2026-07-17",
+"change": "2026-08-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "24d97900-0f03-4a22-9657-f60421f476a3",
+"published": "2026-08-20",
+"change": "2026-09-01",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "179cec35-fb53-4d9b-8f91-ef7203a44fa8",
+"published": "2026-09-16",
+"change": "2026-10-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "80c65d7c-01b1-4f50-ab04-30059c866c46",
+"published": "2026-10-15",
+"change": "2026-10-25",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "8ba49830-c5a9-4f0f-8935-27f0706809d7",
+"published": "2026-11-17",
+"change": "2026-12-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"yamagatatetsudo/flowerliner": [
+{
+"new_uid": "2cd33e91-1009-4d88-97b9-2dc1d81d1b00",
+"published": "2025-03-05",
+"change": "2025-03-15",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "fd236e73-4fba-4ae8-962f-bacf63dd9a95",
+"published": "2025-04-14",
+"change": "2025-04-14",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "f62087b1-e6f3-4d37-b6fa-b3fc18020d75",
+"published": "2026-03-09",
+"change": "2026-03-14",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"kumanogobobus/kumanogobobus_gobo": [
+{
+"new_uid": "a4f1f159-b09f-41f2-bf33-61069fd97390",
+"published": "2025-07-11",
+"change": "2025-04-07",
+"lead": -95,
+"late": true,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "e533dd5c-1665-4d7e-a72b-5e695f39d982",
+"published": "2025-10-01",
+"change": "2026-02-24",
+"lead": 146,
+"late": false,
+"censored": false,
+"src": "sample"
+}
+],
+"shimanto-kotsu/GTFS-Shimantotraffic_Localbus": [
+{
+"new_uid": "f96cb6d7-7e5d-4ff8-ace6-02cdc9e345ba",
+"published": "2024-11-28",
+"change": "2024-12-25",
+"lead": 27,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "7592af6e-3f60-4c7c-9327-405a6bdf4f26",
+"published": "2025-03-07",
+"change": "2025-03-15",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "512aaad5-3e1f-4bc2-9da8-04d3698c1977",
+"published": "2025-03-25",
+"change": "2025-04-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "f1162c02-c452-4f6a-b862-0435f31d47ba",
+"published": "2025-07-08",
+"change": "2025-07-25",
+"lead": 17,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "82eea645-088d-4e24-b7bc-bb311fd74f81",
+"published": "2025-09-17",
+"change": "2025-10-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "de11667c-f64f-48be-8def-3bdf4b3729cd",
+"published": "2025-10-07",
+"change": "2025-10-12",
+"lead": 5,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "6373fe89-2473-45b3-8b3e-09e4305db73e",
+"published": "2025-10-17",
+"change": "2025-10-17",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "57fcc520-abe6-4f78-b7a4-9d3c4dd047d1",
+"published": "2025-10-20",
+"change": "2025-11-02",
+"lead": 13,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "45dc8efa-460d-4b5d-9b31-4d000ab60998",
+"published": "2026-03-05",
+"change": "2026-04-01",
+"lead": 27,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "8a72f00d-e82d-4fb3-9c3f-66c96719b754",
+"published": "2026-09-07",
+"change": "2026-10-01",
+"lead": 24,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"shinjobankotsu/SHINJOBANKOTSU": [
+{
+"new_uid": "83d73b54-477f-400e-af88-9469976c7920",
+"published": "2025-03-24",
+"change": "2025-04-07",
+"lead": 14,
+"late": false,
+"censored": false,
+"src": "sample"
+},
+{
+"new_uid": "e832bbfa-4d9f-4ae5-bb8a-cf5ad1df9e76",
+"published": "2025-09-16",
+"change": "2025-10-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "dd8a5f4b-07c3-4d68-83d8-1db4a632cec5",
+"published": "2025-12-14",
+"change": "2025-12-15",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "a7da0dc6-c2ca-47df-9833-7c62a90b39ea",
+"published": "2026-03-26",
+"change": "2026-04-04",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"aketetsu/akechirailway": [
+{
+"new_uid": "63dffa45-9328-428e-81c9-29305a452758",
+"published": "2025-03-05",
+"change": "2025-03-15",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "a2767f5e-23e9-4280-84af-6c4fa27d106d",
+"published": "2026-03-01",
+"change": "2026-03-14",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"nouhibus/takayama_shuyu": [
+{
+"new_uid": "6f7edafc-1b38-417d-bfca-e626cebf0a6f",
+"published": "2026-10-23",
+"change": "2026-11-02",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"rinkan/hashimoto-rinkandenentoshi": [
+{
+"new_uid": "fb4d5fbb-6ec3-445a-a3de-b0cb9e901000",
+"published": "2026-03-25",
+"change": "2026-03-28",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"isetetu/iserailway": [
+{
+"new_uid": "4c7df6f1-8330-4a69-803a-8a90cae4714a",
+"published": "2025-03-13",
+"change": "2025-03-15",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "a45ff368-7894-47f7-ae2b-3aa3c59c6605",
+"published": "2026-03-05",
+"change": "2026-03-14",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+],
+"kumamotodentetsu/kumamotodentetsu": [
+{
+"new_uid": "d5cac962-85f0-4282-aadf-5b1c9c18fbd3",
+"published": "2025-01-08",
+"change": "2025-02-03",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "4d8e3a90-47f8-43d9-8d37-aaa72a5034c0",
+"published": "2026-11-11",
+"change": "2026-05-11",
+"lead": -184,
+"late": true,
+"censored": true,
+"src": "sample"
+}
+],
+"asatetu/asakaigantetsudo": [
+{
+"new_uid": "0cdfee7b-5fd6-4c88-9e74-ee6327c386b8",
+"published": "2025-03-10",
+"change": "2025-03-15",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "sample"
+},
+{
+"new_uid": "ab83931e-1e5f-4f79-b5f7-5577778a0ff8",
+"published": "2026-06-11",
+"change": "2026-06-11",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "sample"
+}
+]
+}

@@ -411,6 +411,24 @@ function cautionDates(x) {
   return [nextRawDate(x.reg), ...((x.results || []).filter((r) => r.ph !== "before").map((r) => r.P.meta.change_date))];
 }
 
+// バスごとの「ふだん、変わる日の何日前に新しい時刻表が出るか」（catalog の lead。公開が遅い版・変わる日がはっきりしない組は除いた回数と日数）
+function leadDayText(d) {
+  return d > 0 ? `${d}日前` : d === 0 ? "当日" : `${-d}日あと`;
+}
+function leadText(item) {
+  const l = item && item.lead;
+  if (!l || l.median == null) return null;
+  const head = "このバスの新しい時刻表は、ふだん、";
+  if (l.median >= 7) return `${head}変わる日の約${l.median}日前に出ています（これまでの${l.n}回。早いときは${leadDayText(l.earliest)}、遅いときは${leadDayText(l.latest)}）`;
+  if (l.median >= 1) return `${head}変わる日の直前（約${l.median}日前）に出ています（これまでの${l.n}回）`;
+  return `${head}変わる日の当日かあとに出ています（これまでの${l.n}回）。前もって知らせられないことが多いです`;
+}
+// 「知らせはありません」の下に出す文（記録が少ないバスは、そう言う。毎日新しい版が出るバスは出さない）
+function leadOrFewText(item) {
+  if (!item || item.daily) return null;
+  return leadText(item) || "このバスは記録がまだ少なく、どのくらい前に分かるかは分かりません";
+}
+
 function noteLines(res) {
   const out = [];
   for (const n of res.notes) {
@@ -655,7 +673,8 @@ function revisionHtml(res) {
   html += movedHtml(res);
   if (res.alternatives) html += altHtml(res);
   for (const l of noteLines(res)) html += `<p class="muted">${esc(l)}</p>`;
-  html += `<div class="source"><p>${esc(sourceLine(res))}</p><p class="small">${esc(res.P.meta.attribution)}</p></div>`;
+  const lt = leadText(feedItem(res.P.meta.feed));
+  html += `<div class="source"><p>${esc(sourceLine(res))}${lt ? `${esc(lt)}。` : ""}</p><p class="small">${esc(res.P.meta.attribution)}</p></div>`;
   return html;
 }
 
@@ -681,6 +700,7 @@ async function tripView(id) {
       : `<p class="warn">いまの時刻表では、1本で行けるバスがありません。行けるようになったら知らせます。</p>`;
     html += cautionHtml(x.now.ride);
     html += `<p class="lead">いまのところ、時刻が変わる知らせはありません。</p>`;
+    if (leadOrFewText(x.item)) html += `<p class="muted">${esc(leadOrFewText(x.item))}</p>`;
     for (const c of seasonCautions(cautionDates(x))) html += `<p class="warn">${esc(c)}</p>`;
     html += `<div class="source"><p class="small">${esc(attribution(x.item))}</p></div>`;
     return render(html + `<a class="btn secondary" href="#home">もどる</a>` + delBtn(reg));
@@ -715,7 +735,7 @@ function feedView(pref, mode = "add") {
   if (mode === "biz" && !bizDraft) bizDraft = {};
   const list = CATALOG.feeds.filter((f) => String(f.pref) === String(pref)).sort((a, b) => a.name.localeCompare(b.name, "ja"));
   render(`<p class="steps">2 / 7</p><h1>どのバスですか</h1>
-    ${list.map((f) => `<button class="choice" data-feed="${esc(f.feed)}">${esc(f.name)}<span class="kana">${esc(f.operator)}${f.usable ? "" : "（まだ使えません）"}</span></button>`).join("")}
+    ${list.map((f) => `<button class="choice" data-feed="${esc(f.feed)}">${esc(f.name)}<span class="kana">${esc(f.operator)}${f.usable ? "" : "（まだ使えません）"}</span>${f.usable && leadText(f) ? `<span class="kana lead-note">${esc(leadText(f))}</span>` : ""}</button>`).join("")}
     <a class="btn secondary" href="#${mode}/pref">都道府県を選びなおす</a>`);
   screen().addEventListener("click", (e) => {
     const b = e.target.closest("[data-feed]");

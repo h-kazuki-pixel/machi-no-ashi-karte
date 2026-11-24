@@ -160,3 +160,4 @@ input[type="text"], input[type="search"], input[type="time"] {
 .verdict.same { color: var(--same); }
 .poster .pnote { font-weight: 700; margin: 2px 0 6px; }
 .warn-text { color: var(--big); margin-top: 4px; }
+.choice .lead-note { display: block; margin-top: 2px; }

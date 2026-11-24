@@ -25,6 +25,7 @@ ttm = import_module("timetable")
 br = import_module("06_build_revision")
 
 HORIZON_DAYS = 120
+LEAD_MIN_PAIRS = 3  # 印の無い組がこれより少ないバスは「記録がまだ少ない」
 PREFS = ["", "北海道", "青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県",
          "千葉県", "東京都", "神奈川県", "新潟県", "富山県", "石川県", "福井県", "山梨県", "長野県", "岐阜県", "静岡県",
          "愛知県", "三重県", "滋賀県", "京都府", "大阪府", "兵庫県", "奈良県", "和歌山県", "鳥取県", "島根県", "岡山県",
@@ -95,6 +96,36 @@ def runs_within(sizes, tts, today, days=HORIZON_DAYS):
     return False
 
 
+def feed_leads(site):
+    """バスごとの「何日前に分かるか」：調査の版の組（data/feed_leads.json）に、見る仕組みが見つけた改正（found.csv）を足す。
+    公開が遅い版と、変わる日がはっきりしない組は、真ん中の日数に入れず、回数だけ数える。"""
+    p = DATA / "feed_leads.json"
+    pairs = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    fp = site / "data" / "found.csv"
+    if fp.exists():
+        for r in csv.DictReader(open(fp, encoding="utf-8")):
+            if not r.get("change_date") or r.get("lead_days_published") in ("", None):
+                continue
+            lst = pairs.setdefault(r["feed"], [])
+            if any(x["new_uid"] == r["new_uid"] for x in lst):
+                continue
+            lst.append({"new_uid": r["new_uid"], "published": r["published_at"][:10], "change": r["change_date"],
+                        "lead": int(float(r["lead_days_published"])), "late": r.get("late_publish") == "True",
+                        "censored": r.get("change_censored") == "True", "src": "found"})
+    out = {}
+    for feed, lst in pairs.items():
+        clean = sorted(x["lead"] for x in lst if not x["late"] and not x["censored"])
+        info = {"n": len(clean), "late": sum(1 for x in lst if x["late"]),
+                "censored": sum(1 for x in lst if x["censored"] and not x["late"])}
+        if len(clean) >= LEAD_MIN_PAIRS:
+            k = len(clean)
+            info["median"] = clean[k // 2] if k % 2 else round((clean[k // 2 - 1] + clean[k // 2]) / 2)
+            info["earliest"] = clean[-1]  # いちばん早く出た回（いちばん前）
+            info["latest"] = clean[0]     # いちばん遅く出た回
+        out[feed] = info
+    return out
+
+
 def build_catalog(site, seen, feeds, index, today):
     by_feed = {}
     for r in seen:
@@ -110,6 +141,8 @@ def build_catalog(site, seen, feeds, index, today):
     items = []
     referenced = set()
     sizes = Sizes(site, today)
+    leads = feed_leads(site)
+    daily = w.daily_feed_keys()
     # 同じ版の番号のまま zip が置き換わった版は、新しい中身の時刻表（{uid}.r{ETag}）を使う
     ap = site / "state" / "timetable_alias.json"
     alias = json.loads(ap.read_text(encoding="utf-8")) if ap.exists() else {}
@@ -130,6 +163,10 @@ def build_catalog(site, seen, feeds, index, today):
                 "pref": pref, "license": f.get("feed_license"), "license_url": f.get("feed_license_url"),
                 "usable": usable and bool(tts) and not expired, "timetables": tts,
                 "revisions": sorted(revs.get(key, []), key=lambda r: r["change_date"])}
+        if key in daily:
+            item["daily"] = True  # 毎日新しい版が出るバス（「何日前に分かるか」は出さない）
+        else:
+            item["lead"] = leads.get(key, {"n": 0, "late": 0, "censored": 0})
         if not usable:
             item["note"] = UNUSABLE_NOTE
         elif not tts and empty:

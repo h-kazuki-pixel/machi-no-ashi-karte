@@ -26,6 +26,7 @@ const variants = {
   "yonezawacity/Yonezawa": (r) => ({ ...r, meta: { ...r.meta, ...YZ_EXTRA } }),
   "test/starts": (r) => r, // 前の運行の記録が無い（ただ「運行が始まります」）
   "test/unknown": (r) => ({ ...r, meta: { ...r.meta, ...YZ_EXTRA, change_date_known: false } }),
+  "test/norev": null, // 改正のデータが無いバス（「知らせはありません」と「記録がまだ少ない」）
   "test/nocompare": (r) => ({ ...r, days: Object.fromEntries(Object.entries(r.days).map(([d, x]) =>
     [d, x.s === "old" ? { u: null, s: "old", marks: [{ kind: "outside", label: "この日に有効な時刻表のデータが無い" }] } : x])) }),
 };
@@ -38,8 +39,10 @@ const catalog = {
   feeds: Object.keys(variants).map((feed) => ({
     feed, name: "米沢市営バス", operator: "米沢市", pref: 6, license: "CC BY 4.0", license_url: "", usable: true,
     timetables: [{ uid: NEW, from: base.meta.new.from, to: base.meta.new.to, published_at: base.meta.new.published_at, path: base.meta.timetables[NEW] }],
-    revisions: [{ change_date: base.meta.change_date, path: revPath(feed), published_at: base.meta.new.published_at,
-                  ...(feed === "test/unknown" ? { change_date_known: false } : {}) }],
+    revisions: variants[feed] ? [{ change_date: base.meta.change_date, path: revPath(feed), published_at: base.meta.new.published_at,
+                  ...(feed === "test/unknown" ? { change_date_known: false } : {}) }] : [],
+    // 「ふだん何日前に分かるか」：米沢だけ試しの数を入れる（ほかは記録が少ない）
+    lead: feed === "yonezawacity/Yonezawa" ? { n: 5, late: 1, censored: 2, median: 12, earliest: 20, latest: 3 } : { n: 1, late: 0, censored: 0 },
   })),
   holidays,
 };
@@ -51,7 +54,7 @@ const server = http.createServer((req, res) => {
   if (p === "data/catalog.json") body = JSON.stringify(catalog);
   else if (p === "data/status.json") body = "{}";
   else if (p.startsWith("data/revisions/")) {
-    const feed = Object.keys(variants).find((f) => revPath(f) === p);
+    const feed = Object.keys(variants).find((f) => variants[f] && revPath(f) === p);
     if (feed) body = JSON.stringify(variants[feed](base));
   } else if (p.startsWith("data/timetables/")) {
     const f = path.join(FX, path.basename(p));
@@ -84,12 +87,14 @@ const regs = [
   reg("seasonal", Y, "福祉の里入口", "米沢駅前", ["first_sun"], "departAfter", 540),
   reg("nocompare", "test/nocompare", "上杉神社前", "米沢駅前", WK, "arriveBy", 480),
   reg("unknown", "test/unknown", "米沢駅前", "国立米沢病院前", ["tue"], "arriveBy", 600),
+  reg("norev", "test/norev", "上杉神社前", "米沢駅前", WK, "arriveBy", 480),
 ];
 const expect = {
   same: "は変わりません", tiny: "は変わりません", small: "時刻が少し変わります", big: "時刻が大きく変わります",
   cannot: "1本で行けるバスがなくなります", able: "1本で行けるようになります", starts: "このバスの運行が始まります",
   restarts: "この冬の運行が始まります（前の運行は3月31日まで）", seasonal: "季節の運休",
   nocompare: "くらべられません", unknown: "いまの時刻表は、前と変わっています",
+  norev: "このバスは記録がまだ少なく、どのくらい前に分かるかは分かりません",
 };
 const biz = encodeURIComponent(JSON.stringify({ feed: Y, stop: "上杉神社前", open: 540, close: 1080, day: "wk" }));
 const cases = [
@@ -97,6 +102,8 @@ const cases = [
   { name: "ホーム（全部の移動）", hash: "#home", want: ["わたしの移動", ...regs.map((r) => `例${r.id}`)] },
   { name: "通知を押して開く画面", hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["米沢市営バスの時刻表が、12月1日から変わります。", "あなたの移動は変わりません"] },
   { name: "通知を押して開く画面（変わる日が分からない）", hash: `#notice/${encodeURIComponent("test/unknown")}/2026-12-01`, want: ["米沢市営バスの時刻表が変わりました。"] },
+  { name: "バスを選ぶ画面（ふだん何日前）", hash: "#add/feed/6", want: ["このバスの新しい時刻表は、ふだん、変わる日の約12日前に出ています（これまでの5回。早いときは20日前、遅いときは3日前）"] },
+  { name: "改正の知らせの出典の行（ふだん何日前）", hash: "#trip/big", want: ["約12日前に出ています"] },
   { name: "事業者の画面", hash: "#biz/result", biz: true, want: ["から、バスの時刻が変わります", "最終のバス"] },
   { name: "貼り紙", hash: "#poster", biz: true, want: ["バスの時刻が変わります", "作った日"] },
 ];
