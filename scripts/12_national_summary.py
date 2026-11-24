@@ -56,6 +56,11 @@ def load():
     return rows
 
 
+def counted(r):
+    """数える組（バスごとの表示と同じ）：公開が遅い版を除き、印の無い組と、変わる日が新しい版の有効開始日と同じ組"""
+    return r["late_publish"] != "True" and (r["change_censored"] != "True" or r["actual_change_date"] == r["new_from"])
+
+
 def is_a(r):
     return r["kind"] == "A" and r.get("lead_days") not in ("", None) and not (r["new_to"] < r["old_from"])
 
@@ -80,12 +85,12 @@ def dist(rs):
 def main():
     rows = load()
     a = [r for r in rows if is_a(r)]
-    main_rows = [r for r in a if r["late_publish"] != "True"]
+    main_rows = [r for r in a if counted(r)]
     sample = [r for r in main_rows if r["group"] == "50フィード"]
-    table = [("全国（公開遅れを除く）", main_rows),
-             ("全国・印なしの組だけ", [r for r in main_rows if r["change_censored"] != "True"]),
-             ("全国・印なし＋すき間なくつながる組", [r for r in main_rows if r["change_censored"] != "True" or seamless(r)]),
-             ("全国・公開遅れの組だけ", [r for r in a if r["late_publish"] == "True"]),
+    table = [("全国（数える組）", main_rows),
+             ("（参考）全国・印なしの組だけ", [r for r in main_rows if r["change_censored"] != "True"]),
+             ("（参考）全国・公開遅れを除く全部（印のある組も全部）", [r for r in a if r["late_publish"] != "True"]),
+             ("（参考）全国・公開遅れの組だけ", [r for r in a if r["late_publish"] == "True"]),
              ("（比べる）50フィード＋明光バス（調査）", sample),
              ("（比べる）全国から50フィード＋明光を除いた残り", [r for r in main_rows if r["group"] != "50フィード"])]
     for k in ["自治体・協議会", "民間バス等", "鉄道・船"]:
@@ -103,11 +108,12 @@ def main():
     byf = defaultdict(list)
     for r in a:
         byf[r["feed"]].append(r)
-    strict = sum(1 for v in byf.values() if sum(1 for r in v if r["late_publish"] != "True" and r["change_censored"] != "True") >= 3)
-    loose = sum(1 for v in byf.values() if sum(1 for r in v if r["late_publish"] != "True" and (r["change_censored"] != "True" or seamless(r))) >= 3)
+    cnt = Counter(sum(1 for r in v if counted(r)) for v in byf.values())
     meta = {"フィード（組がある）": len({r["feed"] for r in rows}), "組": len(rows), "A の組": len(a),
-            "種類": dict(Counter(r["kind"] for r in rows)), "3回に届く（印の付いた組をすべて除く）": strict,
-            "3回に届く（すき間なくつながる組は数える）": loose, "A の組があるフィード": len(byf)}
+            "種類": dict(Counter(r["kind"] for r in rows)), "A の組があるフィード": len(byf),
+            "数える組": len(main_rows), "除いた組（公開遅れ）": sum(1 for r in a if r["late_publish"] == "True"),
+            "除いた組（印があり、変わる日が有効開始日より後）": sum(1 for r in a if r["late_publish"] != "True" and not counted(r)),
+            "数える組の回数ごとのフィード": {str(k): v for k, v in sorted(cnt.items())}}
     json.dump(meta, open(DATA / "summary" / "national_meta.json", "w"), ensure_ascii=False, indent=1)
     print(json.dumps(meta, ensure_ascii=False))
     print("| 区分 | 組 | フィード | 7日以上前 | 1〜6日前 | 当日 | あと | 中央値 | 7日以上前（フィードの重み） |")

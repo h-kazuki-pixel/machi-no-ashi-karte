@@ -96,13 +96,10 @@ def runs_within(sizes, tts, today, days=HORIZON_DAYS):
     return False
 
 
-def seamless(x):
-    """印の付いた組でも、古い版と新しい版がすき間なくつながり、変わる日が新しい版の有効開始日と同じなら、印の無い組として数える"""
-    try:
-        return (x["change"] == x["new_from"]
-                and (dt.date.fromisoformat(x["old_to"]) + dt.timedelta(days=1)).isoformat() == x["new_from"])
-    except (KeyError, ValueError, TypeError):
-        return False
+def counted(x):
+    """数える組：公開が遅い版を除き、印の無い組と、変わる日が新しい版の有効開始日と同じ組（つながり方によらない）。
+    全国の集計（12_national_summary.py）と同じ決まり"""
+    return not x["late"] and (not x["censored"] or x.get("change") == x.get("new_from"))
 
 
 def feed_leads(site):
@@ -131,10 +128,12 @@ def feed_leads(site):
                         "old_to": old_to, "new_from": r.get("from_date", "")})
     out = {}
     for feed, lst in pairs.items():
-        ok = [x for x in lst if not x["late"] and (not x["censored"] or seamless(x))]
+        ok = sorted((x for x in lst if counted(x)), key=lambda x: x["published"])
         clean = sorted(x["lead"] for x in ok)
         info = {"n": len(clean), "late": sum(1 for x in lst if x["late"]),
-                "censored": sum(1 for x in lst if x["censored"] and not x["late"] and not seamless(x))}
+                "censored": sum(1 for x in lst if not x["late"] and not counted(x))}
+        if 1 <= len(ok) < LEAD_MIN_PAIRS:
+            info["leads"] = [x["lead"] for x in ok]  # 1回・2回のバスは、その回の日数をそのまま出す（公開の古い順）
         if len(clean) >= LEAD_MIN_PAIRS:
             k = len(clean)
             info["median"] = clean[k // 2] if k % 2 else round((clean[k // 2 - 1] + clean[k // 2]) / 2)

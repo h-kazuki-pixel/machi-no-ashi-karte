@@ -1055,19 +1055,6 @@
 "new_from": "2026-10-01"
 }
 ],
-"hakubavalley/bus-hakubavalley-nagano-jp": [
-{
-"new_uid": "8121951b-70b3-4ed6-80fe-38e049d5b6cb",
-"published": "2026-11-20",
-"change": "2025-12-27",
-"lead": -328,
-"late": true,
-"censored": true,
-"src": "all",
-"old_to": "2027-04-26",
-"new_from": "2025-12-13"
-}
-],
 "hakusancity/hakusan_bus_meguru": [
 {
 "new_uid": "cb0bfc60-5ea3-4b7e-9385-ac15f2c23636",
@@ -1093,17 +1080,6 @@
 }
 ],
 "hanamakicity/hanamaki": [
-{
-"new_uid": "a1f50ecb-685d-4dfe-a7b3-688b6712de35",
-"published": "2025-12-24",
-"change": "2024-12-23",
-"lead": -366,
-"late": true,
-"censored": true,
-"src": "all",
-"old_to": "2026-03-31",
-"new_from": "2024-12-23"
-},
 {
 "new_uid": "9a1f9aba-2d96-46aa-9091-b24fb1f6c01b",
 "published": "2025-12-25",
@@ -3253,17 +3229,6 @@
 "new_from": "2026-11-01"
 },
 {
-"new_uid": "9a0e5119-28f0-4535-8a92-8b31f5698911",
-"published": "2026-10-11",
-"change": "2026-10-01",
-"lead": -10,
-"late": false,
-"censored": true,
-"src": "all",
-"old_to": "2027-03-31",
-"new_from": "2026-10-01"
-},
-{
 "new_uid": "e9521d15-cc1a-4a02-9868-d05f9fc9f2d0",
 "published": "2026-11-01",
 "change": "2026-11-02",
@@ -3804,17 +3769,6 @@
 "src": "all",
 "old_to": "2023-12-31",
 "new_from": "2025-01-27"
-},
-{
-"new_uid": "cff3acfc-67c5-494a-8b6f-6368f9a0594d",
-"published": "2024-12-18",
-"change": "2023-12-09",
-"lead": -375,
-"late": true,
-"censored": true,
-"src": "all",
-"old_to": "2026-01-31",
-"new_from": "2023-12-09"
 },
 {
 "new_uid": "b8b3ea99-af32-4559-80e4-a0158209374b",
@@ -4610,19 +4564,6 @@
 "src": "all",
 "old_to": "2026-03-31",
 "new_from": "2026-04-01"
-}
-],
-"munakatacity/MunakataCityCommunityBus": [
-{
-"new_uid": "f098885b-3d91-4f71-8706-d542ff33a738",
-"published": "2026-03-31",
-"change": "2022-03-07",
-"lead": -1485,
-"late": true,
-"censored": true,
-"src": "all",
-"old_to": "2027-03-31",
-"new_from": "2022-03-07"
 }
 ],
 "munakatacity/MunakataCityFureaiBus": [
@@ -6382,17 +6323,6 @@
 "src": "all",
 "old_to": "2026-03-31",
 "new_from": "2026-04-01"
-},
-{
-"new_uid": "e964f844-0884-41cb-b9d1-709220a677e2",
-"published": "2026-03-27",
-"change": "2024-12-01",
-"lead": -481,
-"late": true,
-"censored": true,
-"src": "all",
-"old_to": "2027-03-31",
-"new_from": "2024-12-01"
 }
 ],
 "setocity/setocitybus": [
@@ -8169,19 +8099,6 @@
 "new_from": "2025-09-01"
 }
 ],
-"toyamacity/jojocommunitybus": [
-{
-"new_uid": "87100d0c-4a95-410f-9de3-29a300bc289a",
-"published": "2025-12-15",
-"change": "2025-03-12",
-"lead": -278,
-"late": true,
-"censored": false,
-"src": "all",
-"old_to": "2025-10-31",
-"new_from": "2025-03-11"
-}
-],
 "toyamacity/mizuhashifureaicommunitybus": [
 {
 "new_uid": "3036e0e6-ab15-4b45-99d5-1919cac14820",
@@ -8992,17 +8909,6 @@
 "new_from": "2025-10-20"
 },
 {
-"new_uid": "f727a776-c070-4d28-acd2-4c6b8ebbd516",
-"published": "2025-08-15",
-"change": "2025-06-01",
-"lead": -75,
-"late": true,
-"censored": true,
-"src": "all",
-"old_to": "2025-11-30",
-"new_from": "2025-06-01"
-},
-{
 "new_uid": "00a71ba9-2b1c-4b4d-8791-30cb4c58729b",
 "published": "2025-08-15",
 "change": "2025-06-23",
@@ -9111,17 +9017,6 @@
 "src": "all",
 "old_to": "2026-10-18",
 "new_from": "2026-10-19"
-},
-{
-"new_uid": "cfcfd0d8-20ae-4344-a501-a1b8a04cbf8f",
-"published": "2026-08-10",
-"change": "2026-06-21",
-"lead": -50,
-"late": true,
-"censored": true,
-"src": "all",
-"old_to": "2026-11-30",
-"new_from": "2026-06-21"
 },
 {
 "new_uid": "51e79a8f-6dcc-4b86-8312-c2f9563dfd21",
@@ -10094,17 +9989,6 @@
 "new_from": "2026-10-01"
 },
 {
-"new_uid": "f45b07ac-deb9-4669-b169-4acec5a16916",
-"published": "2026-09-19",
-"change": "2026-09-01",
-"lead": -18,
-"late": false,
-"censored": true,
-"src": "large",
-"old_to": "2027-09-30",
-"new_from": "2026-09-01"
-},
-{
 "new_uid": "89ea5822-8509-43a5-b210-5a171e31f347",
 "published": "2026-10-01",
 "change": "2026-10-01",
@@ -10544,17 +10428,6 @@
 "src": "meikobus",
 "old_to": "2026-12-31",
 "new_from": "2026-04-01"
-},
-{
-"new_uid": "d2ea4373-1f0e-4203-849a-a165e0e77a7a",
-"published": "2026-03-24",
-"change": "2026-03-25",
-"lead": 1,
-"late": false,
-"censored": true,
-"src": "meikobus",
-"old_to": "2027-03-31",
-"new_from": "2026-03-24"
 },
 {
 "new_uid": "5f28ed8a-a0d5-49d4-bcd0-d1929dd93ca8",

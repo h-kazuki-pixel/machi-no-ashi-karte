@@ -463,10 +463,18 @@ function leadText(item) {
   if (l.median >= 1) return `${head}変わる日の直前（約${l.median}日前）に出ています（これまでの${l.n}回）`;
   return `${head}変わる日の当日かあとに出ています（これまでの${l.n}回）。前もって知らせられないことが多いです`;
 }
-// 「知らせはありません」の下に出す文（記録が少ないバスは、そう言う。毎日新しい版が出るバスは出さない）
+// 「変わる日の5日前」「変わる日の当日」「変わる日の3日あと」
+const leadAt = (d) => `変わる日の${leadDayText(d)}`;
+// 「知らせはありません」の下と、改正の知らせの出典の行に出す文。3回以上は「ふだん」、1回・2回は事実だけ、0回は「記録がまだ無い」。
+// 毎日新しい版が出るバスは出さない
 function leadOrFewText(item) {
   if (!item || item.daily) return null;
-  return leadText(item) || "このバスは記録がまだ少なく、どのくらい前に分かるかは分かりません";
+  const t = leadText(item);
+  if (t) return t;
+  const ls = (item.lead && item.lead.leads) || [];
+  if (ls.length === 2) return `このバスの新しい時刻表は、これまでの2回、${leadAt(ls[0])}と${leadDayText(ls[1])}に出ました`;
+  if (ls.length === 1) return `このバスの新しい時刻表は、前回、${leadAt(ls[0])}に出ました`;
+  return "このバスは記録がまだ無く、どのくらい前に分かるかは分かりません";
 }
 
 function noteLines(res) {
@@ -714,7 +722,7 @@ function revisionHtml(res) {
   html += movedHtml(res);
   if (res.alternatives) html += altHtml(res);
   for (const l of noteLines(res)) html += `<p class="muted">${esc(l)}</p>`;
-  const lt = leadText(feedItem(res.P.meta.feed));
+  const lt = leadOrFewText(feedItem(res.P.meta.feed));
   html += `<div class="source"><p>${esc(sourceLine(res))}${lt ? `${esc(lt)}。` : ""}</p><p class="small">${esc(res.P.meta.attribution)}</p></div>`;
   return html;
 }
