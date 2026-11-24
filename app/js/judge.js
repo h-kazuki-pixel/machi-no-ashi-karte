@@ -370,7 +370,10 @@ export function judge(P, reg) {
     out.notes.push({ kind: "route_starts", route: a.ride.route, ...(prevLast ? { prevLast } : {}) });
   }
   if (c.level === "cannot" && b.ride && !routeRuns(a.dates, b.ride.route)) {
-    out.notes.push({ kind: "route_ends", route: b.ride.route });
+    // 季節の運休：登録した曜日の種類のどれもが、1年前の同じ時期にも走っていなかった（改正のデータの meta.route_last_year）
+    const ly = (P.meta.route_last_year || {})[b.ride.route] || {};
+    const resumed = reg.days.every((k) => ly[k]) ? reg.days.map((k) => ly[k]).sort()[0] : null;
+    out.notes.push({ kind: "route_ends", route: b.ride.route, ...(resumed ? { seasonal: { resumed } } : {}) });
   }
   for (const m of movedStops(P, reg)) out.notes.push({ kind: "stop_moved", ...m });
   if (b.split) out.notes.push({ kind: "split", side: "before" });

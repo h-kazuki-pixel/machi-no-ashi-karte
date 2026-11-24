@@ -92,6 +92,70 @@ def route_last_runs(olds, change, days, timetables, zip_of):
     return out
 
 
+def day_kinds(day):
+    """その日に当たる「曜日の種類」：mon〜sun と、第1日曜（first_sun）"""
+    k = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"][day.weekday()]
+    return [k, "first_sun"] if k == "sun" and day.day <= 7 else [k]
+
+
+def route_last_year(olds, change, days, timetables, zip_of):
+    """前の側では走るが、後の側では（ある曜日の種類に）走らなくなる路線について、1年前の同じ時期を見る。
+    1年前の同じ日から4週のあいだ、その曜日の種類に1本も走っていなければ「季節の運休」とみなし、
+    そのあと最初に走った日（運行が始まった日）を記録する。戻り値 {路線名: {曜日の種類: "YYYY-MM-DD"}}"""
+    vers = {}
+
+    def version(m):
+        u = m["gtfs_file_uid"]
+        if u not in vers:
+            vers[u] = br.Version(u, zip_of(m))
+        return vers[u]
+
+    by_uid = {m["gtfs_file_uid"]: m for m in olds}
+    new_uid = next((d["u"] for d in days.values() if d["s"] == "new" and d["u"]), None)
+    old_runs, new_runs = set(), set()  # (路線, 曜日の種類)
+    for day, d in days.items():
+        # 祝日・年末年始・お盆の日は数えない（第1日曜の運行のような「特別なダイヤの日」は数える）
+        if not d["u"] or any(m["kind"] != "special" for m in d["marks"]):
+            continue
+        dd = _d(day)
+        if d["s"] == "old":
+            routes = _routes_running(version(by_uid[d["u"]]), dd)
+            old_runs |= {(r, k) for r in routes for k in day_kinds(dd)}
+        elif d["u"] == new_uid:
+            tt = timetables[new_uid]
+            sv = ttm.services_on_tt(tt, dd)
+            routes = {tt["routes"][t[0]] for t in tt["trips"] if t[2] in sv}
+            new_runs |= {(r, k) for r in routes for k in day_kinds(dd)}
+    cands = old_runs - new_runs
+    if not cands:
+        return {}
+    start = change - dt.timedelta(days=365)
+    ran_near, first_after = set(), {}
+    extra = 0
+    for k in range(0, 365):
+        day = start + dt.timedelta(days=k)
+        valid = [c for c in olds if _d(c["from_date"]) <= day <= _d(c["to_date"])]
+        if not valid:
+            continue
+        m = max(valid, key=lambda c: c["published_at"])
+        if m["gtfs_file_uid"] not in vers:
+            extra += 1
+            if extra > LOOKBACK_MAX_VERSIONS:
+                break
+        routes = _routes_running(version(m), day)
+        for r, kind in cands:
+            if r in routes and kind in day_kinds(day):
+                if k < 28:
+                    ran_near.add((r, kind))
+                elif (r, kind) not in first_after:
+                    first_after[(r, kind)] = day.isoformat()
+    out = {}
+    for (r, kind), d in first_after.items():
+        if (r, kind) not in ran_near:
+            out.setdefault(r, {})[kind] = d
+    return out
+
+
 def build_revision2(feed_key, new, candidates, change, zip_of, built_at):
     """new: 新しい版のメタデータ。candidates: 同じフィードのほかの版のメタデータ（published_at, from_date, to_date,
     gtfs_file_uid）。zip_of(meta) → zip のパス。戻り値は (改正のデータ, {uid: 時刻表のデータ})"""
@@ -133,6 +197,7 @@ def build_revision2(feed_key, new, candidates, change, zip_of, built_at):
     for u, m in used.items():
         timetables[u] = ttm.build_timetable(zip_of(m), {**m, **meta_common, "feed": feed_key}, built_at=built_at)
     last_runs = route_last_runs(olds, change, days, timetables, zip_of)
+    last_year = route_last_year(olds, change, days, timetables, zip_of)
     _, _, report = br.compare_stops(br.Version(prev["gtfs_file_uid"], zip_of(prev)),
                                     br.Version(new["gtfs_file_uid"], zip_of(new)))
 
@@ -157,6 +222,8 @@ def build_revision2(feed_key, new, candidates, change, zip_of, built_at):
             "timetables": {u: timetable_path(feed_key, u) for u in timetables},
             # 比べる期間の前の側に1本も走らない路線の、前の運行の最後の日（季節運行の再開など）
             "route_last_run": last_runs,
+            # 後の側で走らなくなる路線（曜日の種類ごと）のうち、1年前の同じ時期も走っていなかったもの：そのあと運行が始まった日
+            "route_last_year": last_year,
         },
         "days": days,
         "stop_report": report,

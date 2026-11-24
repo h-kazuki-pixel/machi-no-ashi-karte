@@ -252,7 +252,7 @@ const hasNote = (res, kind) => res.notes && res.notes.some((n) => n.kind === kin
 // 変わる日が分からない改正（同じ版の番号のまま zip が置き換わり、見つけた日にもう違っていた）
 const unknownDate = (P) => P.meta.change_date_known === false;
 const unknownHead = (P) => `いまの時刻表は、前と変わっています（${jDateShort(P.meta.change_date)}に分かりました）`;
-const fromText = (res) => (unknownDate(res.P) ? "いまは" : `${fromText(res)}`);
+const fromText = (res) => (unknownDate(res.P) ? "いまは" : `${jDate(firstDay(res))}からは`);
 
 const SEASON = ["冬", "冬", "春", "春", "春", "夏", "夏", "夏", "秋", "秋", "秋", "冬"];
 // 前の運行の最後の日：「4月14日」。変わる日と年が違えば「2025年4月14日」
@@ -272,6 +272,12 @@ function headline(res, name) {
     return `${jDate(first)}から、この${season}の運行が始まり${past ? "ました" : "ます"}（前の運行は${prevLastText(starts.prevLast, first)}まで）`;
   }
   if (hasNote(res, "route_starts")) return `${jDate(firstDay(res))}から、このバスの運行が始まり${past ? "ました" : "ます"}（『${name}』）`;
+  const ends = res.notes && res.notes.find((n) => n.kind === "route_ends");
+  if (ends && ends.seasonal) {
+    // 季節の運休：「12月6日（日）から、このバスは走りません。前の冬も走らず、5月3日（日）に運行が始まりました」
+    const first = firstDay(res);
+    return `${jDate(first)}から、このバスは走りません。前の${SEASON[J.parseDate(first).getUTCMonth()]}も走らず、${jDate(ends.seasonal.resumed)}に運行が始まりました`;
+  }
   if (hasNote(res, "route_ends")) return `${jDate(firstDay(res))}から、このバスの運行が終わり${past ? "ました" : "ます"}（『${name}』）`;
   return `${jDate(firstDay(res))}から、『${name}』が${past ? "変わりました" : "変わります"}`;
 }
@@ -280,6 +286,7 @@ function levelInfo(res) {
   const past = res.ph === "after";
   const L = res.level;
   if (hasNote(res, "route_starts")) return { cls: "lv-better", badge: past ? "運行が始まりました" : "運行が始まります" };
+  if (res.notes && res.notes.some((n) => n.kind === "route_ends" && n.seasonal)) return { cls: "lv-big", badge: "季節の運休" };
   if (hasNote(res, "route_ends")) return { cls: "lv-cannot", badge: past ? "運行が終わりました" : "運行が終わります" };
   if (L === "will_be_able") {
     return past ? { cls: "lv-better", badge: "1本で行けるようになりました" } : { cls: "lv-better", badge: "1本で行けるようになります" };
@@ -303,6 +310,16 @@ function detailLines(res) {
   const out = [];
   const ends = res.notes.find((n) => n.kind === "route_ends");
   const starts = res.notes.find((n) => n.kind === "route_starts");
+  if (ends && ends.seasonal) {
+    const first = firstDay(res);
+    const fm = J.parseDate(first).getUTCMonth() + 1;
+    const rmDate = J.parseDate(ends.seasonal.resumed);
+    const lm = rmDate.getUTCMonth() === 0 ? 12 : rmDate.getUTCMonth(); // 運行が始まった月の前の月
+    out.push(`${daysText(res.reg.days)}の${kq(ends.route)}は、${jDateShort(first)}から走りません。`);
+    out.push(lm === fm ? `前の年も、${fm}月は走りませんでした。` : `前の年も、${fm}月から${lm}月までは走りませんでした。`);
+    out.push(`次の${SEASON[rmDate.getUTCMonth()]}に走るかどうかは、バス会社の案内を確かめてください。`);
+    return out;
+  }
   if (ends) {
     out.push(`${daysText(res.reg.days)}は、${kq(ends.route)}が走らなくなります。`);
     out.push(`${m.feed_name}では、この移動に1本で行けるバスがなくなります。`);
@@ -365,6 +382,27 @@ function cautionHtml(...rides) {
 // 停留所から見た注意（事業者の画面・貼り紙）：f はその停留所で乗る・降りるときの印
 function stopCautionHtml(f, cls = "warn") {
   return J.flagCautions(f, f).map((k) => `<p class="${cls}">${esc(CAUTION_TEXT[k])}</p>`).join("");
+}
+
+// 年末年始（12/29〜1/3）とお盆（8/13〜8/16）：データに書かれていない運休や特別な時刻があるかもしれない
+function seasonCautions(dates) {
+  const md = dates.filter(Boolean).map((s) => s.slice(5));
+  const out = [];
+  if (md.some((x) => x >= "12-29" || x <= "01-03")) out.push("年末年始は、時刻が変わったり運休したりすることがあります。バス会社の案内を確かめてください。");
+  if (md.some((x) => x >= "08-13" && x <= "08-16")) out.push("お盆は、時刻が変わったり運休したりすることがあります。バス会社の案内を確かめてください。");
+  return out;
+}
+// 登録した曜日に当たる、今日から先の最初の日（印の付いた日も外さない＝実際に乗る日）
+function nextRawDate(reg) {
+  for (let k = 0; k < 45; k++) {
+    const s = J.addDays(TODAY, k);
+    if (J.matchesDays(reg.days, s)) return s;
+  }
+  return null;
+}
+// 「いまのバス」と知らせを出すときに見る日：次に乗る日と、知らせの変わる日
+function cautionDates(x) {
+  return [nextRawDate(x.reg), ...((x.results || []).filter((r) => r.ph !== "before").map((r) => r.P.meta.change_date))];
 }
 
 function noteLines(res) {
@@ -460,6 +498,7 @@ async function homeView() {
   items.sort((a, b) => rank(a) - rank(b));
   for (const x of items) {
     const href = `#trip/${esc(x.reg.id)}`;
+    const caution = x.missing || x.unusable ? "" : seasonCautions(cautionDates(x)).map((c) => `<div class="small warn-text">${esc(c)}</div>`).join("");
     if (x.missing || x.unusable) {
       html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}</div><div class="muted">${esc(x.unusable ? x.item.note : "このバスのデータが見つかりません")}</div></a>`;
       continue;
@@ -468,12 +507,12 @@ async function homeView() {
     const n = x.notice;
     if (!n) {
       const nowHtml = x.now.ride ? `<div class="muted">いまのバス</div><div class="now nowrap">${busText(x.now.ride)}</div>` : `<div class="now">${esc(nowLine)}</div>`;
-      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}</div>${nowHtml}<div class="muted small">いまのところ、時刻が変わる知らせはありません</div></a>`;
+      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}</div>${nowHtml}<div class="muted small">いまのところ、時刻が変わる知らせはありません</div>${caution}</a>`;
     } else if (n.level === "no_route") {
-      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}</div><div class="muted">いまは1本で行けるバスがありません。行けるようになったら知らせます。</div></a>`;
+      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}</div><div class="muted">いまは1本で行けるバスがありません。行けるようになったら知らせます。</div>${caution}</a>`;
     } else if (["same", "tiny"].includes(n.level)) {
       const word = n.level === "same" ? "変わりません" : `ほとんど変わりません（${n.shift}分）`;
-      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}　<span class="badge lv-same">${word}</span></div><div class="muted nowrap">${esc(nowLine)}</div></a>`;
+      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}　<span class="badge lv-same">${word}</span></div><div class="muted nowrap">${esc(nowLine)}</div>${caution}</a>`;
     } else {
       const li = levelInfo(n);
       const verb = n.ph === "after" ? "変わりました" : "変わります";
@@ -483,7 +522,7 @@ async function homeView() {
       html += `<a class="card notice ${li.cls}" href="${href}">
         <span class="badge ${li.cls}">${esc(li.badge)}</span>${nameLine}
         <div class="name" style="color:var(--fg)">${esc(hl)}</div>
-        <div style="color:var(--fg)">${esc(nowLine)}</div></a>`;
+        <div style="color:var(--fg)">${esc(nowLine)}</div>${caution}</a>`;
     }
   }
   html += `<a class="btn secondary" href="#add/pref">移動を登録する</a>`;
@@ -634,11 +673,13 @@ async function tripView(id) {
       : `<p class="warn">いまの時刻表では、1本で行けるバスがありません。行けるようになったら知らせます。</p>`;
     html += cautionHtml(x.now.ride);
     html += `<p class="lead">いまのところ、時刻が変わる知らせはありません。</p>`;
+    for (const c of seasonCautions(cautionDates(x))) html += `<p class="warn">${esc(c)}</p>`;
     html += `<div class="source"><p class="small">${esc(attribution(x.item))}</p></div>`;
     return render(html + `<a class="btn secondary" href="#home">もどる</a>` + delBtn(reg));
   }
   // 改正が2つ以上あるときは、変わる日の順に出す
   html += shown.map(revisionHtml).join(`<hr style="border:none;border-top:2px solid var(--line);margin:24px 0">`);
+  for (const c of seasonCautions(cautionDates(x))) html += `<p class="warn">${esc(c)}</p>`;
   render(html + `<a class="btn secondary" href="#home">もどる</a>` + delBtn(reg));
 }
 
