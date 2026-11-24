@@ -1,4 +1,4 @@
-# まちの足カルテ：通知のサーバー（載せる前に、KV の id を入れる）
+# まちの足カルテ：通知のサーバー
 name = "machi-no-ashi-push"
 main = "src/index.js"
 compatibility_date = "2026-11-01"
@@ -10,7 +10,7 @@ enabled = false
 
 [[kv_namespaces]]
 binding = "SUBS"
-id = "REPLACE_WITH_KV_ID"
+id = "455d4188d82a4379be903037ae55d1ca"  # machi-no-ashi-push-SUBS
 
 [vars]
 ALLOWED_ORIGIN = "https://h-kazuki-pixel.github.io"
@@ -25,7 +25,7 @@ crons = ["23 18 * * *"]
 # /subscribe・/unsubscribe：同じところから60秒に10回まで
 [[ratelimits]]
 name = "SUB_LIMIT"
-namespace_id = "1001"
+namespace_id = "48213"  # このアカウントのほかの Workers と数を共有しない番号
 simple = { limit = 10, period = 60 }
 
 # Secrets（wrangler secret put で入れる。ファイルには書かない）：VAPID_PRIVATE_JWK、NOTIFY_TOKEN

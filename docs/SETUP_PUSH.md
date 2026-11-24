@@ -3,22 +3,27 @@
 通知のサーバーは `push/`（Cloudflare Workers ＋ Workers KV）です。アプリの側は `app/sw.js`・`app/js/push.js`・`app/js/config.js`、見る仕組みの側は `scripts/10_notify.py` です。
 `app/js/config.js` が空のあいだは、アプリに通知の画面は出ません。見る仕組みも、`NOTIFY_URL`・`NOTIFY_TOKEN` が無ければ送りません。
 
-## 開発者がすること（順番に）
+## 動かす手順（2026-11-24 の状態）
 
-1. **Cloudflare のアカウントを作る**：https://dash.cloudflare.com/sign-up（無料のプラン）。メールの確認まで済ませる。
-2. **workers.dev のサブドメインを決める**：「Workers & Pages」を開くと聞かれる。公開の URL に出るので、個人の名前を避ける（例：`machi-no-ashi`）。
-3. **合言葉を作って控える**：手元で `openssl rand -base64 32`。GitHub と Workers の両方に入れる。
-4. **wrangler にログインする**：この画面で `! npx wrangler@4 login` と打ち、開いたブラウザで許可する。
-5. **KV を作る**（Claude がします）：`npx wrangler@4 kv namespace create SUBS --config push/wrangler.toml` → 出た id を `push/wrangler.toml` に入れる。
-6. **秘密の値を Workers に入れる**（開発者が打つ。値は画面にもファイルにも残りません）：
-   - `! node push/tools/make_vapid.mjs | npx wrangler@4 secret put VAPID_PRIVATE_JWK --config push/wrangler.toml`
+workers.dev のサブドメインは `h-kazuki`。通知のサーバーの URL は `https://machi-no-ashi-push.h-kazuki.workers.dev` になる。
+このアカウントには、ほかの Workers と KV（LINE_STATE）もある。ここで作るのは、名前が `machi-no-ashi-push` の Worker と、
+KV `machi-no-ashi-push-SUBS` だけ。回数の制限の番号（namespace_id）も、ほかと重ならない番号にした。
+
+1. ✅ Cloudflare のアカウント・サブドメイン・合言葉（開発者）
+2. ✅ wrangler のログイン：この端末は、すでにこのアカウントにログインしている（`npx wrangler@4 whoami` で確かめた）
+3. ✅ KV を作る：`machi-no-ashi-push-SUBS`（id は `push/wrangler.toml`）。載せる前の試し（`--dry-run`）も通った
+4. **Workers に載せる**（了承をいただいてから、Claude）：`npx wrangler@4 deploy --config push/wrangler.toml`
+   - 無料のプランで回数の制限が断られたら、`[[ratelimits]]` を外して載せ直し、そのことを報告する
+5. **秘密の値を入れる**（開発者が、この画面で打つ。値は画面にもファイルにも残らない）
+   - `! WRANGLER_SEND_METRICS=false node push/tools/make_vapid.mjs | npx wrangler@4 secret put VAPID_PRIVATE_JWK --config push/wrangler.toml`
      （VAPID の鍵の組を作り、秘密の鍵はそのまま Workers へ。公開の鍵は `app/js/config.js` に書かれる）
-   - `! npx wrangler@4 secret put NOTIFY_TOKEN --config push/wrangler.toml`（聞かれたら 3 の合言葉を貼る）
-7. **Workers に載せる**（了承をいただいてから、Claude がします）：`npx wrangler@4 deploy --config push/wrangler.toml` → 出た URL（`https://machi-no-ashi-push.○○.workers.dev`）を `app/js/config.js` の `server` に入れる。
-8. **GitHub の Secrets に入れる**：リポジトリの Settings → Secrets and variables → Actions → New repository secret
-   - `NOTIFY_URL`：7 の URL
-   - `NOTIFY_TOKEN`：3 の合言葉
-9. **Cloudflare の画面で確かめる**：Workers → machi-no-ashi-push → Settings → Observability（ログ）が「無効」になっていること。
+   - `! WRANGLER_SEND_METRICS=false npx wrangler@4 secret put NOTIFY_TOKEN --config push/wrangler.toml`（聞かれたら、控えた合言葉を貼る）
+6. **アプリの設定**（Claude）：`app/js/config.js` の `server` に URL を入れてコミットする。次の定時の実行で、アプリに「知らせを受け取る」が出る
+7. **GitHub の Secrets**（開発者）：Settings → Secrets and variables → Actions → New repository secret
+   - `NOTIFY_URL`：`https://machi-no-ashi-push.h-kazuki.workers.dev`
+   - `NOTIFY_TOKEN`：5 と同じ合言葉
+8. **Cloudflare の画面で確かめる**（開発者）：Workers & Pages → machi-no-ashi-push → Settings → Observability（ログ）が無効
+9. **手元の iPhone と Android で確かめる**：受け取る・止める・通知を押して開く画面
 
 ## 動き
 
