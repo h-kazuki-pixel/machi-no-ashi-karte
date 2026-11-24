@@ -32,7 +32,7 @@ from collections import defaultdict
 from importlib import import_module
 
 from calendar_rules import day_marks
-from common import CACHE, DATA
+from common import CACHE, DATA, zip_members
 
 dv = import_module("03_diff_versions")
 MATCH_M = 30
@@ -63,19 +63,23 @@ def kq(s):
     return f"『{s}』" if ("「" in s or "」" in s) else f"「{s}」"
 
 
-NO_PICKUP = 1   # pickup_type=1：この停留所からは乗れない（降りるだけ）
-NO_DROP_OFF = 2  # drop_off_type=1：この停留所では降りられない（乗るだけ）
+# stop_times の pickup_type / drop_off_type を、時刻表のデータの印（ビットの組み合わせ）にする
+NO_PICKUP = 1         # pickup_type=1：この停留所からは乗れない（降りるだけ）
+NO_DROP_OFF = 2       # drop_off_type=1：この停留所では降りられない（乗るだけ）
+PICKUP_PHONE = 4      # pickup_type=2：乗る前にバス会社への電話（予約）がいる
+PICKUP_DRIVER = 8     # pickup_type=3：乗るときに運転士に伝える
+DROP_OFF_PHONE = 16   # drop_off_type=2：降りるにはバス会社への電話（予約）がいる
+DROP_OFF_DRIVER = 32  # drop_off_type=3：降りるときに運転士に伝える
+PICKUP_BITS = NO_PICKUP | PICKUP_PHONE | PICKUP_DRIVER
+DROP_OFF_BITS = NO_DROP_OFF | DROP_OFF_PHONE | DROP_OFF_DRIVER
 
 
 def board_flags(r):
-    """stop_times の pickup_type / drop_off_type。1（できない）だけを印にする。
-    2（事業者に電話）・3（運転士と調整）は、乗り降りできるものとして扱う。"""
-    f = 0
-    if (r.get("pickup_type") or "").strip() == "1":
-        f |= NO_PICKUP
-    if (r.get("drop_off_type") or "").strip() == "1":
-        f |= NO_DROP_OFF
-    return f
+    """1（できない）は乗り降りしない。2（電話）・3（運転士）は乗り降りできるものとして扱い、注意を添える。"""
+    p = (r.get("pickup_type") or "").strip()
+    d = (r.get("drop_off_type") or "").strip()
+    return ({"1": NO_PICKUP, "2": PICKUP_PHONE, "3": PICKUP_DRIVER}.get(p, 0)
+            | {"1": NO_DROP_OFF, "2": DROP_OFF_PHONE, "3": DROP_OFF_DRIVER}.get(d, 0))
 
 
 class Version:
@@ -84,7 +88,7 @@ class Version:
         path = path or (CACHE / "zips" / f"{uid}.zip")
         self.feed = dv.Feed(path)  # services_on / exc（調査と同じ読み方）
         z = zipfile.ZipFile(path)
-        names = {n.split("/")[-1]: n for n in z.namelist()}
+        names = zip_members(z)  # .csv の名前のファイルも読む
         self.stops = {s["stop_id"]: s for s in read(z, names, "stops.txt")}
         self.kana = {}
         for t in read(z, names, "translations.txt"):

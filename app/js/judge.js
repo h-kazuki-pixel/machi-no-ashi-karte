@@ -32,8 +32,24 @@ const WEEKDAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 
 // ---------- 改正のデータ ----------
 
+// 乗り降りの決まり（時刻表のデータの4つ目の印。scripts/06_build_revision.py と同じ）
 export const NO_PICKUP = 1;
 export const NO_DROP_OFF = 2;
+export const PICKUP_PHONE = 4;
+export const PICKUP_DRIVER = 8;
+export const DROP_OFF_PHONE = 16;
+export const DROP_OFF_DRIVER = 32;
+
+// そのバスに乗る・降りるときの注意（pickup_type・drop_off_type が 2・3 の停留所）
+export function rideCautions(r) {
+  if (!r) return [];
+  const out = [];
+  if (r.boardF & PICKUP_PHONE) out.push("pickup_phone");
+  if (r.boardF & PICKUP_DRIVER) out.push("pickup_driver");
+  if (r.alightF & DROP_OFF_PHONE) out.push("drop_off_phone");
+  if (r.alightF & DROP_OFF_DRIVER) out.push("drop_off_driver");
+  return out;
+}
 
 export function prepare(rev) {
   // 停留所を名前でまとめる（利用者が選ぶのは名前。同じ名前ののりばはまとめる）
@@ -139,7 +155,7 @@ export function ridesOn(P, s, fromName, toName) {
       if (board !== null && to.has(st.stop) && k > board && !(st.f & NO_DROP_OFF)) {
         const b = t.stops[board];
         rides.push({ trip: ti, route: t.route, headsign: t.headsign, dep: b.dep, arr: st.arr,
-                     boardStop: b.stop, alightStop: st.stop, version: day.v });
+                     boardStop: b.stop, alightStop: st.stop, version: day.v, boardF: b.f, alightF: st.f });
         board = null;
       }
       if (from.has(st.stop) && !(st.f & NO_PICKUP)) board = k;
@@ -310,7 +326,7 @@ function servedStops(P, s) {
     const set = new Set();
     const day = P.days[s];
     // 乗ることも降りることもできない停留所（通過と同じ）は、止まるとみなさない
-    if (day) for (const ti of P.patterns[day.p]) for (const st of P.tripObjs[ti].stops) if (st.f !== 3) set.add(st.stop);
+    if (day) for (const ti of P.patterns[day.p]) for (const st of P.tripObjs[ti].stops) if (!(st.f & NO_PICKUP && st.f & NO_DROP_OFF)) set.add(st.stop);
     byDate.set(s, set);
   }
   return byDate.get(s);
@@ -344,7 +360,9 @@ export function judge(P, reg) {
   // 路線の運行が始まる・終わる（比べる日＝登録した曜日の日に、その路線のバスが1本も走らない側がある）
   const routeRuns = (dates, route) => dates.some((d) => P.patterns[P.days[d].p].some((ti) => P.tripObjs[ti].route === route));
   if (c.level === "will_be_able" && a.ride && !routeRuns(b.dates, a.ride.route)) {
-    out.notes.push({ kind: "route_starts", route: a.ride.route });
+    // 前の運行の最後の日（季節運行の再開など。改正のデータの meta.route_last_run）
+    const prevLast = (P.meta.route_last_run || {})[a.ride.route];
+    out.notes.push({ kind: "route_starts", route: a.ride.route, ...(prevLast ? { prevLast } : {}) });
   }
   if (c.level === "cannot" && b.ride && !routeRuns(a.dates, b.ride.route)) {
     out.notes.push({ kind: "route_ends", route: b.ride.route });

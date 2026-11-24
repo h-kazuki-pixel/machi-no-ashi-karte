@@ -49,6 +49,33 @@ def has_timetable(site, key, uid):
     return (site / rv.timetable_path(key, uid)).exists()
 
 
+EMPTY_NOTE = "このバスの時刻表のデータに、便か停留所がありません。そのため、まだ使えません"
+
+
+class Sizes:
+    """時刻表の便と停留所の数（state/timetable_sizes.json に控える。ファイルの大きさが変わったら数え直す）"""
+
+    def __init__(self, site):
+        self.p = site / "state" / "timetable_sizes.json"
+        self.site = site
+        self.d = json.loads(self.p.read_text(encoding="utf-8")) if self.p.exists() else {}
+        self.used = set()
+
+    def get(self, rel):
+        f = self.site / rel
+        size = f.stat().st_size
+        x = self.d.get(rel)
+        if not x or x[0] != size:
+            tt = json.loads(f.read_text(encoding="utf-8"))
+            x = self.d[rel] = [size, len(tt["trips"]), len(tt["stops"])]
+        self.used.add(rel)
+        return x[1], x[2]
+
+    def save(self):
+        self.d = {k: v for k, v in self.d.items() if k in self.used}
+        w.write_json(self.p, self.d)
+
+
 def build_catalog(site, seen, feeds, index, today):
     by_feed = {}
     for r in seen:
@@ -61,6 +88,7 @@ def build_catalog(site, seen, feeds, index, today):
     prefs = {}
     items = []
     referenced = set()
+    sizes = Sizes(site)
     for key, f in sorted(feeds.items()):
         usable = f.get("feed_license") in br.ALLOWED_LICENSES
         vs = [v for v in by_feed.get(key, []) if has_timetable(site, key, v["gtfs_file_uid"])] if usable else []
@@ -68,6 +96,9 @@ def build_catalog(site, seen, feeds, index, today):
         tts = [{"uid": v["gtfs_file_uid"], "from": v["from_date"], "to": v["to_date"],
                 "published_at": v["published_at"], "path": rv.timetable_path(key, v["gtfs_file_uid"])} for v in eff]
         referenced.update(t["path"] for t in tts)
+        # 便か停留所が0の時刻表（ファイルの名前が違うなどで読めなかった版）は配らない
+        empty = [t for t in tts if 0 in sizes.get(t["path"])]
+        tts = [t for t in tts if t not in empty]
         pref = int(f.get("feed_pref_id") or 0)
         item = {"feed": key, "name": f.get("feed_name"), "operator": f.get("organization_name"),
                 "pref": pref, "license": f.get("feed_license"), "license_url": f.get("feed_license_url"),
@@ -75,6 +106,8 @@ def build_catalog(site, seen, feeds, index, today):
                 "revisions": sorted(revs.get(key, []), key=lambda r: r["change_date"])}
         if not usable:
             item["note"] = UNUSABLE_NOTE
+        elif not tts and empty:
+            item["note"] = EMPTY_NOTE
         elif not tts:
             item["note"] = "このバスの、いま使える時刻表のデータがありません"
         items.append(item)
@@ -95,6 +128,7 @@ def build_catalog(site, seen, feeds, index, today):
         "feeds": items, "holidays": holidays,
     }
     w.write_json(site / "data" / "catalog.json", catalog)
+    sizes.save()
     return catalog, referenced
 
 

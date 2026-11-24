@@ -43,7 +43,7 @@ import zipfile
 from collections import Counter, defaultdict
 
 from calendar_rules import HOLIDAY_LIST_END, HOLIDAYS, is_special, season_excluded
-from common import CACHE, DATA, fetch
+from common import CACHE, DATA, fetch, zip_members
 
 JST = dt.timezone(dt.timedelta(hours=9))
 WD = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
@@ -73,9 +73,10 @@ def read_csv(z, name):
 class Feed:
     def __init__(self, path):
         z = zipfile.ZipFile(path)  # 展開せずに読むだけ
-        names = {n.split("/")[-1]: n for n in z.namelist() if not n.endswith("/")}
+        raw = zip_members(z, aliases=False)
+        names = zip_members(z)  # .csv の名前のファイルも読む
         rd = lambda n: read_csv(z, names[n]) if n in names else []  # noqa: E731
-        self.hash = {n: hashlib.sha1(z.read(p)).hexdigest() for n, p in names.items()}
+        self.hash = {n: hashlib.sha1(z.read(p)).hexdigest() for n, p in raw.items()}
         self.feed_info = (rd("feed_info.txt") or [{}])[0]
         self.has_freq = bool(rd("frequencies.txt"))
         st = defaultdict(list)

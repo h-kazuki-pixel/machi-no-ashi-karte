@@ -7,8 +7,10 @@
   services  [{"id", "wd": "1111100", "s": "YYYYMMDD", "e": "YYYYMMDD", "add": [...], "rm": [...]}, ...]
             運行の決まり（calendar.txt と calendar_dates.txt をそのまま）。その日に走るかは端末で計算する
   trips     [[路線, 行き先, 運行, [[停留所, 時刻] か [停留所, 着, 発] か [停留所, 着, 発, 印], ...]], ...]
-            時刻は 0時からの分。印（4つ目）は乗り降りの決まり：1 = 乗れない（pickup_type=1）、
-            2 = 降りられない（drop_off_type=1）、3 = どちらも。印が無ければ乗り降りできる。
+            時刻は 0時からの分。印（4つ目）は乗り降りの決まりのビットの組み合わせ：
+            1 = 乗れない、4 = 乗る前に電話、8 = 乗るとき運転士に伝える（pickup_type=1/2/3）、
+            2 = 降りられない、16 = 降りるには電話、32 = 降りるとき運転士に伝える（drop_off_type=1/2/3）。
+            印が無ければ、ふつうに乗り降りできる。
 
 路線の形（shapes.txt）は入れない。
 「その日に走るバス」の決まりは、調査と同じ（03_diff_versions.Feed.services_on）:
@@ -57,11 +59,11 @@ def build_timetable(zip_path, meta, built_at=None):
         seq = []
         last = len(t["seq"]) - 1
         for k, ((s, a, d), f) in enumerate(zip(t["seq"], t["flags"])):
-            # 始発で降りられない・終点から乗れないのは当たり前なので、印にしない（ほとんどのフィードがそう書いている）
+            # 始発で降りる・終点から乗ることは無いので、その印は持たない（ほとんどのフィードが「できない」と書いている）
             if k == 0:
-                f &= ~br.NO_DROP_OFF
+                f &= ~br.DROP_OFF_BITS
             if k == last:
-                f &= ~br.NO_PICKUP
+                f &= ~br.PICKUP_BITS
             if f:
                 seq.append([st_idx[s], a, d, f])
             elif a == d:

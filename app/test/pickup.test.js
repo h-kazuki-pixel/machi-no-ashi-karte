@@ -31,3 +31,19 @@ test("停留所の時刻：降りられない所に「着く」、乗れない�
   assert.deepEqual([ev("C").arr, ev("C").dep], [620, 620]);
   assert.equal(ev("D"), null); // 終点で降りられない＝この停留所では乗り降りできない
 });
+
+test("2（電話）・3（運転士）は乗り降りできるが、注意が付く", () => {
+  const tt2 = {
+    stops: [["a", "A", "", 36, 140], ["b", "B", "", 36, 140.001], ["c", "C", "", 36, 140.002]],
+    routes: ["デマンド"], services: [{ id: "s", wd: "1111111", s: "20261101", e: "20270331", add: [], rm: [] }],
+    // A：乗る前に電話（4）、B：乗るとき運転士（8）＋降りるとき運転士（32）、C：降りるには電話（16）
+    trips: [[0, "C行き", 0, [[0, 600, 600, 4], [1, 610, 610, 40], [2, 620, 620, 16]]]],
+  };
+  const Q = J.prepare(assembleRevision(rev, { x: tt2 }));
+  const [r1] = J.ridesOn(Q, "2026-12-02", "A", "C");
+  assert.deepEqual(J.rideCautions(r1), ["pickup_phone", "drop_off_phone"]);
+  const [r2] = J.ridesOn(Q, "2026-12-02", "B", "C");
+  assert.deepEqual(J.rideCautions(r2), ["pickup_driver", "drop_off_phone"]);
+  const [r3] = J.ridesOn(Q, "2026-12-02", "A", "B");
+  assert.deepEqual(J.rideCautions(r3), ["pickup_phone", "drop_off_driver"]);
+});

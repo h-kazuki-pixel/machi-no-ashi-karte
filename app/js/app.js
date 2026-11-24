@@ -249,8 +249,22 @@ function firstDay(res) {
 const hasNote = (res, kind) => res.notes && res.notes.some((n) => n.kind === kind);
 
 // 見出し：「12月1日（火）から、『名前』が変わります」。路線の運行が始まる・終わるときは、そう書く
+const SEASON = ["冬", "冬", "春", "春", "春", "夏", "夏", "夏", "秋", "秋", "秋", "冬"];
+// 前の運行の最後の日：「4月14日」。変わる日と年が違えば「2025年4月14日」
+function prevLastText(prev, first) {
+  const d = J.parseDate(prev);
+  const y = d.getUTCFullYear() !== J.parseDate(first).getUTCFullYear() ? `${d.getUTCFullYear()}年` : "";
+  return `${y}${d.getUTCMonth() + 1}月${d.getUTCDate()}日`;
+}
 function headline(res, name) {
   const past = res.ph === "after";
+  const starts = res.notes && res.notes.find((n) => n.kind === "route_starts");
+  if (starts && starts.prevLast) {
+    // 前にも走っていた路線の運行が、また始まる（雷鳥ライナーの冬の運行など）
+    const first = firstDay(res);
+    const season = SEASON[J.parseDate(first).getUTCMonth()];
+    return `${jDate(first)}から、この${season}の運行が始まり${past ? "ました" : "ます"}（前の運行は${prevLastText(starts.prevLast, first)}まで）`;
+  }
   if (hasNote(res, "route_starts")) return `${jDate(firstDay(res))}から、このバスの運行が始まり${past ? "ました" : "ます"}（『${name}』）`;
   if (hasNote(res, "route_ends")) return `${jDate(firstDay(res))}から、このバスの運行が終わり${past ? "ました" : "ます"}（『${name}』）`;
   return `${jDate(firstDay(res))}から、『${name}』が${past ? "変わりました" : "変わります"}`;
@@ -329,6 +343,18 @@ function detailLines(res) {
     out.push(`乗るバスが${kq(res.after.ride.route)}に変わります。`);
   }
   return out;
+}
+
+const CAUTION_TEXT = {
+  pickup_phone: "このバスは、乗る前にバス会社への電話（予約）がいります",
+  pickup_driver: "このバスは、乗るときに運転士に伝える必要があります",
+  drop_off_phone: "このバスは、降りるにはバス会社への電話（予約）がいります",
+  drop_off_driver: "このバスは、降りるときに運転士に伝える必要があります",
+};
+// 出しているバス（いままで・変わる日から・いまのバス）の、乗り降りの注意
+function cautionHtml(...rides) {
+  const kinds = [...new Set(rides.flatMap((r) => J.rideCautions(r)))];
+  return kinds.map((k) => `<p class="warn">${esc(CAUTION_TEXT[k])}</p>`).join("");
 }
 
 function noteLines(res) {
@@ -440,9 +466,12 @@ async function homeView() {
     } else {
       const li = levelInfo(n);
       const verb = n.ph === "after" ? "変わりました" : "変わります";
+      // 見出しに移動の名前が入らない言い方（運行がまた始まる）のときは、名前を先に出す
+      const hl = headline(n, x.reg.name);
+      const nameLine = hl.includes(x.reg.name) ? "" : `<div class="muted">『${esc(x.reg.name)}』</div>`;
       html += `<a class="card notice ${li.cls}" href="${href}">
-        <span class="badge ${li.cls}">${esc(li.badge)}</span>
-        <div class="name" style="color:var(--fg)">${esc(headline(n, x.reg.name))}</div>
+        <span class="badge ${li.cls}">${esc(li.badge)}</span>${nameLine}
+        <div class="name" style="color:var(--fg)">${esc(hl)}</div>
         <div style="color:var(--fg)">${esc(nowLine)}</div></a>`;
     }
   }
@@ -532,8 +561,10 @@ async function noticeView(feed, change) {
       html += `<a class="card" href="${href}"><div class="verdict">いまも、変わったあとも、1本で行けるバスがありません</div><div class="name">${esc(x.reg.name)}</div></a>`;
     } else {
       const li = levelInfo(res);
-      html += `<a class="card notice ${li.cls}" href="${href}"><span class="badge ${li.cls}">${esc(li.badge)}</span>
-        <div class="name" style="color:var(--fg)">${esc(headline(res, x.reg.name))}</div></a>`;
+      const hl = headline(res, x.reg.name);
+      const nameLine = hl.includes(x.reg.name) ? "" : `<div class="muted">『${esc(x.reg.name)}』</div>`;
+      html += `<a class="card notice ${li.cls}" href="${href}"><span class="badge ${li.cls}">${esc(li.badge)}</span>${nameLine}
+        <div class="name" style="color:var(--fg)">${esc(hl)}</div></a>`;
     }
   }
   render(html + `<a class="btn secondary" href="#home">わたしの移動へ</a>`);
@@ -555,6 +586,7 @@ function revisionHtml(res) {
     html += `<div class="compare ${li.cls}" style="background:none">${col("いままで", res.before.ride, "")}${col(`${jDateShort(firstDay(res))}から`, res.after.ride, "after")}</div>`;
   }
   for (const l of detailLines(res)) html += `<p class="lead">${esc(l)}</p>`;
+  html += cautionHtml(res.before.ride, res.after.ride);
   if (res.level === "tiny") html += `<p class="muted">（${Math.max(Math.abs(res.dDep), Math.abs(res.dArr))}分ほどのちがいです）</p>`;
   html += movedHtml(res);
   if (res.alternatives) html += altHtml(res);
@@ -582,6 +614,7 @@ async function tripView(id) {
     html += `<h1>${esc(reg.name)}</h1>`;
     html += x.now.ride ? `<div class="compare"><div class="col"><div class="label">いまのバス</div><div class="time">${busText(x.now.ride)}</div><div class="muted">${esc(x.now.ride.route)}</div></div></div>`
       : `<p class="warn">いまの時刻表では、1本で行けるバスがありません。行けるようになったら知らせます。</p>`;
+    html += cautionHtml(x.now.ride);
     html += `<p class="lead">いまのところ、時刻が変わる知らせはありません。</p>`;
     html += `<div class="source"><p class="small">${esc(attribution(x.item))}</p></div>`;
     return render(html + `<a class="btn secondary" href="#home">もどる</a>` + delBtn(reg));
@@ -713,7 +746,7 @@ async function checkView() {
     : `いまは1本で行けるバスがありません。行けるようになったら知らせます。`;
   render(`<p class="steps">7 / 7</p><h1>この移動に名前をつけてください</h1>
     <p class="muted">${esc(item.name)}<br>${esc(reg.from)} → ${esc(reg.to)}<br>${esc(daysText(reg.days))}　${esc(condText(reg.cond))}</p>
-    <p class="${chk.ride ? "lead" : "warn"}">${esc(nowText)}</p>
+    <p class="${chk.ride ? "lead" : "warn"}">${esc(nowText)}</p>${cautionHtml(chk.ride)}
     <input type="text" id="n" placeholder="例：火曜の病院（行き）" value="">
     <button class="btn" id="save">登録する</button><a class="btn secondary" href="#home">やめる</a>`);
   document.getElementById("save").addEventListener("click", () => {

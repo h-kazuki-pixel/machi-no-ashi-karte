@@ -91,3 +91,16 @@ def probe(url: str, dest: Path) -> dict:
         }
     dest.write_text(json.dumps(info))
     return info
+
+
+def zip_members(z, aliases=True):
+    """zip の中のファイル：名前（フォルダを除く）→ zip の中のパス。
+    aliases=True のとき、「stop_times.csv」のように .csv の名前で入っているファイルも、
+    同じ名前の .txt が無ければ「stop_times.txt」として読めるようにする（つくば市の2フィードなど）。"""
+    names = {n.split("/")[-1]: n for n in z.namelist() if not n.endswith("/")}
+    if aliases:
+        for n, p in list(names.items()):
+            if n.lower().endswith(".csv"):
+                txt = n[:-4] + ".txt"
+                names.setdefault(txt, p)
+    return names

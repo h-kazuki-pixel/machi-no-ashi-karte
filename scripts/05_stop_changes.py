@@ -29,7 +29,7 @@ import zipfile
 from collections import defaultdict
 from importlib import import_module
 
-from common import CACHE
+from common import CACHE, zip_members
 
 dv = import_module("03_diff_versions")
 
@@ -49,7 +49,7 @@ def hhmm(m):
 
 def load(uid):
     z = zipfile.ZipFile(CACHE / "zips" / f"{uid}.zip")
-    names = {n.split("/")[-1]: n for n in z.namelist()}
+    names = zip_members(z)
 
     def rd(n):
         return list(csv.DictReader(io.StringIO(z.read(names[n]).decode("utf-8-sig"))))

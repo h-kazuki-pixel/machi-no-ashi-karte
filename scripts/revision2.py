@@ -21,6 +21,8 @@ dv = import_module("03_diff_versions")
 ttm = import_module("timetable")
 
 WINDOW_DAYS = 70
+LOOKBACK_DAYS = 400   # 運行が始まる路線の「前の運行の最後の日」を探す日数
+LOOKBACK_MAX_VERSIONS = 5  # そのために読む、比べる期間の外の版の数の上限
 OUTSIDE = {"kind": "outside", "label": "この日に有効な時刻表のデータが無い"}
 
 
@@ -36,6 +38,56 @@ def revision_path(feed_key, change, uid):
 
 def _d(s):
     return dt.date.fromisoformat(s)
+
+
+def _routes_running(version, day):
+    sv = version.feed.services_on(day)
+    return {t["route"] for t in version.trips.values() if t["service_id"] in sv}
+
+
+def route_last_runs(olds, change, days, timetables, zip_of):
+    """新しい版の路線のうち、比べる期間の前の側（変更日の前の70日）に1本も走らない路線について、
+    変更日の前 LOOKBACK_DAYS 日の中で、その路線が最後に走った日を探す（「前の版をつなげる」と同じ選び方の版で）。
+    戻り値 {路線名: "YYYY-MM-DD"}（見つからない路線は入れない）"""
+    new_uid = next((d["u"] for d in days.values() if d["s"] == "new" and d["u"]), None)
+    if not new_uid:
+        return {}
+    new_routes = {timetables[new_uid]["routes"][t[0]] for t in timetables[new_uid]["trips"]}
+    ran = set()  # 前の側の日に走った路線
+    vers = {}
+
+    def version(m):
+        u = m["gtfs_file_uid"]
+        if u not in vers:
+            vers[u] = br.Version(u, zip_of(m))
+        return vers[u]
+
+    by_uid = {m["gtfs_file_uid"]: m for m in olds}
+    for day, d in days.items():
+        if d["s"] == "old" and d["u"]:
+            ran |= _routes_running(version(by_uid[d["u"]]), _d(day))
+    missing = new_routes - ran
+    if not missing:
+        return {}
+    out = {}
+    extra = 0
+    start = change - dt.timedelta(days=WINDOW_DAYS)
+    for k in range(1, LOOKBACK_DAYS - WINDOW_DAYS + 1):
+        day = start - dt.timedelta(days=k)
+        valid = [c for c in olds if _d(c["from_date"]) <= day <= _d(c["to_date"])]
+        if not valid:
+            continue
+        m = max(valid, key=lambda c: c["published_at"])
+        if m["gtfs_file_uid"] not in vers:
+            extra += 1
+            if extra > LOOKBACK_MAX_VERSIONS:
+                break
+        for r in missing & _routes_running(version(m), day):
+            out[r] = day.isoformat()
+        missing -= set(out)
+        if not missing:
+            break
+    return out
 
 
 def build_revision2(feed_key, new, candidates, change, zip_of, built_at):
@@ -78,6 +130,7 @@ def build_revision2(feed_key, new, candidates, change, zip_of, built_at):
     timetables = {}
     for u, m in used.items():
         timetables[u] = ttm.build_timetable(zip_of(m), {**m, **meta_common, "feed": feed_key}, built_at=built_at)
+    last_runs = route_last_runs(olds, change, days, timetables, zip_of)
     _, _, report = br.compare_stops(br.Version(prev["gtfs_file_uid"], zip_of(prev)),
                                     br.Version(new["gtfs_file_uid"], zip_of(new)))
 
@@ -100,6 +153,8 @@ def build_revision2(feed_key, new, candidates, change, zip_of, built_at):
                        "to": (change + dt.timedelta(days=WINDOW_DAYS - 1)).isoformat()},
             "built_at": built_at,
             "timetables": {u: timetable_path(feed_key, u) for u in timetables},
+            # 比べる期間の前の側に1本も走らない路線の、前の運行の最後の日（季節運行の再開など）
+            "route_last_run": last_runs,
         },
         "days": days,
         "stop_report": report,
