@@ -51,8 +51,24 @@ export async function saveFeedNames(regs, catalog) {
 }
 
 let swReg = null;
+function showUpdateBar() {
+  if (document.getElementById("update-bar")) return;
+  const bar = document.createElement("div");
+  bar.id = "update-bar";
+  bar.className = "update-bar";
+  bar.setAttribute("role", "status");
+  bar.innerHTML = `<p>新しい版があります。開き直してください。</p><button class="btn" type="button">開き直す</button>`;
+  bar.querySelector("button").addEventListener("click", () => location.reload());
+  document.body.prepend(bar);
+}
 export async function registerSw() {
   if (!("serviceWorker" in navigator)) return null;
+  // 前から service worker が動いていたのに入れ替わったら（sw.js が新しくなった）、開いている画面は古いままなので、
+  // 開き直すように出す（最初に入ったときは出さない）
+  const hadController = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (hadController) showUpdateBar();
+  });
   try {
     swReg = await navigator.serviceWorker.register("sw.js");
     return swReg;

@@ -28,9 +28,6 @@ async function idbGet(key) {
   }
 }
 
-self.addEventListener("install", () => self.skipWaiting());
-self.addEventListener("activate", (e) => e.waitUntil(self.clients.claim()));
-
 function todayJst() {
   return new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
 }
@@ -72,7 +69,8 @@ self.addEventListener("push", (e) => {
     // 試し（/notify の test）：本物と同じ文に「（試し）」を付ける
     const body = noticeText(await feedName(feed), change, todayJst(), d.known !== false) + (d.test === true ? "（試し）" : "");
     // iPhone では、届いた通知は必ず表示する決まり
-    await self.registration.showNotification("まちの足カルテ", {
+    // 題名は「時刻表の知らせ」（iPhone は「題名 from ホーム画面の名前」と出すので、アプリの名前と重ねない）
+    await self.registration.showNotification("時刻表の知らせ", {
       body, tag: `${feed}|${change}${d.test === true ? "|test" : ""}`, icon: "icons/icon-192.png", lang: "ja",
       // 知らせの画面の URL。iPhone のホーム画面のアプリは、開くときに「#」より後ろを落とすことがあるため、
       // 「?notice=」で渡し、アプリが読みこんだときに「#notice/…」に直す
