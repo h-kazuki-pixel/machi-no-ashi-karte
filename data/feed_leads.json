@@ -1,4 +1,9469 @@
 {
+"agematsutown/agematu": [
+{
+"new_uid": "2a4082cd-e653-46f5-9a59-f18994ded372",
+"published": "2025-09-22",
+"change": "2025-10-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "89763875-dccd-4bc7-84eb-2183b644f078",
+"published": "2026-07-02",
+"change": "2026-07-02",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-07-02"
+},
+{
+"new_uid": "7e8a57d7-210c-4d83-a6c6-59087d90b5e4",
+"published": "2026-08-31",
+"change": "2026-10-01",
+"lead": 31,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-07-01",
+"new_from": "2026-10-01"
+}
+],
+"akashicity/tacobustacobusmini": [
+{
+"new_uid": "1468f79d-b777-438e-9a2b-c59e1edb4d6e",
+"published": "2025-03-12",
+"change": "2025-04-01",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "13c17194-f783-4922-976c-3218283bea5c",
+"published": "2026-03-03",
+"change": "2026-04-01",
+"lead": 29,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-30",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "9d477cda-0811-4a1e-a2e1-ed06382e0497",
+"published": "2026-10-04",
+"change": "2026-11-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-04-30",
+"new_from": "2026-11-01"
+}
+],
+"akicity/GTFS-Akicity_Bus": [
+{
+"new_uid": "a9e5fbfb-bc63-4e0f-8909-f6be159eb9f5",
+"published": "2026-09-04",
+"change": "2026-10-01",
+"lead": 27,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"akocity/teijuurou": [
+{
+"new_uid": "7f62e36f-8ce2-499f-81a7-0bc07a0bbc76",
+"published": "2025-04-30",
+"change": "2025-05-31",
+"lead": 31,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2026-04-30",
+"new_from": "2024-04-01"
+},
+{
+"new_uid": "2d823f5c-6c1b-4a96-aa92-e358bed20f1f",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-30",
+"new_from": "2026-04-01"
+}
+],
+"akocity/yuranosuke": [
+{
+"new_uid": "b6d18b83-87c4-43ce-bb21-fee35f64f6e5",
+"published": "2025-04-30",
+"change": "2024-10-01",
+"lead": -211,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-31",
+"new_from": "2024-10-01"
+},
+{
+"new_uid": "6b54af47-ef40-49d7-9bd2-af53b61ec7d3",
+"published": "2025-04-30",
+"change": "2025-04-02",
+"lead": -28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "48fa3ca0-561a-4849-aff8-86a7ca198187",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-31",
+"new_from": "2026-04-01"
+}
+],
+"anjocity/AnkuruBus": [
+{
+"new_uid": "a3bdcb22-7437-4b59-a69e-66908194c7ab",
+"published": "2025-01-28",
+"change": "2025-03-15",
+"lead": 46,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-10-01"
+},
+{
+"new_uid": "4507dcbf-e6fa-4483-9c2f-fb87a39a1c42",
+"published": "2025-03-31",
+"change": "2025-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "da120dbd-0752-45d9-95a3-4ac52923ef2f",
+"published": "2025-04-02",
+"change": "2025-04-18",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-30",
+"new_from": "2025-04-18"
+},
+{
+"new_uid": "38393a3b-8451-4f3a-8744-a65d7b7c7ee1",
+"published": "2025-06-20",
+"change": "2025-07-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-17",
+"new_from": "2025-07-01"
+},
+{
+"new_uid": "efb7cd83-e1b3-4c59-ba72-32570aae41aa",
+"published": "2025-08-15",
+"change": "2025-10-01",
+"lead": 47,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "19028172-f2cc-4cd5-a0d8-a21056430324",
+"published": "2026-02-19",
+"change": "2026-04-01",
+"lead": 41,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-04-01"
+}
+],
+"aoi-komaki/aoikotsu": [
+{
+"new_uid": "970bdd6b-3f6e-4e01-9e4e-ef85b36dd2ea",
+"published": "2025-03-11",
+"change": "2025-03-30",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-26",
+"new_from": "2025-03-30"
+},
+{
+"new_uid": "0fc4dd7f-b51e-41a1-92e0-8e867409cd01",
+"published": "2025-10-10",
+"change": "2025-10-26",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-10-26"
+},
+{
+"new_uid": "b0764533-f892-4c86-bc1a-95d7459fe3f9",
+"published": "2026-03-16",
+"change": "2026-03-29",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-29"
+},
+{
+"new_uid": "6d72407a-6c17-47f6-b9b8-8505849cd231",
+"published": "2026-03-23",
+"change": "2026-04-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "d141acc8-7130-41fc-a0d6-41539e8786ab",
+"published": "2026-04-14",
+"change": "2026-04-21",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-21"
+},
+{
+"new_uid": "b5b540ba-e6ca-489c-8662-c2ce9d4fb042",
+"published": "2026-09-17",
+"change": "2026-10-05",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-05"
+},
+{
+"new_uid": "ba3054d8-bfd8-40b1-897e-918ebadf8b7b",
+"published": "2026-10-14",
+"change": "2026-10-25",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-25"
+}
+],
+"aokivillage/aokisoneibus": [
+{
+"new_uid": "21ab755f-55ef-437d-887f-02abddd034b9",
+"published": "2025-04-28",
+"change": "2025-04-25",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2023-12-31",
+"new_from": "2025-04-25"
+},
+{
+"new_uid": "203fdfdd-30bc-4ec8-99e2-b5e5989c6513",
+"published": "2026-08-19",
+"change": "2026-08-20",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-04-23",
+"new_from": "2026-08-20"
+},
+{
+"new_uid": "534e79e8-2e50-488c-b5c2-1117763262b1",
+"published": "2026-09-03",
+"change": "2026-10-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-08-19",
+"new_from": "2026-10-01"
+}
+],
+"aridagawatown/aridagawatownbus": [
+{
+"new_uid": "0fa01f68-a673-44b2-819a-085b63af3158",
+"published": "2025-10-02",
+"change": "2025-10-01",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+}
+],
+"ashiyatown/AshiyaTownBus": [
+{
+"new_uid": "759f7a6b-5e57-4714-b323-70fffcaf2111",
+"published": "2026-02-07",
+"change": "2026-03-28",
+"lead": 49,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-27",
+"new_from": "2026-03-28"
+}
+],
+"awajicity/awaji-jenova-line-akashi-iwaya": [
+{
+"new_uid": "c1010f70-97be-459c-b808-6a1acd397c73",
+"published": "2026-04-03",
+"change": "2026-02-01",
+"lead": -61,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-02-01"
+}
+],
+"awajicity/awajinawahimebus": [
+{
+"new_uid": "7aad19b5-4223-42ac-8281-5ec6014ee39f",
+"published": "2025-03-13",
+"change": "2025-02-21",
+"lead": -20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-02-21"
+},
+{
+"new_uid": "016d4f91-a747-45c2-920f-4004f9a71c58",
+"published": "2026-03-03",
+"change": "2026-03-01",
+"lead": -2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-02-20",
+"new_from": "2026-03-01"
+},
+{
+"new_uid": "f93ba467-c092-4d82-bc58-30ea17d1aedc",
+"published": "2026-03-26",
+"change": "2026-03-12",
+"lead": -14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-02-28",
+"new_from": "2026-03-12"
+}
+],
+"buzencity/BuzenCityBus": [
+{
+"new_uid": "c0175f29-83cf-4787-aba3-477e7b66ef47",
+"published": "2026-03-08",
+"change": "2026-04-04",
+"lead": 27,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"chigasakicity/eboshigou": [
+{
+"new_uid": "13693a4c-5b61-4868-9cc8-839d504d964f",
+"published": "2026-04-27",
+"change": "2026-05-02",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-01",
+"new_from": "2026-05-02"
+}
+],
+"chikujotown/ChikujoTownCommunityBus": [
+{
+"new_uid": "1b6c2a56-ebd7-4bbc-a9ae-8ec6d446e044",
+"published": "2025-10-20",
+"change": "2025-11-22",
+"lead": 33,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-11-21",
+"new_from": "2025-11-22"
+},
+{
+"new_uid": "4f1f9f7b-8f5c-47f7-8adf-7be9c1c68dc4",
+"published": "2026-03-04",
+"change": "2026-04-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-11-21",
+"new_from": "2026-04-01"
+}
+],
+"chikuma-bus/rosenbus": [
+{
+"new_uid": "9030df2f-f62d-4495-b9db-b742a0617d17",
+"published": "2025-02-13",
+"change": "2024-09-28",
+"lead": -138,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-09-28"
+},
+{
+"new_uid": "406cbd0e-580e-4958-af45-460d33372794",
+"published": "2025-02-13",
+"change": "2025-04-01",
+"lead": 47,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-27",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "3dd5f85b-eec0-4d90-80df-dbffc7df08c6",
+"published": "2025-07-17",
+"change": "2025-07-26",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-07-26"
+},
+{
+"new_uid": "0ddd4296-f544-43f8-b577-f2ccb282bd9d",
+"published": "2025-07-28",
+"change": "2025-10-01",
+"lead": 65,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-01",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "0a6f3e93-a181-43ea-be2e-e007b8194442",
+"published": "2026-02-27",
+"change": "2026-04-01",
+"lead": 33,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-13",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "005710e3-974b-4c0e-a2a9-77a430defc0c",
+"published": "2026-09-09",
+"change": "2026-10-01",
+"lead": 22,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+},
+{
+"new_uid": "795e5c1f-4c06-496e-b6cb-f569b7bec04e",
+"published": "2026-10-31",
+"change": "2026-11-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-09-30",
+"new_from": "2026-11-01"
+}
+],
+"chikumacity/chikumajunkanbus": [
+{
+"new_uid": "9aed1a51-9321-45d9-80a4-f19a2771604a",
+"published": "2025-03-27",
+"change": "2025-04-14",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-30",
+"new_from": "2025-04-14"
+},
+{
+"new_uid": "7131ddb3-1c03-4081-b083-c8734e579133",
+"published": "2026-04-16",
+"change": "2026-04-20",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-30",
+"new_from": "2026-04-20"
+},
+{
+"new_uid": "b4c6d257-f6ac-482a-b814-0a06209b1c9a",
+"published": "2026-06-25",
+"change": "2026-06-25",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-06-25"
+}
+],
+"chiryucity/communitybus": [
+{
+"new_uid": "bc920866-1c1f-4233-8967-28caf9d9d800",
+"published": "2025-09-04",
+"change": "2025-10-01",
+"lead": 27,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-10-01"
+}
+],
+"chitabus/chitabus": [
+{
+"new_uid": "2b708deb-b7a3-4ec9-adf8-94699781f989",
+"published": "2026-08-03",
+"change": "2026-08-12",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-01-31",
+"new_from": "2026-08-11"
+}
+],
+"chitacity/chita-aiaibus": [
+{
+"new_uid": "91bac460-5679-4167-9bb2-238f602c1ba7",
+"published": "2025-05-16",
+"change": "2025-06-03",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-06-03"
+},
+{
+"new_uid": "8efbe50e-5b5d-4150-9869-210b2a9f20fc",
+"published": "2025-08-29",
+"change": "2025-10-01",
+"lead": 33,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "87be55b7-7fa7-4638-a038-ebb73022bca2",
+"published": "2025-10-06",
+"change": "2025-10-25",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-25"
+}
+],
+"chitetsu/chitetsushinaidensha": [
+{
+"new_uid": "ddb62cb1-d455-45d5-b0a9-148bf421c1c9",
+"published": "2025-04-24",
+"change": "2025-04-26",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-14",
+"new_from": "2025-04-26"
+},
+{
+"new_uid": "e0a9a1fd-3ad9-4ff3-aa41-660e11f8b5e7",
+"published": "2025-05-07",
+"change": "2025-05-07",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-06",
+"new_from": "2025-05-07"
+},
+{
+"new_uid": "02261598-2c56-416e-bd0c-b868ce5980db",
+"published": "2025-07-10",
+"change": "2025-07-19",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-15",
+"new_from": "2025-07-19"
+},
+{
+"new_uid": "e1621ea0-ac4b-4196-b651-f65356b496ff",
+"published": "2025-09-09",
+"change": "2025-09-06",
+"lead": -3,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-08-31",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "0abf15c1-4fed-4f52-817a-79ca7a70cf20",
+"published": "2026-02-27",
+"change": "2026-03-14",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-14",
+"new_from": "2026-03-14"
+}
+],
+"chukibus/chukibus": [
+{
+"new_uid": "37e85934-fce4-443e-a10b-7ca1cd8453a0",
+"published": "2026-09-17",
+"change": "2026-09-20",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-09-20"
+},
+{
+"new_uid": "a8f9eb4b-3206-4a4e-9155-79db3411085b",
+"published": "2026-09-17",
+"change": "2026-09-20",
+"lead": 3,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-01"
+}
+],
+"enacity/communitybus": [
+{
+"new_uid": "fde559df-c9d1-4fbe-a12e-2e5bc3d20171",
+"published": "2024-12-02",
+"change": "2024-12-20",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-20"
+},
+{
+"new_uid": "cc4958a4-12df-4b2f-8ff8-7f56d4d3e436",
+"published": "2025-03-03",
+"change": "2025-03-15",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-03-15"
+},
+{
+"new_uid": "78e50616-8df8-47e4-b58f-44d2b08d9384",
+"published": "2026-02-20",
+"change": "2026-03-14",
+"lead": 22,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-03-14"
+},
+{
+"new_uid": "e5c2b178-85c6-4590-8864-d07cb6f28d00",
+"published": "2026-03-01",
+"change": "2026-04-01",
+"lead": 31,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "ad9363c2-78e2-4e2e-b84d-d6e923dd2906",
+"published": "2026-09-12",
+"change": "2026-10-02",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"fujiedacity/gtfsfjed": [
+{
+"new_uid": "c752f926-b556-4405-a097-4639d80f7466",
+"published": "2026-03-18",
+"change": "2026-03-29",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-28",
+"new_from": "2026-03-29"
+},
+{
+"new_uid": "7d64a624-9a0f-435c-a414-bfaa51ac80b7",
+"published": "2026-10-14",
+"change": "2026-10-25",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-24",
+"new_from": "2026-10-25"
+}
+],
+"fukauratown/fukaura-town-communitybus": [
+{
+"new_uid": "1ca121d1-aaaa-438e-85a7-31ecce6236a9",
+"published": "2026-04-20",
+"change": "2026-04-01",
+"lead": -19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-04-01"
+}
+],
+"fukuoka-kawasakitown/KawasakiTownFureaiBus": [
+{
+"new_uid": "92d3d221-823a-4772-9a08-aa64f5f9c6e2",
+"published": "2026-02-19",
+"change": "2025-10-01",
+"lead": -141,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+}
+],
+"fukuoka-kogacity/KogaBus": [
+{
+"new_uid": "52659a0c-f345-4045-8a5a-11254fbe81cf",
+"published": "2025-09-16",
+"change": "2025-01-27",
+"lead": -232,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-27"
+},
+{
+"new_uid": "719b8604-4930-4a85-8278-f646f00a2468",
+"published": "2026-05-31",
+"change": "2026-06-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-31",
+"new_from": "2026-06-01"
+}
+],
+"fukusakitown/junkai-fukuhime-fukusakikasairenkei": [
+{
+"new_uid": "e7d37b3c-0044-4966-9342-8ed3ab7ec0d2",
+"published": "2025-03-11",
+"change": "2025-04-01",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "36f1ea1d-047a-45ac-beb8-a38f35f86ee4",
+"published": "2026-03-31",
+"change": "2026-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"fukutsucity/minibus": [
+{
+"new_uid": "a81db5d4-a32e-4965-820d-35e56ad10768",
+"published": "2025-08-20",
+"change": "2025-10-01",
+"lead": 42,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+}
+],
+"geiseivillage/GTFS-Geiseivill_Bus": [
+{
+"new_uid": "b1697790-bb03-4a36-abcf-4e7633b4d956",
+"published": "2025-03-25",
+"change": "2025-04-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-01",
+"new_from": "2025-04-01"
+}
+],
+"gifu-yamagatacity/communitybus": [
+{
+"new_uid": "a18e68b1-f49b-4121-b3c7-d848854a6605",
+"published": "2025-03-11",
+"change": "2025-04-01",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"gifucity/communitybus": [
+{
+"new_uid": "bcddddab-cb2b-4ad5-b0f4-78a6b0889b68",
+"published": "2025-03-24",
+"change": "2025-04-02",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "42343a52-5435-42c3-a13c-292da5237b84",
+"published": "2025-08-28",
+"change": "2025-09-02",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "b02c4b75-1472-485e-b216-f9422a5a2853",
+"published": "2025-09-18",
+"change": "2025-10-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-08-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "726bac41-7d83-461f-953b-8f92bf9b6052",
+"published": "2025-10-31",
+"change": "2025-11-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2025-11-01"
+},
+{
+"new_uid": "38b0fc6b-5490-4c02-90e2-9aaafa072ede",
+"published": "2025-11-25",
+"change": "2025-12-02",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "71fac341-3a40-4811-ad8b-d90cb0b6bb96",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-11-30",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "d9fffca3-3eb5-4889-9db9-88d5ef02d738",
+"published": "2026-08-28",
+"change": "2026-09-02",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-09-01"
+}
+],
+"gujocity/citybus": [
+{
+"new_uid": "4e2fc6d2-d8c0-4c3e-b3cf-e1ee2b7f2f83",
+"published": "2025-01-09",
+"change": "2025-01-08",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-08"
+},
+{
+"new_uid": "c540f919-439b-4c82-95e5-b8802f830ef1",
+"published": "2025-01-17",
+"change": "2025-01-16",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-16"
+},
+{
+"new_uid": "2698f6bc-a10c-4fc4-a15b-13b67e3a0340",
+"published": "2025-01-28",
+"change": "2025-02-03",
+"lead": 6,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-27"
+},
+{
+"new_uid": "11ad8f00-3eb4-4b0a-8317-618221e38b17",
+"published": "2025-03-21",
+"change": "2025-04-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "3e1a4d3e-56ce-4f70-9fe5-a07c1fd8242f",
+"published": "2026-04-07",
+"change": "2026-04-01",
+"lead": -6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "7d66cc41-7430-4d81-9e2d-bb8faef5ab63",
+"published": "2026-08-12",
+"change": "2026-08-17",
+"lead": 5,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-08-12"
+},
+{
+"new_uid": "5cce2c60-80f9-44dd-9a26-12bb0e9a1399",
+"published": "2026-09-15",
+"change": "2026-10-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"hakubavalley/bus-hakubavalley-nagano-jp": [
+{
+"new_uid": "8121951b-70b3-4ed6-80fe-38e049d5b6cb",
+"published": "2026-11-20",
+"change": "2025-12-27",
+"lead": -328,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2027-04-26",
+"new_from": "2025-12-13"
+}
+],
+"hakusancity/hakusan_bus_meguru": [
+{
+"new_uid": "cb0bfc60-5ea3-4b7e-9385-ac15f2c23636",
+"published": "2025-02-20",
+"change": "2025-03-15",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-03-15"
+},
+{
+"new_uid": "e7c7148a-2ed4-4f78-a4d7-640b05935ad0",
+"published": "2025-09-30",
+"change": "2025-09-05",
+"lead": -25,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-08-26",
+"new_from": "2025-09-05"
+}
+],
+"hanamakicity/hanamaki": [
+{
+"new_uid": "a1f50ecb-685d-4dfe-a7b3-688b6712de35",
+"published": "2025-12-24",
+"change": "2024-12-23",
+"lead": -366,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2024-12-23"
+},
+{
+"new_uid": "9a1f9aba-2d96-46aa-9091-b24fb1f6c01b",
+"published": "2025-12-25",
+"change": "2025-12-25",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-12-25"
+},
+{
+"new_uid": "5dcb41b5-848e-4850-bf97-b429da0c60aa",
+"published": "2026-09-15",
+"change": "2026-10-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"hannocity/odekakemuma-haraichiba": [
+{
+"new_uid": "30d74532-6e01-41b4-9184-9e48f14e3751",
+"published": "2025-12-25",
+"change": "2024-10-01",
+"lead": -450,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2023-09-01"
+},
+{
+"new_uid": "3f3f81aa-c18a-4058-ab70-af12161782d3",
+"published": "2025-12-25",
+"change": "2025-01-04",
+"lead": -355,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2024-12-31",
+"new_from": "2025-01-01"
+}
+],
+"hannocity/odekakemuma-seimei-kaji": [
+{
+"new_uid": "4fd38f4d-63f6-4b0a-b406-672a9a6baa26",
+"published": "2026-03-17",
+"change": "2025-04-02",
+"lead": -349,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-04-01"
+}
+],
+"hashimacity/HashimaCityCommunityBus": [
+{
+"new_uid": "2ae1234e-7e97-4060-a23b-63c843f3da50",
+"published": "2026-02-13",
+"change": "2026-03-14",
+"lead": 29,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-14"
+},
+{
+"new_uid": "608b193e-4486-490e-ab51-f3ab8ce18b01",
+"published": "2026-09-25",
+"change": "2026-10-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"hayashimatown/hayashimatowncommunitybus": [
+{
+"new_uid": "2bdf0971-5efa-447e-a993-4c7824ac2014",
+"published": "2025-03-06",
+"change": "2025-04-01",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-07-08",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "e814ab47-23d1-42f2-b8c5-f49efdfc1e8d",
+"published": "2026-03-06",
+"change": "2026-04-01",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"hichisotown/choeibus": [
+{
+"new_uid": "dcee7fe8-b625-40d9-a039-874541f6ad2a",
+"published": "2025-03-20",
+"change": "2025-04-01",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "18d6acdb-3935-4506-bc0d-bc82b2a0008a",
+"published": "2025-07-09",
+"change": "2025-07-09",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-07-09"
+},
+{
+"new_uid": "b5b31423-6012-4a7a-933d-be0b29158c7c",
+"published": "2026-03-25",
+"change": "2026-04-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"hidacity/communitybus": [
+{
+"new_uid": "7bfa8593-55ba-4f33-9a69-1847478b9d4c",
+"published": "2025-04-21",
+"change": "2025-04-02",
+"lead": -19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "cad6348f-70fc-4ce5-a4a4-e43dac6a81ee",
+"published": "2025-09-25",
+"change": "2025-10-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "e6b3d693-f63d-41a7-b31a-4b296effa526",
+"published": "2026-03-27",
+"change": "2026-04-02",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "7a299c48-d941-4d60-b462-155c9dd5edb0",
+"published": "2026-09-25",
+"change": "2026-10-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+}
+],
+"higashinecity/HigashineCity": [
+{
+"new_uid": "6bea5adc-a752-49c6-bbfe-819974eb4003",
+"published": "2025-09-18",
+"change": "2025-10-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+}
+],
+"higashiomicity/higasiohmisicommunitybus": [
+{
+"new_uid": "063a3980-d549-4555-be43-66337520fa70",
+"published": "2025-03-31",
+"change": "2025-04-02",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+}
+],
+"himejicity/ieshima-boze-yukihiko": [
+{
+"new_uid": "6ccbaae7-7461-47ad-af58-5fa058a9650d",
+"published": "2025-02-27",
+"change": "2025-04-01",
+"lead": 33,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-06-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "e265166f-8f12-434b-883b-26f06987c41d",
+"published": "2025-08-07",
+"change": "2025-10-01",
+"lead": 55,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "826e952d-84ce-428c-b92d-ffb54dfca0b5",
+"published": "2026-08-19",
+"change": "2026-04-01",
+"lead": -140,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "09442931-f8fb-42b8-a540-978483ca97c0",
+"published": "2026-09-03",
+"change": "2026-10-02",
+"lead": 29,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"hiradocity/fureaibus": [
+{
+"new_uid": "682793ae-25fa-4c26-b7b0-8593a57b1092",
+"published": "2025-10-16",
+"change": "2025-10-16",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-21",
+"new_from": "2025-10-16"
+},
+{
+"new_uid": "51164acc-50a4-404f-ae46-cd664d895cde",
+"published": "2026-04-10",
+"change": "2026-04-04",
+"lead": -6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-15",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "6ec56205-50e4-4d1d-b5d4-141fbe79c2fc",
+"published": "2026-09-02",
+"change": "2026-10-01",
+"lead": 29,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+}
+],
+"hiranaitown/hiranaitownbus": [
+{
+"new_uid": "a1340923-78cf-4fac-a50d-8383b227afcd",
+"published": "2026-03-23",
+"change": "2026-03-14",
+"lead": -9,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2025-12-18"
+}
+],
+"hirosakicity/hokusei-noriai": [
+{
+"new_uid": "27bd40be-1eb5-4e86-8620-b76f5ed7bb31",
+"published": "2026-09-24",
+"change": "2026-04-01",
+"lead": -176,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"hirosakicity/kounan-tetsudou": [
+{
+"new_uid": "04d1bd16-8c79-4046-802c-4ef82747583a",
+"published": "2026-09-24",
+"change": "2026-04-01",
+"lead": -176,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"hisayamatown/HisayamaIkoBus": [
+{
+"new_uid": "37434381-a522-41d5-8597-9cabfdee3b67",
+"published": "2025-12-27",
+"change": "2025-03-22",
+"lead": -280,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-21",
+"new_from": "2025-03-22"
+},
+{
+"new_uid": "b28f8863-a67a-470e-9cec-a566229c1362",
+"published": "2026-04-08",
+"change": "2026-03-21",
+"lead": -18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-21"
+}
+],
+"hyogo-kamikawatown/communitybus": [
+{
+"new_uid": "9cc57221-4c0c-40cd-8965-7a02e8dd2502",
+"published": "2025-09-29",
+"change": "2025-04-01",
+"lead": -181,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "f22848e5-7f6e-4fc7-8e23-93a155a40481",
+"published": "2025-12-10",
+"change": "2026-01-05",
+"lead": 26,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-01-01"
+},
+{
+"new_uid": "6165e045-7096-4575-ae02-096288522bb2",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"hyogo-ono/ranranbus": [
+{
+"new_uid": "e6d51783-2a5c-42cf-8bb9-145c3a633a5d",
+"published": "2025-01-21",
+"change": "2025-02-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-02-01"
+},
+{
+"new_uid": "3cd9c007-5174-491d-8edd-39fa2736ad72",
+"published": "2026-11-06",
+"change": "2026-04-01",
+"lead": -219,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"ibigawatown/communitybus": [
+{
+"new_uid": "55c33187-80fb-4c99-be92-99d92a3d4185",
+"published": "2025-09-25",
+"change": "2025-10-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "1c66ee93-447d-4147-8747-6883807f7382",
+"published": "2026-07-21",
+"change": "2026-07-21",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-07-21"
+}
+],
+"ichikawamisatotown/ichikawamisatobus": [
+{
+"new_uid": "8ba85718-0c97-4e57-a9b6-347ea45cb167",
+"published": "2026-03-23",
+"change": "2026-04-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"ichinosekicity/Ichinosekibus": [
+{
+"new_uid": "75c1d647-de08-45ab-9767-153797c02b57",
+"published": "2025-03-28",
+"change": "2025-04-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "c7a4f6ca-86c9-4dcc-ac46-bb4102a3f102",
+"published": "2026-10-07",
+"change": "2026-04-01",
+"lead": -189,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"igacity/communitybus": [
+{
+"new_uid": "ccda5a7c-873f-4d10-9907-821447395a52",
+"published": "2025-03-31",
+"change": "2025-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-26",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "81ad2058-7a66-4482-85ff-f0d6f0c0eea2",
+"published": "2026-03-12",
+"change": "2026-04-01",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-28",
+"new_from": "2026-04-01"
+}
+],
+"imizucity/imizushi": [
+{
+"new_uid": "560ff591-5412-4c32-991d-a257edf025d6",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-01",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "e0256293-494b-4d4f-9919-2a8be09323dd",
+"published": "2025-08-22",
+"change": "2025-09-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "8fa09c84-e40b-4fbf-9a06-47e0fbfb0549",
+"published": "2025-11-21",
+"change": "2025-12-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-08-31",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "e3e32119-f451-476e-8e9d-8e2a04d53a27",
+"published": "2026-03-19",
+"change": "2026-04-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-11-30",
+"new_from": "2026-04-01"
+}
+],
+"inabecity/fukushibus": [
+{
+"new_uid": "2d007824-dd08-410c-b900-862f265a30e1",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-01-31",
+"new_from": "2026-04-01"
+}
+],
+"inotown/GTFS-Inotown_Loopbus": [
+{
+"new_uid": "481495b3-9707-4700-8f96-61bf1e73af94",
+"published": "2024-11-27",
+"change": "2025-01-04",
+"lead": 38,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2024-12-31",
+"new_from": "2025-01-01"
+},
+{
+"new_uid": "2e29bcfb-decd-4459-9701-8cfa760989bc",
+"published": "2025-08-22",
+"change": "2025-09-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-01",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "8513ed65-c2f5-4f89-8a57-f8a526ae5403",
+"published": "2026-03-17",
+"change": "2026-03-01",
+"lead": -16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-01",
+"new_from": "2026-03-01"
+}
+],
+"isecity/communitybus": [
+{
+"new_uid": "fa4ddfa1-940c-450d-84fa-240468404561",
+"published": "2025-03-31",
+"change": "2024-07-17",
+"lead": -257,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-07-17"
+},
+{
+"new_uid": "74df6bd3-90b1-4c39-b681-d9784394f1f4",
+"published": "2025-03-31",
+"change": "2025-03-01",
+"lead": -30,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-06-03",
+"new_from": "2025-03-01"
+},
+{
+"new_uid": "cf480095-ba75-46d9-a9cf-ce66f8ab25f5",
+"published": "2026-11-14",
+"change": "2026-04-01",
+"lead": -227,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-10",
+"new_from": "2026-04-01"
+}
+],
+"itoigawabus/itoigawabus": [
+{
+"new_uid": "7ea49826-affe-487d-aa17-ad8ac16c077d",
+"published": "2026-08-13",
+"change": "2026-08-17",
+"lead": 4,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-07-31"
+}
+],
+"iwadecity/junkaibus": [
+{
+"new_uid": "d5899f19-58f4-4c37-87c1-eb48799f07a5",
+"published": "2026-04-07",
+"change": "2026-04-07",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-07"
+}
+],
+"jr-east-morioka/JR-east_tsugaruline": [
+{
+"new_uid": "81c2a56a-4ee3-4da3-a5b6-fc289364d78f",
+"published": "2024-12-04",
+"change": "2024-12-16",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-16"
+},
+{
+"new_uid": "eaa0c2fe-ee56-4b85-af8c-5ef40648d67a",
+"published": "2025-02-27",
+"change": "2025-03-15",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-03-15"
+},
+{
+"new_uid": "693e1610-844e-4949-93c2-0b7e51e5254a",
+"published": "2025-02-27",
+"change": "2025-04-01",
+"lead": 33,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "4cdb8cd5-356b-48a0-ba50-8ccecd200950",
+"published": "2025-12-05",
+"change": "2025-12-15",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-15"
+},
+{
+"new_uid": "28ac8f3b-ffc9-4764-971c-55d8026299dd",
+"published": "2026-03-10",
+"change": "2026-03-14",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-14"
+},
+{
+"new_uid": "c52391bd-b072-4619-8b3c-934b38b87bf8",
+"published": "2026-04-17",
+"change": "2026-05-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-31",
+"new_from": "2026-05-01"
+}
+],
+"jr-east-morioka/JR-east_wandotaxi": [
+{
+"new_uid": "f7e4236e-9b01-42af-bdd6-2f6ccac2e807",
+"published": "2025-02-27",
+"change": "2025-03-15",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-03-15"
+}
+],
+"jr-east-morioka/JReast_wandotaxi": [
+{
+"new_uid": "6126b518-e93f-4f6a-bb1f-81cfde7d4132",
+"published": "2025-12-05",
+"change": "2025-12-15",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-15"
+},
+{
+"new_uid": "59d6a9d6-abd7-42b5-adc9-88fe208b504f",
+"published": "2026-03-10",
+"change": "2026-03-14",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-14"
+},
+{
+"new_uid": "132c7c57-dae0-4bd5-a6b9-895be6715808",
+"published": "2026-04-17",
+"change": "2026-05-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-31",
+"new_from": "2026-05-01"
+}
+],
+"kaetsunou/kaetsunouhimi": [
+{
+"new_uid": "68c0d6b4-ef34-4d75-aed4-cf58b366b752",
+"published": "2025-06-13",
+"change": "2025-02-20",
+"lead": -113,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-02-20"
+},
+{
+"new_uid": "45f0dba9-60dc-45d3-9b32-1d3715b1d861",
+"published": "2025-10-21",
+"change": "2025-11-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-11-01"
+}
+],
+"kaetsunou/kaetsunousekaiisan": [
+{
+"new_uid": "8d01a5da-385e-4385-8e05-e32384b543e3",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+}
+],
+"kagoshimacity/aibus": [
+{
+"new_uid": "34a607a2-0cc9-44cb-9a45-69fc4b1df354",
+"published": "2025-04-01",
+"change": "2025-04-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "9b2bbb55-dd46-4814-8c73-f70d1d7c6c87",
+"published": "2026-05-20",
+"change": "2026-04-01",
+"lead": -49,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "24e11db4-03f5-4580-a9ae-b43f7227e520",
+"published": "2026-10-13",
+"change": "2026-10-01",
+"lead": -12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"kahokutown/KahokuTown": [
+{
+"new_uid": "5fce754e-3bef-4e58-a70e-1d05d685b6a1",
+"published": "2026-10-21",
+"change": "2026-12-01",
+"lead": 41,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-12-01"
+}
+],
+"kaizucity/communitybus": [
+{
+"new_uid": "83493b9a-1edb-43c5-8282-9d66b3982168",
+"published": "2025-02-27",
+"change": "2025-04-01",
+"lead": 33,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "b3eb9044-1944-47cd-bdfa-86a3cca8800e",
+"published": "2026-02-20",
+"change": "2026-04-01",
+"lead": 40,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "2d2aa9c7-a6bb-44a9-850c-18c3cf150fa8",
+"published": "2026-11-08",
+"change": "2026-11-21",
+"lead": 13,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-11-06"
+}
+],
+"kakegawacity/kakegawaosuka": [
+{
+"new_uid": "263bc9bc-a43f-4e95-8765-f63ac19aba4c",
+"published": "2025-03-17",
+"change": "2025-04-03",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "f0d565c7-a8be-4160-8e67-c22127b330d4",
+"published": "2026-03-31",
+"change": "2026-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "5b3defda-9085-4474-9b89-3762329c2c64",
+"published": "2026-10-09",
+"change": "2026-10-01",
+"lead": -8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"kamacity/KamaCityBus": [
+{
+"new_uid": "9c61ea1b-be57-4dd2-b2eb-48bcb8756b07",
+"published": "2025-09-23",
+"change": "2025-04-01",
+"lead": -175,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "067ead17-8ad0-45e7-b6e5-8b103f27ca6c",
+"published": "2025-09-23",
+"change": "2025-10-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "ad63de61-7d6b-4172-a2ae-434e1a0741b2",
+"published": "2026-03-14",
+"change": "2026-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kamicity/GTFS-Kamicity_Bus": [
+{
+"new_uid": "239f30cd-3747-4c10-9afe-e072aad588c5",
+"published": "2024-12-02",
+"change": "2025-01-04",
+"lead": 33,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-01",
+"new_from": "2025-01-01"
+},
+{
+"new_uid": "8b633cab-c5fa-4f58-9204-b3398933ae93",
+"published": "2025-03-03",
+"change": "2025-04-01",
+"lead": 29,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-01",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "b6f9bda7-4975-4300-9910-bdb7745b2cfb",
+"published": "2025-08-04",
+"change": "2025-09-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-01",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "48f9f5e3-d868-4843-8869-9a049e8f390c",
+"published": "2026-09-01",
+"change": "2026-10-01",
+"lead": 30,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-04-01",
+"new_from": "2026-10-01"
+}
+],
+"kamicity/GTFS-Kamicity_Demandbus": [
+{
+"new_uid": "d63d7382-97f6-46ce-9f83-3e204feb44be",
+"published": "2025-02-25",
+"change": "2025-04-02",
+"lead": 36,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-07-01",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "740b3c08-06e6-4421-9c14-3ded6e053d1a",
+"published": "2026-08-10",
+"change": "2026-10-02",
+"lead": 53,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-10-01"
+}
+],
+"kamiichitown/kamiichi": [
+{
+"new_uid": "5b893837-6134-4e78-b4f1-7037c35f0952",
+"published": "2025-03-26",
+"change": "2025-04-12",
+"lead": 17,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "351b741f-31dc-4834-af5f-bb43aea622dc",
+"published": "2026-03-18",
+"change": "2026-04-05",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kaminoyamacity/KaminoyamaCity": [
+{
+"new_uid": "5ee7aa37-939b-4d70-86eb-c5f6f1f10dab",
+"published": "2026-10-01",
+"change": "2026-10-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+}
+],
+"kamishihorotown/kamishihoro": [
+{
+"new_uid": "c7f87249-9659-46b5-b3b3-46592e89b212",
+"published": "2025-12-02",
+"change": "2025-12-02",
+"lead": 0,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2025-12-01"
+}
+],
+"kamocity/kamonbus": [
+{
+"new_uid": "ca74247b-7a20-49e5-9086-a7f61fb753d4",
+"published": "2026-06-10",
+"change": "2026-06-01",
+"lead": -9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-07-08",
+"new_from": "2026-06-01"
+}
+],
+"kandatown/KandaTownCommunityBus": [
+{
+"new_uid": "8a7d0245-a980-4ff9-894e-ad2ac3b10d3d",
+"published": "2026-03-07",
+"change": "2026-04-01",
+"lead": 25,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kanicity/satsukibus": [
+{
+"new_uid": "554d40b3-64b1-46da-bbdf-5c77ae1bbb31",
+"published": "2024-11-29",
+"change": "2024-12-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2024-11-30",
+"new_from": "2024-12-01"
+},
+{
+"new_uid": "09e06948-bb91-4224-b1c0-073c8a75d0f1",
+"published": "2025-11-28",
+"change": "2025-05-13",
+"lead": -199,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2025-11-30",
+"new_from": "2025-04-24"
+}
+],
+"kanonjicity/kanonjishi-noriaibus": [
+{
+"new_uid": "cfeeae5e-a1e1-4178-b139-fb567e8655f8",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kariyacity/communitybus": [
+{
+"new_uid": "150e9313-ca19-4737-8a17-4997def37432",
+"published": "2026-02-01",
+"change": "2026-02-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-02-01"
+}
+],
+"karuizawatown/junkan-bus": [
+{
+"new_uid": "fabe18e4-4c57-4761-8894-0cb1e35d74ca",
+"published": "2025-06-18",
+"change": "2025-06-18",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-06-18"
+},
+{
+"new_uid": "21344f62-b47b-41b7-9cd2-904a2b8e9444",
+"published": "2026-03-31",
+"change": "2026-04-04",
+"lead": 4,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kasaicity/kasaineppihappybus": [
+{
+"new_uid": "c4518d73-17e1-4d43-ace0-0298e88c047c",
+"published": "2026-04-09",
+"change": "2026-04-01",
+"lead": -8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kasaicity/unifureaitomi": [
+{
+"new_uid": "9e8df015-afd0-4d97-81bb-90aed3f22106",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "717db204-d11a-4832-8e59-c22067ffdb45",
+"published": "2026-09-30",
+"change": "2026-10-05",
+"lead": 5,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"kasamatsutown/communitybus": [
+{
+"new_uid": "5e02cc6f-ad07-4fa2-9216-2c1a9290dd5b",
+"published": "2025-03-24",
+"change": "2025-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "d67de4fe-44d8-41d1-9387-e1601f533120",
+"published": "2025-09-04",
+"change": "2025-09-01",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-09-01"
+}
+],
+"katoricity/katori-junkan": [
+{
+"new_uid": "80f0175c-8b38-43db-ae7c-444c16f820d9",
+"published": "2025-09-16",
+"change": "2025-10-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "a61ce20b-76c8-4534-bda1-348756f97fda",
+"published": "2026-10-04",
+"change": "2026-11-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-04-30",
+"new_from": "2026-11-01"
+}
+],
+"kawagoetown/fureaibus": [
+{
+"new_uid": "9ccf534c-fd15-4a05-8606-811f415bd728",
+"published": "2026-03-30",
+"change": "2026-04-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kimitsucity/Local_buses_via_Kimitsu_City": [
+{
+"new_uid": "8511ff27-22a4-46ff-8a12-b8b00836ad65",
+"published": "2026-08-02",
+"change": "2026-04-01",
+"lead": -123,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "70de845e-ab60-420a-95a0-9cda7b0ea47b",
+"published": "2026-09-30",
+"change": "2026-10-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"kinokawacity/kinokawa_bus": [
+{
+"new_uid": "2a7d6e89-fb4f-4a4c-9110-65fc67c04d09",
+"published": "2025-03-04",
+"change": "2025-04-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "4dba01a7-2a37-4851-bdfa-13c8faa2c7b9",
+"published": "2025-12-23",
+"change": "2026-01-05",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-01-05"
+},
+{
+"new_uid": "d6063e3e-66a8-4fbe-9588-e05b90f8207f",
+"published": "2026-03-24",
+"change": "2026-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kisokoikirengo/kiso-bus": [
+{
+"new_uid": "9c5f9303-eab3-4d7e-88ef-50a94dbc796b",
+"published": "2026-08-12",
+"change": "2026-08-19",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-28",
+"new_from": "2026-08-19"
+},
+{
+"new_uid": "b1e1df11-3a61-449a-a77a-e0dfd0c5f348",
+"published": "2026-08-31",
+"change": "2026-10-01",
+"lead": 31,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-08-18",
+"new_from": "2026-10-01"
+}
+],
+"kisosakitown/communitybus": [
+{
+"new_uid": "9dc0f950-d438-4b65-8ad7-3ad82a8a6de9",
+"published": "2025-09-16",
+"change": "2025-10-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+}
+],
+"kisotown/kisotown": [
+{
+"new_uid": "f2860855-96de-49e8-b73b-5c47b6e65752",
+"published": "2025-09-22",
+"change": "2025-04-28",
+"lead": -147,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-28"
+},
+{
+"new_uid": "6cc38c30-f319-453b-90ad-656f6a1cfaac",
+"published": "2025-09-22",
+"change": "2025-10-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "474a90fe-5988-4dec-85d7-d8497b42e16d",
+"published": "2026-07-01",
+"change": "2026-07-04",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-23",
+"new_from": "2026-07-01"
+}
+],
+"kisovillage/kisovill": [
+{
+"new_uid": "8f7f560e-9042-4733-ac3c-69ebf754d542",
+"published": "2026-08-25",
+"change": "2026-08-29",
+"lead": 4,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-10-07",
+"new_from": "2026-08-25"
+}
+],
+"kitagawavillage/GTFS-Kitagawavill_Bus": [
+{
+"new_uid": "f1b40119-ff93-47be-9c6c-6861c3514f78",
+"published": "2026-10-23",
+"change": "2026-11-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-11-01"
+}
+],
+"kitakyushucity/oma-dobaru": [
+{
+"new_uid": "4e9b2813-6eb5-428c-8e37-b96133cdb13f",
+"published": "2024-12-25",
+"change": "2024-04-01",
+"lead": -268,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2024-03-31",
+"new_from": "2024-04-01"
+},
+{
+"new_uid": "80f7bc44-162d-415b-b8a3-90f9175a4aad",
+"published": "2025-03-19",
+"change": "2025-04-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "42ddbbab-4094-48de-8607-dccf2481ad4c",
+"published": "2025-09-19",
+"change": "2025-10-16",
+"lead": 27,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-16"
+}
+],
+"kitakyushucity/tashiro-kawachi": [
+{
+"new_uid": "f0d932da-6328-4576-bc63-010468ee39a4",
+"published": "2024-12-25",
+"change": "2024-10-15",
+"lead": -71,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-10-15"
+},
+{
+"new_uid": "9edd31af-96e4-4b94-93cc-99a0fe910d39",
+"published": "2025-03-19",
+"change": "2025-04-08",
+"lead": 20,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"kitakyushucity/tsunemi-kitaku": [
+{
+"new_uid": "143a6198-305a-48c8-9585-7d03706200d6",
+"published": "2024-12-25",
+"change": "2024-04-01",
+"lead": -268,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2024-03-31",
+"new_from": "2024-04-01"
+}
+],
+"kitanagoyacity/communitybus": [
+{
+"new_uid": "54821b05-4fe6-458e-a86e-7f7db8c53c53",
+"published": "2026-10-26",
+"change": "2026-07-27",
+"lead": -91,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-07-27"
+}
+],
+"kitashitara/odekakehokusetsu": [
+{
+"new_uid": "a5c8aa6a-8b32-4f0f-ae54-b47c1c3c7850",
+"published": "2025-03-05",
+"change": "2025-04-01",
+"lead": 27,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "ae10c1c8-6d3b-4bf6-a0d8-8026826d8ed4",
+"published": "2025-08-25",
+"change": "2025-10-01",
+"lead": 37,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "731a5303-d726-457f-a3bb-918300c62a4a",
+"published": "2026-03-10",
+"change": "2026-03-14",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-03-14"
+},
+{
+"new_uid": "c276fb25-ce87-4736-9ccc-4f421a24ff36",
+"published": "2026-03-12",
+"change": "2026-04-01",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "7f5c6a96-252e-40da-ae13-d88323423e1f",
+"published": "2026-07-21",
+"change": "2026-08-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-08-01"
+},
+{
+"new_uid": "f24cb2bc-b2cd-4e9a-9724-44f19a9d3aa4",
+"published": "2026-08-14",
+"change": "2026-09-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-09-01"
+},
+{
+"new_uid": "3e449324-752b-4317-ac17-d479efc82cd9",
+"published": "2026-09-16",
+"change": "2026-10-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"kobecity/kobe-shiokaze": [
+{
+"new_uid": "02ea338e-3d35-4d79-828f-1c972ce4b72c",
+"published": "2025-03-11",
+"change": "2025-04-06",
+"lead": 26,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "9f3ff7ff-0ef9-444c-bfc8-04b67037fb73",
+"published": "2025-04-03",
+"change": "2025-05-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-05-01"
+},
+{
+"new_uid": "a7c878fb-df6a-4669-9713-7b7c6b216b7d",
+"published": "2026-02-05",
+"change": "2025-08-01",
+"lead": -188,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-30",
+"new_from": "2025-08-01"
+}
+],
+"kochi-ekimae-kanko/GTFS-Ekimae_Airportbus": [
+{
+"new_uid": "221e4d8b-9fcc-435d-b9b9-9e438ea90706",
+"published": "2024-12-06",
+"change": "2024-12-01",
+"lead": -5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-01-31",
+"new_from": "2024-12-01"
+},
+{
+"new_uid": "b17fd33f-69cd-46ad-bc48-4239d7535c71",
+"published": "2025-01-30",
+"change": "2025-02-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-02-01"
+},
+{
+"new_uid": "2e14523e-aa16-418b-b486-2261dd13387a",
+"published": "2025-03-25",
+"change": "2025-03-30",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-30",
+"new_from": "2025-03-30"
+},
+{
+"new_uid": "439a3263-343a-4e8f-96de-2b8a4db340d4",
+"published": "2025-05-28",
+"change": "2025-06-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-07-31",
+"new_from": "2025-06-01"
+},
+{
+"new_uid": "64f607c9-c6b2-4f54-a2ad-30b4d9f051a9",
+"published": "2025-06-24",
+"change": "2025-07-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-08-31",
+"new_from": "2025-07-01"
+},
+{
+"new_uid": "b5df8042-8d88-4a9f-83d3-e258bf0ff26a",
+"published": "2025-07-25",
+"change": "2025-08-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-11-01",
+"new_from": "2025-08-01"
+},
+{
+"new_uid": "90e12fd3-e912-4a0a-ba60-ca5c58a28665",
+"published": "2025-08-19",
+"change": "2025-09-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-11-02",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "d609ac26-f479-4e2d-9cea-5c8a6135f17c",
+"published": "2025-09-29",
+"change": "2025-10-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-11-03",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "cba6b275-eaeb-4533-a235-bdc4c7d4947e",
+"published": "2025-10-23",
+"change": "2025-10-26",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-10-26"
+},
+{
+"new_uid": "72ad6303-7efd-4e1f-bddc-56bb86cd4823",
+"published": "2025-12-13",
+"change": "2025-12-01",
+"lead": -12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "2749051a-70f1-4173-9d82-b242bbeda70d",
+"published": "2025-12-25",
+"change": "2026-01-06",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-02-01",
+"new_from": "2026-01-06"
+},
+{
+"new_uid": "0d82a438-052a-4272-9555-3e5207de9627",
+"published": "2026-01-27",
+"change": "2026-02-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-02-01"
+},
+{
+"new_uid": "d38d3c4d-9999-4f90-b080-a3e64bf78040",
+"published": "2026-02-26",
+"change": "2026-03-01",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-01"
+},
+{
+"new_uid": "d8829ca1-9fe0-4807-b270-8920a0299d5e",
+"published": "2026-03-26",
+"change": "2026-03-30",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-29"
+},
+{
+"new_uid": "e3e1728c-824e-4f8e-94cd-64836aaf0221",
+"published": "2026-05-23",
+"change": "2026-06-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-01",
+"new_from": "2026-06-01"
+},
+{
+"new_uid": "d87f6e7b-0537-4d70-9cd5-bcf09d446b64",
+"published": "2026-06-23",
+"change": "2026-07-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-08-01",
+"new_from": "2026-07-01"
+},
+{
+"new_uid": "9b160ed1-ee28-43dc-9b75-a5f7ac351173",
+"published": "2026-08-18",
+"change": "2026-09-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2026-09-01"
+},
+{
+"new_uid": "46f853f4-66ec-4901-82ce-b96143d9ada3",
+"published": "2026-09-24",
+"change": "2026-10-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-10",
+"new_from": "2026-10-01"
+},
+{
+"new_uid": "b0d9f648-3dd4-4e83-b804-1d6e364692fc",
+"published": "2026-10-16",
+"change": "2026-10-25",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2026-10-25"
+},
+{
+"new_uid": "3eec778c-e07c-47d8-8147-6dcaf0315c07",
+"published": "2026-10-29",
+"change": "2026-11-01",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2026-11-01"
+},
+{
+"new_uid": "334ddb40-aef1-4ce3-b600-e46afa60f9f3",
+"published": "2026-11-20",
+"change": "2026-12-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-12-01"
+}
+],
+"kochi-ekimae-kanko/GTFS-Ekimae_Expressbus": [
+{
+"new_uid": "d3abe7f3-c312-40d7-a28d-ea68b72befce",
+"published": "2025-03-14",
+"change": "2025-04-07",
+"lead": 24,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "3d7403e6-2cbc-42b6-936f-57e700c6e5c8",
+"published": "2025-12-16",
+"change": "2025-12-20",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-20"
+},
+{
+"new_uid": "6a7dccc5-9f29-4b0b-ac1e-d14b6ad3b297",
+"published": "2025-12-23",
+"change": "2025-12-23",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-23"
+},
+{
+"new_uid": "43399b84-ab53-41ab-a9a9-6395435ac47c",
+"published": "2026-01-09",
+"change": "2026-02-02",
+"lead": 24,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-01-31",
+"new_from": "2026-02-01"
+},
+{
+"new_uid": "a96caa2f-aa7f-4bb8-8d4f-9cdf15678dea",
+"published": "2026-05-21",
+"change": "2026-05-21",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-31",
+"new_from": "2026-05-21"
+}
+],
+"kochi-kanko-convention/GTFS-KVCA_MY-YUbus": [
+{
+"new_uid": "6a8744a5-823b-4190-879d-0e6ebf143400",
+"published": "2025-03-07",
+"change": "2025-04-01",
+"lead": 25,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "d65816f0-3364-44a9-88ab-d157f513db9f",
+"published": "2025-08-01",
+"change": "2025-08-19",
+"lead": 18,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-08-13",
+"new_from": "2025-08-14"
+},
+{
+"new_uid": "cef5568f-44ff-4d0c-be0d-33ad8fe6e3c4",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kochi-konancity/GTFS-Konancity_Bus": [
+{
+"new_uid": "59deb4e7-54cb-4757-9995-a6120b78b558",
+"published": "2025-08-22",
+"change": "2025-09-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-01",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "bb52e479-56b2-48b1-ad3c-f52299c7b352",
+"published": "2026-06-16",
+"change": "2026-10-01",
+"lead": 107,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-01",
+"new_from": "2026-10-01"
+},
+{
+"new_uid": "61890faf-344d-4364-b32e-ec5ed0df875d",
+"published": "2026-11-20",
+"change": "2026-11-01",
+"lead": -19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-10-01",
+"new_from": "2026-11-01"
+}
+],
+"kochi-koryo-kotsu/GTFS-Koryotraffic_Localbus": [
+{
+"new_uid": "1bb88f7e-45fd-459e-85a9-e7ce12e35fb3",
+"published": "2025-03-21",
+"change": "2025-04-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-01",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "7a7a2208-833d-42f1-9d77-182296b8e0bf",
+"published": "2026-04-01",
+"change": "2026-04-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-03",
+"new_from": "2026-04-01"
+}
+],
+"kochi-seinan-kotsu/GTFS-Seinan_Expressbus": [
+{
+"new_uid": "d54d6542-7381-4b70-8cbf-e584f551d1e1",
+"published": "2026-06-24",
+"change": "2026-06-01",
+"lead": -23,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-06-01"
+}
+],
+"kochi-seinan-kotsu/GTFS-Seinantraffic_Akamego": [
+{
+"new_uid": "5699c15b-86c9-4b4f-9ff9-e02462e86dc9",
+"published": "2026-03-17",
+"change": "2026-04-04",
+"lead": 18,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-04-15",
+"new_from": "2026-04-01"
+}
+],
+"kochi-seinan-kotsu/GTFS-Seinantraffic_Localbus": [
+{
+"new_uid": "dbb8af05-4920-4535-a914-992e6e103b86",
+"published": "2025-03-25",
+"change": "2025-04-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "82c2c69a-b112-4d98-a216-46e7cb48decb",
+"published": "2025-07-26",
+"change": "2025-07-26",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-07-26"
+},
+{
+"new_uid": "efe7b909-e274-4645-8caf-2ea154be0f90",
+"published": "2025-09-19",
+"change": "2025-10-01",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "61bc8350-46ea-4f21-aa6b-6fe8df88bcea",
+"published": "2025-10-20",
+"change": "2025-11-01",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-11-01"
+},
+{
+"new_uid": "12da27c4-b569-46f0-9d81-13c4a8a2b013",
+"published": "2025-11-21",
+"change": "2025-12-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "bd50d3c1-0d08-46f7-961b-b09624471800",
+"published": "2026-03-30",
+"change": "2026-04-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-10",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "46891da2-0753-4ce9-a8cb-fab867b11fd3",
+"published": "2026-09-15",
+"change": "2026-09-01",
+"lead": -14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-09-01"
+},
+{
+"new_uid": "268bf3a4-6afe-46d2-8edf-6aa1b770103b",
+"published": "2026-09-20",
+"change": "2026-10-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-30",
+"new_from": "2026-10-01"
+},
+{
+"new_uid": "1349a450-5ce8-4dfa-a675-b954998971d4",
+"published": "2026-10-07",
+"change": "2026-11-02",
+"lead": 26,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2026-11-01"
+},
+{
+"new_uid": "9a0e5119-28f0-4535-8a92-8b31f5698911",
+"published": "2026-10-11",
+"change": "2026-10-01",
+"lead": -10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+},
+{
+"new_uid": "e9521d15-cc1a-4a02-9868-d05f9fc9f2d0",
+"published": "2026-11-01",
+"change": "2026-11-02",
+"lead": 1,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2026-11-01"
+},
+{
+"new_uid": "db37bfd1-b78c-4195-b79d-a1ad96f74fb5",
+"published": "2026-11-22",
+"change": "2026-11-01",
+"lead": -21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-11-01"
+}
+],
+"kochi-seinan-kotsu/GTFS-Seinantraffic_Riverbus": [
+{
+"new_uid": "8c1e0160-6730-4905-8f33-120324556aca",
+"published": "2025-03-18",
+"change": "2025-04-07",
+"lead": 20,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"kochi-seinan-kotsu/GTFS-Seinantraffic_Shimaashi": [
+{
+"new_uid": "78c91f4d-1d23-4ae8-9b35-6f2824aaa035",
+"published": "2025-03-18",
+"change": "2025-04-07",
+"lead": 20,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "edaff813-2ce1-45a8-8757-0998551d31b4",
+"published": "2026-03-17",
+"change": "2026-04-06",
+"lead": 20,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kochi-tobu-kotsu/GTFS-Tobutraffic_Localbus": [
+{
+"new_uid": "e7ffffb4-fe14-4c66-aad9-fbb7e0508898",
+"published": "2025-03-07",
+"change": "2025-03-15",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-03-15"
+},
+{
+"new_uid": "199f80a6-db05-48a6-b2d5-6d8491670b4b",
+"published": "2025-09-11",
+"change": "2025-09-12",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-07-16",
+"new_from": "2025-09-12"
+},
+{
+"new_uid": "60a612ae-708f-48e3-84f3-a4ddf1096978",
+"published": "2026-03-12",
+"change": "2026-03-22",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-08",
+"new_from": "2026-03-22"
+},
+{
+"new_uid": "8f3c953b-b085-4b0f-883d-ef7bb9e32b1b",
+"published": "2026-03-13",
+"change": "2026-04-01",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-01",
+"new_from": "2026-04-01"
+}
+],
+"kochi-tsunotown/GTFS-Tsunotown_Bus": [
+{
+"new_uid": "80909529-547c-466e-be8c-0db203d3f04b",
+"published": "2025-04-21",
+"change": "2025-05-07",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-05-07"
+},
+{
+"new_uid": "a4152f9b-6e7f-48d8-8240-32d96ab072f7",
+"published": "2025-08-22",
+"change": "2025-08-27",
+"lead": 5,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-08-22"
+},
+{
+"new_uid": "0e1ee1ac-5219-4869-aca6-17a1bc49f9d8",
+"published": "2025-08-25",
+"change": "2025-10-01",
+"lead": 37,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "3ec15300-3f5d-4289-ad9c-b1d3b3441b93",
+"published": "2026-02-17",
+"change": "2026-04-01",
+"lead": 43,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "7ec3cd2c-e46a-4fbf-a5f4-78061e06afdd",
+"published": "2026-06-16",
+"change": "2026-06-04",
+"lead": -12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-06-04"
+}
+],
+"kochi_pref/GTFS-Kochipref_Ferry": [
+{
+"new_uid": "beaab2d0-2872-48e4-9bb9-a3adbe91c3d4",
+"published": "2025-06-13",
+"change": "2025-07-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-08-15",
+"new_from": "2025-07-01"
+}
+],
+"kokacity/sinaicommunitybus": [
+{
+"new_uid": "1486b529-58db-4e46-a56d-5a44543b361b",
+"published": "2025-04-01",
+"change": "2025-04-05",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "27c3fe59-922f-46a5-adb2-06ebedd2c0b2",
+"published": "2026-05-27",
+"change": "2026-04-04",
+"lead": -53,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"komatsucity/kibagatasen": [
+{
+"new_uid": "4d4bea59-514b-4ae3-9214-eb54afae2b2a",
+"published": "2026-09-24",
+"change": "2026-10-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+}
+],
+"komatsucity/orange": [
+{
+"new_uid": "28ff9432-fe66-4a07-8777-43e6437f1ea7",
+"published": "2025-03-25",
+"change": "2025-04-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+}
+],
+"komonotown/communitybus": [
+{
+"new_uid": "b859b364-4f4f-4a3e-a1f6-19a672da3abe",
+"published": "2025-03-31",
+"change": "2025-04-01",
+"lead": 1,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-06-03",
+"new_from": "2025-03-01"
+},
+{
+"new_uid": "f289a228-0308-4407-879d-893e1c78c940",
+"published": "2026-11-14",
+"change": "2026-04-01",
+"lead": -227,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-10",
+"new_from": "2026-04-01"
+}
+],
+"kotosan/marugame-community": [
+{
+"new_uid": "76dd67e6-c0af-4487-9f76-15551e2caf9b",
+"published": "2026-09-30",
+"change": "2026-09-06",
+"lead": -24,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-09-06"
+}
+],
+"kozushimavillage/kozushimavillagebus": [
+{
+"new_uid": "35f940a3-b0ff-4cb2-80a4-21599fb11991",
+"published": "2026-02-09",
+"change": "2026-01-29",
+"lead": -11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-28",
+"new_from": "2026-01-29"
+}
+],
+"kumagayacity/yuuyuubus": [
+{
+"new_uid": "a7911170-71ee-4f92-953d-83af553fccec",
+"published": "2025-01-08",
+"change": "2025-01-04",
+"lead": -4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2024-12-31",
+"new_from": "2025-01-01"
+},
+{
+"new_uid": "9fb00bc0-100b-42d4-882e-5d25f12371f0",
+"published": "2025-09-01",
+"change": "2025-09-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "ee58e77a-2545-4dd9-85bb-6f597a761432",
+"published": "2025-10-14",
+"change": "2025-10-01",
+"lead": -13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "9355b5ec-5335-4e4c-9b2e-c6d6feaa42bf",
+"published": "2026-03-27",
+"change": "2026-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-04-01"
+}
+],
+"kumanogobobus/kumanogobobus_kumano": [
+{
+"new_uid": "3cff1f95-515d-4215-a476-8e341b5276e1",
+"published": "2025-01-21",
+"change": "2025-01-21",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-01-21"
+},
+{
+"new_uid": "1869968e-f812-468d-98df-66a755392f11",
+"published": "2025-03-22",
+"change": "2025-04-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "dea2c3f7-2070-4e13-b70d-3b9f24481d98",
+"published": "2025-07-11",
+"change": "2025-08-01",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-08-01"
+},
+{
+"new_uid": "c412b3b5-ec61-412d-abf5-db75041d2d31",
+"published": "2025-11-11",
+"change": "2025-11-11",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-11-11"
+},
+{
+"new_uid": "8fa44fa0-8be2-46ba-a59d-a7a3e0af1921",
+"published": "2026-04-01",
+"change": "2026-04-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-01"
+}
+],
+"kurobecity/ishida-aimoto": [
+{
+"new_uid": "9079c002-e859-4163-9da9-a79958413241",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "5126c2b1-7fed-4805-96da-39998381dfa9",
+"published": "2025-04-16",
+"change": "2025-04-14",
+"lead": -2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-04-14"
+},
+{
+"new_uid": "4f50c02e-d6d6-47b9-9e0d-8d4ee765364f",
+"published": "2025-10-09",
+"change": "2025-10-01",
+"lead": -8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-11",
+"new_from": "2025-10-01"
+}
+],
+"kurobecity/shinkansenikujisen": [
+{
+"new_uid": "a715cff4-922e-470c-a3d3-2331a21c683b",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"kusakarukotsu/kusakarubus": [
+{
+"new_uid": "53d202c7-c067-45c6-bf1a-901b9e09aaeb",
+"published": "2025-03-13",
+"change": "2025-04-20",
+"lead": 38,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-04-20"
+},
+{
+"new_uid": "7d0581b7-bbc9-4168-b6ae-3431d107a3ed",
+"published": "2025-10-13",
+"change": "2025-11-01",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-19",
+"new_from": "2025-11-01"
+},
+{
+"new_uid": "090d760a-c6ed-412d-a2c2-f6427d411ff3",
+"published": "2026-02-12",
+"change": "2026-02-14",
+"lead": 2,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2026-02-11"
+},
+{
+"new_uid": "ae68dc93-0757-40c1-8a2f-193cab5dc3e9",
+"published": "2026-02-25",
+"change": "2026-02-21",
+"lead": -4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-02-10",
+"new_from": "2026-02-21"
+},
+{
+"new_uid": "356abc10-d759-4f6a-aa01-9eb4ac69b28f",
+"published": "2026-04-13",
+"change": "2026-04-20",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-19",
+"new_from": "2026-04-20"
+},
+{
+"new_uid": "a81228f2-d55f-465f-9780-dbf589b4004a",
+"published": "2026-11-04",
+"change": "2026-11-01",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-04-21",
+"new_from": "2026-11-01"
+}
+],
+"kushimoto/bus-kushimotokankoshuyu-wakayama-jp": [
+{
+"new_uid": "e33ffb53-e6cc-4327-be2d-8b0a47554b8e",
+"published": "2025-08-19",
+"change": "2025-08-26",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-08-26"
+},
+{
+"new_uid": "42c0cbc5-8e77-45d3-a957-bb8484ee89d6",
+"published": "2025-12-15",
+"change": "2025-12-16",
+"lead": 1,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-10-28",
+"new_from": "2025-12-15"
+},
+{
+"new_uid": "4bde86f1-bcce-4f54-a7ce-8bd0e4e4f157",
+"published": "2026-06-13",
+"change": "2026-07-04",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-07-04"
+}
+],
+"kuwanacity/communitybus": [
+{
+"new_uid": "fcc28aaa-638b-434f-85c5-5910884c2d75",
+"published": "2024-12-02",
+"change": "2025-01-27",
+"lead": 56,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2023-12-31",
+"new_from": "2025-01-27"
+},
+{
+"new_uid": "cff3acfc-67c5-494a-8b6f-6368f9a0594d",
+"published": "2024-12-18",
+"change": "2023-12-09",
+"lead": -375,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-31",
+"new_from": "2023-12-09"
+},
+{
+"new_uid": "b8b3ea99-af32-4559-80e4-a0158209374b",
+"published": "2025-02-19",
+"change": "2025-04-01",
+"lead": 41,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-01-26",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "108f9481-4c1b-444b-bbd5-a8fdee8e6e9b",
+"published": "2025-06-24",
+"change": "2025-07-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-31",
+"new_from": "2025-07-01"
+}
+],
+"mamurogawatown/MamurogawaTown": [
+{
+"new_uid": "1d06c324-6fd5-4ab6-b4e7-ebd3676cd8df",
+"published": "2025-01-17",
+"change": "2025-01-19",
+"lead": 2,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-16"
+},
+{
+"new_uid": "ade7c1eb-3bff-4991-8be0-e765b610c3a7",
+"published": "2025-03-21",
+"change": "2025-04-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "73901082-0b7e-45bd-af9d-dad6c66c956b",
+"published": "2025-04-03",
+"change": "2025-04-25",
+"lead": 22,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-24",
+"new_from": "2025-04-25"
+},
+{
+"new_uid": "21b4de4d-db8d-4614-8305-62863a3378e0",
+"published": "2026-02-25",
+"change": "2026-03-14",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-14"
+}
+],
+"maniwacity/maniwakun": [
+{
+"new_uid": "211518b4-70e0-432e-8c21-517b3547bf26",
+"published": "2025-12-04",
+"change": "2025-04-01",
+"lead": -247,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "b5079a90-dcfc-4bbd-b4d7-60b1a5159156",
+"published": "2026-03-13",
+"change": "2026-04-01",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"manyosen/manyosen": [
+{
+"new_uid": "9eb6d266-3969-4f24-a680-fbf9638fd8da",
+"published": "2026-02-05",
+"change": "2026-02-03",
+"lead": -2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-08-31",
+"new_from": "2026-02-03"
+},
+{
+"new_uid": "7e4c6d1f-fb24-4e55-8406-e92b1032716b",
+"published": "2026-06-15",
+"change": "2026-07-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-02-02",
+"new_from": "2026-07-01"
+}
+],
+"matsumotocity/guruttomatsumotobus1": [
+{
+"new_uid": "a649726f-42d7-4a08-bc20-50482fb42a39",
+"published": "2025-03-10",
+"change": "2025-03-15",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-03-15"
+},
+{
+"new_uid": "35d6863d-2c64-434d-b3f6-d7f1009302fc",
+"published": "2026-02-25",
+"change": "2026-03-14",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-03-14"
+},
+{
+"new_uid": "e8174f08-fff9-4ff8-9c10-b572c301ae70",
+"published": "2026-03-23",
+"change": "2026-04-04",
+"lead": 12,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-01"
+}
+],
+"matsumotocity/guruttomatsumotobus2": [
+{
+"new_uid": "a02762d2-11d5-410e-ac69-a61f2079700d",
+"published": "2025-03-10",
+"change": "2025-03-15",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-03-15"
+},
+{
+"new_uid": "dfd43424-5dce-443a-8f2a-14960b33b893",
+"published": "2025-05-29",
+"change": "2025-06-02",
+"lead": 4,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-06-01"
+},
+{
+"new_uid": "7f4a1399-48d1-4e6c-9180-910dfbfdef00",
+"published": "2026-03-04",
+"change": "2026-03-14",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-03-14"
+},
+{
+"new_uid": "d8e4d3d9-9b85-49bc-a83c-55323e24f584",
+"published": "2026-03-23",
+"change": "2026-04-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-01"
+}
+],
+"matsusakacity/communitybus": [
+{
+"new_uid": "5c388279-5946-42f3-965e-0591408b58be",
+"published": "2025-04-15",
+"change": "2025-05-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-05-01"
+},
+{
+"new_uid": "b518fe5c-9fcd-4a6b-82c3-2cdf91681e3c",
+"published": "2026-02-10",
+"change": "2026-04-01",
+"lead": 50,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "87216026-c0d4-483f-8a56-83ece8dff358",
+"published": "2026-09-18",
+"change": "2026-10-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"matsushigetown/matsushigetownbus": [
+{
+"new_uid": "83a40230-70ac-4670-9d07-af2557d20bd0",
+"published": "2026-06-11",
+"change": "2026-06-01",
+"lead": -10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-06-01"
+}
+],
+"minamiawajicity/lanrunbus": [
+{
+"new_uid": "a8aa776f-600c-4b8a-aeac-10aa0df4cd2d",
+"published": "2025-03-24",
+"change": "2025-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+}
+],
+"minamichitatown/communitybus": [
+{
+"new_uid": "8d17bd5b-b773-48dc-b660-8ff12c8e1c60",
+"published": "2025-09-12",
+"change": "2025-10-01",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "e7c140a0-e72f-497b-8c38-6904fe836a04",
+"published": "2025-09-12",
+"change": "2025-11-01",
+"lead": 50,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-11-01"
+},
+{
+"new_uid": "23b64d27-b2e5-46df-9f79-7a0147d82401",
+"published": "2026-11-20",
+"change": "2026-10-01",
+"lead": -50,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+}
+],
+"minamiisetown/choeibus": [
+{
+"new_uid": "3b527fa1-cf28-4402-a636-f22b5235233b",
+"published": "2025-03-18",
+"change": "2025-04-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+}
+],
+"minamishinshu/Minamishinshu-Iidacity-1": [
+{
+"new_uid": "24bffcee-bfb9-42cc-9a81-679b3aaa7f21",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "6db38dd7-1e3b-467f-aad1-96e89198c461",
+"published": "2026-08-18",
+"change": "2026-04-01",
+"lead": -139,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"minamishinshu/Minamishinshu-Matsukawa-1": [
+{
+"new_uid": "920e3933-ef97-40af-b860-578ce64a303c",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"minamishinshu/Minamishinshu-Nanbu-1": [
+{
+"new_uid": "890aa099-7b16-4808-b03e-d5e42b35ef7c",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "2308403f-978d-4501-91bd-0546dbbd319c",
+"published": "2026-04-27",
+"change": "2026-04-01",
+"lead": -26,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"minamishinshu/Minamishinshu-Shinnan-1": [
+{
+"new_uid": "1c95f26f-0998-4f88-9f25-0170d2dd4f43",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "c1efe68e-41d9-46b3-9330-7388344bb297",
+"published": "2025-12-24",
+"change": "2025-12-23",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-23"
+},
+{
+"new_uid": "51140588-5d83-446c-b0e3-0b4baa88d230",
+"published": "2026-03-23",
+"change": "2026-04-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"minamishinshu/Minamishinshu-achi-1": [
+{
+"new_uid": "27697e78-bb72-4e22-b375-c74db511a0c6",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "1de0723e-e8fb-4e84-adfa-89f413e0c953",
+"published": "2026-03-23",
+"change": "2026-04-02",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"minamishinshu/Minamishinshu-iida-2": [
+{
+"new_uid": "150d1b03-698f-4d0a-9998-07e5de76b227",
+"published": "2024-12-11",
+"change": "2024-11-09",
+"lead": -32,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-11-05"
+},
+{
+"new_uid": "ffd83ba9-b07a-47d3-abe5-f976b8c5a491",
+"published": "2025-03-26",
+"change": "2025-03-29",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-03-26"
+},
+{
+"new_uid": "e04e15b7-5fe0-4eae-a63c-b6eb867da82d",
+"published": "2026-03-04",
+"change": "2026-03-21",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-21"
+}
+],
+"minamishinshu/Minamishinshu-takagi-1": [
+{
+"new_uid": "e8fc73b4-a1c5-4eea-8147-646e856817f6",
+"published": "2026-03-16",
+"change": "2026-02-04",
+"lead": -40,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-02-04"
+},
+{
+"new_uid": "6d950517-d9bd-4134-abbf-d36bab96edbe",
+"published": "2026-04-23",
+"change": "2026-04-23",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-30",
+"new_from": "2026-04-23"
+},
+{
+"new_uid": "e996a840-e4f5-46b7-9937-78be0b6feba7",
+"published": "2026-11-04",
+"change": "2026-11-04",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-15",
+"new_from": "2026-11-04"
+}
+],
+"minamishinshu/Minamishinshu-takamori-1": [
+{
+"new_uid": "0621180f-d3c4-4c1d-b489-babc9ee1d73c",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "f2881a4d-4d1b-4bbf-9fd8-23d6b47a4e1e",
+"published": "2026-03-04",
+"change": "2026-01-28",
+"lead": -35,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-01-28"
+},
+{
+"new_uid": "cf3a5da9-bca6-4074-a782-325e5b4dcdeb",
+"published": "2026-03-23",
+"change": "2026-04-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "7ec0b4e0-a688-4825-a251-b8403316a822",
+"published": "2026-04-08",
+"change": "2026-04-08",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-08"
+}
+],
+"minamishinshu/Minamishinshu-toyooka-1": [
+{
+"new_uid": "c3fbe6e1-4610-45ff-84d6-bc49b0daf967",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "2f794ab9-b35b-4246-ac29-b3e3f7909aa6",
+"published": "2026-03-23",
+"change": "2026-04-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"minokamocity/communitybus": [
+{
+"new_uid": "765b147c-bdae-4030-abd4-ce07cdabf188",
+"published": "2026-09-25",
+"change": "2026-10-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+}
+],
+"mitaketown/communitybus": [
+{
+"new_uid": "15f50fb5-3775-44a3-be89-f0b5eb6c7344",
+"published": "2025-09-24",
+"change": "2025-10-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-02-26",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "9f877b41-6717-4ee6-8d33-5eb50cc2a0c1",
+"published": "2026-03-05",
+"change": "2026-03-16",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-03-16"
+},
+{
+"new_uid": "1d55e4b9-cc33-412d-b987-9400ea9a252b",
+"published": "2026-10-01",
+"change": "2026-10-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-05-14",
+"new_from": "2026-10-01"
+}
+],
+"mitoyocity/mitoyocommunitybus": [
+{
+"new_uid": "35869e6e-52c0-4c90-99bd-6a38a02c0bad",
+"published": "2025-03-17",
+"change": "2025-04-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "efb46afc-b6ba-4cc2-a190-7677e1c9de60",
+"published": "2026-04-23",
+"change": "2026-04-01",
+"lead": -22,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"miyamacity/MiyamaCityCommunityBus": [
+{
+"new_uid": "8c73817f-17bc-4ac5-8123-486904c7eb9d",
+"published": "2025-03-24",
+"change": "2024-04-01",
+"lead": -357,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-04-01"
+},
+{
+"new_uid": "aa045d42-2e3f-4c09-88a8-efbf5dd8f0a6",
+"published": "2026-02-18",
+"change": "2026-03-02",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-02"
+}
+],
+"mizuhotown/communitybus": [
+{
+"new_uid": "deaf9d0e-eace-45a7-8e82-67a2139a0608",
+"published": "2026-09-30",
+"change": "2023-11-16",
+"lead": -1049,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2024-03-31",
+"new_from": "2023-11-16"
+},
+{
+"new_uid": "ed5e3d3d-3faf-4f5a-862a-a88247aaa341",
+"published": "2026-10-01",
+"change": "2026-03-01",
+"lead": -214,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2026-03-01"
+},
+{
+"new_uid": "5551d9a4-8dd3-4559-8ba7-3a739378f21b",
+"published": "2026-10-01",
+"change": "2026-03-01",
+"lead": -214,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2024-10-01"
+}
+],
+"mizunamicity/communitybus": [
+{
+"new_uid": "a264667a-981e-4a77-a659-a242fcd16502",
+"published": "2025-03-28",
+"change": "2025-04-07",
+"lead": 10,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "35d1eedd-d7d0-4dd9-bc6a-63fa8fe54ae8",
+"published": "2025-09-22",
+"change": "2025-10-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "474fed6d-8da6-4a5d-8320-26cd1b17d14e",
+"published": "2026-03-26",
+"change": "2026-04-04",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"moriyamacity/kuruttobus": [
+{
+"new_uid": "77054b36-3817-4d1e-9bb2-66d536c948e0",
+"published": "2026-06-11",
+"change": "2026-06-04",
+"lead": -7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-06-04"
+}
+],
+"motomiyacity/motomiyashibus": [
+{
+"new_uid": "8153a73f-2b88-4f6e-8c9d-a43bf6fbd731",
+"published": "2026-03-17",
+"change": "2026-03-17",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-17"
+}
+],
+"motoyamatown/GTFS-Motoyamatown_Bus": [
+{
+"new_uid": "1dbe29e1-60c9-437c-a529-e5b0e6ba0859",
+"published": "2025-08-18",
+"change": "2025-10-01",
+"lead": 44,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-01",
+"new_from": "2025-10-01"
+}
+],
+"munakatacity/MiyawakaMunakataLine": [
+{
+"new_uid": "c958213f-1d72-4bd2-bfb8-01dd60a4073a",
+"published": "2025-07-30",
+"change": "2025-08-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-07-31",
+"new_from": "2025-08-01"
+},
+{
+"new_uid": "866522b6-4ddd-4582-b7ac-f108c5142d64",
+"published": "2026-09-20",
+"change": "2026-04-01",
+"lead": -172,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"munakatacity/MunakataCityCommunityBus": [
+{
+"new_uid": "f098885b-3d91-4f71-8706-d542ff33a738",
+"published": "2026-03-31",
+"change": "2022-03-07",
+"lead": -1485,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2022-03-07"
+}
+],
+"munakatacity/MunakataCityFureaiBus": [
+{
+"new_uid": "e7d8c1e4-9309-4277-876e-4963cd400e04",
+"published": "2026-03-23",
+"change": "2026-04-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "4b1827c9-21f6-411f-84d3-0dc43ef93f45",
+"published": "2026-09-09",
+"change": "2026-10-05",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-05"
+}
+],
+"murakamicity/murakamisicommunitybus": [
+{
+"new_uid": "feb947aa-e48d-40a6-a25d-2b19b0bd2093",
+"published": "2025-04-10",
+"change": "2025-04-09",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-04",
+"new_from": "2025-04-09"
+},
+{
+"new_uid": "a17f8332-e5b9-4921-9361-68731cc9d532",
+"published": "2026-08-06",
+"change": "2026-07-30",
+"lead": -7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-08",
+"new_from": "2026-07-30"
+}
+],
+"murotocity/GTFS-Murotocity_Bus": [
+{
+"new_uid": "f25dd86a-e50e-435a-80a2-27df148bd125",
+"published": "2026-09-17",
+"change": "2026-10-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-01",
+"new_from": "2026-10-01"
+}
+],
+"nabaricity/communitybus": [
+{
+"new_uid": "d15c36ab-c0ff-40ed-ae8c-17d60ac4434b",
+"published": "2025-03-21",
+"change": "2025-04-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "8527c667-34d3-4c22-b324-dc03124a5651",
+"published": "2025-09-26",
+"change": "2025-10-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "ae301866-b4fa-40c4-9270-862e800a54ce",
+"published": "2025-12-24",
+"change": "2026-01-05",
+"lead": 12,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-01-01"
+},
+{
+"new_uid": "2668f5b3-12fa-4845-876b-9eb2a90dacff",
+"published": "2026-10-06",
+"change": "2026-10-01",
+"lead": -5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"nagaicity/NagaiCity": [
+{
+"new_uid": "748cc3ec-7792-4110-9f1d-36340677a9d0",
+"published": "2025-09-18",
+"change": "2025-10-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "efd745b2-afea-4545-a5ae-efecf80ed3d6",
+"published": "2026-09-25",
+"change": "2026-10-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+}
+],
+"nagakutecity/communitybus": [
+{
+"new_uid": "26398696-eea8-485f-868e-7e64b21d904a",
+"published": "2026-03-05",
+"change": "2026-03-05",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-05"
+}
+],
+"nagano-ikedatown/IkedaTownBus": [
+{
+"new_uid": "58a07fcf-2c6a-4c3b-a058-a1bf0fba8c4b",
+"published": "2025-02-17",
+"change": "2025-03-15",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-22",
+"new_from": "2025-03-15"
+},
+{
+"new_uid": "fd41fa5a-b84c-4435-b947-a6c1f9bb9968",
+"published": "2026-03-13",
+"change": "2026-03-14",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-16",
+"new_from": "2026-03-14"
+}
+],
+"nagano-kawakamivillage/kawakamibus": [
+{
+"new_uid": "bd9b0326-164f-4397-b9f7-7095881aa272",
+"published": "2025-07-07",
+"change": "2025-07-12",
+"lead": 5,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-07-07"
+},
+{
+"new_uid": "b86c6a4a-7ccb-4281-bf82-cb0486a9503f",
+"published": "2026-03-24",
+"change": "2026-03-28",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-24"
+}
+],
+"naganocity/shiei_noriaibus": [
+{
+"new_uid": "3fd0449a-eea3-486c-9046-c3988e6b41a1",
+"published": "2025-03-31",
+"change": "2025-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "6cf91fd6-dd8f-4eeb-a045-64c3ccef605a",
+"published": "2025-09-29",
+"change": "2025-10-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "316aec5a-8bd4-4dbe-b3eb-bac4f45cbe1c",
+"published": "2025-10-16",
+"change": "2025-10-16",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-16"
+},
+{
+"new_uid": "2a89a6e1-838b-4909-9dc4-dc86aec0df5d",
+"published": "2026-03-31",
+"change": "2026-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "f3a6a69e-2838-4e75-b0f8-2d92bb99038d",
+"published": "2026-09-30",
+"change": "2026-10-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-09-30"
+}
+],
+"nagareyamacity/nagareyamagreenbus": [
+{
+"new_uid": "b380af5e-d22a-42ec-b914-650371d54f25",
+"published": "2026-01-13",
+"change": "2024-04-01",
+"lead": -652,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-10",
+"new_from": "2023-11-16"
+},
+{
+"new_uid": "8e1203f4-67de-465f-a0fe-6522914d8b4a",
+"published": "2026-01-13",
+"change": "2025-10-01",
+"lead": -104,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-01-02",
+"new_from": "2025-10-01"
+}
+],
+"nagisotown/communitybus": [
+{
+"new_uid": "06358873-861e-41e3-a34f-4094c86367c4",
+"published": "2025-09-22",
+"change": "2025-10-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "9187cba7-73a1-404f-9960-5242e63c4cd7",
+"published": "2026-03-24",
+"change": "2026-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-20",
+"new_from": "2026-04-01"
+}
+],
+"nagitown/nagibus": [
+{
+"new_uid": "c2482ce6-94f3-49ad-8a85-2a26923adba0",
+"published": "2025-03-07",
+"change": "2025-03-06",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2023-03-29",
+"new_from": "2025-03-06"
+}
+],
+"nakatosatown/GTFS-Nakatosatown_Bus": [
+{
+"new_uid": "1aaa0aad-de06-4203-ad28-7ec5f86577ec",
+"published": "2025-08-19",
+"change": "2025-10-01",
+"lead": 43,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-01",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "51a74ff9-463f-4117-a560-1866baf7d099",
+"published": "2026-02-05",
+"change": "2026-04-03",
+"lead": 57,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-04-01"
+}
+],
+"nakatown/nakatownbus": [
+{
+"new_uid": "5cc94205-1b4f-4729-8371-ebb6a8214a40",
+"published": "2026-05-13",
+"change": "2026-04-30",
+"lead": -13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2026-04-30"
+}
+],
+"nakatsucity/Higashitani": [
+{
+"new_uid": "761fbeb1-2bf0-4363-9842-44e75e6e9d17",
+"published": "2026-09-20",
+"change": "2026-10-02",
+"lead": 12,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"nakatsucity/Nishitani": [
+{
+"new_uid": "569ef06c-4aad-492e-99bd-98235e25f8cd",
+"published": "2026-09-20",
+"change": "2026-10-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"nakatsucity/Yakata": [
+{
+"new_uid": "3c102bb0-81da-477c-b016-30662b70eaae",
+"published": "2026-09-20",
+"change": "2026-10-02",
+"lead": 12,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"nakatsugawacity/communitybus": [
+{
+"new_uid": "32496bbe-0ff7-43f8-a537-7006047d71fa",
+"published": "2025-06-26",
+"change": "2025-06-25",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-06-25"
+},
+{
+"new_uid": "20c1c735-2610-4cf0-9772-a164f91500ff",
+"published": "2025-09-16",
+"change": "2025-10-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "369c833f-8cb7-4d92-971d-9cd4acd3fd60",
+"published": "2026-06-08",
+"change": "2026-06-11",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-06-11"
+}
+],
+"nakayamatown/NakayamaTown": [
+{
+"new_uid": "4a50f1cc-a1e9-4f03-a68a-4eb3e677f61b",
+"published": "2025-02-18",
+"change": "2025-04-01",
+"lead": 42,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"namerikawacity/norumycar": [
+{
+"new_uid": "bc02a400-0f03-4393-8590-917dbb4e1fcc",
+"published": "2025-07-28",
+"change": "2025-08-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-07-31",
+"new_from": "2025-08-01"
+},
+{
+"new_uid": "4535fa12-3990-4c64-80d8-a172ded44f14",
+"published": "2025-09-22",
+"change": "2025-10-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-07-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "0feb4969-80e1-4002-b707-f436955fb63c",
+"published": "2026-09-28",
+"change": "2026-10-01",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+}
+],
+"nangokucity/GTFS-Nankokucity_Bus": [
+{
+"new_uid": "fefaab59-efc7-455d-b089-6d4667a305cb",
+"published": "2026-04-02",
+"change": "2026-04-01",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-01",
+"new_from": "2026-04-01"
+}
+],
+"nantocity/nanbus": [
+{
+"new_uid": "540ae838-56da-4c0a-806b-cf86a3de2fa1",
+"published": "2025-03-24",
+"change": "2025-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "d1b62a29-6c85-45fc-87da-3eeb2bfbf980",
+"published": "2025-11-17",
+"change": "2025-10-24",
+"lead": -24,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-24"
+},
+{
+"new_uid": "fe7ec734-4aa4-4d8a-84c9-75c95e179979",
+"published": "2026-03-31",
+"change": "2026-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "a76e5841-e74e-48c0-a54e-09c60c28f808",
+"published": "2026-05-26",
+"change": "2026-05-26",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-05-26"
+},
+{
+"new_uid": "da81bb7f-bf04-4650-a418-8682a4d03e0f",
+"published": "2026-10-02",
+"change": "2026-10-01",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"nanyocity/NanyoCity": [
+{
+"new_uid": "ce6d8f8b-8c26-4814-a35a-cd3b7e8df3d9",
+"published": "2025-03-28",
+"change": "2025-04-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "6e96fd98-d238-49c9-9668-170262179568",
+"published": "2026-01-05",
+"change": "2026-02-07",
+"lead": 33,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-26"
+},
+{
+"new_uid": "bc54b936-170a-4187-9ebe-da787dc164bc",
+"published": "2026-03-19",
+"change": "2026-12-01",
+"lead": 257,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-12-25",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "204f3fd1-526c-4a92-9a48-973563c98be0",
+"published": "2026-09-14",
+"change": "2026-10-01",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"naoshimatown/naoshima": [
+{
+"new_uid": "1a8b16bb-7f07-47bf-a011-972190380207",
+"published": "2025-05-14",
+"change": "2025-04-18",
+"lead": -26,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-04-14"
+},
+{
+"new_uid": "bbe280bd-ae7c-403e-8bbd-d986e217b8c1",
+"published": "2026-04-01",
+"change": "2026-06-01",
+"lead": 61,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-06-01"
+},
+{
+"new_uid": "5bffeccb-46e2-4f2e-82fc-e232cffa0ee4",
+"published": "2026-04-07",
+"change": "2026-06-01",
+"lead": 55,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-05-31",
+"new_from": "2026-04-07"
+},
+{
+"new_uid": "823ab19a-14a6-49c0-ba0d-6783088dca53",
+"published": "2026-07-21",
+"change": "2026-07-22",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-07-21"
+},
+{
+"new_uid": "84f007d8-075c-4458-af0b-5b97618b542b",
+"published": "2026-08-01",
+"change": "2026-08-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-05-31",
+"new_from": "2026-08-01"
+},
+{
+"new_uid": "c53814cf-6ac6-4ac9-99e1-47aa4663fbe0",
+"published": "2026-08-27",
+"change": "2026-08-23",
+"lead": -4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-05-31",
+"new_from": "2026-08-23"
+}
+],
+"naritacity/narita-community-bus": [
+{
+"new_uid": "1a9fa450-1b9e-4483-b698-dc94c4d26cf0",
+"published": "2026-02-13",
+"change": "2026-04-01",
+"lead": 47,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"narutocity/narutocitytosen": [
+{
+"new_uid": "82c395a8-d8e6-4dcf-b5b8-e1b4e366be50",
+"published": "2026-04-14",
+"change": "2026-04-07",
+"lead": -7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-07"
+}
+],
+"niimicity/niimishieibus": [
+{
+"new_uid": "8784b102-471c-4bfe-b17d-88aab1bdf96d",
+"published": "2025-06-03",
+"change": "2025-05-09",
+"lead": -25,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-11-28",
+"new_from": "2025-05-09"
+},
+{
+"new_uid": "143e3898-856e-41bc-81da-95a6f4178917",
+"published": "2025-06-03",
+"change": "2025-06-03",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-08",
+"new_from": "2025-06-03"
+},
+{
+"new_uid": "50f8b4d2-9d27-490f-941e-a91c515bd26e",
+"published": "2025-10-20",
+"change": "2025-10-20",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-02",
+"new_from": "2025-10-20"
+},
+{
+"new_uid": "fadc98a1-9dd1-4136-883d-0d2315b0dd45",
+"published": "2026-06-30",
+"change": "2026-06-30",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-19",
+"new_from": "2026-06-30"
+}
+],
+"nikkocity/nikkocity": [
+{
+"new_uid": "62d325fc-5bf3-4f15-ba74-40976a0542b7",
+"published": "2025-01-21",
+"change": "2025-01-20",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-20"
+},
+{
+"new_uid": "f52a44be-eced-4137-836a-0f184adea42c",
+"published": "2025-07-01",
+"change": "2025-07-05",
+"lead": 4,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-01-19",
+"new_from": "2025-07-01"
+}
+],
+"nishikawatown/NishikawaTown": [
+{
+"new_uid": "b655beff-c5ee-43de-adb4-cbff4b3da3d6",
+"published": "2025-03-10",
+"change": "2025-04-11",
+"lead": 32,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "546aaf3b-91f4-4951-a009-291eaf233ff8",
+"published": "2026-03-06",
+"change": "2026-04-10",
+"lead": 35,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"nishinomiyacity/guruttonamaze": [
+{
+"new_uid": "8decb23f-6b52-428d-8e26-990757b58f74",
+"published": "2025-09-15",
+"change": "2025-04-01",
+"lead": -167,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "2d20ce61-a132-4038-bee5-6e43d3906e67",
+"published": "2026-02-05",
+"change": "2026-04-01",
+"lead": 55,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-05-31",
+"new_from": "2026-04-01"
+}
+],
+"nishinomiyacity/najio-ikunokogen": [
+{
+"new_uid": "0fa633a7-4325-442d-8514-c9b5abe7ed46",
+"published": "2026-05-25",
+"change": "2026-04-01",
+"lead": -54,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-30",
+"new_from": "2026-04-01"
+}
+],
+"nishiocity/meitestu_tobu": [
+{
+"new_uid": "b28e2834-23e0-4e9b-9dd9-e52898fcadf2",
+"published": "2024-11-27",
+"change": "2024-12-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2024-12-01"
+},
+{
+"new_uid": "10a240f6-6048-4ba0-8066-f0ce2fdf02e0",
+"published": "2025-03-27",
+"change": "2025-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+}
+],
+"nishiocity/rokumangokukururinbus": [
+{
+"new_uid": "b4def155-f528-47b8-8179-901c57d839ff",
+"published": "2025-03-12",
+"change": "2025-04-01",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "38069078-9aa4-4821-baf5-a7b6554ca5ee",
+"published": "2026-03-17",
+"change": "2026-04-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-01"
+}
+],
+"nishiwakicity/loopbus-orihimebus": [
+{
+"new_uid": "2a5a93e2-5024-4e6c-a57e-90ba9d4e2dfc",
+"published": "2025-05-16",
+"change": "2025-04-01",
+"lead": -45,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "04228371-2b51-494e-aea7-475ab91f62ef",
+"published": "2025-07-22",
+"change": "2025-08-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-08-01"
+},
+{
+"new_uid": "6fe197b7-d7ac-4b0c-8296-7ca84b2f0bb4",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"nisshincity/communitybus": [
+{
+"new_uid": "28ef2b4a-03d1-4bc3-85a7-7d4b1119d0c2",
+"published": "2024-12-27",
+"change": "2025-01-04",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-28"
+},
+{
+"new_uid": "5d16ea87-9dc1-4c58-9cb6-1e649d69a513",
+"published": "2025-01-31",
+"change": "2025-02-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-02-01"
+},
+{
+"new_uid": "e2a667f6-3394-4109-8aef-44b43b409af6",
+"published": "2025-02-28",
+"change": "2025-03-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-03-01"
+},
+{
+"new_uid": "452678a2-3e26-41ed-9ba0-48aa56a9844c",
+"published": "2025-04-30",
+"change": "2025-05-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-30"
+},
+{
+"new_uid": "3d05a8d1-151b-42d7-9f37-a6ac9fd5978e",
+"published": "2025-05-29",
+"change": "2025-06-03",
+"lead": 5,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-06-01"
+},
+{
+"new_uid": "368a8cd7-a176-43be-8ba4-68ab26e425c9",
+"published": "2025-06-24",
+"change": "2025-07-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-07-01"
+},
+{
+"new_uid": "ef5b5597-5b60-46cb-b771-1de98de8847b",
+"published": "2025-07-30",
+"change": "2025-08-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-08-01"
+},
+{
+"new_uid": "5d6036be-f03a-45ca-aa0e-659d4700ca5c",
+"published": "2025-09-10",
+"change": "2025-10-01",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "163ed473-cea7-4dfc-9356-9162ab8b462e",
+"published": "2025-10-30",
+"change": "2025-10-08",
+"lead": -22,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-01-10",
+"new_from": "2025-10-08"
+}
+],
+"nogatacity/NogataCityCommunityBus": [
+{
+"new_uid": "7f18ec59-2b03-4566-92d3-c04badf50b7e",
+"published": "2026-03-18",
+"change": "2026-04-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "1dbd525b-a5d7-4699-97c0-0da13a621e42",
+"published": "2026-09-24",
+"change": "2026-10-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"obanazawacity/ObanazawaCity": [
+{
+"new_uid": "9f6e73e1-f35c-4167-91f4-7010b9ca94ce",
+"published": "2025-08-20",
+"change": "2025-10-01",
+"lead": 42,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-10-01"
+}
+],
+"oetown/Oetown": [
+{
+"new_uid": "7638a0b1-3323-4f40-a673-2e0c4a8319d3",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "b44ea82f-69a7-47a9-926d-4f31b3089b56",
+"published": "2026-03-09",
+"change": "2026-04-01",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"ogakicity/meihankintetsubus": [
+{
+"new_uid": "e737100c-56d0-48da-9e6d-934c63cf246e",
+"published": "2024-11-28",
+"change": "2024-12-04",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-01"
+},
+{
+"new_uid": "530252cf-3a38-4ef6-8ecb-2afa5d558dea",
+"published": "2025-03-21",
+"change": "2025-04-05",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "3827f6d5-fe54-4845-b160-fc791ed58df4",
+"published": "2025-05-21",
+"change": "2025-05-23",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-05-21"
+},
+{
+"new_uid": "533546a0-569a-48b8-b80a-40fa855839b6",
+"published": "2025-06-24",
+"change": "2025-07-19",
+"lead": 25,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-07-01"
+},
+{
+"new_uid": "7b62f98f-54dd-4b36-8291-cabc496c52e8",
+"published": "2026-03-27",
+"change": "2026-04-06",
+"lead": 10,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "340288bb-e0bd-4254-ad76-230f36831f14",
+"published": "2026-06-26",
+"change": "2026-07-18",
+"lead": 22,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-07-01"
+},
+{
+"new_uid": "12219701-bad0-4c4d-b681-efbbb59bf489",
+"published": "2026-09-17",
+"change": "2026-10-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"oizumitown/kouikikoukyoubasuaozora": [
+{
+"new_uid": "d64b6ed1-5408-41ea-bc64-89ee6f7c64f7",
+"published": "2025-02-18",
+"change": "2025-04-01",
+"lead": 42,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"okayacity/silkybus": [
+{
+"new_uid": "078123ac-4ed9-40f5-9e2d-32f0698303f3",
+"published": "2024-12-09",
+"change": "2024-12-09",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-09"
+}
+],
+"okuwavillage/kuwachan-bus": [
+{
+"new_uid": "44133b8d-3502-4365-a9d0-6ccbec4d21fa",
+"published": "2026-08-18",
+"change": "2026-10-01",
+"lead": 44,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-01-22",
+"new_from": "2026-10-01"
+}
+],
+"omachicity/omachiraicholiner": [
+{
+"new_uid": "f65b2c54-0c33-4adb-b830-008b72a257c5",
+"published": "2026-11-02",
+"change": "2026-12-01",
+"lead": 29,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-11-30",
+"new_from": "2026-12-01"
+}
+],
+"omachicity/omachisiminbus": [
+{
+"new_uid": "9839fd3b-ec9c-4d47-862f-36b5feb5c892",
+"published": "2025-03-07",
+"change": "2025-04-01",
+"lead": 25,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "49954ff7-1642-4e3c-b195-4e5fbc3fe317",
+"published": "2026-03-17",
+"change": "2026-04-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"omihachimancity/akakonbus": [
+{
+"new_uid": "004d64d6-b08f-4d8e-891b-15b740e2d6c9",
+"published": "2025-06-02",
+"change": "2025-06-02",
+"lead": 0,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-05-31",
+"new_from": "2025-06-01"
+},
+{
+"new_uid": "eae43b7b-72e8-4a4c-a2cc-80b364a5179b",
+"published": "2025-09-10",
+"change": "2025-08-28",
+"lead": -13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-05-31",
+"new_from": "2025-08-28"
+}
+],
+"ongatown/OngaTownCommunityBus": [
+{
+"new_uid": "e60084ab-c88a-4ddd-8f07-3840ac761653",
+"published": "2025-09-29",
+"change": "2025-10-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "b62f34e2-99d3-4ba3-97ec-575d3f1c7a69",
+"published": "2026-03-06",
+"change": "2026-03-14",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-14"
+}
+],
+"oshucity/bus-oshucity-iwate-jp": [
+{
+"new_uid": "6222e936-2776-4666-b2df-246a03e42ecb",
+"published": "2025-03-13",
+"change": "2025-04-01",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "80945501-9a99-4078-8688-e4ec69fc9c66",
+"published": "2026-03-28",
+"change": "2026-04-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "bd31c09a-98df-4934-a0bf-023c624cbce8",
+"published": "2026-07-08",
+"change": "2026-12-01",
+"lead": 146,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-07-08"
+},
+{
+"new_uid": "7084f1db-3362-4863-8d52-ad323e9fe089",
+"published": "2026-09-15",
+"change": "2026-10-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"otakivillage/otaki-village": [
+{
+"new_uid": "c098fc74-64b2-49e4-974c-d67100178eb9",
+"published": "2026-06-04",
+"change": "2026-05-30",
+"lead": -5,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-09-02",
+"new_from": "2026-05-26"
+}
+],
+"otawaracity/Ohtawaracitybus": [
+{
+"new_uid": "7e14540b-2042-45fb-a539-a679d1434629",
+"published": "2025-03-31",
+"change": "2025-04-06",
+"lead": 6,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "af00e7cf-7cbb-41c5-b73a-1fb9217617cd",
+"published": "2025-06-17",
+"change": "2025-06-26",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-06-30",
+"new_from": "2025-06-26"
+},
+{
+"new_uid": "51468eea-da39-4dd3-912d-f88c3afc9eac",
+"published": "2025-07-17",
+"change": "2025-07-17",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-07-17"
+}
+],
+"owariasahicity/communitybus": [
+{
+"new_uid": "c95e7406-2d69-4a54-9b1a-46c3d18d7726",
+"published": "2025-01-24",
+"change": "2025-01-09",
+"lead": -15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-08-31",
+"new_from": "2025-01-09"
+},
+{
+"new_uid": "c9c7d2fc-9165-4512-a93e-9330f4b4be73",
+"published": "2026-03-18",
+"change": "2026-04-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"reihoku-kanko/GTFS-Reihokukanko_Localbus": [
+{
+"new_uid": "10635a73-9403-4df2-a8d6-43610274820f",
+"published": "2025-02-17",
+"change": "2025-03-15",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-20",
+"new_from": "2025-03-15"
+},
+{
+"new_uid": "7341e537-fcd0-4c7b-8613-f11f0a684799",
+"published": "2025-06-30",
+"change": "2025-07-22",
+"lead": 22,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-07-27",
+"new_from": "2025-07-01"
+},
+{
+"new_uid": "80e2d91f-e3f5-4eee-9558-f022bd8c7bab",
+"published": "2025-10-03",
+"change": "2025-10-06",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-26",
+"new_from": "2025-10-06"
+},
+{
+"new_uid": "2981cd71-4e6d-4f3e-9b33-c7a20a98c9c4",
+"published": "2026-07-09",
+"change": "2026-07-21",
+"lead": 12,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-07-31",
+"new_from": "2026-07-01"
+},
+{
+"new_uid": "6a759700-00f1-4931-891f-ea4456958750",
+"published": "2026-09-07",
+"change": "2026-10-01",
+"lead": 24,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-27",
+"new_from": "2026-10-01"
+}
+],
+"rinkan/koyasan": [
+{
+"new_uid": "96f721a2-770c-48ed-8712-e757b7c74e25",
+"published": "2026-10-21",
+"change": "2026-04-23",
+"lead": -181,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-04-23"
+}
+],
+"ryujinbus/ryujinbus": [
+{
+"new_uid": "0437897b-e3e2-47e9-9a29-d76fd68c9aea",
+"published": "2024-12-12",
+"change": "2025-01-25",
+"lead": 44,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2024-12-12"
+},
+{
+"new_uid": "98e0c794-f5f3-45e4-af87-6b0e126a7d20",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "dc550aaf-b458-401c-947c-ba849bb35afb",
+"published": "2025-11-10",
+"change": "2025-12-01",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "720ae520-2893-4db0-af76-f84cad8b82e3",
+"published": "2025-12-10",
+"change": "2026-01-31",
+"lead": 52,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2025-12-10"
+},
+{
+"new_uid": "6804d504-2fd1-4091-9069-b6c5b2f5a842",
+"published": "2026-03-13",
+"change": "2026-04-02",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "5e2a4dbd-bf37-48f8-b50b-a61742967e7b",
+"published": "2026-09-14",
+"change": "2026-09-19",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-09-19"
+}
+],
+"sakatacity/SakataCity": [
+{
+"new_uid": "d0047141-3691-4e56-a0a3-0b6cd2240122",
+"published": "2025-03-07",
+"change": "2025-04-01",
+"lead": 25,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-07-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "05383fad-8311-43b0-b52d-5fed2e8b0bee",
+"published": "2025-12-09",
+"change": "2025-12-07",
+"lead": -2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-07"
+},
+{
+"new_uid": "3817ba65-fd9c-45b4-b6ac-a6e1c11c8783",
+"published": "2026-03-30",
+"change": "2026-04-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-06",
+"new_from": "2026-04-01"
+}
+],
+"sakawatown/GTFS-Sakawatown_Bus": [
+{
+"new_uid": "161f475c-5d8e-436d-ad52-a4ec5a60be7a",
+"published": "2025-03-06",
+"change": "2025-03-17",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-16",
+"new_from": "2025-03-17"
+},
+{
+"new_uid": "dae62348-b6fa-4ee8-bc0b-8639b2274df9",
+"published": "2025-12-22",
+"change": "2025-12-01",
+"lead": -21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "b707d758-18fd-432f-bd39-c464f22912da",
+"published": "2026-02-05",
+"change": "2026-03-16",
+"lead": 39,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-16"
+}
+],
+"sakegawavillage/SakegawaVillage": [
+{
+"new_uid": "46035f53-0847-4805-957f-203bc6f24a4f",
+"published": "2025-05-08",
+"change": "2025-05-07",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-05-07"
+},
+{
+"new_uid": "34ba2958-2468-47ab-afa4-4cc70a43b282",
+"published": "2026-10-01",
+"change": "2026-10-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-04-16",
+"new_from": "2026-10-01"
+}
+],
+"sanjocity/guruttosan": [
+{
+"new_uid": "1f15a52b-46ce-459a-b22c-e789804c85e6",
+"published": "2024-12-12",
+"change": "2025-01-04",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-01"
+},
+{
+"new_uid": "6c3cba91-e386-4bd5-b6b2-89e62e38ca32",
+"published": "2025-03-18",
+"change": "2025-04-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "8d1fbeec-4743-461f-8517-2459876e318d",
+"published": "2025-11-04",
+"change": "2025-11-01",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-11-01"
+}
+],
+"seikatsubus-yokkaichi/sbusyokkaichi": [
+{
+"new_uid": "a226fc00-1547-49c4-b883-236375641e8c",
+"published": "2026-03-30",
+"change": "2026-04-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-01-31",
+"new_from": "2026-04-01"
+}
+],
+"seisan-kanko/seisankanko_limousine": [
+{
+"new_uid": "66db1407-7b13-4938-8ccf-012a3a94f626",
+"published": "2025-01-23",
+"change": "2025-02-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-02-01"
+},
+{
+"new_uid": "6e7448db-2eef-40d1-9885-310ba4428cf5",
+"published": "2025-05-22",
+"change": "2025-06-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-31",
+"new_from": "2025-06-01"
+},
+{
+"new_uid": "19a9ca20-1779-44d4-8183-8998c89fc280",
+"published": "2025-10-03",
+"change": "2025-10-26",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2025-10-26"
+},
+{
+"new_uid": "9568fe2d-77f2-49ce-bcbb-ea5db6d015d2",
+"published": "2025-11-10",
+"change": "2025-12-01",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "0aa18c33-7a06-49c2-8ed3-b26ea1995f21",
+"published": "2025-12-18",
+"change": "2026-01-06",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-01-06"
+},
+{
+"new_uid": "cd4e089e-1b2c-4ec5-9961-88e7eed9e2a3",
+"published": "2026-03-12",
+"change": "2026-03-29",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-03-29"
+},
+{
+"new_uid": "916c6b07-8d65-4f28-bf1e-68613b92b2b7",
+"published": "2026-07-21",
+"change": "2026-08-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-08-01"
+}
+],
+"sekicity/itadorifureaibus": [
+{
+"new_uid": "5def862b-3668-4427-a983-ac27d4b2fb2a",
+"published": "2025-03-07",
+"change": "2025-04-01",
+"lead": 25,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "047ba2bb-4ec6-4a7a-9a6b-dd9e55070a1a",
+"published": "2026-03-27",
+"change": "2026-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "e964f844-0884-41cb-b9d1-709220a677e2",
+"published": "2026-03-27",
+"change": "2024-12-01",
+"lead": -481,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2024-12-01"
+}
+],
+"setocity/setocitybus": [
+{
+"new_uid": "a02dd04e-26b1-4442-8df7-1eb579a56f08",
+"published": "2026-03-31",
+"change": "2026-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"setouchicity/setouchicitybus": [
+{
+"new_uid": "a4406f47-d30d-46ae-9ae3-b6f14e48200c",
+"published": "2026-03-31",
+"change": "2026-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"shichigahamatown/Gururinko": [
+{
+"new_uid": "42d22429-40ba-40a2-a4fd-70bc3d4d2bc4",
+"published": "2026-04-03",
+"change": "2026-04-03",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-03"
+},
+{
+"new_uid": "9f27ca42-a94a-4d63-a3ab-2c335b248f81",
+"published": "2026-11-19",
+"change": "2026-08-19",
+"lead": -92,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-08-19"
+}
+],
+"shichinohetown/shichinohe_community-bus": [
+{
+"new_uid": "fe68025e-da8b-4b46-b02c-dfe58b2be0ca",
+"published": "2026-08-20",
+"change": "2026-08-17",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2028-03-31",
+"new_from": "2026-08-17"
+}
+],
+"shiga-hinotown/choueibus": [
+{
+"new_uid": "bcd3008b-0e16-4bf5-987e-1c374959bcc6",
+"published": "2025-04-07",
+"change": "2025-04-01",
+"lead": -6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "0bb59b10-bf86-4a11-8afe-ea830e649047",
+"published": "2026-05-19",
+"change": "2026-04-01",
+"lead": -48,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"shiga-konancity/konansimegurukun": [
+{
+"new_uid": "5c27a6f5-4d73-4569-a584-fe6338b65130",
+"published": "2025-03-31",
+"change": "2025-04-05",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "accdb243-e02c-4711-a69a-811cea36e418",
+"published": "2026-05-19",
+"change": "2026-04-04",
+"lead": -45,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "2558ef1b-e826-464a-b67a-f229f88d3c91",
+"published": "2026-10-22",
+"change": "2026-11-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-11-01"
+}
+],
+"shimacity/agowanteikisen": [
+{
+"new_uid": "c869344b-04b4-4cbe-bf8d-4b127e7064c9",
+"published": "2026-09-18",
+"change": "2026-10-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-10-01"
+}
+],
+"shimadacity/shimada_combus": [
+{
+"new_uid": "e61c870c-5e8e-4b65-a082-3442a215187b",
+"published": "2025-06-20",
+"change": "2025-04-01",
+"lead": -80,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "e27bbedd-374b-4dd0-ba31-624e02db16da",
+"published": "2026-08-12",
+"change": "2026-04-01",
+"lead": -133,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"shimantocity/GTFS-Shimantocity_Bus": [
+{
+"new_uid": "a9827e3b-2ac2-4847-92f1-82790eef3e3c",
+"published": "2025-02-26",
+"change": "2025-04-01",
+"lead": 34,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-01",
+"new_from": "2025-04-01"
+}
+],
+"shimantocity/GTFS-Shimantocity_Demandbus": [
+{
+"new_uid": "e611d17b-9354-4ade-8ca0-67e0379cf84a",
+"published": "2026-06-24",
+"change": "2026-04-02",
+"lead": -83,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2027-01-08",
+"new_from": "2026-01-05"
+}
+],
+"shimantotown/GTFS-Shimantotown_Bus": [
+{
+"new_uid": "cf9d343e-e690-43ac-b3b1-ae2c725429f8",
+"published": "2025-09-01",
+"change": "2025-10-01",
+"lead": 30,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "8def4a1f-f98b-4d2f-8780-369d1ed77d04",
+"published": "2026-02-13",
+"change": "2026-03-02",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-02"
+}
+],
+"shimoko/shimokitakotsu": [
+{
+"new_uid": "8fae0fdb-21b5-4f32-8033-17aefb428eef",
+"published": "2026-03-19",
+"change": "2026-04-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "8eb6e933-7ae3-402d-a527-680ad58017ca",
+"published": "2026-05-22",
+"change": "2026-05-17",
+"lead": -5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-05-17"
+},
+{
+"new_uid": "2752e184-8561-47c6-a18e-3f732dde5e3b",
+"published": "2026-09-25",
+"change": "2026-10-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"shingutown/ShinguTownCommunityBus": [
+{
+"new_uid": "b51f5936-4804-48d1-9e41-06365707ce90",
+"published": "2025-02-20",
+"change": "2025-03-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-02-28",
+"new_from": "2025-03-01"
+},
+{
+"new_uid": "86b416bd-9f71-45b3-99b2-d90f95c9890f",
+"published": "2025-03-04",
+"change": "2025-03-24",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-23",
+"new_from": "2025-03-24"
+},
+{
+"new_uid": "28ea956b-940e-4b47-9281-a64349a431f3",
+"published": "2026-05-09",
+"change": "2026-03-01",
+"lead": -69,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-01"
+},
+{
+"new_uid": "83aa998b-0ef1-445c-93ca-2779a8f9194d",
+"published": "2026-10-02",
+"change": "2026-10-17",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-02-28",
+"new_from": "2026-10-17"
+}
+],
+"shingutown/TownFerryShingu": [
+{
+"new_uid": "fadb103a-a226-4b95-a465-7cd1f5ec78f5",
+"published": "2025-02-20",
+"change": "2025-03-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-02-28",
+"new_from": "2025-03-01"
+},
+{
+"new_uid": "1b13406f-6429-431e-a019-b55c35e86363",
+"published": "2026-02-20",
+"change": "2026-03-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-02-28",
+"new_from": "2026-03-01"
+},
+{
+"new_uid": "2d627920-8d34-4825-83e1-54a89995ce1a",
+"published": "2026-11-08",
+"change": "2026-11-01",
+"lead": -7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-02-28",
+"new_from": "2026-11-01"
+}
+],
+"shinjocity/ShinjoCity": [
+{
+"new_uid": "6e75263b-2e88-4b40-a881-0b85902a578e",
+"published": "2026-03-12",
+"change": "2026-04-01",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "7d028444-d623-400f-81c5-9a1689f288a2",
+"published": "2026-11-19",
+"change": "2026-11-30",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-11-30"
+}
+],
+"shinkikanko/limonbus": [
+{
+"new_uid": "6c6c6191-3f8b-4309-bab7-b8e514469b1e",
+"published": "2025-03-11",
+"change": "2025-03-16",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-03-16"
+},
+{
+"new_uid": "91588ba4-5a3b-486f-a41f-5c203052ab62",
+"published": "2025-07-15",
+"change": "2025-07-19",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-07-19"
+},
+{
+"new_uid": "51f011e4-c471-46b5-9c85-c8877d8a1a89",
+"published": "2025-12-27",
+"change": "2025-12-24",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-12-24"
+},
+{
+"new_uid": "885b89e7-b28a-4387-a9ec-20f27e3c318c",
+"published": "2026-03-27",
+"change": "2026-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"shinonsentown/yumetsubame": [
+{
+"new_uid": "45039f62-a612-4736-9ae3-520742cea959",
+"published": "2025-04-30",
+"change": "2024-03-01",
+"lead": -425,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2024-03-31",
+"new_from": "2024-03-01"
+},
+{
+"new_uid": "75a7025b-d09a-48c1-8a1d-fe89218c7a12",
+"published": "2026-05-25",
+"change": "2026-04-01",
+"lead": -54,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"shinshirocity/sbus": [
+{
+"new_uid": "8e63a277-e90b-4ce1-970e-f3078b3a8efa",
+"published": "2025-08-12",
+"change": "2025-04-05",
+"lead": -129,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "d23cff59-c266-4a07-b837-038a7f3619b3",
+"published": "2025-08-30",
+"change": "2025-11-02",
+"lead": 64,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-11-01"
+},
+{
+"new_uid": "06a8f31e-c20e-4f96-a89f-3cafba1aa4ca",
+"published": "2026-03-25",
+"change": "2026-04-04",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "6e0e8cc1-fe52-4e5a-b975-1e6e9d6a48f7",
+"published": "2026-03-25",
+"change": "2026-04-08",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-06"
+},
+{
+"new_uid": "8a021d9c-836d-4ef5-a9e3-0fa9d3d47041",
+"published": "2026-08-31",
+"change": "2026-09-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-09-01"
+}
+],
+"shiojiricity/suteppukunn": [
+{
+"new_uid": "ef4cc04f-a4c0-4d63-9518-45a418a0bce0",
+"published": "2025-03-27",
+"change": "2025-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2024-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "7f1b6506-e5a5-4817-b7ad-79656ec1a51f",
+"published": "2026-03-18",
+"change": "2026-04-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"shiratakatown/ShiratakaTown": [
+{
+"new_uid": "3c2fecac-3579-498a-bd8c-f7e461bbb2a6",
+"published": "2025-03-04",
+"change": "2025-04-05",
+"lead": 32,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "1469c791-b0dc-4cfe-8ec9-b5f6c0aa986e",
+"published": "2026-02-25",
+"change": "2026-04-04",
+"lead": 38,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"shirotori-kotsu/shirotorikotsu": [
+{
+"new_uid": "758a8119-f0f8-4f52-8480-27301a634776",
+"published": "2025-09-17",
+"change": "2025-10-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "42f385b2-2d72-412d-984a-7a6b8ed6c0c6",
+"published": "2026-05-28",
+"change": "2026-04-01",
+"lead": -57,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2027-01-31",
+"new_from": "2026-04-01"
+}
+],
+"shisocity/shitanbus-wingshinki": [
+{
+"new_uid": "4844f990-9aff-410c-a6e2-a70901ad9fb9",
+"published": "2025-02-27",
+"change": "2025-04-01",
+"lead": 33,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "54d0776d-9c61-44a2-b15f-1ce4f225eede",
+"published": "2025-09-29",
+"change": "2025-10-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "01638407-9930-4ad0-a772-8b4bc4c93708",
+"published": "2025-11-10",
+"change": "2025-12-22",
+"lead": 42,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "ba459cad-f989-4817-b77b-63982092efe3",
+"published": "2026-03-09",
+"change": "2026-04-01",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"shizuokacity/ikawa": [
+{
+"new_uid": "2266c544-3a68-4fdd-a3d1-c0ea7e73ba99",
+"published": "2025-03-27",
+"change": "2025-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "dddefc91-1229-4e70-88e6-30e968709af8",
+"published": "2026-06-30",
+"change": "2026-04-01",
+"lead": -90,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-30",
+"new_from": "2026-04-01"
+}
+],
+"shizuokacity/yui": [
+{
+"new_uid": "1a607fbe-68b2-43f9-8645-fc96bf136274",
+"published": "2025-03-27",
+"change": "2025-04-02",
+"lead": 6,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "3c11ec25-25cf-431d-8420-3723aee96282",
+"published": "2026-07-09",
+"change": "2026-04-01",
+"lead": -99,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-30",
+"new_from": "2026-04-01"
+}
+],
+"shonaikotsu/SHONAIKOTSU": [
+{
+"new_uid": "63361e36-fa3f-413c-8197-bff38e517014",
+"published": "2025-05-09",
+"change": "2025-04-05",
+"lead": -34,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "77ac2a8c-e712-4e8e-90d0-9c9de39761bf",
+"published": "2026-06-24",
+"change": "2026-03-29",
+"lead": -87,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-29"
+},
+{
+"new_uid": "26556798-431b-4e73-bea6-e4120849ff79",
+"published": "2026-10-21",
+"change": "2026-10-25",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-25"
+}
+],
+"shonaitown/ShonaiTown": [
+{
+"new_uid": "8d65c795-2eb9-497e-aa96-5e804b603a5a",
+"published": "2025-01-08",
+"change": "2025-01-08",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-08"
+},
+{
+"new_uid": "a77c26fc-8c0f-4ffd-8010-9de027c92641",
+"published": "2025-03-28",
+"change": "2025-04-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "214b8a12-6c62-45bf-96ed-8bc92934f518",
+"published": "2026-04-13",
+"change": "2026-04-13",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-13"
+}
+],
+"shootown/shoochofureaibus": [
+{
+"new_uid": "4e3cf3dd-1d41-447f-ae0a-2b0c2724c151",
+"published": "2026-10-05",
+"change": "2026-10-05",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-05"
+}
+],
+"suetown/SueTownCommunityBus": [
+{
+"new_uid": "2b4d4218-8d4e-4f32-a6c0-8feacc641655",
+"published": "2026-01-04",
+"change": "2025-04-01",
+"lead": -278,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "ae6f9046-dc3b-4fc0-9c92-d82b32d43bd3",
+"published": "2026-02-18",
+"change": "2026-04-01",
+"lead": 42,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"sukumocity/GTFS-Sukumocity_Hanabus": [
+{
+"new_uid": "bb19c272-fec2-4488-beae-a10811be1dba",
+"published": "2025-02-25",
+"change": "2025-01-06",
+"lead": -50,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-01",
+"new_from": "2025-01-06"
+},
+{
+"new_uid": "517cb9a0-6d58-48b9-8402-27c6224ab37a",
+"published": "2026-02-13",
+"change": "2026-03-02",
+"lead": 17,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-10-01",
+"new_from": "2026-03-01"
+}
+],
+"sumotocity/communitybus": [
+{
+"new_uid": "599890d4-c375-43d3-a912-8df994d996d3",
+"published": "2025-03-26",
+"change": "2025-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "b4781dbe-af53-437d-8e31-d6d0bbe7372b",
+"published": "2026-03-30",
+"change": "2026-04-01",
+"lead": 2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "7effbf74-e57e-4f53-8f53-b20aab0c03ee",
+"published": "2026-09-15",
+"change": "2026-10-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"suwacity/karinchanbas": [
+{
+"new_uid": "605285e2-b891-4aac-9ce9-1d0ba8bf15f4",
+"published": "2024-11-29",
+"change": "2024-12-02",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-02"
+},
+{
+"new_uid": "f2b7213a-7d62-4ad7-9a5a-32a4b56512c4",
+"published": "2025-02-26",
+"change": "2025-04-01",
+"lead": 34,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-02-02",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "c541f9a6-d584-445a-8e97-798036982837",
+"published": "2026-02-06",
+"change": "2026-04-01",
+"lead": 54,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"suzakicity/suzakashiminbus": [
+{
+"new_uid": "0d5829a1-aced-4dc6-ae9e-91dcf630a485",
+"published": "2025-03-03",
+"change": "2025-03-09",
+"lead": 6,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-04-30",
+"new_from": "2025-03-03"
+},
+{
+"new_uid": "da3030c9-990b-4d86-ac33-622dc284107b",
+"published": "2026-03-05",
+"change": "2026-03-05",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-30",
+"new_from": "2026-03-05"
+},
+{
+"new_uid": "7f67f850-3394-47b5-b162-39ad6b7b1e11",
+"published": "2026-05-20",
+"change": "2026-05-20",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-05-20"
+}
+],
+"tagawacity/TagawaCityCommunityBus": [
+{
+"new_uid": "351973d9-eb67-4363-abe9-b5f8806941e6",
+"published": "2026-05-31",
+"change": "2025-10-06",
+"lead": -237,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-05",
+"new_from": "2025-10-06"
+},
+{
+"new_uid": "dd0a770d-3de4-4be5-a1c5-e06a189e0ef4",
+"published": "2026-08-18",
+"change": "2026-10-05",
+"lead": 48,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-09-30",
+"new_from": "2026-10-05"
+}
+],
+"takaokacity/koueibus": [
+{
+"new_uid": "2e49bf5a-4c56-490e-8508-b4fb9b209138",
+"published": "2025-03-21",
+"change": "2025-04-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-08-29",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "b8e544e6-4667-4959-9206-ff403ba9e1ac",
+"published": "2026-07-06",
+"change": "2026-04-01",
+"lead": -96,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"takarazukacity/runrunbus": [
+{
+"new_uid": "d142d65f-2893-4eeb-9f3f-762b96605746",
+"published": "2025-04-21",
+"change": "2025-06-01",
+"lead": 41,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-06-01"
+},
+{
+"new_uid": "e9cf7329-07e9-4aa5-a5d7-2fede60900a1",
+"published": "2026-03-31",
+"change": "2026-05-10",
+"lead": 40,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-05-01"
+}
+],
+"takasagocity/jotonbus": [
+{
+"new_uid": "44209b9f-7a54-47a7-8ec6-f0626d80bab1",
+"published": "2025-03-27",
+"change": "2025-04-02",
+"lead": 6,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "be9a8221-aa75-45f5-9a90-5e4358a5a652",
+"published": "2026-08-28",
+"change": "2026-09-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-09-01"
+},
+{
+"new_uid": "3e18abff-33fd-4686-beff-dc62c06038a2",
+"published": "2026-09-03",
+"change": "2026-10-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"takashimacity/takasimasicommunitybus": [
+{
+"new_uid": "49bfd4f0-f2d6-4729-8ab7-70a7c8ad310c",
+"published": "2025-03-31",
+"change": "2025-04-05",
+"lead": 5,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "69caaedc-ddcf-4cc2-8222-e2019f257a72",
+"published": "2025-11-18",
+"change": "2025-10-01",
+"lead": -48,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "605af705-92b3-48b8-8728-ea9d92c54c77",
+"published": "2025-12-16",
+"change": "2025-12-01",
+"lead": -15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-01"
+}
+],
+"takayamacity/noramaicar": [
+{
+"new_uid": "57dfed96-bc3c-4c42-9095-24a11974369b",
+"published": "2025-04-02",
+"change": "2025-04-02",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-02"
+},
+{
+"new_uid": "5c89a540-f634-4f0e-a080-caa0d1e55b63",
+"published": "2026-08-31",
+"change": "2026-09-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-09-01"
+},
+{
+"new_uid": "1e8b5e16-2767-4da8-94fe-ee24f4511751",
+"published": "2026-10-16",
+"change": "2026-11-02",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-11-02"
+}
+],
+"takayamacity/takanego": [
+{
+"new_uid": "6976d909-4ec2-4368-bbda-b55bec965643",
+"published": "2025-04-24",
+"change": "2025-04-21",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-04-21"
+},
+{
+"new_uid": "4dfaec0d-1c4b-4969-8cbe-99c0ebc312e6",
+"published": "2025-05-07",
+"change": "2025-05-12",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-05-12"
+},
+{
+"new_uid": "02fa1493-7cf1-4833-8149-a4450c58eb53",
+"published": "2026-03-25",
+"change": "2026-04-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "bce5d1bb-60f8-4d56-932b-be1f06ebacd7",
+"published": "2026-10-21",
+"change": "2026-11-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-11-01"
+}
+],
+"taketoyotown/communitybus": [
+{
+"new_uid": "caaf7eb3-7782-48fd-895a-c3ecf9caa7d7",
+"published": "2025-03-21",
+"change": "2025-04-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"tambasasayamacity/communitybusheartrun": [
+{
+"new_uid": "195bba75-5281-4c22-9ccc-a3b2c774e105",
+"published": "2026-01-27",
+"change": "2024-11-01",
+"lead": -452,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-11-01"
+}
+],
+"tanabecity/Jumin-Bus": [
+{
+"new_uid": "36d40ae3-8e24-47fe-819c-8a374f51c25b",
+"published": "2026-10-01",
+"change": "2026-10-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-05-31",
+"new_from": "2026-10-01"
+}
+],
+"tateshinatown/tateshinasmile": [
+{
+"new_uid": "d0979778-d8ed-4a17-a2b8-0a8a3fad8391",
+"published": "2025-10-14",
+"change": "2025-10-14",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-10-14"
+}
+],
+"tateyamatown/tateyama": [
+{
+"new_uid": "8400f80b-f57a-4177-a60d-3cd640161231",
+"published": "2024-12-18",
+"change": "2024-12-18",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-18"
+},
+{
+"new_uid": "b97bff24-741c-4562-bb1d-d21c965f752b",
+"published": "2025-03-14",
+"change": "2025-04-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "fb32f640-5d77-4003-9be1-bc7f4f3185c4",
+"published": "2025-04-11",
+"change": "2025-04-15",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-04-15"
+},
+{
+"new_uid": "22ef5fff-9cff-4047-ad82-7f4205c3ef8d",
+"published": "2025-11-17",
+"change": "2025-12-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "8130e129-2c59-477d-87d4-3750394d964b",
+"published": "2026-03-10",
+"change": "2026-03-14",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-14",
+"new_from": "2026-03-14"
+},
+{
+"new_uid": "a734bcd9-e935-4439-954d-07329f251a7b",
+"published": "2026-03-13",
+"change": "2026-04-08",
+"lead": 26,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-04-14",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "dea343cb-7aad-4940-9b44-9b3b4be3a7c5",
+"published": "2026-04-10",
+"change": "2026-04-15",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-14",
+"new_from": "2026-04-15"
+},
+{
+"new_uid": "7073f1e0-a326-4aa5-a3c2-5190642880ae",
+"published": "2026-09-16",
+"change": "2026-10-13",
+"lead": 27,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-10",
+"new_from": "2026-10-13"
+}
+],
+"tendocity/TendoCity": [
+{
+"new_uid": "663ed6cb-65bf-4f9e-adb9-b2b66bbb8f76",
+"published": "2025-02-20",
+"change": "2025-04-01",
+"lead": 40,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"tobacity/communitybus": [
+{
+"new_uid": "7f4da0fd-79d7-40a9-bb37-eb53c736a29e",
+"published": "2026-03-28",
+"change": "2026-04-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "2b903489-8bb7-49cb-8803-6fab798db17b",
+"published": "2026-08-21",
+"change": "2026-09-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-09-01"
+}
+],
+"tobacity/teikisen": [
+{
+"new_uid": "78e1e6b8-a064-4adf-b93c-3e01f058267b",
+"published": "2026-03-28",
+"change": "2026-04-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "0518a882-1f2b-4c3a-b63a-bc569d0a23f1",
+"published": "2026-10-02",
+"change": "2026-10-16",
+"lead": 14,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2028-01-31",
+"new_from": "2026-10-01"
+}
+],
+"tochigi-nakagawatown/nakagawamaticommunitybus": [
+{
+"new_uid": "b5667950-0e19-437d-97ec-49baa3b05f66",
+"published": "2025-03-27",
+"change": "2025-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"tohokutown/tohoku-town-bus": [
+{
+"new_uid": "46b2a378-145a-4534-bac5-e86b3b82b51a",
+"published": "2025-05-01",
+"change": "2025-04-28",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-01",
+"new_from": "2025-04-28"
+},
+{
+"new_uid": "2c2d7554-b7bc-426f-84ee-410c371aa668",
+"published": "2025-08-29",
+"change": "2025-09-01",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "32ab2b84-10f7-4f23-9c8b-f47178173a78",
+"published": "2026-03-06",
+"change": "2026-03-09",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-09"
+}
+],
+"tokaicity/tokai-ranranbus": [
+{
+"new_uid": "0f828e1f-291f-4240-ab42-8061b0387541",
+"published": "2026-09-24",
+"change": "2026-10-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"tokicity/communitybus": [
+{
+"new_uid": "e4933421-7767-41e0-8b02-2dff91386362",
+"published": "2025-03-10",
+"change": "2025-04-01",
+"lead": 22,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "2e2e6b6e-821e-42d0-9b5b-744250fc386f",
+"published": "2025-09-12",
+"change": "2025-10-01",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "1d9e1250-0543-45e0-bf7b-4ab78c81b9b7",
+"published": "2026-01-21",
+"change": "2026-02-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-02-01"
+}
+],
+"tokonamecity/Gruun": [
+{
+"new_uid": "ba6c7730-3937-4da4-81c2-cf55bcd7f3b9",
+"published": "2025-11-27",
+"change": "2026-01-04",
+"lead": 38,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-01-01"
+},
+{
+"new_uid": "06caf724-3955-4071-a414-bdf94168ea65",
+"published": "2026-11-10",
+"change": "2026-12-01",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-12-01"
+}
+],
+"tokubus-nanbu/tokushimabusnanbu": [
+{
+"new_uid": "af217a35-bbfb-4f11-b6d9-a9dcfab7c712",
+"published": "2025-10-06",
+"change": "2025-10-01",
+"lead": -5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+}
+],
+"tokushima-miyoshicity/miyoshicitybus": [
+{
+"new_uid": "30e8d32a-eb50-4375-8459-b57af2b6b8b9",
+"published": "2025-03-25",
+"change": "2025-04-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "12c810bc-1183-4fff-917b-88bf14a127c1",
+"published": "2026-03-23",
+"change": "2026-04-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"tokushima-shiei/tokushimacitybus": [
+{
+"new_uid": "05a0b3fd-c35f-477f-b306-449408c5ba36",
+"published": "2025-03-19",
+"change": "2025-04-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "1adcacb3-ddbf-4fb6-aaae-306784b03ceb",
+"published": "2025-09-22",
+"change": "2025-10-01",
+"lead": 9,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "414de2ed-3de0-412e-a1e0-438f62759bb1",
+"published": "2026-03-27",
+"change": "2026-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-04-01"
+}
+],
+"tosacity/GTFS-Tosacity_Bus": [
+{
+"new_uid": "94a56c38-ccc0-4844-a481-783720c8f784",
+"published": "2025-10-21",
+"change": "2025-10-01",
+"lead": -20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-01",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "22c146c9-9e7f-480d-bb84-de8c5211947d",
+"published": "2026-09-05",
+"change": "2026-10-01",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-04-01",
+"new_from": "2026-10-01"
+}
+],
+"tosaden-kotsu/GTFS-Tosadentraffic_Airportbus": [
+{
+"new_uid": "5a3ab388-ea60-42ca-bb7e-9866cbdb2f73",
+"published": "2025-03-14",
+"change": "2025-03-31",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-03-30"
+},
+{
+"new_uid": "07ff80d9-469b-4bbc-a0d1-e7b945fcd8de",
+"published": "2025-06-24",
+"change": "2025-07-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-07-01",
+"new_from": "2025-07-01"
+},
+{
+"new_uid": "10849a87-8dcd-46ce-a3ec-547bd22939fb",
+"published": "2025-08-05",
+"change": "2025-10-01",
+"lead": 57,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-09-01"
+},
+{
+"new_uid": "e5bdb679-1549-4539-9d42-5cb07ff7d2cf",
+"published": "2025-10-14",
+"change": "2025-10-27",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-25",
+"new_from": "2025-10-26"
+},
+{
+"new_uid": "c824ff0a-9d22-4330-876c-2823dc6b3d6a",
+"published": "2025-12-04",
+"change": "2025-12-01",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-10",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "61fade28-c415-4bde-85af-618d367b448a",
+"published": "2026-01-16",
+"change": "2026-02-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-31",
+"new_from": "2026-02-01"
+},
+{
+"new_uid": "656e1296-9768-4981-8fcd-17adb50fda0d",
+"published": "2026-02-19",
+"change": "2026-03-01",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-30",
+"new_from": "2026-03-01"
+},
+{
+"new_uid": "ba104148-f300-40d5-8a4a-31493486a5fe",
+"published": "2026-03-19",
+"change": "2026-03-29",
+"lead": 10,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-29"
+},
+{
+"new_uid": "e5f5a6ef-fdf8-4690-b203-23d5016df10d",
+"published": "2026-03-19",
+"change": "2026-04-05",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "c9e6ba32-100f-42fe-99f5-a52ae1f151bc",
+"published": "2026-05-25",
+"change": "2026-06-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-01",
+"new_from": "2026-06-01"
+},
+{
+"new_uid": "eb7822b1-0665-4958-96ce-999aa0e6e832",
+"published": "2026-06-24",
+"change": "2026-07-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-08-01",
+"new_from": "2026-07-01"
+},
+{
+"new_uid": "a46b1e40-9a5a-4909-b3f2-713eb59baced",
+"published": "2026-08-17",
+"change": "2026-09-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-31",
+"new_from": "2026-09-01"
+},
+{
+"new_uid": "0d929f15-e79a-4579-b7cd-0e7efed7b1ce",
+"published": "2026-09-24",
+"change": "2026-10-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+},
+{
+"new_uid": "cd896fe1-bac5-4378-ae59-39eb418ec5b7",
+"published": "2026-10-25",
+"change": "2026-10-25",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-25",
+"new_from": "2026-10-25"
+}
+],
+"tosaden-kotsu/GTFS-Tosadentraffic_Streetcar": [
+{
+"new_uid": "86fd3e6d-a380-4d14-b7cd-9dbb12e13357",
+"published": "2026-02-17",
+"change": "2026-02-21",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-02-21"
+},
+{
+"new_uid": "b96d7ea0-78d6-41a3-aa1f-ffeb5d6c35c1",
+"published": "2026-09-26",
+"change": "2026-09-01",
+"lead": -25,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2027-04-01",
+"new_from": "2026-07-22"
+}
+],
+"toshinkanko-bus/rosenbus": [
+{
+"new_uid": "d4949f9e-9efa-4e9f-afc6-a31662e3f3cd",
+"published": "2026-11-12",
+"change": "2026-11-01",
+"lead": -11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-11-01"
+}
+],
+"towadakankodentetsu/toutetsu": [
+{
+"new_uid": "cf903418-1593-4a4d-8a4d-8fdcb28c1f1d",
+"published": "2026-09-18",
+"change": "2026-10-01",
+"lead": 13,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"toyama-asahitown/asahimachibus": [
+{
+"new_uid": "9989e43c-8bea-4eaa-b21a-77a1b8a502bd",
+"published": "2025-02-25",
+"change": "2025-03-17",
+"lead": 20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-17",
+"new_from": "2025-03-17"
+},
+{
+"new_uid": "51d03588-0d35-4252-81dc-284aadaa1ad2",
+"published": "2026-03-13",
+"change": "2026-03-16",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-16",
+"new_from": "2026-03-16"
+}
+],
+"toyamacity/horikawaminamicommunitybus": [
+{
+"new_uid": "6a1880f8-5d0b-4391-8db3-c173c32b4a6d",
+"published": "2025-03-21",
+"change": "2025-04-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "1a4586b0-ee3b-48ea-a9e4-dfb2ccbe7e6c",
+"published": "2025-09-01",
+"change": "2025-09-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-09-01"
+}
+],
+"toyamacity/jojocommunitybus": [
+{
+"new_uid": "87100d0c-4a95-410f-9de3-29a300bc289a",
+"published": "2025-12-15",
+"change": "2025-03-12",
+"lead": -278,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-03-11"
+}
+],
+"toyamacity/mizuhashifureaicommunitybus": [
+{
+"new_uid": "3036e0e6-ab15-4b45-99d5-1919cac14820",
+"published": "2025-12-15",
+"change": "2025-04-01",
+"lead": -258,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"toyamacity/oyamacommunitybus": [
+{
+"new_uid": "d68665c6-aaa1-4e06-a32e-7dfacdc2a571",
+"published": "2025-03-31",
+"change": "2025-03-28",
+"lead": -3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-03-28"
+},
+{
+"new_uid": "928d6a38-e1ba-47e3-b18a-8b08569f2451",
+"published": "2026-03-24",
+"change": "2026-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"toyamacity/yamadacommunitybus": [
+{
+"new_uid": "1970f552-1c5a-4ccb-ad0f-91bae73420b7",
+"published": "2025-01-20",
+"change": "2024-12-21",
+"lead": -30,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-03"
+},
+{
+"new_uid": "329724b1-d1c8-4de5-81c3-cd69f2e4f882",
+"published": "2025-03-21",
+"change": "2025-03-24",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-03-19"
+},
+{
+"new_uid": "97a225ee-6e04-475b-82f6-fcbf9882086b",
+"published": "2025-10-21",
+"change": "2025-10-17",
+"lead": -4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-17"
+},
+{
+"new_uid": "d5e6552d-e229-44a6-9403-e51b6ada14c5",
+"published": "2026-03-24",
+"change": "2026-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"toyamacity/yatsuocommunitybus": [
+{
+"new_uid": "7c085a18-a5d1-4a35-833b-e4d2b4030857",
+"published": "2025-01-20",
+"change": "2024-12-05",
+"lead": -46,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-05"
+},
+{
+"new_uid": "7fcc4dde-d451-4485-bf3f-1c7b43f5e4fa",
+"published": "2025-03-21",
+"change": "2025-04-01",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "dce35b4d-f1c6-4a92-af7c-1897cec29a29",
+"published": "2026-03-24",
+"change": "2026-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "98fb29f4-a328-4d28-a3d8-bd33d5249f0a",
+"published": "2026-04-21",
+"change": "2026-04-25",
+"lead": 4,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-04-20"
+}
+],
+"toyookacity/inacar": [
+{
+"new_uid": "326c4be8-6cbe-4d6d-abb8-967d5e0dcbd7",
+"published": "2025-03-13",
+"change": "2025-04-01",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "4766ebc0-0259-42be-858f-cc307e0f4b39",
+"published": "2025-07-01",
+"change": "2025-07-12",
+"lead": 11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-07-12"
+},
+{
+"new_uid": "8ca27636-be3d-4505-8b40-fd4fbbc92ccf",
+"published": "2025-08-29",
+"change": "2025-10-01",
+"lead": 33,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "bd97775b-cf27-425d-bc07-dd8ddb975e2b",
+"published": "2026-03-09",
+"change": "2026-04-01",
+"lead": 23,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"toyotacity/chiikibus": [
+{
+"new_uid": "6ebdb134-1bea-43ef-9141-4b65cec19419",
+"published": "2025-03-24",
+"change": "2025-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "4c50b8a5-b1a9-483b-a054-8db1108ccedd",
+"published": "2026-03-18",
+"change": "2026-04-01",
+"lead": 14,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"toyotacity/kikanbus": [
+{
+"new_uid": "8426bc70-ec79-4a51-bdfc-a847b2b6048a",
+"published": "2025-07-16",
+"change": "2025-08-02",
+"lead": 17,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-07-22"
+},
+{
+"new_uid": "bcdd2f4e-c56a-4737-8348-e45568346849",
+"published": "2025-07-16",
+"change": "2025-08-01",
+"lead": 16,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-07-28"
+},
+{
+"new_uid": "19fa69a2-4902-4e77-b2f3-a41612b8caab",
+"published": "2025-11-01",
+"change": "2025-11-04",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-11-04"
+},
+{
+"new_uid": "e0a5979b-2054-4eda-9d00-5c28b21cf1e7",
+"published": "2025-11-01",
+"change": "2025-12-01",
+"lead": 30,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-11-30",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "725c52b7-6f7a-4ff5-a177-c1898bd4f538",
+"published": "2026-03-04",
+"change": "2026-04-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "32b8089d-3d0a-4cd6-89f6-e243fb01ba52",
+"published": "2026-10-14",
+"change": "2026-11-02",
+"lead": 19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-11-02"
+},
+{
+"new_uid": "f84814a5-fb1e-4445-ba2e-608c426678f3",
+"published": "2026-10-14",
+"change": "2026-12-01",
+"lead": 48,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-12-01"
+}
+],
+"tozawavillage/tozawavillagebus": [
+{
+"new_uid": "a1f9f554-d8ff-4be1-88f0-6d4e65089fea",
+"published": "2026-09-15",
+"change": "2026-10-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"tsu-airportline/airportline": [
+{
+"new_uid": "0aeab793-36c2-4eb9-8426-bd1272654328",
+"published": "2024-12-18",
+"change": "2024-12-07",
+"lead": -11,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-12-07"
+},
+{
+"new_uid": "73253eb7-5ebd-4ab5-8779-50095fd61d6d",
+"published": "2025-01-09",
+"change": "2025-01-14",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-07-31",
+"new_from": "2025-01-14"
+},
+{
+"new_uid": "9d3fc023-892e-477c-a6f9-6e67782f9ce1",
+"published": "2025-07-09",
+"change": "2025-05-15",
+"lead": -55,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-07-31",
+"new_from": "2025-05-15"
+},
+{
+"new_uid": "8800a87b-4f61-4c32-95fb-0736f27952af",
+"published": "2026-02-10",
+"change": "2026-02-17",
+"lead": 7,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-02-14"
+},
+{
+"new_uid": "8597b008-5663-4f60-8279-b27f3d59f181",
+"published": "2026-02-17",
+"change": "2026-03-05",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-04",
+"new_from": "2026-03-05"
+}
+],
+"tsubamecity/tsubame_bus": [
+{
+"new_uid": "592722c4-04be-4a89-99e3-1eb5cead9ea7",
+"published": "2026-03-17",
+"change": "2026-04-01",
+"lead": 15,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "a9d3e950-c0a6-40d8-bb9a-9fa55afb056e",
+"published": "2026-08-14",
+"change": "2026-09-01",
+"lead": 18,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-09-01"
+}
+],
+"tsuchiuracity/tsuchimarubus": [
+{
+"new_uid": "86db7b72-ae59-44ec-964f-a4f4cc9e218f",
+"published": "2025-01-24",
+"change": "2025-01-04",
+"lead": -20,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-01"
+},
+{
+"new_uid": "f7da6083-e618-4cb1-86a0-f7ee8e7eced6",
+"published": "2026-03-09",
+"change": "2026-03-04",
+"lead": -5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-04"
+}
+],
+"tsucity/communitybus": [
+{
+"new_uid": "e083028a-9940-411a-989c-2e4c493e8d43",
+"published": "2024-12-25",
+"change": "2025-01-15",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-01-15"
+},
+{
+"new_uid": "97ae5412-69f5-43e8-b104-c64983ec033a",
+"published": "2025-11-10",
+"change": "2025-12-02",
+"lead": 22,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-12-02"
+},
+{
+"new_uid": "286de0a9-c12a-4d86-a30f-c83f8fb9f2e6",
+"published": "2026-01-22",
+"change": "2026-03-21",
+"lead": 58,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-20"
+},
+{
+"new_uid": "1d6be755-759a-4da7-81fc-66558b912287",
+"published": "2026-03-27",
+"change": "2026-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"tsukubacity/TSUKUBANEGO": [
+{
+"new_uid": "161fde12-4264-4a04-a3f5-778efd97e0cb",
+"published": "2025-09-30",
+"change": "2024-10-01",
+"lead": -364,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-08-31",
+"new_from": "2024-10-01"
+},
+{
+"new_uid": "c53a2624-b397-40a7-b415-e43b3ab5ff66",
+"published": "2025-10-22",
+"change": "2025-10-25",
+"lead": 3,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "385fddee-0be6-4894-bfc0-261b15673ca7",
+"published": "2026-09-28",
+"change": "2026-10-01",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-10-01"
+}
+],
+"tsukubacity/TSUKUBUS": [
+{
+"new_uid": "fbf31329-de64-4bbe-aec3-b4c3ff866cf8",
+"published": "2025-04-02",
+"change": "2025-04-01",
+"lead": -1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "6cc9d165-5b02-4e76-bd1b-39f1bd981774",
+"published": "2025-10-29",
+"change": "2025-10-01",
+"lead": -28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "4b29a7aa-c83a-47f6-b0bd-13a9b9e023c2",
+"published": "2026-03-24",
+"change": "2026-04-01",
+"lead": 8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-04-01"
+}
+],
+"tsurugitown/tsurugitownbus": [
+{
+"new_uid": "efa7a3a1-3348-42b3-8a15-c04858b9d51c",
+"published": "2025-03-05",
+"change": "2025-04-01",
+"lead": 27,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "e52f729e-eaf1-47ca-959a-bf399d186237",
+"published": "2026-03-04",
+"change": "2026-04-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"tsuruokacity/TsuruokaCity": [
+{
+"new_uid": "2893d709-c019-497c-a404-fb563787964e",
+"published": "2025-04-01",
+"change": "2025-04-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "3487f597-ffdd-4974-85c2-5d10fb22c1a7",
+"published": "2025-04-03",
+"change": "2025-05-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-05-01"
+},
+{
+"new_uid": "c38eba95-2246-47bb-a51d-85382f8b3b57",
+"published": "2025-06-24",
+"change": "2025-07-01",
+"lead": 7,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-30",
+"new_from": "2025-07-01"
+},
+{
+"new_uid": "8021ccdd-a7b4-4636-a961-dab02ed61993",
+"published": "2026-09-25",
+"change": "2026-10-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+}
+],
+"tsuyamacity/bus-tsuyamacity-okayama-jp": [
+{
+"new_uid": "47cedb21-0c42-41df-a1b2-adb1d652f0fe",
+"published": "2025-03-06",
+"change": "2025-02-28",
+"lead": -6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2024-03-31",
+"new_from": "2025-02-28"
+},
+{
+"new_uid": "fa7b6e75-ad75-43dc-914a-efcc9bcd138d",
+"published": "2025-03-06",
+"change": "2025-04-01",
+"lead": 26,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"uedacity/uedashigaitizyunkanbus": [
+{
+"new_uid": "28312ef5-a5e1-4e9c-a0a5-ec7063a06e42",
+"published": "2025-02-17",
+"change": "2025-02-12",
+"lead": -5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-02-12"
+},
+{
+"new_uid": "882f46d2-0afe-4af0-b883-7d9a1caa749d",
+"published": "2025-09-26",
+"change": "2025-10-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "2cf75f8d-98b7-47a3-b38e-4fa4a656fa58",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"ugokotsu/ugokotsu_honjo": [
+{
+"new_uid": "2ebf4325-92c8-4c10-ad00-c30d0ebd465d",
+"published": "2024-11-25",
+"change": "2024-12-02",
+"lead": 7,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2024-11-30",
+"new_from": "2024-12-01"
+},
+{
+"new_uid": "1c8d1613-0633-4b70-9268-c88785f29ac3",
+"published": "2024-11-25",
+"change": "2025-03-21",
+"lead": 116,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-20",
+"new_from": "2025-03-21"
+},
+{
+"new_uid": "dbd6e357-0de6-46c0-a1a2-d8f855b8ea5d",
+"published": "2025-06-30",
+"change": "2025-04-03",
+"lead": -88,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "3c61944f-5e1d-4da2-82c5-03ea6aabbc0a",
+"published": "2025-09-26",
+"change": "2025-07-01",
+"lead": -87,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-06-30",
+"new_from": "2025-07-01"
+},
+{
+"new_uid": "3ed6f048-a704-408d-bdee-1ca75b5753ce",
+"published": "2025-09-26",
+"change": "2025-10-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "b59c40b5-f86c-4d43-b62d-cb654c65c846",
+"published": "2025-11-19",
+"change": "2025-12-01",
+"lead": 12,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-11-30",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "7c712580-169d-442c-895e-f210587cf734",
+"published": "2026-01-26",
+"change": "2026-02-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-01-31",
+"new_from": "2026-02-01"
+},
+{
+"new_uid": "222b01e9-aff8-4fa4-8008-e7f8f628e107",
+"published": "2026-03-16",
+"change": "2026-03-23",
+"lead": 7,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-20",
+"new_from": "2026-03-21"
+},
+{
+"new_uid": "d7acd537-04a0-4a4f-8690-18dcf9db8d1f",
+"published": "2026-08-10",
+"change": "2026-04-02",
+"lead": -130,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "0a5fdc4a-78e9-4e0c-9398-ae1b4ce21ca8",
+"published": "2026-09-03",
+"change": "2026-09-01",
+"lead": -2,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-08-31",
+"new_from": "2026-09-01"
+},
+{
+"new_uid": "e8d8d555-f37d-4dfc-9e25-6571c06008c2",
+"published": "2026-09-03",
+"change": "2026-12-01",
+"lead": 89,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-11-30",
+"new_from": "2026-12-01"
+},
+{
+"new_uid": "ad35c1ae-aa34-42a5-a6ec-f9cc2abc8527",
+"published": "2026-09-03",
+"change": "2027-03-23",
+"lead": 201,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2027-03-19",
+"new_from": "2027-03-20"
+}
+],
+"ugokotsu/ugokotsu_tazawako": [
+{
+"new_uid": "26c76bbc-2335-4b26-b830-d700ff58c042",
+"published": "2025-08-12",
+"change": "2025-04-01",
+"lead": -133,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "3a3f7dd0-b61c-48ff-9291-14b3f03efab0",
+"published": "2025-08-12",
+"change": "2025-04-16",
+"lead": -118,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-15",
+"new_from": "2025-04-16"
+},
+{
+"new_uid": "be5837b0-178a-4fd9-8ccb-79664583edd5",
+"published": "2025-08-12",
+"change": "2025-10-20",
+"lead": 69,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-05-31",
+"new_from": "2025-10-20"
+},
+{
+"new_uid": "f727a776-c070-4d28-acd2-4c6b8ebbd516",
+"published": "2025-08-15",
+"change": "2025-06-01",
+"lead": -75,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-11-30",
+"new_from": "2025-06-01"
+},
+{
+"new_uid": "00a71ba9-2b1c-4b4d-8791-30cb4c58729b",
+"published": "2025-08-15",
+"change": "2025-06-23",
+"lead": -53,
+"late": true,
+"censored": false,
+"src": "all",
+"old_to": "2025-06-20",
+"new_from": "2025-06-21"
+},
+{
+"new_uid": "d79b4b83-6593-4d58-a1c9-88cd7de1ed30",
+"published": "2025-08-15",
+"change": "2025-08-18",
+"lead": 3,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-08-15",
+"new_from": "2025-08-16"
+},
+{
+"new_uid": "81d69eeb-ca62-4c54-9a22-a253860d9dbe",
+"published": "2025-08-15",
+"change": "2025-10-04",
+"lead": 50,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "03376524-d0d4-42b6-9285-4f7d3926c095",
+"published": "2025-11-14",
+"change": "2025-12-01",
+"lead": 17,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-19",
+"new_from": "2025-12-01"
+},
+{
+"new_uid": "aa4993c9-7db5-4190-bbb5-7bf4dbfc174b",
+"published": "2025-11-14",
+"change": "2025-12-13",
+"lead": 29,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-12",
+"new_from": "2025-12-13"
+},
+{
+"new_uid": "561c230f-136b-4ff8-8354-5885c7339999",
+"published": "2026-03-26",
+"change": "2026-04-01",
+"lead": 6,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+},
+{
+"new_uid": "295a5d16-4201-4d25-a5e7-d9611bebe271",
+"published": "2026-03-26",
+"change": "2026-04-16",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-04-15",
+"new_from": "2026-04-16"
+},
+{
+"new_uid": "ae0d10ad-51d6-4bb1-ad79-05848ae6e81f",
+"published": "2026-03-26",
+"change": "2026-06-06",
+"lead": 72,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-05-31",
+"new_from": "2026-06-01"
+},
+{
+"new_uid": "c283ccf0-744c-4fd5-9006-643a0e210121",
+"published": "2026-03-26",
+"change": "2026-10-03",
+"lead": 191,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-09-30",
+"new_from": "2026-10-01"
+},
+{
+"new_uid": "effd8fc7-9e8e-4dac-8c46-a77f5a5c8a42",
+"published": "2026-03-26",
+"change": "2026-10-19",
+"lead": 207,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-10-18",
+"new_from": "2026-10-19"
+},
+{
+"new_uid": "cfcfd0d8-20ae-4344-a501-a1b8a04cbf8f",
+"published": "2026-08-10",
+"change": "2026-06-21",
+"lead": -50,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2026-11-30",
+"new_from": "2026-06-21"
+},
+{
+"new_uid": "51e79a8f-6dcc-4b86-8312-c2f9563dfd21",
+"published": "2026-08-10",
+"change": "2026-12-01",
+"lead": 113,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-08-15",
+"new_from": "2026-12-01"
+}
+],
+"uozucity/omotenashi": [
+{
+"new_uid": "b1d98a0b-e52e-47ed-a666-5c3b10d86efb",
+"published": "2025-08-28",
+"change": "2025-03-15",
+"lead": -166,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-17",
+"new_from": "2025-03-15"
+}
+],
+"wakocity/Wako-City-junkanbus": [
+{
+"new_uid": "13046a05-50fb-4173-b99d-73b3c70f7224",
+"published": "2026-04-27",
+"change": "2026-01-04",
+"lead": -113,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-12-31",
+"new_from": "2026-01-04"
+}
+],
+"wataraitown/choeibus": [
+{
+"new_uid": "497286c1-d604-4fa8-b225-3b58fc15256f",
+"published": "2026-03-27",
+"change": "2026-04-03",
+"lead": 7,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"yaitacity/chuuou-junkan": [
+{
+"new_uid": "7e703286-61a4-4f70-8e21-8601056ce0b2",
+"published": "2026-10-01",
+"change": "2026-10-01",
+"lead": 0,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"yamagata-asahitown/AsahiTown": [
+{
+"new_uid": "09c33e84-c466-495b-bffc-ec0f97bf1dac",
+"published": "2025-03-19",
+"change": "2025-04-05",
+"lead": 17,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "13348b23-4242-4d16-bed6-0f1de3dd5abc",
+"published": "2026-03-04",
+"change": "2026-04-01",
+"lead": 28,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"yamagata-kaneyamatown/KaneyamaTown": [
+{
+"new_uid": "17377ae4-bc41-4ae2-98d4-7948076fe27b",
+"published": "2025-03-07",
+"change": "2025-04-01",
+"lead": 25,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-04-01"
+}
+],
+"yamagata-ogunitown/OguniTown": [
+{
+"new_uid": "5a8ecdd3-16db-4c75-a6e6-d782e0c51d6c",
+"published": "2025-06-27",
+"change": "2025-07-01",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2025-07-01"
+},
+{
+"new_uid": "1ca50a30-aa5e-45fc-9e22-0e0822092703",
+"published": "2025-10-20",
+"change": "2025-10-01",
+"lead": -19,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "5fe8468b-bcdf-4923-aaf2-2d9c66cc3b08",
+"published": "2026-06-10",
+"change": "2026-07-01",
+"lead": 21,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-07-01"
+}
+],
+"yamanashi-nanbutown/nanbucyoueibasu": [
+{
+"new_uid": "b049fd43-594f-49f2-b346-0502645b90d3",
+"published": "2026-03-31",
+"change": "2026-04-01",
+"lead": 1,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"yamanobetown/YamanobeTown": [
+{
+"new_uid": "73bea147-e998-4d94-aa56-462745b5ff20",
+"published": "2025-02-21",
+"change": "2025-04-01",
+"lead": 39,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-04-01"
+}
+],
+"yamatotakadacity/communitybuskibougou": [
+{
+"new_uid": "170b32f6-d4b1-4d27-a529-afc334368401",
+"published": "2026-08-28",
+"change": "2026-10-01",
+"lead": 34,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"yanagawacity/YanagawaCityCommunityBus": [
+{
+"new_uid": "4b1a4ccf-c9b1-4c13-b335-7fb63e69dece",
+"published": "2025-08-31",
+"change": "2024-10-01",
+"lead": -334,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2024-10-01"
+},
+{
+"new_uid": "e930b3fe-59a3-4c7d-90ac-f81b77d9c2d7",
+"published": "2026-02-26",
+"change": "2025-10-01",
+"lead": -148,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-09-30",
+"new_from": "2025-10-01"
+},
+{
+"new_uid": "ef43f8dd-62fa-4e2a-8cf3-1be01ce9f65b",
+"published": "2026-07-22",
+"change": "2026-10-01",
+"lead": 71,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-10-01"
+}
+],
+"yanbaru-expressbus/yanbaru-express-bus": [
+{
+"new_uid": "9802cbd4-a24d-4d96-bdd0-8d7bbf3c05dd",
+"published": "2025-09-22",
+"change": "2025-04-01",
+"lead": -174,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-05-31",
+"new_from": "2025-04-01"
+},
+{
+"new_uid": "d25309d0-5ab9-48fc-b726-e363b0c1253e",
+"published": "2025-11-05",
+"change": "2025-11-01",
+"lead": -4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-10-31",
+"new_from": "2025-11-01"
+},
+{
+"new_uid": "03b0e7ca-3225-463a-b7fc-fa4f9b52c1e0",
+"published": "2026-03-09",
+"change": "2026-03-01",
+"lead": -8,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-01"
+},
+{
+"new_uid": "a7c163a7-1744-4557-9e67-434f37e88f1c",
+"published": "2026-04-17",
+"change": "2026-04-21",
+"lead": 4,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-06-30",
+"new_from": "2026-04-21"
+}
+],
+"yaotsutown/communitybus": [
+{
+"new_uid": "081ce45d-a8fe-44d3-bc65-85a9139ef51f",
+"published": "2025-03-27",
+"change": "2025-04-01",
+"lead": 5,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2025-04-01",
+"new_from": "2025-04-01"
+}
+],
+"yaotsutown/yaobus": [
+{
+"new_uid": "21813baa-41da-4701-ad2a-51a65d72672e",
+"published": "2025-07-17",
+"change": "2025-07-28",
+"lead": 11,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2025-07-20",
+"new_from": "2025-07-21"
+},
+{
+"new_uid": "6f95edba-665b-4b50-bc6f-a1a7cdbdd914",
+"published": "2026-03-12",
+"change": "2026-03-17",
+"lead": 5,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-03-10"
+},
+{
+"new_uid": "0c9bf512-83fb-4c2c-bf73-e6181895de82",
+"published": "2026-07-22",
+"change": "2026-07-27",
+"lead": 5,
+"late": false,
+"censored": false,
+"src": "all",
+"old_to": "2026-12-31",
+"new_from": "2026-07-22"
+}
+],
+"yoshinogawacity/yoshinogawacitybus": [
+{
+"new_uid": "68ccb6e0-7e6d-4264-814b-f6938d781187",
+"published": "2026-03-16",
+"change": "2025-03-15",
+"lead": -366,
+"late": true,
+"censored": true,
+"src": "all",
+"old_to": "2025-03-31",
+"new_from": "2025-03-15"
+},
+{
+"new_uid": "557df7f5-8546-4cd9-b4c9-b5f6af9eed9e",
+"published": "2026-03-16",
+"change": "2026-04-01",
+"lead": 16,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2026-03-31",
+"new_from": "2026-04-01"
+}
+],
+"yukicity/junkaibus": [
+{
+"new_uid": "94aaa964-d706-48ba-b42d-fd84bd9c155b",
+"published": "2026-06-17",
+"change": "2026-08-03",
+"lead": 47,
+"late": false,
+"censored": true,
+"src": "all",
+"old_to": "2027-03-31",
+"new_from": "2026-08-03"
+}
+],
 "mie-kotsu/sancoise": [
 {
 "new_uid": "9dad6ca8-309d-4f44-ad44-798a15edaafb",
