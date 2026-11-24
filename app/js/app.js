@@ -186,7 +186,13 @@ async function evaluate(reg) {
   if (!item) return { reg, missing: true };
   if (!item.usable) return { reg, item, unusable: true };
   const tp = await timetableP(item);
-  const nowOnly = J.bestOverDates(tp, reg, nextDates(tp, reg));
+  // いまの時刻表に、登録した停留所が無いことがある（停留所が無くなった改正のあと）。そのときも画面を止めない
+  let nowOnly;
+  try {
+    nowOnly = J.bestOverDates(tp, reg, nextDates(tp, reg));
+  } catch {
+    nowOnly = { ride: null, missingStop: true };
+  }
   const results = [];
   for (const r of activeRevisions(item)) {
     try {
@@ -503,7 +509,8 @@ async function homeView() {
       html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}</div><div class="muted">${esc(x.unusable ? x.item.note : "このバスのデータが見つかりません")}</div></a>`;
       continue;
     }
-    const nowLine = x.now.ride ? `いまのバス　${busText(x.now.ride)}` : "いまは1本で行けるバスがありません";
+    const nowLine = x.now.ride ? `いまのバス　${busText(x.now.ride)}`
+      : x.now.missingStop ? "登録した停留所が、いまの時刻表にありません" : "いまは1本で行けるバスがありません";
     const n = x.notice;
     if (!n) {
       const nowHtml = x.now.ride ? `<div class="muted">いまのバス</div><div class="now nowrap">${busText(x.now.ride)}</div>` : `<div class="now">${esc(nowLine)}</div>`;
@@ -669,7 +676,8 @@ async function tripView(id) {
   }
   if (!shown.length) {
     html += `<h1>${esc(reg.name)}</h1>`;
-    html += x.now.ride ? `<div class="compare"><div class="col"><div class="label">いまのバス</div><div class="time">${busText(x.now.ride)}</div><div class="muted">${esc(x.now.ride.route)}</div></div></div>`
+    html += x.now.missingStop ? `<p class="warn">登録した停留所が、いまの時刻表にありません。停留所の名前が変わったか、止まらなくなったかもしれません。</p>`
+      : x.now.ride ? `<div class="compare"><div class="col"><div class="label">いまのバス</div><div class="time">${busText(x.now.ride)}</div><div class="muted">${esc(x.now.ride.route)}</div></div></div>`
       : `<p class="warn">いまの時刻表では、1本で行けるバスがありません。行けるようになったら知らせます。</p>`;
     html += cautionHtml(x.now.ride);
     html += `<p class="lead">いまのところ、時刻が変わる知らせはありません。</p>`;
