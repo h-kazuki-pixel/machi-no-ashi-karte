@@ -41,12 +41,13 @@ from collections import Counter
 from importlib import import_module
 from pathlib import Path
 
-from common import API, DATA, REQUESTS, ROOT, fetch, fetch_json
+from common import API, DATA, REQUESTS, ROOT, fetch, fetch_json, probe_fresh
 
 dv = import_module("03_diff_versions")
 br = import_module("06_build_revision")
 rv = import_module("revision2")
 ttm = import_module("timetable")
+rp = import_module("replaced")
 TIMETABLE_REFRESH_DAYS = 7
 
 JST = dt.timezone(dt.timedelta(hours=9))
@@ -59,6 +60,7 @@ SEEN_COLS = ["feed", "gtfs_file_uid", "first_seen_at", "source", "published_at",
              "revision", "gone_at"]
 FOUND_BASIS_WATCH = "見る仕組みが見つけた日時"
 FOUND_BASIS_API = "API の公開日時（見る仕組みを始める前に出ていた版。初めて見た日時は分からない）"
+FOUND_BASIS_REPLACED = "同じ版の番号のまま、zip が置き換わった（zip の印 ETag が変わったのを見つけた日時）"
 PAST_LIMIT_DAYS = 30  # 変更日がこれより前の改正は、改正のデータを作らない
 FOUND_COLS = ["found_at", "found_at_basis", "category", "feed", "feed_name", "operator", "new_uid", "published_at", "from_date",
               "to_date", "change_date", "lead_days_seen", "lead_days_published", "change_censored", "late_publish",
@@ -238,6 +240,9 @@ class Watch:
         self.held = read_csv(self.data / "held.csv")
         # 通知を送る改正の待ち行列（scripts/10_notify.py が、Pages に出したあとで送る）
         self.notify_queue = read_json(self.state / "notify_queue.json", [])
+        # 同じ版の番号のまま zip が置き換わった版：版の番号 → いま使う時刻表の名前（{uid}.r{ETag}）
+        self.alias = read_json(self.state / "timetable_alias.json", {})
+        self.force_etag = False
         self.queue_notices = True  # 作り直し（08 の --rebuild など）では False にする
         self.held_examples = read_json(self.data / "held_examples.json", {})
         self._feeds = {}
@@ -280,7 +285,118 @@ class Watch:
                 self.errors.append(f"{key}: {e!r}"[:200])  # 次の回に取り直す（一覧を書き換えない）
         self.prev_feeds = new_snapshot
         self.process_approvals()
+        if self.etag_due():
+            try:
+                self.check_replaced()
+            except Exception as e:  # noqa: BLE001
+                self.errors.append(f"zip の置き換えの確かめ: {e!r}"[:200])
         return self.finish(feeds_checked=checked)
+
+    # ---------- 同じ版の番号のまま zip が置き換わった（1日1回、3:17 の実行で） ----------
+
+    def etag_due(self):
+        """日本時間 3時〜9時の実行で、その日まだ確かめていなければ確かめる（定時の実行が遅れても1日1回）"""
+        if self.force_etag:
+            return True
+        now = self.started.astimezone(JST)
+        last = self.status.get("last_etag_check_at")
+        return 3 <= now.hour < 9 and (not last or jst_date(last) < now.date())
+
+    def check_replaced(self, only=None):
+        """使っている版（site にある時刻表）の zip の印（ETag）を、zip を落とさずに確かめる。毎日更新のフィードは除く。
+        前の印が無い版（始めたばかり）は、zip の Last-Modified が時刻表を作った日時より後なら、置き換わったとみなす。"""
+        etags = read_json(self.state / "zip_etags.json", {})
+        alias = self.alias
+        n = changed = 0
+        for p in sorted((self.site / "data" / "timetables").glob("*/*.json")):
+            uid = p.stem
+            if ".r" in uid:
+                continue
+            key = p.parent.name.replace("__", "/", 1)
+            if key in self.daily or (only and key not in only):
+                continue
+            r = self.seen_by_uid.get(uid)
+            if r is None:
+                continue
+            org, fid = key.split("/")
+            url = f"{API}/organizations/{org}/feeds/{fid}/files/feed.zip?uid={uid}"
+            try:
+                pr = probe_fresh(url)
+            except Exception as e:  # noqa: BLE001
+                self.errors.append(f"{key} {uid[:8]} の印: {e!r}"[:200])
+                continue
+            n += 1
+            prev = etags.get(uid)
+            cur_path = self.site / rv.timetable_path(key, alias.get(uid, uid))
+            if prev is not None:
+                is_new = prev["etag"] != pr["etag"]
+            else:
+                built = json.loads(cur_path.read_text(encoding="utf-8"))["meta"]["built_at"]
+                is_new = bool(pr["last_modified"]) and pr["last_modified"] > dt.datetime.fromisoformat(built)
+            if is_new:
+                changed += 1
+                try:
+                    self.handle_replaced(key, uid, r, pr, cur_path)
+                except Exception as e:  # noqa: BLE001
+                    self.errors.append(f"{key} {uid[:8]} の置き換え: {e!r}"[:200])
+                    continue  # 印は書き換えない（次の日に、もう一度確かめる）
+            etags[uid] = {"etag": pr["etag"], "checked_at": self.started.isoformat()}
+        write_json(self.state / "zip_etags.json", etags)
+        self.status["last_etag_check_at"] = self.started.isoformat()
+        self.status["last_etag_check"] = {"versions": n, "changed": changed}
+        print(f"  zip の印を確かめた版 {n}、変わっていた版 {changed}")
+
+    def handle_replaced(self, key, uid, r, pr, cur_path):
+        """zip を落として時刻表を作り直し、前の時刻表と便と時刻の指紋を比べる。違えば改正のデータを作る"""
+        org, fid = key.split("/")
+        f = self.prev_feeds.get(key, {})
+        old_tt = json.loads(cur_path.read_text(encoding="utf-8"))
+        om = old_tt["meta"]
+        z = fetch(f"{API}/organizations/{org}/feeds/{fid}/files/feed.zip?uid={uid}", self.tmp / "replaced" / f"{uid}.zip")
+        try:
+            meta = {"feed": key, "gtfs_file_uid": uid, "published_at": om["published_at"], "from_date": om["from"], "to_date": om["to"],
+                    "feed_name": om["feed_name"], "organization_name": om["operator"], "feed_license": om["license"],
+                    "feed_license_url": om["license_url"]}
+            new_tt = ttm.build_timetable(z, meta, built_at=self.started.isoformat())
+        finally:
+            z.unlink(missing_ok=True)  # zip は残さない
+        today = self.started.astimezone(JST).date()
+        if rp.fingerprint(old_tt, today) == rp.fingerprint(new_tt, today):
+            print(f"  {key} {uid[:8]}: zip は置き換わったが、便と時刻は同じ")
+            return
+        new_id = rp.content_id(uid, pr["etag"])
+        new_tt["meta"]["content"] = {"of": uid, "etag": pr["etag"], "last_modified": pr["last_modified"].isoformat()}
+        self.write_timetable(key, new_id, new_tt)
+        self.alias[uid] = new_id  # これから、この版の時刻表は新しい中身を使う
+        change = rp.first_diff_day(old_tt, new_tt, today)
+        rep_at = pr["last_modified"].astimezone(JST)
+        row = {"found_at": self.started.isoformat(), "found_at_basis": FOUND_BASIS_REPLACED, "feed": key,
+               "feed_name": om["feed_name"], "operator": om["operator"], "new_uid": new_id, "published_at": rep_at.isoformat(),
+               "from_date": om["from"], "to_date": om["to"], "license": om["license"], "late_publish": ""}
+        if change is None:
+            self.found_rows.append({**row, "category": "", "change_date": "", "lead_days_seen": "", "lead_days_published": "",
+                                    "change_censored": "", "revision": f"作らない（これから{rp.SEARCH_DAYS}日に、便と時刻の違いが無い）"})
+            return
+        # 変わる日が分からない：見つけた日にはもう違っていた（本当はもっと前に変わっていたかもしれない）
+        censored = change == today
+        category = found_category(change, today, dt.date.fromisoformat(om["to"]))
+        skip = skip_reason(category, change, today)
+        revision = skip
+        if not skip and om["license"] in br.ALLOWED_LICENSES:
+            info = {"feed_name": om["feed_name"], "organization_name": om["operator"], "feed_license": om["license"],
+                    "feed_license_url": om["license_url"], "published_at": om["published_at"],
+                    "replaced_at": rep_at.isoformat(), "etag": pr["etag"]}
+            rev = rp.build_revision_from_tts(key, info, uid, old_tt, new_id, new_tt, change, self.started.isoformat(),
+                                             change_known=not censored)
+            m = {"feed_name": om["feed_name"], "organization_name": om["operator"], "published_at": rep_at.isoformat(),
+                 "feed_license": om["license"], "feed_license_url": om["license_url"], "gtfs_file_uid": new_id}
+            revision = self.publish_built(key, m, rev, {}, change, self.started, FOUND_BASIS_REPLACED)
+        elif not skip:
+            revision = "作らない（ライセンス）"
+        self.found_rows.append({**row, "category": category, "change_date": change.isoformat(),
+                                "lead_days_seen": (change - today).days, "lead_days_published": (change - rep_at.date()).days,
+                                "change_censored": censored, "revision": revision})
+        print(f"  {key} {uid[:8]}: zip が置き換わった。変わる日 {change}{'（分からない）' if censored else ''} → {revision}")
 
     def check_feed(self, key, f):
         org, fid = key.split("/")
@@ -436,6 +552,10 @@ class Watch:
         """改正のデータを作り、点検に通れば公開する（目次に載せる）。止めたら held.csv に記録する。
         approved=True（人が承認した改正）は、点検の結果を記録するが止めない。"""
         rev, tts = rv.build_revision2(key, m, self.feed_versions(key), change, self.zip_for, self.started.isoformat())
+        return self.publish_built(key, m, rev, tts, change, found_at, basis, approved)
+
+    def publish_built(self, key, m, rev, tts, change, found_at, basis, approved=False):
+        """作った改正のデータを、点検に通れば公開する（publish_revision と、zip の置き換えの両方から使う）"""
         rev["meta"]["first_seen_at"] = found_at.isoformat()
         rev["meta"]["first_seen_basis"] = basis
         for uid, tt in tts.items():
@@ -488,6 +608,9 @@ class Watch:
             if h.get("approved_at") or not any(h["new_uid"].startswith(a) for a in approvals):
                 continue
             key = h["feed"]
+            if ".r" in h["new_uid"]:  # zip が置き換わった改正：site に残っている前と後の時刻表から作り直す
+                self.approve_replaced(h, found)
+                continue
             r = self.seen_by_uid.get(h["new_uid"])
             if r is None:
                 self.errors.append(f"承認：{h['new_uid'][:8]} が見た版の一覧にない")
@@ -514,6 +637,34 @@ class Watch:
             self.held_examples.pop(h["new_uid"], None)
             print(f"  承認して公開: {h['feed_name']} {h['change_date']} → {rel}")
         write_csv(self.data / "found.csv", FOUND_COLS, found)
+
+    def approve_replaced(self, h, found):
+        key = h["feed"]
+        try:
+            old_tt = json.loads((self.site / rv.timetable_path(key, h["old_uid"])).read_text(encoding="utf-8"))
+            new_tt = json.loads((self.site / rv.timetable_path(key, h["new_uid"])).read_text(encoding="utf-8"))
+            om, c = old_tt["meta"], new_tt["meta"]["content"]
+            fr = next((x for x in found if x["new_uid"] == h["new_uid"]), {})
+            change = dt.date.fromisoformat(h["change_date"])
+            info = {"feed_name": om["feed_name"], "organization_name": om["operator"], "feed_license": om["license"],
+                    "feed_license_url": om["license_url"], "published_at": om["published_at"],
+                    "replaced_at": c["last_modified"], "etag": c["etag"]}
+            rev = rp.build_revision_from_tts(key, info, h["old_uid"], old_tt, h["new_uid"], new_tt, change, self.started.isoformat(),
+                                             change_known=str(fr.get("change_censored")) != "True")
+            m = {"feed_name": om["feed_name"], "organization_name": om["operator"], "published_at": c["last_modified"],
+                 "feed_license": om["license"], "feed_license_url": om["license_url"], "gtfs_file_uid": h["new_uid"]}
+            found_at = dt.datetime.fromisoformat(fr.get("found_at") or self.started.isoformat())
+            rel = self.publish_built(key, m, rev, {}, change, found_at, FOUND_BASIS_REPLACED, approved=True)
+        except Exception as e:  # noqa: BLE001
+            self.errors.append(f"承認 {h['new_uid'][:8]}: {e!r}"[:200])
+            return
+        h["approved_at"] = self.started.isoformat()
+        h["published_path"] = rel
+        for x in found:
+            if x["new_uid"] == h["new_uid"]:
+                x["revision"] = f"{rel}（承認して公開）"
+        self.held_examples.pop(h["new_uid"], None)
+        print(f"  承認して公開: {h['feed_name']} {h['change_date']} → {rel}")
 
     def migrate_found(self):
         """前の決まりで書いた found.csv に種類の列を足し、作らない決まりに当たる改正のデータを取り下げる"""
@@ -560,6 +711,7 @@ class Watch:
         write_json(self.data / "revisions" / "index.json", self.index)
         write_held(self.data, self.held, self.held_examples)
         write_json(self.state / "notify_queue.json", self.notify_queue)
+        write_json(self.state / "timetable_alias.json", self.alias)
         write_attributions(self.site, self.index)
         try:  # バスの一覧を作り直し、使われなくなった時刻表を消す
             cat = import_module("09_build_catalog")
@@ -702,13 +854,16 @@ def main():
     ap.add_argument("--full", action="store_true")
     ap.add_argument("--bootstrap", action="store_true")
     ap.add_argument("--no-app", action="store_true", help="アプリを写さない")
+    ap.add_argument("--etag", action="store_true", help="時刻に関係なく、zip の置き換え（ETag）を確かめる")
     args = ap.parse_args()
     site = Path(args.site)
     if args.bootstrap:
         bootstrap(site)
     if not args.no_app:
         publish_app(site)  # 先にアプリ（とアプリに入れた改正のデータ）を写し、出典の一覧に含める
-    rc = Watch(site, args.full).run()
+    watch = Watch(site, args.full)
+    watch.force_etag = args.etag
+    rc = watch.run()
     sys.exit(rc)
 
 

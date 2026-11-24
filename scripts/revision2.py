@@ -32,8 +32,10 @@ def timetable_path(feed_key, uid):
 
 
 def revision_path(feed_key, change, uid):
+    """uid が「{uid}.r{ETag}」（同じ版の番号のまま zip が置き換わった中身）なら、名前に r{ETag の先頭6文字} を足す"""
     org, fid = feed_key.split("/")
-    return f"data/revisions/{org}__{fid}/{change.isoformat()}__{uid[:8]}.json"
+    tag = uid[:8] + (f"r{uid.split('.r', 1)[1][:6]}" if ".r" in uid else "")
+    return f"data/revisions/{org}__{fid}/{change.isoformat()}__{tag}.json"
 
 
 def _d(s):

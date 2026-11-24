@@ -47,3 +47,16 @@ test("2（電話）・3（運転士）は乗り降りできるが、注意が付
   const [r3] = J.ridesOn(Q, "2026-12-02", "A", "B");
   assert.deepEqual(J.rideCautions(r3), ["pickup_phone", "drop_off_driver"]);
 });
+
+test("停留所から見た注意：乗る側・降りる側の印を集める（事業者の画面・貼り紙）", () => {
+  const tt3 = {
+    stops: [["a", "A", "", 36, 140], ["b", "B", "", 36, 140.001], ["c", "C", "", 36, 140.002]],
+    routes: ["デマンド"], services: [{ id: "s", wd: "1111111", s: "20261101", e: "20270331", add: [], rm: [] }],
+    trips: [[0, "C行き", 0, [[0, 600, 600, 4], [1, 610, 610, 40], [2, 620]]]],
+  };
+  const Q = J.prepare(assembleRevision(rev, { x: tt3 }));
+  const h = J.stopHours(Q, "B", ["2026-12-02"], 700, 500);
+  assert.deepEqual(J.flagCautions(Object.values(h.dirs)[0].f, Object.values(h.dirs)[0].f), ["pickup_driver", "drop_off_driver"]);
+  const ch = J.stopChanges(Q, "A", ["2026-11-25"], ["2026-12-02"]);
+  assert.deepEqual(J.flagCautions(ch.dirs[0].f, ch.dirs[0].f), ["pickup_phone"]);
+});

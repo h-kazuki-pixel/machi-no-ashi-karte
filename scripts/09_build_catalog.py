@@ -45,17 +45,19 @@ def effective(versions, start, days=HORIZON_DAYS):
     return list(out.values())
 
 
-def has_timetable(site, key, uid):
-    return (site / rv.timetable_path(key, uid)).exists()
+def has_timetable(site, key, uid, alias=None):
+    return (site / rv.timetable_path(key, (alias or {}).get(uid, uid))).exists()
 
 
 EMPTY_NOTE = "このバスの時刻表のデータに、便か停留所がありません。そのため、まだ使えません"
+EXPIRED_NOTE = "このバスの時刻表のデータは、期限が切れています。そのため、まだ使えません"
 
 
 class Sizes:
-    """時刻表の便と停留所の数（state/timetable_sizes.json に控える。ファイルの大きさが変わったら数え直す）"""
+    """時刻表の便と停留所の数と、走る日の範囲（state/timetable_sizes.json に控える。ファイルの大きさが変わったら数え直す）"""
 
-    def __init__(self, site):
+    def __init__(self, site, today):
+        self.today = today
         self.p = site / "state" / "timetable_sizes.json"
         self.site = site
         self.d = json.loads(self.p.read_text(encoding="utf-8")) if self.p.exists() else {}
@@ -65,15 +67,32 @@ class Sizes:
         f = self.site / rel
         size = f.stat().st_size
         x = self.d.get(rel)
-        if not x or x[0] != size:
+        # 走る日は、今日の30日前から1年半先まで数えて控える（控えた範囲が今日から HORIZON_DAYS 日を覆わなくなったら数え直す）
+        need = (self.today + dt.timedelta(days=HORIZON_DAYS)).isoformat()
+        if not x or x[0] != size or len(x) < 5 or x[4] < need or x[5] > self.today.isoformat():
             tt = json.loads(f.read_text(encoding="utf-8"))
-            x = self.d[rel] = [size, len(tt["trips"]), len(tt["stops"])]
+            lo, hi = self.today - dt.timedelta(days=30), self.today + dt.timedelta(days=540)
+            x = self.d[rel] = [size, len(tt["trips"]), len(tt["stops"]), ttm.run_ranges(tt, lo, hi), hi.isoformat(), lo.isoformat()]
         self.used.add(rel)
         return x[1], x[2]
+
+    def runs_on(self, rel, iso):
+        return any(a <= iso <= b for a, b in self.d[rel][3])
 
     def save(self):
         self.d = {k: v for k, v in self.d.items() if k in self.used}
         w.write_json(self.p, self.d)
+
+
+def runs_within(sizes, tts, today, days=HORIZON_DAYS):
+    """今日から days 日のうち、その日に使う版（有効期間に入る版のうち、いちばん新しく公開された版）で
+    バスが1本でも走る日があるか"""
+    for k in range(days):
+        iso = (today + dt.timedelta(days=k)).isoformat()
+        valid = [t for t in tts if t["from"] <= iso <= t["to"]]
+        if valid and sizes.runs_on(max(valid, key=lambda t: t["published_at"])["path"], iso):
+            return True
+    return False
 
 
 def build_catalog(site, seen, feeds, index, today):
@@ -88,26 +107,33 @@ def build_catalog(site, seen, feeds, index, today):
     prefs = {}
     items = []
     referenced = set()
-    sizes = Sizes(site)
+    sizes = Sizes(site, today)
+    # 同じ版の番号のまま zip が置き換わった版は、新しい中身の時刻表（{uid}.r{ETag}）を使う
+    ap = site / "state" / "timetable_alias.json"
+    alias = json.loads(ap.read_text(encoding="utf-8")) if ap.exists() else {}
     for key, f in sorted(feeds.items()):
         usable = f.get("feed_license") in br.ALLOWED_LICENSES
-        vs = [v for v in by_feed.get(key, []) if has_timetable(site, key, v["gtfs_file_uid"])] if usable else []
+        vs = [v for v in by_feed.get(key, []) if has_timetable(site, key, v["gtfs_file_uid"], alias)] if usable else []
         eff = sorted(effective(vs, today), key=lambda v: v["from_date"])
-        tts = [{"uid": v["gtfs_file_uid"], "from": v["from_date"], "to": v["to_date"],
-                "published_at": v["published_at"], "path": rv.timetable_path(key, v["gtfs_file_uid"])} for v in eff]
+        tts = [{"uid": alias.get(v["gtfs_file_uid"], v["gtfs_file_uid"]), "from": v["from_date"], "to": v["to_date"],
+                "published_at": v["published_at"],
+                "path": rv.timetable_path(key, alias.get(v["gtfs_file_uid"], v["gtfs_file_uid"]))} for v in eff]
         referenced.update(t["path"] for t in tts)
         # 便か停留所が0の時刻表（ファイルの名前が違うなどで読めなかった版）は配らない
         empty = [t for t in tts if 0 in sizes.get(t["path"])]
         tts = [t for t in tts if t not in empty]
+        expired = bool(tts) and not runs_within(sizes, tts, today)
         pref = int(f.get("feed_pref_id") or 0)
         item = {"feed": key, "name": f.get("feed_name"), "operator": f.get("organization_name"),
                 "pref": pref, "license": f.get("feed_license"), "license_url": f.get("feed_license_url"),
-                "usable": usable and bool(tts), "timetables": tts,
+                "usable": usable and bool(tts) and not expired, "timetables": tts,
                 "revisions": sorted(revs.get(key, []), key=lambda r: r["change_date"])}
         if not usable:
             item["note"] = UNUSABLE_NOTE
         elif not tts and empty:
             item["note"] = EMPTY_NOTE
+        elif expired:
+            item["note"] = EXPIRED_NOTE
         elif not tts:
             item["note"] = "このバスの、いま使える時刻表のデータがありません"
         items.append(item)

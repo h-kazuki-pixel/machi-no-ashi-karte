@@ -40,15 +40,20 @@ export const PICKUP_DRIVER = 8;
 export const DROP_OFF_PHONE = 16;
 export const DROP_OFF_DRIVER = 32;
 
-// そのバスに乗る・降りるときの注意（pickup_type・drop_off_type が 2・3 の停留所）
-export function rideCautions(r) {
-  if (!r) return [];
+export const PICKUP_BITS = NO_PICKUP | PICKUP_PHONE | PICKUP_DRIVER;
+export const DROP_OFF_BITS = NO_DROP_OFF | DROP_OFF_PHONE | DROP_OFF_DRIVER;
+
+// 乗り降りの注意（pickup_type・drop_off_type が 2・3）。boardF は乗る停留所、alightF は降りる停留所の印
+export function flagCautions(boardF, alightF) {
   const out = [];
-  if (r.boardF & PICKUP_PHONE) out.push("pickup_phone");
-  if (r.boardF & PICKUP_DRIVER) out.push("pickup_driver");
-  if (r.alightF & DROP_OFF_PHONE) out.push("drop_off_phone");
-  if (r.alightF & DROP_OFF_DRIVER) out.push("drop_off_driver");
+  if (boardF & PICKUP_PHONE) out.push("pickup_phone");
+  if (boardF & PICKUP_DRIVER) out.push("pickup_driver");
+  if (alightF & DROP_OFF_PHONE) out.push("drop_off_phone");
+  if (alightF & DROP_OFF_DRIVER) out.push("drop_off_driver");
   return out;
+}
+export function rideCautions(r) {
+  return r ? flagCautions(r.boardF, r.alightF) : [];
 }
 
 export function prepare(rev) {
@@ -420,7 +425,9 @@ export function stopEvents(P, date, name) {
       const arr = k > 0 && !(st.f & NO_DROP_OFF) ? st.arr : null;
       const dep = k < t.stops.length - 1 && !(st.f & NO_PICKUP) ? st.dep : null;
       if (arr == null && dep == null) return;
-      out.push({ route: t.route, headsign: t.headsign, dir: `${t.route}｜${t.headsign}`, arr, dep });
+      // f：この停留所で乗る（出る時刻があるとき）・降りる（着く時刻があるとき）ときの印
+      const f = (dep != null ? st.f & PICKUP_BITS : 0) | (arr != null ? st.f & DROP_OFF_BITS : 0);
+      out.push({ route: t.route, headsign: t.headsign, dir: `${t.route}｜${t.headsign}`, arr, dep, f });
     });
   }
   return out.sort((a, b) => (a.dep ?? a.arr) - (b.dep ?? b.arr));
@@ -441,7 +448,8 @@ export function stopHours(P, name, dates, openT, closeT) {
     const ev = stopEvents(P, d, name);
     const dirs = {};
     for (const e of ev) {
-      const x = (dirs[e.dir] ||= { route: e.route, headsign: e.headsign, latestArr: null, firstDepAfter: null, lastDep: null });
+      const x = (dirs[e.dir] ||= { route: e.route, headsign: e.headsign, latestArr: null, firstDepAfter: null, lastDep: null, f: 0 });
+      x.f |= e.f; // その行き先のバスのどれかに、乗り降りの注意があれば
       if (e.arr != null && e.arr <= openT && (x.latestArr == null || e.arr > x.latestArr)) x.latestArr = e.arr;
       if (e.dep != null && e.dep >= closeT && (x.firstDepAfter == null || e.dep < x.firstDepAfter)) x.firstDepAfter = e.dep;
       if (e.dep != null && (x.lastDep == null || e.dep > x.lastDep)) x.lastDep = e.dep;
@@ -486,7 +494,12 @@ export function stopChanges(P, name, beforeDates, afterDates) {
   const deps = (dates) => {
     const perDate = dates.map((d) => {
       const by = {};
-      for (const e of stopEvents(P, d, name)) if (e.dep != null) (by[e.dir] ||= { route: e.route, headsign: e.headsign, times: [] }).times.push(e.dep);
+      for (const e of stopEvents(P, d, name)) {
+        if (e.dep == null) continue;
+        const x = (by[e.dir] ||= { route: e.route, headsign: e.headsign, times: [], f: 0 });
+        x.times.push(e.dep);
+        x.f |= e.f & PICKUP_BITS; // 貼り紙は、この停留所から乗るバス
+      }
       return { date: d, v: by };
     });
     const m = majorityBy(perDate, (v) => JSON.stringify(v));
@@ -497,7 +510,8 @@ export function stopChanges(P, name, beforeDates, afterDates) {
   const rows = dirs.map((dir) => {
     const x = b.by[dir] || a.by[dir];
     const pairs = alignTimes((b.by[dir] || { times: [] }).times.sort((p, q) => p - q), (a.by[dir] || { times: [] }).times.sort((p, q) => p - q));
-    return { dir, route: x.route, headsign: x.headsign, rows: pairs.map((p) => ({ ...p,
+    const f = ((b.by[dir] || {}).f || 0) | ((a.by[dir] || {}).f || 0);
+    return { dir, route: x.route, headsign: x.headsign, f, rows: pairs.map((p) => ({ ...p,
       kind: p.old == null ? "added" : p.new == null ? "removed" : p.old === p.new ? "same" : "shifted",
       shift: p.old != null && p.new != null ? p.new - p.old : 0 }))
       .sort((p, q) => (p.old ?? p.new) - (q.old ?? q.new) || (p.new ?? p.old) - (q.new ?? q.old)) }; // 時刻の順

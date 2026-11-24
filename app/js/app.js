@@ -356,6 +356,10 @@ function cautionHtml(...rides) {
   const kinds = [...new Set(rides.flatMap((r) => J.rideCautions(r)))];
   return kinds.map((k) => `<p class="warn">${esc(CAUTION_TEXT[k])}</p>`).join("");
 }
+// 停留所から見た注意（事業者の画面・貼り紙）：f はその停留所で乗る・降りるときの印
+function stopCautionHtml(f, cls = "warn") {
+  return J.flagCautions(f, f).map((k) => `<p class="${cls}">${esc(CAUTION_TEXT[k])}</p>`).join("");
+}
 
 function noteLines(res) {
   const out = [];
@@ -835,7 +839,7 @@ async function bizResultView() {
       html += `<div class="card"><div class="name">${esc(d.route)}（${esc(d.headsign)}行き）</div>
         <p>開く時刻までに着く、いちばん遅いバス：<strong>${tm(d.latestArr)}</strong>着</p>
         <p>閉まる時刻のあとに乗れる、いちばん早いバス：<strong>${tm(d.firstDepAfter)}</strong>発</p>
-        <p>最終のバス：<strong>${tm(d.lastDep)}</strong>発</p></div>`;
+        <p>最終のバス：<strong>${tm(d.lastDep)}</strong>発</p>${stopCautionHtml(d.f)}</div>`;
     }
     html += `<div class="source"><p class="small">${esc(attribution(item))}</p></div>`;
     return render(html + `<a class="btn secondary" href="#biz/hours">時刻を変える</a><a class="btn secondary" href="#home">はじめに戻る</a>`);
@@ -857,7 +861,7 @@ async function bizResultView() {
       <table class="hours"><tr><th></th><th>いままで</th><th>${jDateShort(first)}から</th></tr>
       <tr><th>開く時刻までに着く、いちばん遅いバス</th>${cell(b.latestArr, a.latestArr, "着")}</tr>
       <tr><th>閉まる時刻のあとに乗れる、いちばん早いバス</th>${cell(b.firstDepAfter, a.firstDepAfter, "発")}</tr>
-      <tr><th>最終のバス</th>${cell(b.lastDep, a.lastDep, "発")}</tr></table></div>`;
+      <tr><th>最終のバス</th>${cell(b.lastDep, a.lastDep, "発")}</tr></table>${stopCautionHtml((b.f || 0) | (a.f || 0))}</div>`;
   }
   html += `<p class="muted small">● は変わる時刻です。比べた日：${before.map(jDateShort).join("・")} と ${after.map(jDateShort).join("・")}${hb.split || ha.split ? "（日によって分かれたため、いちばん多い結果）" : ""}</p>`;
   html += `<div class="source"><p>${esc(`${jDateShort(P.meta.new.published_at.slice(0, 10))}に新しい時刻表が公開されました。`)}</p><p class="small">${esc(P.meta.attribution)}</p></div>`;
@@ -882,7 +886,7 @@ async function posterView() {
     const changed = d.rows.filter((r) => r.kind !== "same");
     const same = d.rows.length - changed.length;
     if (!changed.length) continue;
-    body += `<h2>${esc(d.route)}（${esc(d.headsign)}行き）</h2><div class="pgrid cols${cols}">`;
+    body += `<h2>${esc(d.route)}（${esc(d.headsign)}行き）</h2>${stopCautionHtml(d.f, "pnote")}<div class="pgrid cols${cols}">`;
     for (const r of changed) {
       const left = r.old == null ? "―" : tm(r.old);
       const right = r.kind === "removed" ? "なし" : tm(r.new);

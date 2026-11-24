@@ -88,3 +88,37 @@ def trips_on_expected(tt, feed, day):
     """調査の決まり（Feed.services_on）で、その日に走るバスの番号（trips の並びの番号）"""
     active = feed.services_on(day)
     return [i for i, t in enumerate(tt["trips"]) if tt["services"][t[2]]["id"] in active]
+
+
+def services_on_tt(tt, day):
+    """時刻表のデータ（timetable-1）で、その日に走る運行の番号（端末の servicesOn と同じ決まり）"""
+    d = day.strftime("%Y%m%d")
+    wd = day.weekday()
+    out = set()
+    for i, s in enumerate(tt["services"]):
+        on = bool(s["s"] and s["e"] and s["s"] <= d <= s["e"] and s["wd"][wd] == "1")
+        if d in s["add"]:
+            on = True
+        if d in s["rm"]:
+            on = False
+        if on:
+            out.add(i)
+    return out
+
+
+def run_ranges(tt, lo=None, hi=None):
+    """lo〜hi（有効期間の中だけ）のうち、バスが1本でも走る日を、[始め, 終わり] の並びで返す"""
+    lo = max(dt.date.fromisoformat(tt["meta"]["from"]), lo or dt.date.min)
+    hi = min(dt.date.fromisoformat(tt["meta"]["to"]), hi or dt.date.max)
+    used = {t[2] for t in tt["trips"]}
+    out = []
+    d = lo
+    while d <= hi:
+        if services_on_tt(tt, d) & used:
+            iso = d.isoformat()
+            if out and (d - dt.date.fromisoformat(out[-1][1])).days == 1:
+                out[-1][1] = iso
+            else:
+                out.append([iso, iso])
+        d += dt.timedelta(days=1)
+    return out

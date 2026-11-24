@@ -93,6 +93,28 @@ def probe(url: str, dest: Path) -> dict:
     return info
 
 
+def probe_fresh(url: str, retries: int = 3) -> dict:
+    """zip を落とさず、先頭1バイトだけ取って ETag と Last-Modified を得る（キャッシュしない。毎日の確かめ用）。"""
+    from email.utils import parsedate_to_datetime
+    for i in range(retries):
+        _wait()
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": user_agent(), "Range": "bytes=0-0"})
+            with urllib.request.urlopen(req, timeout=60) as r:
+                h = r.headers
+                lm = h.get("Last-Modified")
+                return {"etag": (h.get("ETag") or "").strip('"'),
+                        "last_modified": parsedate_to_datetime(lm) if lm else None,
+                        "size": (h.get("Content-Range") or "").split("/")[-1]}
+        except urllib.error.HTTPError as e:
+            if e.code in (400, 403, 404):
+                raise
+        except Exception:  # noqa: BLE001
+            pass
+        time.sleep(5 * (i + 1))
+    raise RuntimeError(f"probe failed: {url}")
+
+
 def zip_members(z, aliases=True):
     """zip の中のファイル：名前（フォルダを除く）→ zip の中のパス。
     aliases=True のとき、「stop_times.csv」のように .csv の名前で入っているファイルも、
