@@ -3,6 +3,8 @@ name = "machi-no-ashi-push"
 main = "src/index.js"
 compatibility_date = "2026-11-01"
 workers_dev = true
+# 版ごとのプレビュー用の URL は使わない
+preview_urls = false
 
 # 呼び出しの記録（ログ）は取らない
 [observability]
