@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-24T10:28:39+09:00",
+ "built_at": "2026-11-24T15:55:11+09:00",
  "prefs": [
   {
    "code": 1,
@@ -221,7 +221,15 @@
      "path": "data/timetables/agematsutown__agematu/7e8a57d7-210c-4d83-a6c6-59087d90b5e4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 9,
+    "earliest": 31,
+    "latest": 0
+   }
   },
   {
    "feed": "aichi-miyoshicity/sansanbus",
@@ -240,7 +248,12 @@
      "path": "data/timetables/aichi-miyoshicity__sansanbus/864efdd3-e5f2-47ec-ad01-2a81bcb57a3c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "akashicity/tacobustacobusmini",
@@ -259,7 +272,15 @@
      "path": "data/timetables/akashicity__tacobustacobusmini/9d477cda-0811-4a1e-a2e1-ed06382e0497.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 28,
+    "earliest": 29,
+    "latest": 20
+   }
   },
   {
    "feed": "aketetsu/akechirailway",
@@ -278,7 +299,16 @@
      "path": "data/timetables/aketetsu__akechirailway/a2767f5e-23e9-4280-84af-6c4fa27d106d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     10,
+     13
+    ]
+   }
   },
   {
    "feed": "akicity/GTFS-Akicity_Bus",
@@ -297,7 +327,15 @@
      "path": "data/timetables/akicity__GTFS-Akicity_Bus/a9e5fbfb-bc63-4e0f-8909-f6be159eb9f5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     27
+    ]
+   }
   },
   {
    "feed": "akishimacity/Abus",
@@ -316,7 +354,12 @@
      "path": "data/timetables/akishimacity__Abus/7a301bd6-372a-42aa-b05b-069db42dd974.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "akocity/teijuurou",
@@ -335,7 +378,15 @@
      "path": "data/timetables/akocity__teijuurou/2d823f5c-6c1b-4a96-aa92-e358bed20f1f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "akocity/yuranosuke",
@@ -354,7 +405,15 @@
      "path": "data/timetables/akocity__yuranosuke/48fa3ca0-561a-4849-aff8-86a7ca198187.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 1,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "amacity/amashijunkaibasu",
@@ -373,7 +432,12 @@
      "path": "data/timetables/amacity__amashijunkaibasu/cf8c2b50-44ca-4205-bccf-63d51bc5c900.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "amagikankobus/AmagiKankoBus",
@@ -392,7 +456,12 @@
      "path": "data/timetables/amagikankobus__AmagiKankoBus/744167de-d141-434f-baa3-3534c3e26f7d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "andotown/andocombus",
@@ -404,6 +473,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -423,7 +497,15 @@
      "path": "data/timetables/anjocity__AnkuruBus/d0fd8b5e-db9a-4a89-9ee5-8708b6c6c392.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 5,
+    "late": 1,
+    "censored": 0,
+    "median": 16,
+    "earliest": 47,
+    "latest": 1
+   }
   },
   {
    "feed": "annakacity/annakashi-rosenbus",
@@ -442,7 +524,12 @@
      "path": "data/timetables/annakacity__annakashi-rosenbus/1705d684-d817-4db2-a7f6-a1fe775aeae8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "aoi-komaki/aoikotsu",
@@ -461,7 +548,15 @@
      "path": "data/timetables/aoi-komaki__aoikotsu/ba3054d8-bfd8-40b1-897e-918ebadf8b7b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 7,
+    "late": 0,
+    "censored": 0,
+    "median": 13,
+    "earliest": 19,
+    "latest": 7
+   }
   },
   {
    "feed": "aokivillage/aokisoneibus",
@@ -480,7 +575,15 @@
      "path": "data/timetables/aokivillage__aokisoneibus/534e79e8-2e50-488c-b5c2-1117763262b1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 1,
+    "earliest": 28,
+    "latest": -3
+   }
   },
   {
    "feed": "arakawacity/sakura",
@@ -499,7 +602,12 @@
      "path": "data/timetables/arakawacity__sakura/f42df805-0434-4196-af64-c9641b284388.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "aridagawatown/aridagawatownbus",
@@ -518,7 +626,15 @@
      "path": "data/timetables/aridagawatown__aridagawatownbus/0b7e8cb8-0e6b-444d-bf5a-ad6c0027518c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -1
+    ]
+   }
   },
   {
    "feed": "asagocity/acobus",
@@ -530,6 +646,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -549,7 +670,16 @@
      "path": "data/timetables/asatetu__asakaigantetsudo/ab83931e-1e5f-4f79-b5f7-5577778a0ff8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     5,
+     0
+    ]
+   }
   },
   {
    "feed": "ashikagacity/Ashikaga-route-bus",
@@ -568,7 +698,12 @@
      "path": "data/timetables/ashikagacity__Ashikaga-route-bus/eba085db-26a6-45bf-8f29-2fec055a5408.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "ashiyatown/AshiyaTownBus",
@@ -587,7 +722,15 @@
      "path": "data/timetables/ashiyatown__AshiyaTownBus/759f7a6b-5e57-4714-b323-70fffcaf2111.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     49
+    ]
+   }
   },
   {
    "feed": "awajicity/awaji-jenova-line-akashi-iwaya",
@@ -606,7 +749,12 @@
      "path": "data/timetables/awajicity__awaji-jenova-line-akashi-iwaya/c1010f70-97be-459c-b808-6a1acd397c73.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "awajicity/awajinawahimebus",
@@ -625,7 +773,15 @@
      "path": "data/timetables/awajicity__awajinawahimebus/f93ba467-c092-4d82-bc58-30ea17d1aedc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": -14,
+    "earliest": -2,
+    "latest": -20
+   }
   },
   {
    "feed": "busnet-tsu/guruttotsubus",
@@ -644,7 +800,12 @@
      "path": "data/timetables/busnet-tsu__guruttotsubus/4afd2047-3c9d-4a8f-9f29-75c18892f573.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "buzencity/BuzenCityBus",
@@ -663,7 +824,15 @@
      "path": "data/timetables/buzencity__BuzenCityBus/c0175f29-83cf-4787-aba3-477e7b66ef47.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     27
+    ]
+   }
   },
   {
    "feed": "chiba-rainbow-bus/chibarainbowbus",
@@ -675,6 +844,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -694,7 +868,15 @@
      "path": "data/timetables/chigasakicity__eboshigou/13693a4c-5b61-4868-9cc8-839d504d964f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     5
+    ]
+   }
   },
   {
    "feed": "chikugocity/HainuzukaStationAreaLoopBus",
@@ -713,7 +895,12 @@
      "path": "data/timetables/chikugocity__HainuzukaStationAreaLoopBus/d9de1421-ca63-40e7-9b44-b851ccd997c8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "chikujotown/ChikujoTownCommunityBus",
@@ -732,7 +919,16 @@
      "path": "data/timetables/chikujotown__ChikujoTownCommunityBus/4f1f9f7b-8f5c-47f7-8adf-7be9c1c68dc4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     33,
+     28
+    ]
+   }
   },
   {
    "feed": "chikuma-bus/rosenbus",
@@ -751,7 +947,15 @@
      "path": "data/timetables/chikuma-bus__rosenbus/795e5c1f-4c06-496e-b6cb-f569b7bec04e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 6,
+    "late": 1,
+    "censored": 0,
+    "median": 28,
+    "earliest": 65,
+    "latest": 1
+   }
   },
   {
    "feed": "chikumacity/chikumajunkanbus",
@@ -770,7 +974,15 @@
      "path": "data/timetables/chikumacity__chikumajunkanbus/ca54183d-499a-4909-ad04-4064131c78d8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 4,
+    "earliest": 18,
+    "latest": 0
+   }
   },
   {
    "feed": "chiryucity/communitybus",
@@ -789,7 +1001,15 @@
      "path": "data/timetables/chiryucity__communitybus/57c9a2a5-dc52-4fc8-b3e4-49a1cbcaf256.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     27
+    ]
+   }
   },
   {
    "feed": "chitabus/chitabus",
@@ -808,7 +1028,12 @@
      "path": "data/timetables/chitabus__chitabus/25763dbf-a25b-4177-ba3d-62beaa3a829a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 1
+   }
   },
   {
    "feed": "chitacity/chita-aiaibus",
@@ -827,7 +1052,15 @@
      "path": "data/timetables/chitacity__chita-aiaibus/a9ed1a35-2e06-416e-aa31-da2ea408a8a1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 19,
+    "earliest": 33,
+    "latest": 18
+   }
   },
   {
    "feed": "chitetsu/chitetsubus",
@@ -846,7 +1079,15 @@
      "path": "data/timetables/chitetsu__chitetsubus/32d380ca-066e-4718-b201-a95c81c1226f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 9,
+    "late": 1,
+    "censored": 0,
+    "median": -2,
+    "earliest": 11,
+    "latest": -20
+   }
   },
   {
    "feed": "chitetsu/chitetsushinaidensha",
@@ -865,7 +1106,15 @@
      "path": "data/timetables/chitetsu__chitetsushinaidensha/0abf15c1-4fed-4f52-817a-79ca7a70cf20.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 5,
+    "late": 0,
+    "censored": 0,
+    "median": 2,
+    "earliest": 15,
+    "latest": -3
+   }
   },
   {
    "feed": "chukibus/chukibus",
@@ -884,7 +1133,15 @@
      "path": "data/timetables/chukibus__chukibus/a8f9eb4b-3206-4a4e-9155-79db3411085b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     3
+    ]
+   }
   },
   {
    "feed": "daishinto/Radiant-City",
@@ -903,7 +1160,12 @@
      "path": "data/timetables/daishinto__Radiant-City/b50c5eb9-4280-40ef-9029-b9d8f8e77dbd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "dazaifucity/DazaifuCityCommunityBus",
@@ -922,7 +1184,12 @@
      "path": "data/timetables/dazaifucity__DazaifuCityCommunityBus/46d5038d-6341-4d00-9a42-d8defb029a92.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "enacity/communitybus",
@@ -941,7 +1208,15 @@
      "path": "data/timetables/enacity__communitybus/ad9363c2-78e2-4e2e-b84d-d6e923dd2906.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 1,
+    "median": 20,
+    "earliest": 31,
+    "latest": 12
+   }
   },
   {
    "feed": "feel-the-zao/feelthezao",
@@ -953,6 +1228,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -972,7 +1252,16 @@
      "path": "data/timetables/fujiedacity__gtfsfjed/7d64a624-9a0f-435c-a414-bfaa51ac80b7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     11,
+     11
+    ]
+   }
   },
   {
    "feed": "fukauratown/fukaura-town-communitybus",
@@ -991,7 +1280,15 @@
      "path": "data/timetables/fukauratown__fukaura-town-communitybus/1ca121d1-aaaa-438e-85a7-31ecce6236a9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -19
+    ]
+   }
   },
   {
    "feed": "fukuoka-kawasakitown/KawasakiTownFureaiBus",
@@ -1010,7 +1307,12 @@
      "path": "data/timetables/fukuoka-kawasakitown__KawasakiTownFureaiBus/92d3d221-823a-4772-9a08-aa64f5f9c6e2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "fukuoka-kogacity/KogaBus",
@@ -1029,7 +1331,15 @@
      "path": "data/timetables/fukuoka-kogacity__KogaBus/719b8604-4930-4a85-8278-f646f00a2468.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     1
+    ]
+   }
   },
   {
    "feed": "fukuokacity/ImajukuMeinohamaLine",
@@ -1048,7 +1358,12 @@
      "path": "data/timetables/fukuokacity__ImajukuMeinohamaLine/ebed48fa-8489-4ee5-943e-186c01768042.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "fukusakitown/junkai-fukuhime-fukusakikasairenkei",
@@ -1067,7 +1382,16 @@
      "path": "data/timetables/fukusakitown__junkai-fukuhime-fukusakikasairenkei/36f1ea1d-047a-45ac-beb8-a38f35f86ee4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     21,
+     1
+    ]
+   }
   },
   {
    "feed": "fukutsucity/minibus",
@@ -1086,7 +1410,15 @@
      "path": "data/timetables/fukutsucity__minibus/9e63f770-7ed4-4cd7-8b29-984cad820f48.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     42
+    ]
+   }
   },
   {
    "feed": "gamagoricity/communitybus",
@@ -1105,7 +1437,12 @@
      "path": "data/timetables/gamagoricity__communitybus/2cec89d3-ac3c-4a79-a211-679066274334.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "gan-wu/shiokazeline",
@@ -1124,7 +1461,12 @@
      "path": "data/timetables/gan-wu__shiokazeline/8b2db3fe-6089-4420-816d-123eb1f76289.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "geiseivillage/GTFS-Geiseivill_Bus",
@@ -1143,7 +1485,15 @@
      "path": "data/timetables/geiseivillage__GTFS-Geiseivill_Bus/8fa0bebd-6840-4239-a829-f4cecb5b32df.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     7
+    ]
+   }
   },
   {
    "feed": "gerocity/gerobus",
@@ -1162,7 +1512,12 @@
      "path": "data/timetables/gerocity__gerobus/633091c1-86cc-41be-ab2a-3fb6cb659c5f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "gifu-yamagatacity/communitybus",
@@ -1181,7 +1536,15 @@
      "path": "data/timetables/gifu-yamagatacity__communitybus/d70d1b9c-a483-477b-918e-ff5c8bcf4a3d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     21
+    ]
+   }
   },
   {
    "feed": "gifucity/communitybus",
@@ -1200,7 +1563,15 @@
      "path": "data/timetables/gifucity__communitybus/d9fffca3-3eb5-4889-9db9-88d5ef02d738.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 4,
+    "median": 6,
+    "earliest": 13,
+    "latest": 1
+   }
   },
   {
    "feed": "goshogawaracity/goshogawara-communitybus",
@@ -1219,7 +1590,12 @@
      "path": "data/timetables/goshogawaracity__goshogawara-communitybus/0e89ea00-d14e-4f71-b999-81f3893e4b3a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "gujocity/citybus",
@@ -1238,7 +1614,15 @@
      "path": "data/timetables/gujocity__citybus/5cce2c60-80f9-44dd-9a26-12bb0e9a1399.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 7,
+    "late": 0,
+    "censored": 0,
+    "median": 5,
+    "earliest": 16,
+    "latest": -6
+   }
   },
   {
    "feed": "gunma-otacity/ootacitybus",
@@ -1257,7 +1641,12 @@
      "path": "data/timetables/gunma-otacity__ootacitybus/29610d03-b1c5-4c2b-b0f4-85b8ace65b44.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hachikanbus/hachimanbus",
@@ -1276,7 +1665,15 @@
      "path": "data/timetables/hachikanbus__hachimanbus/baa286a4-27cb-4df8-a264-d8adc877b123.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 1,
+    "median": 11,
+    "earliest": 15,
+    "latest": 1
+   }
   },
   {
    "feed": "hachinohe/hachinohe-citybus",
@@ -1295,7 +1692,12 @@
      "path": "data/timetables/hachinohe__hachinohe-citybus/11ebf75a-7423-46d8-9f11-60b43ac31a42.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "hachinohecity/hachinohe-nango",
@@ -1314,7 +1716,12 @@
      "path": "data/timetables/hachinohecity__hachinohe-nango/830c4e68-052b-4055-9934-5ba8cf7a0ae4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hakubavalley/bus-hakubavalley-nagano-jp",
@@ -1333,7 +1740,12 @@
      "path": "data/timetables/hakubavalley__bus-hakubavalley-nagano-jp/c5bb12c1-ddcf-4bd2-87f4-5f19c0a21c0d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hakusancity/hakusan_bus_meguru",
@@ -1352,7 +1764,16 @@
      "path": "data/timetables/hakusancity__hakusan_bus_meguru/e743fafc-35c2-4eb5-b747-70f90176d2ed.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     23,
+     -25
+    ]
+   }
   },
   {
    "feed": "hamabus/iwata_seikatsubus",
@@ -1371,7 +1792,12 @@
      "path": "data/timetables/hamabus__iwata_seikatsubus/3f56c010-25bb-4247-a2de-f6688208bf68.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hanamakicity/hanamaki",
@@ -1390,7 +1816,16 @@
      "path": "data/timetables/hanamakicity__hanamaki/5dcb41b5-848e-4850-bf97-b429da0c60aa.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0,
+     16
+    ]
+   }
   },
   {
    "feed": "hannocity/odekakemuma-haraichiba",
@@ -1409,7 +1844,12 @@
      "path": "data/timetables/hannocity__odekakemuma-haraichiba/3f3f81aa-c18a-4058-ab70-af12161782d3.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 2,
+    "censored": 0
+   }
   },
   {
    "feed": "hannocity/odekakemuma-minamikoma",
@@ -1428,7 +1868,12 @@
      "path": "data/timetables/hannocity__odekakemuma-minamikoma/c5cf923e-d368-40a7-b563-d0e1e9701c25.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "hannocity/odekakemuma-seimei-kaji",
@@ -1447,7 +1892,12 @@
      "path": "data/timetables/hannocity__odekakemuma-seimei-kaji/4fd38f4d-63f6-4b0a-b406-672a9a6baa26.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "hashikamitown/hashikamibus",
@@ -1466,7 +1916,12 @@
      "path": "data/timetables/hashikamitown__hashikamibus/dd11d134-0273-4034-ac83-54eef4323c21.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hashimacity/HashimaCityCommunityBus",
@@ -1485,7 +1940,16 @@
      "path": "data/timetables/hashimacity__HashimaCityCommunityBus/608b193e-4486-490e-ab51-f3ab8ce18b01.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     29,
+     6
+    ]
+   }
   },
   {
    "feed": "hayashimatown/hayashimatowncommunitybus",
@@ -1504,7 +1968,16 @@
      "path": "data/timetables/hayashimatown__hayashimatowncommunitybus/e814ab47-23d1-42f2-b8c5-f49efdfc1e8d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     26,
+     26
+    ]
+   }
   },
   {
    "feed": "hekinancity/kurukuru-bus",
@@ -1523,7 +1996,12 @@
      "path": "data/timetables/hekinancity__kurukuru-bus/c499e5ca-753a-444e-9438-6b13db2132fd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hichisotown/choeibus",
@@ -1542,7 +2020,15 @@
      "path": "data/timetables/hichisotown__choeibus/b5b31423-6012-4a7a-933d-be0b29158c7c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 7,
+    "earliest": 12,
+    "latest": 0
+   }
   },
   {
    "feed": "hidacity/communitybus",
@@ -1561,7 +2047,16 @@
      "path": "data/timetables/hidacity__communitybus/7a299c48-d941-4d60-b462-155c9dd5edb0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 2,
+    "leads": [
+     6,
+     6
+    ]
+   }
   },
   {
    "feed": "hidakavillage/GTFS-Hidakavill_Bus",
@@ -1580,7 +2075,12 @@
      "path": "data/timetables/hidakavillage__GTFS-Hidakavill_Bus/95c8a10f-b13f-4549-a700-ae3a439e4e57.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "higashimiyoshitown/higashimiyoshitownbus",
@@ -1599,7 +2099,12 @@
      "path": "data/timetables/higashimiyoshitown__higashimiyoshitownbus/562261bd-ad37-4593-ba2f-1ba51d7a4ed2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "higashinecity/HigashineCity",
@@ -1618,7 +2123,15 @@
      "path": "data/timetables/higashinecity__HigashineCity/cb94e464-7e31-4ca6-baef-ee06bed164b2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     13
+    ]
+   }
   },
   {
    "feed": "higashiomicity/higasiohmisicommunitybus",
@@ -1630,6 +2143,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 1
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -1649,7 +2167,12 @@
      "path": "data/timetables/higashiuratown__communitybus/aafe2b8f-a526-4dfe-8e1c-12646703ea2e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "himejicity/ieshima-boze-yukihiko",
@@ -1668,7 +2191,15 @@
      "path": "data/timetables/himejicity__ieshima-boze-yukihiko/09442931-f8fb-42b8-a540-978483ca97c0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 1,
+    "censored": 0,
+    "median": 33,
+    "earliest": 55,
+    "latest": 29
+   }
   },
   {
    "feed": "hiradocity/fureaibus",
@@ -1687,7 +2218,16 @@
      "path": "data/timetables/hiradocity__fureaibus/6ec56205-50e4-4d1d-b5d4-141fbe79c2fc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     0,
+     29
+    ]
+   }
   },
   {
    "feed": "hirakawacity/hirakawa-sharedtaxi",
@@ -1706,7 +2246,12 @@
      "path": "data/timetables/hirakawacity__hirakawa-sharedtaxi/0b6b6fb6-8170-48a0-9f20-e4dbd5de3d6c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hirakawacity/hirakwacitybus",
@@ -1732,7 +2277,12 @@
      "path": "data/timetables/hirakawacity__hirakwacitybus/7f7cefcd-acb1-4d2c-9299-91fb6b75c863.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hiranaitown/hiranaitownbus",
@@ -1758,7 +2308,12 @@
      "path": "data/timetables/hiranaitown__hiranaitownbus/7103d940-ec40-408f-ad44-12ceef42d287.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "hirosakicity/hokusei-noriai",
@@ -1777,7 +2332,12 @@
      "path": "data/timetables/hirosakicity__hokusei-noriai/27bd40be-1eb5-4e86-8620-b76f5ed7bb31.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "hirosakicity/kounan-tetsudou",
@@ -1796,7 +2356,12 @@
      "path": "data/timetables/hirosakicity__kounan-tetsudou/04d1bd16-8c79-4046-802c-4ef82747583a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "hisayamatown/HisayamaIkoBus",
@@ -1815,7 +2380,15 @@
      "path": "data/timetables/hisayamatown__HisayamaIkoBus/b28f8863-a67a-470e-9cec-a566229c1362.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     -18
+    ]
+   }
   },
   {
    "feed": "hitachinakacity/Hitachinaka-smileaozorabus",
@@ -1834,7 +2407,12 @@
      "path": "data/timetables/hitachinakacity__Hitachinaka-smileaozorabus/76215420-dd18-423d-9770-7f8caac01864.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hokushin-bus/hokushinbus",
@@ -1853,7 +2431,12 @@
      "path": "data/timetables/hokushin-bus__hokushinbus/d511ad16-b024-40e0-990c-49acba9da5d9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hokushin-bus/ibaraaiaibus",
@@ -1872,7 +2455,12 @@
      "path": "data/timetables/hokushin-bus__ibaraaiaibus/d71c3820-5acd-427b-950f-1e7f4551ca7f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "hyogo-kamikawatown/communitybus",
@@ -1891,7 +2479,16 @@
      "path": "data/timetables/hyogo-kamikawatown__communitybus/8155f813-c55d-4668-99ef-38f2610f35ae.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     26,
+     6
+    ]
+   }
   },
   {
    "feed": "hyogo-kamitown/kamichominbus",
@@ -1903,6 +2500,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -1922,7 +2524,15 @@
      "path": "data/timetables/hyogo-ono__ranranbus/3cd9c007-5174-491d-8edd-39fa2736ad72.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     11
+    ]
+   }
   },
   {
    "feed": "ibigawatown/communitybus",
@@ -1941,7 +2551,16 @@
      "path": "data/timetables/ibigawatown__communitybus/1c66ee93-447d-4147-8747-6883807f7382.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6,
+     0
+    ]
+   }
   },
   {
    "feed": "ichikawamisatotown/ichikawamisatobus",
@@ -1960,7 +2579,15 @@
      "path": "data/timetables/ichikawamisatotown__ichikawamisatobus/f32d0113-2fab-4a4b-a6ad-15c685ca9dbd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     9
+    ]
+   }
   },
   {
    "feed": "ichikawatown/communitybus",
@@ -1979,7 +2606,16 @@
      "path": "data/timetables/ichikawatown__communitybus/47693508-f1f1-4842-8836-aee6c0be7920.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     3,
+     2
+    ]
+   }
   },
   {
    "feed": "ichinosekicity/Ichinosekibus",
@@ -1998,7 +2634,15 @@
      "path": "data/timetables/ichinosekicity__Ichinosekibus/c7a4f6ca-86c9-4dcc-ac46-bb4102a3f102.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     4
+    ]
+   }
   },
   {
    "feed": "igacity/communitybus",
@@ -2017,7 +2661,16 @@
      "path": "data/timetables/igacity__communitybus/81ad2058-7a66-4482-85ff-f0d6f0c0eea2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     1,
+     20
+    ]
+   }
   },
   {
    "feed": "iijimatown/iichanbus",
@@ -2029,6 +2682,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2048,7 +2706,12 @@
      "path": "data/timetables/iiyamacity__nanohanabus/b095b993-80d4-4960-90fe-e9097597ff57.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "imaricity/imarinbus",
@@ -2067,7 +2730,12 @@
      "path": "data/timetables/imaricity__imarinbus/1a9baf1b-984f-4684-9c33-2de646680e5c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "imizucity/imizushi",
@@ -2086,7 +2754,15 @@
      "path": "data/timetables/imizucity__imizushi/e3e32119-f451-476e-8e9d-8e2a04d53a27.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 12,
+    "earliest": 18,
+    "latest": 10
+   }
   },
   {
    "feed": "inabecity/fukushibus",
@@ -2105,7 +2781,15 @@
      "path": "data/timetables/inabecity__fukushibus/2d007824-dd08-410c-b900-862f265a30e1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "inagawatown/fureaibus",
@@ -2124,7 +2808,12 @@
      "path": "data/timetables/inagawatown__fureaibus/d7c608ef-debb-4356-b828-d54439290974.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "inotown/GTFS-Inotown_HongawaArea",
@@ -2143,7 +2832,12 @@
      "path": "data/timetables/inotown__GTFS-Inotown_HongawaArea/f10a5e01-4651-49d2-9583-1f18b1781c37.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "inotown/GTFS-Inotown_Loopbus",
@@ -2162,7 +2856,16 @@
      "path": "data/timetables/inotown__GTFS-Inotown_Loopbus/8513ed65-c2f5-4f89-8a57-f8a526ae5403.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     10,
+     -16
+    ]
+   }
   },
   {
    "feed": "inzaicity/rosenbus",
@@ -2181,7 +2884,12 @@
      "path": "data/timetables/inzaicity__rosenbus/18d6d465-505c-40d2-8c0d-f6c5569e5f85.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "isecity/communitybus",
@@ -2200,7 +2908,15 @@
      "path": "data/timetables/isecity__communitybus/cf480095-ba75-46d9-a9cf-ce66f8ab25f5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 2,
+    "censored": 0,
+    "leads": [
+     -30
+    ]
+   }
   },
   {
    "feed": "isecity/numakibus",
@@ -2219,7 +2935,12 @@
      "path": "data/timetables/isecity__numakibus/4b6c34f7-7cee-479c-a535-c6af2c59b203.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "isetetu/iserailway",
@@ -2238,7 +2959,16 @@
      "path": "data/timetables/isetetu__iserailway/a45ff368-7894-47f7-ae2b-3aa3c59c6605.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     2,
+     9
+    ]
+   }
   },
   {
    "feed": "ishikariwanshinko/on-demandtransit_itsumo",
@@ -2257,7 +2987,12 @@
      "path": "data/timetables/ishikariwanshinko__on-demandtransit_itsumo/641db80b-5d2b-4c40-9cbd-cce8a10b0163.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "itoigawabus/itoigawabus",
@@ -2276,7 +3011,15 @@
      "path": "data/timetables/itoigawabus__itoigawabus/7ea49826-affe-487d-aa17-ad8ac16c077d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     4
+    ]
+   }
   },
   {
    "feed": "iwadecity/junkaibus",
@@ -2295,7 +3038,15 @@
      "path": "data/timetables/iwadecity__junkaibus/3ee3fd9d-73a2-4289-bbe4-2c191c2ea543.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "joetsucity/asahi-line",
@@ -2307,6 +3058,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2319,6 +3075,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2338,7 +3099,12 @@
      "path": "data/timetables/joetsucity__joetsu/64d2ed81-d4bb-4fb2-9475-c8ed30aaf518.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 1
+   }
   },
   {
    "feed": "joetsucity/kamisekida-line",
@@ -2350,6 +3116,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2362,6 +3133,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2374,6 +3150,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2386,6 +3167,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2398,6 +3184,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2410,6 +3201,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2422,6 +3218,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2434,6 +3235,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2453,7 +3259,15 @@
      "path": "data/timetables/jr-east-morioka__JR-east_tsugaruline/c52391bd-b072-4619-8b3c-934b38b87bf8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 6,
+    "late": 0,
+    "censored": 0,
+    "median": 13,
+    "earliest": 33,
+    "latest": 4
+   }
   },
   {
    "feed": "jr-east-morioka/JR-east_wandotaxi",
@@ -2465,6 +3279,14 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     16
+    ]
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2484,7 +3306,15 @@
      "path": "data/timetables/jr-east-morioka__JReast_wandotaxi/132c7c57-dae0-4bd5-a6b9-895be6715808.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 10,
+    "earliest": 14,
+    "latest": 4
+   }
   },
   {
    "feed": "jr-shikoku-bus-kochi/GTFS-JRbus_Otochi",
@@ -2503,7 +3333,16 @@
      "path": "data/timetables/jr-shikoku-bus-kochi__GTFS-JRbus_Otochi/e7a178f6-ec5e-457a-9c4d-dbb04bf50165.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     43,
+     -21
+    ]
+   }
   },
   {
    "feed": "kaetsunou/kaetsunouhimi",
@@ -2522,7 +3361,15 @@
      "path": "data/timetables/kaetsunou__kaetsunouhimi/bb794ee2-33db-4444-9d1a-31e26be2822a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     11
+    ]
+   }
   },
   {
    "feed": "kaetsunou/kaetsunouippan",
@@ -2554,7 +3401,15 @@
      "path": "data/revisions/kaetsunou__kaetsunouippan/2026-12-01__34bb7836.json",
      "published_at": "2026-10-30T17:50:18.247115+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 6,
+    "late": 1,
+    "censored": 2,
+    "median": 2,
+    "earliest": 32,
+    "latest": 0
+   }
   },
   {
    "feed": "kaetsunou/kaetsunousekaiisan",
@@ -2573,7 +3428,15 @@
      "path": "data/timetables/kaetsunou__kaetsunousekaiisan/18069915-4e1f-49b0-bfa7-9f08a537887d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     18
+    ]
+   }
   },
   {
    "feed": "kagaminotown/kagaminotownbus",
@@ -2592,7 +3455,16 @@
      "path": "data/timetables/kagaminotown__kagaminotownbus/e4293f59-16d2-4a77-830e-592b1e13fe68.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     26,
+     91
+    ]
+   }
   },
   {
    "feed": "kagoshimacity/aibus",
@@ -2611,7 +3483,16 @@
      "path": "data/timetables/kagoshimacity__aibus/24e11db4-03f5-4580-a9ae-b43f7227e520.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     0,
+     -12
+    ]
+   }
   },
   {
    "feed": "kahokutown/KahokuTown",
@@ -2643,7 +3524,15 @@
      "path": "data/revisions/kahokutown__KahokuTown/2026-12-01__5fce754e.json",
      "published_at": "2026-10-21T10:44:14.179041+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     41
+    ]
+   }
   },
   {
    "feed": "kaicity/kaicitybus",
@@ -2662,7 +3551,12 @@
      "path": "data/timetables/kaicity__kaicitybus/9376215d-f396-496d-9674-67c3b0986105.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kaiyotown/kaiyotownbus",
@@ -2681,7 +3575,12 @@
      "path": "data/timetables/kaiyotown__kaiyotownbus/c1132145-798f-4f42-85bd-9817bcc2eb3d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kaizucity/communitybus",
@@ -2700,7 +3599,15 @@
      "path": "data/timetables/kaizucity__communitybus/58e2281f-f52f-491b-b857-a95d48d7d5f4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 33,
+    "earliest": 40,
+    "latest": 13
+   }
   },
   {
    "feed": "kakegawacity/kakegawa6",
@@ -2712,6 +3619,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 1
+   },
    "note": "このバスは、データの利用の条件を確かめているため、まだ使えません"
   },
   {
@@ -2724,6 +3636,15 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     1,
+     -8
+    ]
+   },
    "note": "このバスは、データの利用の条件を確かめているため、まだ使えません"
   },
   {
@@ -2743,7 +3664,16 @@
      "path": "data/timetables/kakogawacity__kakobuskakobusmini/3f948460-3460-4458-907f-861e45cced5e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     18,
+     -8
+    ]
+   }
   },
   {
    "feed": "kamacity/KamaCityBus",
@@ -2762,7 +3692,16 @@
      "path": "data/timetables/kamacity__KamaCityBus/ad63de61-7d6b-4172-a2ae-434e1a0741b2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     8,
+     18
+    ]
+   }
   },
   {
    "feed": "kameyamacity/communitybus",
@@ -2781,7 +3720,12 @@
      "path": "data/timetables/kameyamacity__communitybus/e88257e1-0133-4602-b749-69800cf302e5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kamicity/GTFS-Kamicity_Bus",
@@ -2800,7 +3744,15 @@
      "path": "data/timetables/kamicity__GTFS-Kamicity_Bus/48f9f5e3-d868-4843-8869-9a049e8f390c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 1,
+    "median": 29,
+    "earliest": 30,
+    "latest": 28
+   }
   },
   {
    "feed": "kamicity/GTFS-Kamicity_Demandbus",
@@ -2819,7 +3771,16 @@
      "path": "data/timetables/kamicity__GTFS-Kamicity_Demandbus/740b3c08-06e6-4421-9c14-3ded6e053d1a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     36,
+     53
+    ]
+   }
   },
   {
    "feed": "kamigoritown/ainorigo",
@@ -2838,7 +3799,12 @@
      "path": "data/timetables/kamigoritown__ainorigo/6667de79-bc61-49bb-8ae4-c6404aa39753.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kamiichitown/kamiichi",
@@ -2857,7 +3823,15 @@
      "path": "data/timetables/kamiichitown__kamiichi/351b741f-31dc-4834-af5f-bb43aea622dc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     17
+    ]
+   }
   },
   {
    "feed": "kamikatsutown/kamikatsutownbus",
@@ -2869,6 +3843,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2888,7 +3867,15 @@
      "path": "data/timetables/kaminoyamacity__KaminoyamaCity/5ee7aa37-939b-4d70-86eb-c5f6f1f10dab.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "kamishihorotown/kamishihoro",
@@ -2907,7 +3894,15 @@
      "path": "data/timetables/kamishihorotown__kamishihoro/69ea1fbc-e368-4f0e-9816-62154bb94162.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "kamishihorotown/kamishihoro-self-bus",
@@ -2919,6 +3914,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -2938,7 +3938,12 @@
      "path": "data/timetables/kamizonokotsu__SuperBanpeiyu/67cade4c-3139-46b7-ac83-6632aa9a5f4c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kamocity/kamonbus",
@@ -2957,7 +3962,15 @@
      "path": "data/timetables/kamocity__kamonbus/ca74247b-7a20-49e5-9086-a7f61fb753d4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -9
+    ]
+   }
   },
   {
    "feed": "kandatown/KandaTownCommunityBus",
@@ -2976,7 +3989,15 @@
      "path": "data/timetables/kandatown__KandaTownCommunityBus/8a7d0245-a980-4ff9-894e-ad2ac3b10d3d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     25
+    ]
+   }
   },
   {
    "feed": "kanicity/satsukibus",
@@ -2995,7 +4016,15 @@
      "path": "data/timetables/kanicity__satsukibus/3698c875-ad58-495a-b612-0148bbd6afe6.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     2
+    ]
+   }
   },
   {
    "feed": "kanonjicity/kanonjishi-noriaibus",
@@ -3014,7 +4043,15 @@
      "path": "data/timetables/kanonjicity__kanonjishi-noriaibus/cfeeae5e-a1e1-4178-b139-fb567e8655f8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "kanumacity/ri-bus",
@@ -3026,6 +4063,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -3045,7 +4087,15 @@
      "path": "data/timetables/kariyacity__communitybus/50ba6f14-417e-4fa4-9a00-69e9716d33f7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "karuizawatown/junkan-bus",
@@ -3064,7 +4114,16 @@
      "path": "data/timetables/karuizawatown__junkan-bus/b53ecd18-7e90-40b7-aa01-7d59b09379dd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0,
+     4
+    ]
+   }
   },
   {
    "feed": "kasaicity/kasaineppihappybus",
@@ -3083,7 +4142,15 @@
      "path": "data/timetables/kasaicity__kasaineppihappybus/c4518d73-17e1-4d43-ace0-0298e88c047c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -8
+    ]
+   }
   },
   {
    "feed": "kasaicity/unifureaitomi",
@@ -3102,7 +4169,16 @@
      "path": "data/timetables/kasaicity__unifureaitomi/717db204-d11a-4832-8e59-c22067ffdb45.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6,
+     5
+    ]
+   }
   },
   {
    "feed": "kasamatsutown/communitybus",
@@ -3121,7 +4197,16 @@
      "path": "data/timetables/kasamatsutown__communitybus/ac33a40a-5bc3-4348-b39c-b469838bd65e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     8,
+     -3
+    ]
+   }
   },
   {
    "feed": "kasugacity/yayoi_kasuga",
@@ -3140,7 +4225,12 @@
      "path": "data/timetables/kasugacity__yayoi_kasuga/75b9fab4-7ed9-408f-878b-700b2969f376.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kasugaicity/kasugaicitybus",
@@ -3159,7 +4249,12 @@
      "path": "data/timetables/kasugaicity__kasugaicitybus/58f5b828-c21e-4897-8d1e-587c6b44c61d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "katocity/yashiroshigaichinoriaitaxi",
@@ -3171,6 +4266,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -3190,7 +4290,16 @@
      "path": "data/timetables/katoricity__katori-junkan/a61ce20b-76c8-4534-bda1-348756f97fda.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     15,
+     28
+    ]
+   }
   },
   {
    "feed": "katsuragitown/community-bus",
@@ -3209,7 +4318,12 @@
      "path": "data/timetables/katsuragitown__community-bus/b1d93569-c933-4cdf-85e3-7f81f7f13594.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "katsushikacity/sakura",
@@ -3228,7 +4342,12 @@
      "path": "data/timetables/katsushikacity__sakura/1f3a5571-ce79-492a-9751-5c2031d96cde.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kawagoetown/fureaibus",
@@ -3247,7 +4366,15 @@
      "path": "data/timetables/kawagoetown__fureaibus/9ccf534c-fd15-4a05-8606-811f415bd728.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     2
+    ]
+   }
   },
   {
    "feed": "keisei-transitbus/keiseitransitbus",
@@ -3266,7 +4393,15 @@
      "path": "data/timetables/keisei-transitbus__keiseitransitbus/1cbf6425-88e7-41ea-8f83-bddacf7983e1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 5,
+    "earliest": 13,
+    "latest": -10
+   }
   },
   {
    "feed": "keneibus/nagasaki-kenei-bus",
@@ -3305,7 +4440,16 @@
      "path": "data/revisions/keneibus__nagasaki-kenei-bus/2026-12-01__9dc8e290.json",
      "published_at": "2026-11-19T17:01:20.182837+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -16,
+     12
+    ]
+   }
   },
   {
    "feed": "khkhokubu-kotsu/GTFS-Hokubutraffic_Localbus",
@@ -3324,7 +4468,15 @@
      "path": "data/timetables/khkhokubu-kotsu__GTFS-Hokubutraffic_Localbus/620e5ecf-c58f-47da-8eb5-6e6d493bd9d9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     23
+    ]
+   }
   },
   {
    "feed": "kihotown/chominbus",
@@ -3343,7 +4495,12 @@
      "path": "data/timetables/kihotown__chominbus/a17b2d55-2078-44ef-9459-8431d284048d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kimitsucity/Kimitsu_City_Community_Bus",
@@ -3362,7 +4519,12 @@
      "path": "data/timetables/kimitsucity__Kimitsu_City_Community_Bus/e7859973-b3eb-41a8-bda2-7f693120ecd5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kimitsucity/Local_buses_via_Kimitsu_City",
@@ -3381,7 +4543,15 @@
      "path": "data/timetables/kimitsucity__Local_buses_via_Kimitsu_City/70de845e-ab60-420a-95a0-9cda7b0ea47b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     1
+    ]
+   }
   },
   {
    "feed": "kinokawacity/kinokawa_bus",
@@ -3400,7 +4570,15 @@
      "path": "data/timetables/kinokawacity__kinokawa_bus/236d21c1-64f7-48e6-9134-c6b2173d0e36.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 13,
+    "earliest": 28,
+    "latest": 8
+   }
   },
   {
    "feed": "kisokoikirengo/kiso-bus",
@@ -3419,7 +4597,16 @@
      "path": "data/timetables/kisokoikirengo__kiso-bus/b1e1df11-3a61-449a-a77a-e0dfd0c5f348.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     7,
+     31
+    ]
+   }
   },
   {
    "feed": "kisosakitown/communitybus",
@@ -3438,7 +4625,15 @@
      "path": "data/timetables/kisosakitown__communitybus/9dc0f950-d438-4b65-8ad7-3ad82a8a6de9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     15
+    ]
+   }
   },
   {
    "feed": "kisotown/kisotown",
@@ -3457,7 +4652,15 @@
      "path": "data/timetables/kisotown__kisotown/1ced37b7-a914-4973-ae41-5318c5579646.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 1,
+    "leads": [
+     9
+    ]
+   }
   },
   {
    "feed": "kisovillage/kisovill",
@@ -3476,7 +4679,15 @@
      "path": "data/timetables/kisovillage__kisovill/8f7f560e-9042-4733-ac3c-69ebf754d542.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     4
+    ]
+   }
   },
   {
    "feed": "kitaaikivillage/soneibus",
@@ -3488,6 +4699,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -3507,7 +4723,15 @@
      "path": "data/timetables/kitaena__kitaena/561c66fc-267c-4d5e-9f3e-3a46de187147.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 7,
+    "late": 0,
+    "censored": 0,
+    "median": 11,
+    "earliest": 40,
+    "latest": 4
+   }
   },
   {
    "feed": "kitagawavillage/GTFS-Kitagawavill_Bus",
@@ -3526,7 +4750,15 @@
      "path": "data/timetables/kitagawavillage__GTFS-Kitagawavill_Bus/f1b40119-ff93-47be-9c6c-6861c3514f78.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     9
+    ]
+   }
   },
   {
    "feed": "kitajimatown/kitajimatownfukushibus",
@@ -3545,7 +4777,12 @@
      "path": "data/timetables/kitajimatown__kitajimatownfukushibus/b3fa88e4-a688-4e7c-88de-1795f10bcfe3.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kitakyushucity/edamitsu",
@@ -3564,7 +4801,12 @@
      "path": "data/timetables/kitakyushucity__edamitsu/f0742771-8230-48fe-8e32-1c825ea16d05.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kitakyushucity/higashitani",
@@ -3583,7 +4825,12 @@
      "path": "data/timetables/kitakyushucity__higashitani/7a07d6c6-321e-493a-b4b8-7579bbf6d04d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kitakyushucity/hiraodai",
@@ -3602,7 +4849,12 @@
      "path": "data/timetables/kitakyushucity__hiraodai/9cccc32f-5ad4-44df-b7fb-32424b0e8c25.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kitakyushucity/koyanose-kusubashi-hoshigaoka",
@@ -3621,7 +4873,12 @@
      "path": "data/timetables/kitakyushucity__koyanose-kusubashi-hoshigaoka/84c5c12c-efd1-4bb6-a756-df8f5cf96463.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kitakyushucity/okura",
@@ -3640,7 +4897,12 @@
      "path": "data/timetables/kitakyushucity__okura/477cc42a-86d1-4602-97bf-5ce441287cbe.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kitakyushucity/oma-dobaru",
@@ -3659,7 +4921,16 @@
      "path": "data/timetables/kitakyushucity__oma-dobaru/d4556b97-e752-4572-b5c0-571ae5a65eb7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     13,
+     27
+    ]
+   }
   },
   {
    "feed": "kitakyushucity/tashiro-kawachi",
@@ -3678,7 +4949,15 @@
      "path": "data/timetables/kitakyushucity__tashiro-kawachi/39192710-07b8-406c-9dd3-409236c2738e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     20
+    ]
+   }
   },
   {
    "feed": "kitakyushucity/tsunemi-kitaku",
@@ -3697,7 +4976,12 @@
      "path": "data/timetables/kitakyushucity__tsunemi-kitaku/79a30fca-89f2-4225-9d1b-0ef7751221b7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "kitanagoyacity/communitybus",
@@ -3716,7 +5000,12 @@
      "path": "data/timetables/kitanagoyacity__communitybus/54821b05-4fe6-458e-a86e-7f7db8c53c53.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "kitashitara/odekakehokusetsu",
@@ -3735,7 +5024,15 @@
      "path": "data/timetables/kitashitara__odekakehokusetsu/3e449324-752b-4317-ac17-d479efc82cd9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 7,
+    "late": 0,
+    "censored": 0,
+    "median": 18,
+    "earliest": 37,
+    "latest": 4
+   }
   },
   {
    "feed": "kiyosato/kiyosato-picnicbus",
@@ -3747,6 +5044,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -3766,7 +5068,12 @@
      "path": "data/timetables/kobecity__kobe-satoyama/18b31e03-c7d1-4ed6-9721-c6bdbb131ff0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kobecity/kobe-shiokaze",
@@ -3785,7 +5092,16 @@
      "path": "data/timetables/kobecity__kobe-shiokaze/93dbbf2e-35ad-4f7c-9c81-1ce5452854b0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     26,
+     28
+    ]
+   }
   },
   {
    "feed": "kochi-ekimae-kanko/GTFS-Ekimae_Airportbus",
@@ -3817,7 +5133,15 @@
      "path": "data/revisions/kochi-ekimae-kanko__GTFS-Ekimae_Airportbus/2026-12-01__334ddb40.json",
      "published_at": "2026-11-20T15:36:47.893436+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 20,
+    "late": 0,
+    "censored": 1,
+    "median": 6,
+    "earliest": 14,
+    "latest": -12
+   }
   },
   {
    "feed": "kochi-ekimae-kanko/GTFS-Ekimae_Expressbus",
@@ -3850,7 +5174,15 @@
      "path": "data/timetables/kochi-ekimae-kanko__GTFS-Ekimae_Expressbus/78ad0760-238f-4b0e-89e3-279341c2d7f0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 5,
+    "late": 0,
+    "censored": 0,
+    "median": 4,
+    "earliest": 24,
+    "latest": 0
+   }
   },
   {
    "feed": "kochi-kanko-convention/GTFS-KVCA_MY-YUbus",
@@ -3869,7 +5201,15 @@
      "path": "data/timetables/kochi-kanko-convention__GTFS-KVCA_MY-YUbus/3ca5927d-f4a0-4457-8d9c-1bb5705bb2eb.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 18,
+    "earliest": 25,
+    "latest": 6
+   }
   },
   {
    "feed": "kochi-konancity/GTFS-Konancity_Bus",
@@ -3888,7 +5228,15 @@
      "path": "data/timetables/kochi-konancity__GTFS-Konancity_Bus/61890faf-344d-4364-b32e-ec5ed0df875d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 10,
+    "earliest": 107,
+    "latest": -19
+   }
   },
   {
    "feed": "kochi-koryo-kotsu/GTFS-Koryotraffic_Localbus",
@@ -3907,7 +5255,16 @@
      "path": "data/timetables/kochi-koryo-kotsu__GTFS-Koryotraffic_Localbus/757e536e-e606-4e28-b70e-95b857ec5c7a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     11,
+     0
+    ]
+   }
   },
   {
    "feed": "kochi-seinan-kotsu/GTFS-Seinan_Expressbus",
@@ -3926,7 +5283,15 @@
      "path": "data/timetables/kochi-seinan-kotsu__GTFS-Seinan_Expressbus/4e9a76ee-f5bb-4134-866e-95c9d313713b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -23
+    ]
+   }
   },
   {
    "feed": "kochi-seinan-kotsu/GTFS-Seinantraffic_Akamego",
@@ -3945,7 +5310,15 @@
      "path": "data/timetables/kochi-seinan-kotsu__GTFS-Seinantraffic_Akamego/1e357cd3-d45e-4dc2-9c71-5795bf4447ed.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     18
+    ]
+   }
   },
   {
    "feed": "kochi-seinan-kotsu/GTFS-Seinantraffic_Localbus",
@@ -3964,7 +5337,15 @@
      "path": "data/timetables/kochi-seinan-kotsu__GTFS-Seinantraffic_Localbus/db37bfd1-b78c-4195-b79d-a1ad96f74fb5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 11,
+    "late": 0,
+    "censored": 0,
+    "median": 7,
+    "earliest": 26,
+    "latest": -21
+   }
   },
   {
    "feed": "kochi-seinan-kotsu/GTFS-Seinantraffic_Riverbus",
@@ -3983,7 +5364,15 @@
      "path": "data/timetables/kochi-seinan-kotsu__GTFS-Seinantraffic_Riverbus/dcef9fb2-0260-4640-8680-ca73f57626dd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     20
+    ]
+   }
   },
   {
    "feed": "kochi-seinan-kotsu/GTFS-Seinantraffic_Shimaashi",
@@ -4002,7 +5391,16 @@
      "path": "data/timetables/kochi-seinan-kotsu__GTFS-Seinantraffic_Shimaashi/915ada07-e97f-4fa7-98d7-22c456e81b8c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     20,
+     20
+    ]
+   }
   },
   {
    "feed": "kochi-suzakicity/GTFS-Susakicity_Bus",
@@ -4021,7 +5419,12 @@
      "path": "data/timetables/kochi-suzakicity__GTFS-Susakicity_Bus/20ea14e8-b4de-4428-bd1b-cfae6141c496.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kochi-suzakicity/GTFS-Susakicity_Ferry",
@@ -4040,7 +5443,12 @@
      "path": "data/timetables/kochi-suzakicity__GTFS-Susakicity_Ferry/6c80075b-8a5d-4662-918c-b5bee3eee0cb.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kochi-tobu-kotsu/GTFS-Tobutraffic_Localbus",
@@ -4059,7 +5467,15 @@
      "path": "data/timetables/kochi-tobu-kotsu__GTFS-Tobutraffic_Localbus/fec97f61-4204-429d-b9f3-69b814212005.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 9,
+    "earliest": 19,
+    "latest": 1
+   }
   },
   {
    "feed": "kochi-tsunotown/GTFS-Tsunotown_Bus",
@@ -4078,7 +5494,15 @@
      "path": "data/timetables/kochi-tsunotown__GTFS-Tsunotown_Bus/b15a26b3-762a-4006-86b9-6eb56ed123aa.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 5,
+    "late": 0,
+    "censored": 0,
+    "median": 16,
+    "earliest": 43,
+    "latest": -12
+   }
   },
   {
    "feed": "kochi_pref/GTFS-Kochipref_Ferry",
@@ -4097,7 +5521,15 @@
      "path": "data/timetables/kochi_pref__GTFS-Kochipref_Ferry/5330c227-4daa-47c1-911a-a021f5c9581b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     18
+    ]
+   }
   },
   {
    "feed": "kochiap/GTFS-KochIAP_AirportShare",
@@ -4116,7 +5548,12 @@
      "path": "data/timetables/kochiap__GTFS-KochIAP_AirportShare/b5868bb3-12aa-4249-bca7-b8eb7dafc5d1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kokacity/sinaicommunitybus",
@@ -4135,7 +5572,12 @@
      "path": "data/timetables/kokacity__sinaicommunitybus/27c3fe59-922f-46a5-adb2-06ebedd2c0b2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 1
+   }
   },
   {
    "feed": "komatsucity/blue",
@@ -4154,7 +5596,12 @@
      "path": "data/timetables/komatsucity__blue/45d2863d-8467-4045-b791-5209ad758ff5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "komatsucity/kibagatasen",
@@ -4173,7 +5620,15 @@
      "path": "data/timetables/komatsucity__kibagatasen/4d4bea59-514b-4ae3-9214-eb54afae2b2a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     7
+    ]
+   }
   },
   {
    "feed": "komatsucity/orange",
@@ -4192,7 +5647,15 @@
      "path": "data/timetables/komatsucity__orange/1794a3a7-bc41-4ba5-bce4-84daf3a64e2b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     7
+    ]
+   }
   },
   {
    "feed": "komonotown/communitybus",
@@ -4211,7 +5674,15 @@
      "path": "data/timetables/komonotown__communitybus/f289a228-0308-4407-879d-893e1c78c940.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     1
+    ]
+   }
   },
   {
    "feed": "kosugevillage/kosugesoneibus",
@@ -4230,7 +5701,12 @@
      "path": "data/timetables/kosugevillage__kosugesoneibus/35187ae2-0097-43f7-bfad-131b298d810f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kotosan/kotohira-local",
@@ -4242,6 +5718,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -4261,7 +5742,15 @@
      "path": "data/timetables/kotosan__marugame-community/76dd67e6-c0af-4487-9f76-15551e2caf9b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -24
+    ]
+   }
   },
   {
    "feed": "kotosan/sakaide-local",
@@ -4280,7 +5769,12 @@
      "path": "data/timetables/kotosan__sakaide-local/72ada60a-7a5a-4316-8776-b505efbd836c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kozushimavillage/kozushimavillagebus",
@@ -4299,7 +5793,15 @@
      "path": "data/timetables/kozushimavillage__kozushimavillagebus/35f940a3-b0ff-4cb2-80a4-21599fb11991.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -11
+    ]
+   }
   },
   {
    "feed": "kuma-bus/kuma-bus",
@@ -4318,7 +5820,8 @@
      "path": "data/timetables/kuma-bus__kuma-bus/e44d355c-68d2-4f0d-8d29-54b5b609d8bf.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "kumagayacity/yuuyuubus",
@@ -4337,7 +5840,15 @@
      "path": "data/timetables/kumagayacity__yuuyuubus/9355b5ec-5335-4e4c-9b2e-c6d6feaa42bf.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 1,
+    "median": 0,
+    "earliest": 5,
+    "latest": -13
+   }
   },
   {
    "feed": "kumamoto-shiden/kumamotoshiden",
@@ -4356,7 +5867,15 @@
      "path": "data/timetables/kumamoto-shiden__kumamotoshiden/63e21e68-7eee-4bda-bba6-a6f40cb620ef.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     2
+    ]
+   }
   },
   {
    "feed": "kumamoto-toshibus/kumamoto-toshibus",
@@ -4375,7 +5894,8 @@
      "path": "data/timetables/kumamoto-toshibus__kumamoto-toshibus/c340b426-d603-4467-ad56-3ae0c2bada6a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "kumamotodentetsu/kumamotodentetsu",
@@ -4394,7 +5914,15 @@
      "path": "data/timetables/kumamotodentetsu__kumamotodentetsu/4d8e3a90-47f8-43d9-8d37-aaa72a5034c0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     26
+    ]
+   }
   },
   {
    "feed": "kumamotodentetsu/kumamotodentetsu-bus",
@@ -4413,7 +5941,8 @@
      "path": "data/timetables/kumamotodentetsu__kumamotodentetsu-bus/3c28c886-e8ee-4752-bfd9-0263e5df4723.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "kumanocity/communitybus",
@@ -4432,7 +5961,15 @@
      "path": "data/timetables/kumanocity__communitybus/4fed5609-4da5-4195-92f1-c767d7ab0ce1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     4
+    ]
+   }
   },
   {
    "feed": "kumanocity/shuyubus",
@@ -4451,7 +5988,12 @@
      "path": "data/timetables/kumanocity__shuyubus/54f1573c-5207-4cc7-9a30-319bfe865a01.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kumanogobobus/kumanogobobus_gobo",
@@ -4470,7 +6012,15 @@
      "path": "data/timetables/kumanogobobus__kumanogobobus_gobo/43833596-ccef-4ab6-bb7e-21fc70a3fe10.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     146
+    ]
+   }
   },
   {
    "feed": "kumanogobobus/kumanogobobus_kumano",
@@ -4489,7 +6039,15 @@
      "path": "data/timetables/kumanogobobus__kumanogobobus_kumano/fd259583-3e2f-4dad-9c44-33709e13847f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 5,
+    "late": 0,
+    "censored": 0,
+    "median": 0,
+    "earliest": 21,
+    "latest": 0
+   }
   },
   {
    "feed": "kunitachicity/aoyagikko",
@@ -4508,7 +6066,12 @@
      "path": "data/timetables/kunitachicity__aoyagikko/973bcd3a-3155-4f2b-83ac-e9f64c30d859.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kunitachicity/kunikko",
@@ -4527,7 +6090,12 @@
      "path": "data/timetables/kunitachicity__kunikko/e5302837-590c-40f3-a05f-495e13ddd35b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kuratetown/KurateTownSmileBusMiyawakaLine",
@@ -4546,7 +6114,12 @@
      "path": "data/timetables/kuratetown__KurateTownSmileBusMiyawakaLine/5b3be531-8f76-4a79-a2f6-adce3f78e633.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kurobecity/ishida-aimoto",
@@ -4558,6 +6131,14 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": -2,
+    "earliest": 18,
+    "latest": -8
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -4577,7 +6158,12 @@
      "path": "data/timetables/kurobecity__shinkansenikuji-ishida-aimoto-minibus/d8a72cdd-25f9-4a9d-85de-445982759ff4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kurobecity/shinkansenikujisen",
@@ -4589,6 +6175,14 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     18
+    ]
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -4608,7 +6202,12 @@
      "path": "data/timetables/kuroishicity__kuroishi/ee210fac-111b-4924-9793-6c62f82d22c9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kuroiwa-kanko/GTFS-Kuroiwakanko_Localbus",
@@ -4627,7 +6226,15 @@
      "path": "data/timetables/kuroiwa-kanko__GTFS-Kuroiwakanko_Localbus/e6f93e43-e8c9-49d0-822e-8aa8a3dcc216.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 14,
+    "earliest": 14,
+    "latest": 8
+   }
   },
   {
    "feed": "kusakarukotsu/kusakarubus",
@@ -4646,7 +6253,15 @@
      "path": "data/timetables/kusakarukotsu__kusakarubus/a81228f2-d55f-465f-9780-dbf589b4004a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 6,
+    "late": 0,
+    "censored": 0,
+    "median": 4,
+    "earliest": 38,
+    "latest": -4
+   }
   },
   {
    "feed": "kusatsucity/kusatsusimamebus",
@@ -4665,7 +6280,12 @@
      "path": "data/timetables/kusatsucity__kusatsusimamebus/fa6fd0da-c0fe-45c4-9e63-73140c6f84d0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kushimoto/bus-kushimotokankoshuyu-wakayama-jp",
@@ -4684,7 +6304,15 @@
      "path": "data/timetables/kushimoto__bus-kushimotokankoshuyu-wakayama-jp/0b4e9db4-a900-4527-bae3-02180027a514.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 7,
+    "earliest": 21,
+    "latest": 1
+   }
   },
   {
    "feed": "kusutown/kusucommunity-bus",
@@ -4703,7 +6331,12 @@
      "path": "data/timetables/kusutown__kusucommunity-bus/3f9ada69-afbc-435b-b3c3-50006b382421.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "kuwanacity/communitybus",
@@ -4722,7 +6355,15 @@
      "path": "data/timetables/kuwanacity__communitybus/d92f37fd-8ce9-4f0e-8b83-082e3ddc63cd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 41,
+    "earliest": 56,
+    "latest": 7
+   }
   },
   {
    "feed": "mamurogawatown/MamurogawaTown",
@@ -4741,7 +6382,15 @@
      "path": "data/timetables/mamurogawatown__MamurogawaTown/21b4de4d-db8d-4614-8305-62863a3378e0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 14,
+    "earliest": 22,
+    "latest": 2
+   }
   },
   {
    "feed": "maniwacity/maniwakun",
@@ -4760,7 +6409,15 @@
      "path": "data/timetables/maniwacity__maniwakun/b5079a90-dcfc-4bbd-b4d7-60b1a5159156.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     19
+    ]
+   }
   },
   {
    "feed": "manyosen/manyosen",
@@ -4779,7 +6436,16 @@
      "path": "data/timetables/manyosen__manyosen/963fee48-6fd0-4cc5-865d-3a78263b0986.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -2,
+     16
+    ]
+   }
   },
   {
    "feed": "masudacity/noriai",
@@ -4798,7 +6464,15 @@
      "path": "data/timetables/masudacity__noriai/9db2346a-af2c-4fb3-b29f-241eeb23c499.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     18
+    ]
+   }
   },
   {
    "feed": "matsudocity/matsudo",
@@ -4817,7 +6491,15 @@
      "path": "data/timetables/matsudocity__matsudo/4ec96dd2-3620-4ea1-9c3e-e5cb35b04033.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     29
+    ]
+   }
   },
   {
    "feed": "matsudocity/matsudo-takatsuka",
@@ -4836,7 +6518,12 @@
      "path": "data/timetables/matsudocity__matsudo-takatsuka/9558b6ea-ac6e-44f5-9a2c-77a0a963dc88.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "matsumotocity/guruttomatsumotobus1",
@@ -4855,7 +6542,15 @@
      "path": "data/timetables/matsumotocity__guruttomatsumotobus1/3edd3037-73b8-4d44-988f-36383bcec187.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 12,
+    "earliest": 17,
+    "latest": 5
+   }
   },
   {
    "feed": "matsumotocity/guruttomatsumotobus2",
@@ -4874,7 +6569,15 @@
      "path": "data/timetables/matsumotocity__guruttomatsumotobus2/521cbc3e-b116-484c-b6e1-a9f7e415d349.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 7,
+    "earliest": 10,
+    "latest": 4
+   }
   },
   {
    "feed": "matsusakacity/communitybus",
@@ -4893,7 +6596,15 @@
      "path": "data/timetables/matsusakacity__communitybus/87216026-c0d4-483f-8a56-83ece8dff358.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 16,
+    "earliest": 50,
+    "latest": 13
+   }
   },
   {
    "feed": "matsushigetown/matsushigetownbus",
@@ -4912,7 +6623,15 @@
      "path": "data/timetables/matsushigetown__matsushigetownbus/83a40230-70ac-4670-9d07-af2557d20bd0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -10
+    ]
+   }
   },
   {
    "feed": "meikaijo/ship",
@@ -4931,7 +6650,12 @@
      "path": "data/timetables/meikaijo__ship/13fd6047-6e4e-4708-ad63-15ea065fe5a6.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "meikobus/meikobus",
@@ -4963,7 +6687,15 @@
      "path": "data/revisions/meikobus__meikobus/2026-12-05__8af5b399.json",
      "published_at": "2026-11-15T22:48:45.069826+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 10,
+    "late": 0,
+    "censored": 10,
+    "median": 15,
+    "earliest": 32,
+    "latest": -21
+   }
   },
   {
    "feed": "mibutown/mibubu",
@@ -4982,7 +6714,12 @@
      "path": "data/timetables/mibutown__mibubu/1f2d76d6-1757-43eb-81aa-db6f036099bc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "mie-kotsu/sancochusei",
@@ -5001,7 +6738,8 @@
      "path": "data/timetables/mie-kotsu__sancochusei/fd6e9597-f565-40e0-9296-f90f9b6c750a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "mie-kotsu/sancoiga",
@@ -5020,7 +6758,8 @@
      "path": "data/timetables/mie-kotsu__sancoiga/2d40af38-12e7-420d-8408-3ec24dd77687.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "mie-kotsu/sancoinanki",
@@ -5039,7 +6778,8 @@
      "path": "data/timetables/mie-kotsu__sancoinanki/aca25f28-02db-46e4-bd5a-bfde09f81602.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "mie-kotsu/sancoise",
@@ -5058,7 +6798,8 @@
      "path": "data/timetables/mie-kotsu__sancoise/d8f348b7-70cc-4541-a2b5-317c1208b83c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "mie-kotsu/sancokuwana",
@@ -5077,7 +6818,8 @@
      "path": "data/timetables/mie-kotsu__sancokuwana/95e2d541-dc9c-4460-ad06-c567c62a06c4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "mie-kotsu/sancomatsusaka",
@@ -5096,7 +6838,8 @@
      "path": "data/timetables/mie-kotsu__sancomatsusaka/25d26f27-09b1-4658-911a-3145bb3e2f22.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "mie-kotsu/sancoshima",
@@ -5115,7 +6858,8 @@
      "path": "data/timetables/mie-kotsu__sancoshima/e5597f04-b25d-4046-829a-e20a3554052c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "mie-kotsu/sancoyokkaichi",
@@ -5134,7 +6878,8 @@
      "path": "data/timetables/mie-kotsu__sancoyokkaichi/181da0b1-dc57-4f30-a47a-96d6338ddaf5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "mie-meiwatown/chominbus",
@@ -5153,7 +6898,12 @@
      "path": "data/timetables/mie-meiwatown__chominbus/14636173-a4ca-46b2-b1f3-169f2f436349.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "miharavillage/GTFS-Miharavill_Bus",
@@ -5172,7 +6922,12 @@
      "path": "data/timetables/miharavillage__GTFS-Miharavill_Bus/2b32192d-fa9a-4126-9882-15a472680b98.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "minamiawajicity/lanrunbus",
@@ -5191,7 +6946,15 @@
      "path": "data/timetables/minamiawajicity__lanrunbus/21c510cf-2a21-41e6-9bd7-1867b88e8306.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     8
+    ]
+   }
   },
   {
    "feed": "minamichitatown/communitybus",
@@ -5210,7 +6973,16 @@
      "path": "data/timetables/minamichitatown__communitybus/23b64d27-b2e5-46df-9f79-7a0147d82401.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     19,
+     50
+    ]
+   }
   },
   {
    "feed": "minamiisetown/choeibus",
@@ -5229,7 +7001,15 @@
      "path": "data/timetables/minamiisetown__choeibus/b3d2ef07-ac15-4ec4-a665-55da5dee2251.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     14
+    ]
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-Iidacity-1",
@@ -5248,7 +7028,15 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-Iidacity-1/f9773759-2b75-4d2d-8b5b-95e2d541a49e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-Matsukawa-1",
@@ -5267,7 +7055,15 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-Matsukawa-1/4a44af2f-fc93-4de3-b6e1-4af50544d0e8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-Nanbu-1",
@@ -5286,7 +7082,16 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-Nanbu-1/2308403f-978d-4501-91bd-0546dbbd319c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6,
+     -26
+    ]
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-Ooshika-1",
@@ -5305,7 +7110,12 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-Ooshika-1/67a86923-4fb4-4643-bde3-4de71b2afa1f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-Shinnan-1",
@@ -5324,7 +7134,15 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-Shinnan-1/51140588-5d83-446c-b0e3-0b4baa88d230.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 6,
+    "earliest": 9,
+    "latest": -1
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-achi-1",
@@ -5343,7 +7161,15 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-achi-1/1de0723e-e8fb-4e84-adfa-89f413e0c953.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-iida-2",
@@ -5362,7 +7188,15 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-iida-2/e04e15b7-5fe0-4eae-a63c-b6eb867da82d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 1,
+    "leads": [
+     17
+    ]
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-iidacity-3",
@@ -5381,7 +7215,12 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-iidacity-3/ec7475a6-b980-4d6a-b2bc-e71002b329b1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-seibu-1",
@@ -5400,7 +7239,12 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-seibu-1/7354299f-9426-43c0-af10-d6099a1f1acb.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-takagi-1",
@@ -5419,7 +7263,16 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-takagi-1/a3941b0c-bbd5-4bb0-8c53-438c5875f3b7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     0,
+     0
+    ]
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-takamori-1",
@@ -5438,7 +7291,15 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-takamori-1/7ec0b4e0-a688-4825-a251-b8403316a822.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 1,
+    "censored": 0,
+    "median": 6,
+    "earliest": 9,
+    "latest": 0
+   }
   },
   {
    "feed": "minamishinshu/Minamishinshu-toyooka-1",
@@ -5457,7 +7318,16 @@
      "path": "data/timetables/minamishinshu__Minamishinshu-toyooka-1/2f794ab9-b35b-4246-ac29-b3e3f7909aa6.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6,
+     9
+    ]
+   }
   },
   {
    "feed": "minobutown/furusekikaiiwamasen",
@@ -5469,6 +7339,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -5481,6 +7356,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -5493,6 +7373,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -5512,7 +7397,15 @@
      "path": "data/timetables/minokamocity__communitybus/765b147c-bdae-4030-abd4-ce07cdabf188.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "misawacity/misawacity-mebus",
@@ -5531,7 +7424,12 @@
      "path": "data/timetables/misawacity__misawacity-mebus/44d904c3-915e-4209-8ad2-73fc981dda51.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "mitaketown/communitybus",
@@ -5550,7 +7448,15 @@
      "path": "data/timetables/mitaketown__communitybus/1d55e4b9-cc33-412d-b987-9400ea9a252b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 7,
+    "earliest": 11,
+    "latest": 0
+   }
   },
   {
    "feed": "mitoyocity/mitoyocommunitybus",
@@ -5569,7 +7475,16 @@
      "path": "data/timetables/mitoyocity__mitoyocommunitybus/efb46afc-b6ba-4cc2-a190-7677e1c9de60.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     15,
+     -22
+    ]
+   }
   },
   {
    "feed": "miyamacity/MiyamaCityCommunityBus",
@@ -5588,7 +7503,15 @@
      "path": "data/timetables/miyamacity__MiyamaCityCommunityBus/aa045d42-2e3f-4c09-88a8-efbf5dd8f0a6.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     12
+    ]
+   }
   },
   {
    "feed": "miyawakacity/MiyawakaMunakataLine",
@@ -5607,7 +7530,12 @@
      "path": "data/timetables/miyawakacity__MiyawakaMunakataLine/c57bce2e-1624-4846-a052-566f11eb2bac.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "miyoshitown/miyo-bus",
@@ -5626,7 +7554,12 @@
      "path": "data/timetables/miyoshitown__miyo-bus/b654aee1-bda5-4554-a1ac-1fd440966ed8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "mizuhotown/DemandResponsiveTransport",
@@ -5638,6 +7571,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -5657,7 +7595,12 @@
      "path": "data/timetables/mizuhotown__communitybus/ed5e3d3d-3faf-4f5a-862a-a88247aaa341.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 3,
+    "censored": 0
+   }
   },
   {
    "feed": "mizumakitown/MizumakiTownBus",
@@ -5676,7 +7619,12 @@
      "path": "data/timetables/mizumakitown__MizumakiTownBus/644afaf4-9b91-4cf7-8146-dd44a2d4209b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "mizunamicity/communitybus",
@@ -5695,7 +7643,16 @@
      "path": "data/timetables/mizunamicity__communitybus/672b0e69-d0b6-4731-87f3-934570c432a9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     10,
+     9
+    ]
+   }
   },
   {
    "feed": "mogamigawakotsu/MOGAMIGAWAKOTSU",
@@ -5714,7 +7671,12 @@
      "path": "data/timetables/mogamigawakotsu__MOGAMIGAWAKOTSU/8bf4db10-3523-44cc-b038-2c726e6900e9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "moriyamacity/kuruttobus",
@@ -5733,7 +7695,15 @@
      "path": "data/timetables/moriyamacity__kuruttobus/77054b36-3817-4d1e-9bb2-66d536c948e0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -7
+    ]
+   }
   },
   {
    "feed": "motomiyacity/motomiyashibus",
@@ -5752,7 +7722,15 @@
      "path": "data/timetables/motomiyacity__motomiyashibus/8153a73f-2b88-4f6e-8c9d-a43bf6fbd731.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "motosucity/shieibus",
@@ -5771,7 +7749,15 @@
      "path": "data/timetables/motosucity__shieibus/401afc22-34c1-41de-a957-07eaba5369f0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 1,
+    "censored": 0,
+    "median": 8,
+    "earliest": 210,
+    "latest": 2
+   }
   },
   {
    "feed": "motoyamatown/GTFS-Motoyamatown_Bus",
@@ -5790,7 +7776,15 @@
      "path": "data/timetables/motoyamatown__GTFS-Motoyamatown_Bus/240cf3d3-adb0-4506-ba4a-8a345c8c3d6c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     44
+    ]
+   }
   },
   {
    "feed": "munakatacity/MiyawakaMunakataLine",
@@ -5809,7 +7803,15 @@
      "path": "data/timetables/munakatacity__MiyawakaMunakataLine/866522b6-4ddd-4582-b7ac-f108c5142d64.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     2
+    ]
+   }
   },
   {
    "feed": "munakatacity/MunakataCityCommunityBus",
@@ -5828,7 +7830,12 @@
      "path": "data/timetables/munakatacity__MunakataCityCommunityBus/702154eb-5565-4274-aecd-283d766d1992.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "munakatacity/MunakataCityFureaiBus",
@@ -5847,7 +7854,16 @@
      "path": "data/timetables/munakatacity__MunakataCityFureaiBus/4b1827c9-21f6-411f-84d3-0dc43ef93f45.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     9,
+     26
+    ]
+   }
   },
   {
    "feed": "munakatacity/MunakataCityJinoshimaFerry",
@@ -5866,7 +7882,12 @@
      "path": "data/timetables/munakatacity__MunakataCityJinoshimaFerry/a5f20d75-0ced-4966-9f26-60fd4b138e6c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "munakatacity/MunakataCityOshimaFerry",
@@ -5885,7 +7906,12 @@
      "path": "data/timetables/munakatacity__MunakataCityOshimaFerry/e41acd82-70e6-4004-94d4-f925c26b3228.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "munakatacity/MunakataMankitsuShuyuBus",
@@ -5897,6 +7923,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -5916,7 +7947,16 @@
      "path": "data/timetables/murakamicity__murakamisicommunitybus/a17f8332-e5b9-4921-9361-68731cc9d532.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -1,
+     -7
+    ]
+   }
   },
   {
    "feed": "murayamacity/MurayamaCity",
@@ -5935,7 +7975,12 @@
      "path": "data/timetables/murayamacity__MurayamaCity/7c294fdd-03bd-4656-a8b2-46ebb846d18a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "murotocity/GTFS-Murotocity_Bus",
@@ -5954,7 +7999,15 @@
      "path": "data/timetables/murotocity__GTFS-Murotocity_Bus/f25dd86a-e50e-435a-80a2-27df148bd125.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     14
+    ]
+   }
   },
   {
    "feed": "nabaricity/communitybus",
@@ -5973,7 +8026,15 @@
      "path": "data/timetables/nabaricity__communitybus/2668f5b3-12fa-4845-876b-9eb2a90dacff.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 8,
+    "earliest": 12,
+    "latest": -5
+   }
   },
   {
    "feed": "nagadenbus/nagadenbus-exp",
@@ -5992,7 +8053,12 @@
      "path": "data/timetables/nagadenbus__nagadenbus-exp/cd7ab229-36f3-4e6f-9a6f-be969ca5d58e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nagadenbus/nagadenbus-iizuna",
@@ -6011,7 +8077,12 @@
      "path": "data/timetables/nagadenbus__nagadenbus-iizuna/f0696a8a-ef0e-4019-a7e1-08d474ed97b8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nagadenbus/nagadenbus-nagano",
@@ -6030,7 +8101,12 @@
      "path": "data/timetables/nagadenbus__nagadenbus-nagano/c8991724-9bd2-42e9-a2f8-7ab4d3eaaf8c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nagadenbus/nagadenbus-nakano",
@@ -6049,7 +8125,12 @@
      "path": "data/timetables/nagadenbus__nagadenbus-nakano/761a0f21-d928-444a-a1cd-6759f4c467bb.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nagadenbus/obuse-romango",
@@ -6061,6 +8142,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6080,7 +8166,12 @@
      "path": "data/timetables/nagahamacity__nishiazaiodekakewagon/eac0101f-5742-40c0-a3f5-dcf6b530345f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nagai-unyu/Nagaibus",
@@ -6099,7 +8190,16 @@
      "path": "data/timetables/nagai-unyu__Nagaibus/63b5bea3-9b56-4992-8ec0-0206eefeb46b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 2,
+    "censored": 0,
+    "leads": [
+     5,
+     7
+    ]
+   }
   },
   {
    "feed": "nagai-unyu/tamarin",
@@ -6111,6 +8211,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6130,7 +8235,16 @@
      "path": "data/timetables/nagaicity__NagaiCity/efd745b2-afea-4545-a5ae-efecf80ed3d6.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     13,
+     6
+    ]
+   }
   },
   {
    "feed": "nagakutecity/communitybus",
@@ -6149,7 +8263,15 @@
      "path": "data/timetables/nagakutecity__communitybus/26398696-eea8-485f-868e-7e64b21d904a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "nagano-ikedatown/IkedaTownBus",
@@ -6168,7 +8290,16 @@
      "path": "data/timetables/nagano-ikedatown__IkedaTownBus/fd41fa5a-b84c-4435-b947-a6c1f9bb9968.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     26,
+     1
+    ]
+   }
   },
   {
    "feed": "nagano-kawakamivillage/kawakamibus",
@@ -6187,7 +8318,15 @@
      "path": "data/timetables/nagano-kawakamivillage__kawakamibus/b86c6a4a-7ccb-4281-bf82-cb0486a9503f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     5
+    ]
+   }
   },
   {
    "feed": "nagano-nakanocity/fureaibus",
@@ -6199,6 +8338,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6218,7 +8362,12 @@
      "path": "data/timetables/naganocity__noriai/ea37c6fb-f2e7-48fb-a31b-3814c7a18f5c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "naganocity/shiei_noriaibus",
@@ -6237,7 +8386,15 @@
      "path": "data/timetables/naganocity__shiei_noriaibus/f3a6a69e-2838-4e75-b0f8-2d92bb99038d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 1,
+    "median": 1,
+    "earliest": 2,
+    "latest": 0
+   }
   },
   {
    "feed": "nagareyamacity/nagareyamagreenbus",
@@ -6256,7 +8413,12 @@
      "path": "data/timetables/nagareyamacity__nagareyamagreenbus/8e1203f4-67de-465f-a0fe-6522914d8b4a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 2,
+    "censored": 0
+   }
   },
   {
    "feed": "nagisotown/communitybus",
@@ -6275,7 +8437,16 @@
      "path": "data/timetables/nagisotown__communitybus/9187cba7-73a1-404f-9960-5242e63c4cd7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     9,
+     8
+    ]
+   }
   },
   {
    "feed": "nagitown/nagibus",
@@ -6294,7 +8465,15 @@
      "path": "data/timetables/nagitown__nagibus/fa0d2c45-7536-4034-83c3-427d4f3fe8fc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -1
+    ]
+   }
   },
   {
    "feed": "nakadomaritown/nakadomari-communitybus",
@@ -6313,7 +8492,12 @@
      "path": "data/timetables/nakadomaritown__nakadomari-communitybus/481ad98a-f1df-4dea-8e77-119032dfc478.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nakatosatown/GTFS-Nakatosatown_Bus",
@@ -6332,7 +8516,16 @@
      "path": "data/timetables/nakatosatown__GTFS-Nakatosatown_Bus/51a74ff9-463f-4117-a560-1866baf7d099.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     43,
+     57
+    ]
+   }
   },
   {
    "feed": "nakatown/nakatownbus",
@@ -6351,7 +8544,15 @@
      "path": "data/timetables/nakatown__nakatownbus/5cc94205-1b4f-4729-8371-ebb6a8214a40.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -13
+    ]
+   }
   },
   {
    "feed": "nakatsucity/BuzenNakatsu",
@@ -6370,7 +8571,12 @@
      "path": "data/timetables/nakatsucity__BuzenNakatsu/18602aac-d531-4ed6-babb-fd9b6e035496.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nakatsucity/Higashitani",
@@ -6389,7 +8595,15 @@
      "path": "data/timetables/nakatsucity__Higashitani/761fbeb1-2bf0-4363-9842-44e75e6e9d17.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     12
+    ]
+   }
   },
   {
    "feed": "nakatsucity/HiyamajiKamagi",
@@ -6401,6 +8615,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6413,6 +8632,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6425,6 +8649,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6444,7 +8673,12 @@
      "path": "data/timetables/nakatsucity__Miho/ff75d418-86bd-494a-96f3-2ba3ad4c49a2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nakatsucity/Nishimakusa",
@@ -6463,7 +8697,12 @@
      "path": "data/timetables/nakatsucity__Nishimakusa/c77f699a-d5d2-4755-a8e0-b4ef4d83b417.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nakatsucity/Nishitani",
@@ -6482,7 +8721,15 @@
      "path": "data/timetables/nakatsucity__Nishitani/569ef06c-4aad-492e-99bd-98235e25f8cd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     11
+    ]
+   }
   },
   {
    "feed": "nakatsucity/OshimaIfuku",
@@ -6494,6 +8741,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6506,6 +8758,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6518,6 +8775,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6530,6 +8792,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6549,7 +8816,12 @@
      "path": "data/timetables/nakatsucity__Tsutami/6e84d65a-a0c8-4581-b853-3663b4913211.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nakatsucity/UenokawauchiMasaki",
@@ -6561,6 +8833,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6580,7 +8857,12 @@
      "path": "data/timetables/nakatsucity__UraYabakei/e182d98e-5bf7-4e03-8610-f17a6de4a0ca.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nakatsucity/Yakata",
@@ -6599,7 +8881,15 @@
      "path": "data/timetables/nakatsucity__Yakata/3c102bb0-81da-477c-b016-30662b70eaae.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     12
+    ]
+   }
   },
   {
    "feed": "nakatsucity/YamautsuriKita",
@@ -6611,6 +8901,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6623,6 +8918,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6642,7 +8942,15 @@
      "path": "data/timetables/nakatsugawacity__communitybus/369c833f-8cb7-4d92-971d-9cd4acd3fd60.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 3,
+    "earliest": 15,
+    "latest": -1
+   }
   },
   {
    "feed": "nakayamatown/NakayamaTown",
@@ -6661,7 +8969,15 @@
      "path": "data/timetables/nakayamatown__NakayamaTown/70032ec6-605e-4eb1-a6e2-5db7039cbdce.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     42
+    ]
+   }
   },
   {
    "feed": "namegatacity/bus-namegata-ibaraki-jp",
@@ -6680,7 +8996,12 @@
      "path": "data/timetables/namegatacity__bus-namegata-ibaraki-jp/4485d445-7acc-4070-bbc5-494933df19d3.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "namerikawacity/norumycar",
@@ -6699,7 +9020,15 @@
      "path": "data/timetables/namerikawacity__norumycar/0feb4969-80e1-4002-b707-f436955fb63c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 4,
+    "earliest": 9,
+    "latest": 3
+   }
   },
   {
    "feed": "nangokucity/GTFS-Nankokucity_AirportShare",
@@ -6718,7 +9047,12 @@
      "path": "data/timetables/nangokucity__GTFS-Nankokucity_AirportShare/796a7131-0762-4648-a997-f417c56ab049.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nangokucity/GTFS-Nankokucity_Bus",
@@ -6737,7 +9071,15 @@
      "path": "data/timetables/nangokucity__GTFS-Nankokucity_Bus/431b3e15-edcc-4d8e-92f4-3867de80dab2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -1
+    ]
+   }
   },
   {
    "feed": "nantocity/nanbus",
@@ -6756,7 +9098,15 @@
      "path": "data/timetables/nantocity__nanbus/da81bb7f-bf04-4650-a418-8682a4d03e0f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 5,
+    "late": 0,
+    "censored": 0,
+    "median": 0,
+    "earliest": 8,
+    "latest": -24
+   }
   },
   {
    "feed": "nanyocity/NanyoCity",
@@ -6775,7 +9125,15 @@
      "path": "data/timetables/nanyocity__NanyoCity/204f3fd1-526c-4a92-9a48-973563c98be0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 25,
+    "earliest": 257,
+    "latest": 4
+   }
   },
   {
    "feed": "naoshimatown/naoshima",
@@ -6794,7 +9152,15 @@
      "path": "data/timetables/naoshimatown__naoshima/c53814cf-6ac6-4ac9-99e1-47aa4663fbe0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 2,
+    "median": -2,
+    "earliest": 61,
+    "latest": -26
+   }
   },
   {
    "feed": "naritacity/narita-community-bus",
@@ -6813,7 +9179,15 @@
      "path": "data/timetables/naritacity__narita-community-bus/1a9fa450-1b9e-4483-b698-dc94c4d26cf0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     47
+    ]
+   }
   },
   {
    "feed": "narutocity/narutocitychiikibus",
@@ -6832,7 +9206,12 @@
      "path": "data/timetables/narutocity__narutocitychiikibus/e39cb738-dd54-4c4d-96a8-632c49487826.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "narutocity/narutocitytosen",
@@ -6851,7 +9230,15 @@
      "path": "data/timetables/narutocity__narutocitytosen/82c395a8-d8e6-4dcf-b5b8-e1b4e366be50.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -7
+    ]
+   }
   },
   {
    "feed": "nasushiobaracity/chiikibasu",
@@ -6870,7 +9257,15 @@
      "path": "data/timetables/nasushiobaracity__chiikibasu/2102b5ca-9f5d-4218-bb99-68b654ed5491.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "nasutown/nasutown",
@@ -6889,7 +9284,12 @@
      "path": "data/timetables/nasutown__nasutown/9993451f-86ef-4970-bee1-abc7355f1201.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nemurokotsu/nemurobus",
@@ -6908,7 +9308,15 @@
      "path": "data/timetables/nemurokotsu__nemurobus/31577a0e-b0e1-47fe-aeef-a839516856dc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 1,
+    "censored": 0,
+    "median": 0,
+    "earliest": 13,
+    "latest": 0
+   }
   },
   {
    "feed": "niimicity/niimishieibus",
@@ -6927,7 +9335,15 @@
      "path": "data/timetables/niimicity__niimishieibus/fadc98a1-9dd1-4136-883d-0d2315b0dd45.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 0,
+    "earliest": 0,
+    "latest": -25
+   }
   },
   {
    "feed": "nikkocity/nikkocity",
@@ -6946,7 +9362,16 @@
      "path": "data/timetables/nikkocity__nikkocity/e2940e80-4bdd-4b0d-a2a8-9568e255a25b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -1,
+     4
+    ]
+   }
   },
   {
    "feed": "ninomiyatown/Ninomiyatowncommunitybus",
@@ -6965,7 +9390,12 @@
      "path": "data/timetables/ninomiyatown__Ninomiyatowncommunitybus/eb3182e0-0368-4fad-976c-6b9c3dbf3587.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nirasakicity/shiminbus",
@@ -6977,6 +9407,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -6996,7 +9431,12 @@
      "path": "data/timetables/nishikawatown__NishikawaTown/546aaf3b-91f4-4951-a009-291eaf233ff8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 2
+   }
   },
   {
    "feed": "nishinihonjrbus/meikinsen",
@@ -7008,6 +9448,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -7027,7 +9472,15 @@
      "path": "data/timetables/nishinomiyacity__guruttonamaze/2d20ce61-a132-4038-bee5-6e43d3906e67.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     55
+    ]
+   }
   },
   {
    "feed": "nishinomiyacity/koyoen",
@@ -7046,7 +9499,12 @@
      "path": "data/timetables/nishinomiyacity__koyoen/1628b3c6-f834-479b-bf07-ec9a16bba283.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nishinomiyacity/najio-ikunokogen",
@@ -7065,7 +9523,12 @@
      "path": "data/timetables/nishinomiyacity__najio-ikunokogen/0fa633a7-4325-442d-8514-c9b5abe7ed46.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "nishinomiyacity/sakurayamanami",
@@ -7084,7 +9547,12 @@
      "path": "data/timetables/nishinomiyacity__sakurayamanami/059c658d-4f08-4ad1-a85a-19cbe7a64c23.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nishiocity/meitestu_tobu",
@@ -7103,7 +9571,16 @@
      "path": "data/timetables/nishiocity__meitestu_tobu/b68ebe60-25fb-472e-9d8e-9ca7af6dee76.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     4,
+     5
+    ]
+   }
   },
   {
    "feed": "nishiocity/rokumangokukururinbus",
@@ -7122,7 +9599,16 @@
      "path": "data/timetables/nishiocity__rokumangokukururinbus/38069078-9aa4-4821-baf5-a7b6554ca5ee.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     20,
+     15
+    ]
+   }
   },
   {
    "feed": "nishiocity/tosen",
@@ -7141,7 +9627,12 @@
      "path": "data/timetables/nishiocity__tosen/f362f505-560b-474d-a4f4-b14bb62310b3.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nishiwakicity/loopbus-orihimebus",
@@ -7150,7 +9641,7 @@
    "pref": 28,
    "license": "CC BY 2.1 JP",
    "license_url": "https://creativecommons.org/licenses/by/2.1/jp/",
-   "usable": true,
+   "usable": false,
    "timetables": [
     {
      "uid": "6fe197b7-d7ac-4b0c-8296-7ca84b2f0bb4",
@@ -7160,7 +9651,17 @@
      "path": "data/timetables/nishiwakicity__loopbus-orihimebus/6fe197b7-d7ac-4b0c-8296-7ca84b2f0bb4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     10,
+     6
+    ]
+   },
+   "note": "このバスの時刻表のデータは、期限が切れています。そのため、まだ使えません"
   },
   {
    "feed": "nisshincity/communitybus",
@@ -7179,7 +9680,15 @@
      "path": "data/timetables/nisshincity__communitybus/163ed473-cea7-4dfc-9356-9162ab8b462e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 7,
+    "late": 0,
+    "censored": 2,
+    "median": 2,
+    "earliest": 21,
+    "latest": -22
+   }
   },
   {
    "feed": "niyodogawatown/GTFS-Niyodogawatown_Townsbus",
@@ -7198,7 +9707,15 @@
      "path": "data/timetables/niyodogawatown__GTFS-Niyodogawatown_Townsbus/8ec6f52d-d54a-4e71-b355-efff4187b8c4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -4
+    ]
+   }
   },
   {
    "feed": "nogatacity/NogataCityCommunityBus",
@@ -7217,7 +9734,16 @@
      "path": "data/timetables/nogatacity__NogataCityCommunityBus/1dbd525b-a5d7-4699-97c0-0da13a621e42.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     14,
+     7
+    ]
+   }
   },
   {
    "feed": "nonoichicity/communitybus",
@@ -7236,7 +9762,12 @@
      "path": "data/timetables/nonoichicity__communitybus/7ef5d7ad-3ac5-4734-b146-4cf14fc64111.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "nouhibus/nouhibus",
@@ -7255,7 +9786,15 @@
      "path": "data/timetables/nouhibus__nouhibus/c573b738-d266-4a1e-9a4d-49b663e4543d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 2,
+    "median": 2,
+    "earliest": 4,
+    "latest": 1
+   }
   },
   {
    "feed": "nouhibus/nouhibus_kanko",
@@ -7274,7 +9813,16 @@
      "path": "data/timetables/nouhibus__nouhibus_kanko/ec8d8a5e-95cd-4067-88fd-80489832ad6d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     6,
+     5
+    ]
+   }
   },
   {
    "feed": "nouhibus/takayama_shuyu",
@@ -7293,7 +9841,15 @@
      "path": "data/timetables/nouhibus__takayama_shuyu/6f7edafc-1b38-417d-bfca-e626cebf0a6f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     10
+    ]
+   }
   },
   {
    "feed": "nyuzentown/noranmaicar",
@@ -7312,7 +9868,12 @@
      "path": "data/timetables/nyuzentown__noranmaicar/977ec5d1-e226-4efe-8c13-9ed3e53d81ac.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "obanazawacity/ObanazawaCity",
@@ -7331,7 +9892,15 @@
      "path": "data/timetables/obanazawacity__ObanazawaCity/10168dfe-d37d-473f-b7b8-eb9dcaa2452f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     42
+    ]
+   }
   },
   {
    "feed": "odaitown/choeibus",
@@ -7350,7 +9919,12 @@
      "path": "data/timetables/odaitown__choeibus/08db29c9-cb47-4f6d-b875-da64b99eafb9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "oetown/Oetown",
@@ -7369,7 +9943,16 @@
      "path": "data/timetables/oetown__Oetown/b44ea82f-69a7-47a9-926d-4f31b3089b56.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     18,
+     23
+    ]
+   }
   },
   {
    "feed": "ogakicity/meihankintetsubus",
@@ -7388,7 +9971,15 @@
      "path": "data/timetables/ogakicity__meihankintetsubus/6dc9053e-4ca6-4ea8-8e0a-ba7e92315843.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 3,
+    "median": 18,
+    "earliest": 25,
+    "latest": 10
+   }
   },
   {
    "feed": "ogasawaravillage/o",
@@ -7407,7 +9998,12 @@
      "path": "data/timetables/ogasawaravillage__o/1cc35330-4357-491b-9356-00803b73feba.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "oguchitown/communitybus",
@@ -7426,7 +10022,12 @@
      "path": "data/timetables/oguchitown__communitybus/5a1bde3c-c48c-4366-a62a-3206620b146c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "ohkuravillage/OhkuraVillage",
@@ -7445,7 +10046,12 @@
      "path": "data/timetables/ohkuravillage__OhkuraVillage/0d429e46-0bd9-462f-a79b-6c3a5453eb45.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "oizumitown/kouikikoukyoubasuaozora",
@@ -7464,7 +10070,15 @@
      "path": "data/timetables/oizumitown__kouikikoukyoubasuaozora/8b280805-d8f4-4b12-af06-cbddd4ca30a7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     42
+    ]
+   }
   },
   {
    "feed": "okayacity/silkybus",
@@ -7476,6 +10090,14 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -7495,7 +10117,15 @@
      "path": "data/timetables/okuwavillage__kuwachan-bus/44133b8d-3502-4365-a9d0-6ccbec4d21fa.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     44
+    ]
+   }
   },
   {
    "feed": "omachicity/omachiraicholiner",
@@ -7521,7 +10151,21 @@
      "path": "data/timetables/omachicity__omachiraicholiner/f65b2c54-0c33-4adb-b830-008b72a257c5.json"
     }
    ],
-   "revisions": []
+   "revisions": [
+    {
+     "change_date": "2026-12-01",
+     "path": "data/revisions/omachicity__omachiraicholiner/2026-12-01__f65b2c54.json",
+     "published_at": "2026-11-02T10:42:50.580176+09:00"
+    }
+   ],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     29
+    ]
+   }
   },
   {
    "feed": "omachicity/omachisiminbus",
@@ -7540,7 +10184,16 @@
      "path": "data/timetables/omachicity__omachisiminbus/49954ff7-1642-4e3c-b195-4e5fbc3fe317.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     25,
+     15
+    ]
+   }
   },
   {
    "feed": "omihachimancity/akakonbus",
@@ -7559,7 +10212,16 @@
      "path": "data/timetables/omihachimancity__akakonbus/eae43b7b-72e8-4a4c-a2cc-80b364a5179b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0,
+     -13
+    ]
+   }
   },
   {
    "feed": "ongatown/OngaTownCommunityBus",
@@ -7578,7 +10240,16 @@
      "path": "data/timetables/ongatown__OngaTownCommunityBus/b62f34e2-99d3-4ba3-97ec-575d3f1c7a69.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     2,
+     8
+    ]
+   }
   },
   {
    "feed": "oshucity/bus-oshucity-iwate-jp",
@@ -7597,7 +10268,15 @@
      "path": "data/timetables/oshucity__bus-oshucity-iwate-jp/7084f1db-3362-4863-8d52-ad323e9fe089.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 18,
+    "earliest": 146,
+    "latest": 4
+   }
   },
   {
    "feed": "otakivillage/otaki-village",
@@ -7606,7 +10285,7 @@
    "pref": 20,
    "license": "CC0 1.0",
    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
-   "usable": true,
+   "usable": false,
    "timetables": [
     {
      "uid": "c098fc74-64b2-49e4-974c-d67100178eb9",
@@ -7616,7 +10295,16 @@
      "path": "data/timetables/otakivillage__otaki-village/c098fc74-64b2-49e4-974c-d67100178eb9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -5
+    ]
+   },
+   "note": "このバスの時刻表のデータは、期限が切れています。そのため、まだ使えません"
   },
   {
    "feed": "otamavillage/otamavillage-bus",
@@ -7635,7 +10323,12 @@
      "path": "data/timetables/otamavillage__otamavillage-bus/57b2dfb0-e7ec-47bd-a062-54475d969a4f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "otawaracity/Ohtawaracitybus",
@@ -7654,7 +10347,15 @@
      "path": "data/timetables/otawaracity__Ohtawaracitybus/7229f9d1-53e4-44ec-9a5c-6497e3472f3e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 6,
+    "earliest": 9,
+    "latest": 0
+   }
   },
   {
    "feed": "otonekotu/otonekotubus",
@@ -7673,7 +10374,12 @@
      "path": "data/timetables/otonekotu__otonekotubus/e62676e6-ff78-4b8e-85d5-6955ced0ddd4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "otsukitown/GTFS-Otsukitown_Bus",
@@ -7692,7 +10398,12 @@
      "path": "data/timetables/otsukitown__GTFS-Otsukitown_Bus/2a63b087-72e2-4fd3-96dd-ecc8c09757e0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "owanitown/owanitown-sunekarabus",
@@ -7711,7 +10422,12 @@
      "path": "data/timetables/owanitown__owanitown-sunekarabus/22859b3b-c148-43e0-9783-b1931434d960.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "owariasahicity/communitybus",
@@ -7730,7 +10446,16 @@
      "path": "data/timetables/owariasahicity__communitybus/287f2458-f622-47fc-bf55-766371d06a6a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -15,
+     14
+    ]
+   }
   },
   {
    "feed": "owasecity/fureaibus",
@@ -7749,7 +10474,12 @@
      "path": "data/timetables/owasecity__fureaibus/a65a8632-1157-422e-9a0f-b4881a32ebf3.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "oyabecity/oyabecitybus",
@@ -7768,7 +10498,12 @@
      "path": "data/timetables/oyabecity__oyabecitybus/91140348-7811-4a41-ba88-4929de96f2af.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "reihoku-kanko/GTFS-Reihokukanko_Localbus",
@@ -7787,7 +10522,15 @@
      "path": "data/timetables/reihoku-kanko__GTFS-Reihokukanko_Localbus/6a759700-00f1-4931-891f-ea4456958750.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 5,
+    "late": 0,
+    "censored": 0,
+    "median": 22,
+    "earliest": 26,
+    "latest": 3
+   }
   },
   {
    "feed": "rinkan/hashimoto-rinkandenentoshi",
@@ -7806,7 +10549,15 @@
      "path": "data/timetables/rinkan__hashimoto-rinkandenentoshi/fb4d5fbb-6ec3-445a-a3de-b0cb9e901000.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     3
+    ]
+   }
   },
   {
    "feed": "rinkan/koyasan",
@@ -7825,7 +10576,12 @@
      "path": "data/timetables/rinkan__koyasan/96f721a2-770c-48ed-8712-e757b7c74e25.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "rittocity/rittoukurichanbus",
@@ -7837,6 +10593,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -7849,6 +10610,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -7868,7 +10634,12 @@
      "path": "data/timetables/ryugasakicity__Ryugasakishi-communitybus/18b48dd6-c0ae-4b67-93f5-eff77e87f623.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "ryujinbus/ryujinbus",
@@ -7887,7 +10658,15 @@
      "path": "data/timetables/ryujinbus__ryujinbus/5e2a4dbd-bf37-48f8-b50b-a61742967e7b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 5,
+    "late": 0,
+    "censored": 1,
+    "median": 21,
+    "earliest": 52,
+    "latest": 5
+   }
   },
   {
    "feed": "sagaecity/SagaeCity",
@@ -7906,7 +10685,12 @@
      "path": "data/timetables/sagaecity__SagaeCity/25c7aa8f-d43b-470f-8943-777c93d5827e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/ajisaigou",
@@ -7925,7 +10709,12 @@
      "path": "data/timetables/saitamacity__ajisaigou/7281571d-cd54-4dbc-8d8a-a3eb7f17b8e0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/iwatsukikucommunitybus",
@@ -7944,7 +10733,12 @@
      "path": "data/timetables/saitamacity__iwatsukikucommunitybus/da9d894e-0939-4ae4-8810-3fbfacf19ec8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/kawasemigou",
@@ -7963,7 +10757,12 @@
      "path": "data/timetables/saitamacity__kawasemigou/df7c8345-dd7d-419b-989c-75ac4924cae5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/kitakucommunitybus",
@@ -7982,7 +10781,12 @@
      "path": "data/timetables/saitamacity__kitakucommunitybus/0f050b2c-814c-4a72-9f80-ad5da21b2c64.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/minamikucommunitybus",
@@ -8001,7 +10805,12 @@
      "path": "data/timetables/saitamacity__minamikucommunitybus/a96f89b4-55ea-482a-a464-0f0b1cbb0364.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/minumagou",
@@ -8020,7 +10829,12 @@
      "path": "data/timetables/saitamacity__minumagou/1807cdf2-9216-485c-a502-741cb9777bb1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/minumakucommunitybus",
@@ -8039,7 +10853,12 @@
      "path": "data/timetables/saitamacity__minumakucommunitybus/0ac78163-c65b-468c-99a6-50c404e6ac83.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/miyaharanakayoshigou",
@@ -8058,7 +10877,12 @@
      "path": "data/timetables/saitamacity__miyaharanakayoshigou/6a93d363-874a-4374-beea-ce16f37a43b0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/musashigou",
@@ -8077,7 +10901,12 @@
      "path": "data/timetables/saitamacity__musashigou/ef368e2e-9319-4eb4-b6a4-08a1568172fc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/nisikucommunitybus",
@@ -8096,7 +10925,12 @@
      "path": "data/timetables/saitamacity__nisikucommunitybus/2dc9b87a-38fc-4cc6-bad5-94d3089c64e7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/orizurugou",
@@ -8115,7 +10949,12 @@
      "path": "data/timetables/saitamacity__orizurugou/b4ce68b3-96c4-4c59-843a-caa63af4d6e5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/rainbowgou",
@@ -8134,7 +10973,12 @@
      "path": "data/timetables/saitamacity__rainbowgou/0e85996f-8a22-46e1-81cc-8932457dbe54.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/rakurakugou",
@@ -8153,7 +10997,12 @@
      "path": "data/timetables/saitamacity__rakurakugou/eb7b9ae3-6636-4752-88f1-d796c37c0948.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "saitamacity/sakurakucommunitybus",
@@ -8172,7 +11021,12 @@
      "path": "data/timetables/saitamacity__sakurakucommunitybus/ca58947a-31f8-465f-8ed7-b7df8e974294.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "sakatacity/SakataCity",
@@ -8191,7 +11045,15 @@
      "path": "data/timetables/sakatacity__SakataCity/100f8749-cf04-4af0-a4cc-092fda5ff417.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 2,
+    "earliest": 25,
+    "latest": -2
+   }
   },
   {
    "feed": "sakawatown/GTFS-Sakawatown_Bus",
@@ -8210,7 +11072,15 @@
      "path": "data/timetables/sakawatown__GTFS-Sakawatown_Bus/b707d758-18fd-432f-bd39-c464f22912da.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 11,
+    "earliest": 39,
+    "latest": -21
+   }
   },
   {
    "feed": "sakegawavillage/SakegawaVillage",
@@ -8229,7 +11099,16 @@
      "path": "data/timetables/sakegawavillage__SakegawaVillage/34ba2958-2468-47ab-afa4-4cc70a43b282.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -1,
+     0
+    ]
+   }
   },
   {
    "feed": "samukawatown/mokusei-go_eastroute",
@@ -8248,7 +11127,12 @@
      "path": "data/timetables/samukawatown__mokusei-go_eastroute/0e94a1ac-9270-4a3b-bc2c-2cd01894c583.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "samukawatown/mokusei-go_kuramiomuraroute",
@@ -8267,7 +11151,12 @@
      "path": "data/timetables/samukawatown__mokusei-go_kuramiomuraroute/cb8f2162-dde2-4c33-94df-cf48acddb6c9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "samukawatown/mokusei-go_southroute",
@@ -8286,7 +11175,12 @@
      "path": "data/timetables/samukawatown__mokusei-go_southroute/4bcb15f8-ec9e-408c-b0a1-506e9a35c922.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "sanjocity/guruttosan",
@@ -8298,6 +11192,15 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     14,
+     -3
+    ]
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -8317,7 +11220,8 @@
      "path": "data/timetables/sankobus__sankobus/7e8979a7-8114-44ff-9ead-7e9d19f89556.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "daily": true
   },
   {
    "feed": "sayotown/communitybus",
@@ -8336,7 +11240,12 @@
      "path": "data/timetables/sayotown__communitybus/540c5ef3-25b7-4ac2-b5db-8c936e0b8ed0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "seikatsubus-yokkaichi/sbusyokkaichi",
@@ -8355,7 +11264,15 @@
      "path": "data/timetables/seikatsubus-yokkaichi__sbusyokkaichi/a226fc00-1547-49c4-b883-236375641e8c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     2
+    ]
+   }
   },
   {
    "feed": "seisan-kanko/seisankanko_limousine",
@@ -8374,7 +11291,15 @@
      "path": "data/timetables/seisan-kanko__seisankanko_limousine/7975d45a-f66f-4b36-81cc-60a058226e52.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 7,
+    "late": 0,
+    "censored": 0,
+    "median": 17,
+    "earliest": 23,
+    "latest": 9
+   }
   },
   {
    "feed": "sekicity/itadorifureaibus",
@@ -8393,7 +11318,16 @@
      "path": "data/timetables/sekicity__itadorifureaibus/047ba2bb-4ec6-4a7a-9a6b-dd9e55070a1a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     25,
+     5
+    ]
+   }
   },
   {
    "feed": "sembokucity/bus-city-semboku",
@@ -8412,7 +11346,12 @@
      "path": "data/timetables/sembokucity__bus-city-semboku/c550be29-f0f3-45ed-b13f-d58ecbf8c6cb.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "setocity/setocitybus",
@@ -8431,7 +11370,15 @@
      "path": "data/timetables/setocity__setocitybus/a02dd04e-26b1-4442-8df7-1eb579a56f08.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     1
+    ]
+   }
   },
   {
    "feed": "setouchicity/setouchicitybus",
@@ -8450,7 +11397,15 @@
      "path": "data/timetables/setouchicity__setouchicitybus/a4406f47-d30d-46ae-9ae3-b6f14e48200c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     1
+    ]
+   }
   },
   {
    "feed": "setouchicity/setouchicitykankobus",
@@ -8469,7 +11424,12 @@
      "path": "data/timetables/setouchicity__setouchicitykankobus/966c9aa8-b91f-4984-afd3-28d1ccec29de.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "shichigahamatown/Gururinko",
@@ -8488,7 +11448,15 @@
      "path": "data/timetables/shichigahamatown__Gururinko/9f27ca42-a94a-4d63-a3ab-2c335b248f81.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "shichinohetown/shichinohe_community-bus",
@@ -8507,7 +11475,15 @@
      "path": "data/timetables/shichinohetown__shichinohe_community-bus/fe68025e-da8b-4b46-b02c-dfe58b2be0ca.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -3
+    ]
+   }
   },
   {
    "feed": "shiga-hinotown/choueibus",
@@ -8526,7 +11502,15 @@
      "path": "data/timetables/shiga-hinotown__choueibus/0bb59b10-bf86-4a11-8afe-ea830e649047.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     -6
+    ]
+   }
   },
   {
    "feed": "shiga-konancity/konansimegurukun",
@@ -8545,7 +11529,15 @@
      "path": "data/timetables/shiga-konancity__konansimegurukun/2558ef1b-e826-464a-b67a-f229f88d3c91.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 1,
+    "leads": [
+     10
+    ]
+   }
   },
   {
    "feed": "shimacity/agowanteikisen",
@@ -8564,7 +11556,15 @@
      "path": "data/timetables/shimacity__agowanteikisen/c869344b-04b4-4cbe-bf8d-4b127e7064c9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     13
+    ]
+   }
   },
   {
    "feed": "shimacity/anori",
@@ -8583,7 +11583,12 @@
      "path": "data/timetables/shimacity__anori/7037e562-ceff-4a5d-9e57-c0b7caf69ad9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "shimadacity/shimada_combus",
@@ -8602,7 +11607,12 @@
      "path": "data/timetables/shimadacity__shimada_combus/e27bbedd-374b-4dd0-ba31-624e02db16da.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 2,
+    "censored": 0
+   }
   },
   {
    "feed": "shimanto-kotsu/GTFS-Shimantotraffic_Feederbus",
@@ -8621,7 +11631,15 @@
      "path": "data/timetables/shimanto-kotsu__GTFS-Shimantotraffic_Feederbus/d70b63bf-0f60-4210-b59c-2825322ef377.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     36
+    ]
+   }
   },
   {
    "feed": "shimanto-kotsu/GTFS-Shimantotraffic_Localbus",
@@ -8640,7 +11658,15 @@
      "path": "data/timetables/shimanto-kotsu__GTFS-Shimantotraffic_Localbus/da2733a6-3d93-4e04-abf8-349264469eeb.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 10,
+    "late": 0,
+    "censored": 0,
+    "median": 14,
+    "earliest": 27,
+    "latest": 0
+   }
   },
   {
    "feed": "shimantocity/GTFS-Shimantocity_Bus",
@@ -8659,7 +11685,15 @@
      "path": "data/timetables/shimantocity__GTFS-Shimantocity_Bus/e92cc8b0-beb5-4b99-b636-7c2b172ea01b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     34
+    ]
+   }
   },
   {
    "feed": "shimantocity/GTFS-Shimantocity_Demandbus",
@@ -8668,7 +11702,7 @@
    "pref": 39,
    "license": "CC BY 4.0",
    "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
-   "usable": true,
+   "usable": false,
    "timetables": [
     {
      "uid": "e611d17b-9354-4ade-8ca0-67e0379cf84a",
@@ -8678,7 +11712,13 @@
      "path": "data/timetables/shimantocity__GTFS-Shimantocity_Demandbus/e611d17b-9354-4ade-8ca0-67e0379cf84a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   },
+   "note": "このバスの時刻表のデータは、期限が切れています。そのため、まだ使えません"
   },
   {
    "feed": "shimantotown/GTFS-Shimantotown_Bus",
@@ -8697,7 +11737,16 @@
      "path": "data/timetables/shimantotown__GTFS-Shimantotown_Bus/8def4a1f-f98b-4d2f-8780-369d1ed77d04.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     30,
+     17
+    ]
+   }
   },
   {
    "feed": "shimoko/shimokitakotsu",
@@ -8716,7 +11765,15 @@
      "path": "data/timetables/shimoko__shimokitakotsu/2752e184-8561-47c6-a18e-3f732dde5e3b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 6,
+    "earliest": 13,
+    "latest": -5
+   }
   },
   {
    "feed": "shinanotown/rosenbus",
@@ -8728,6 +11785,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -8747,7 +11809,12 @@
      "path": "data/timetables/shingovillage__shingo-mizubashogo/9aea77ca-932e-4482-be16-9c814ce5b4a8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "shingutown/ShinguTownCommunityBus",
@@ -8766,7 +11833,15 @@
      "path": "data/timetables/shingutown__ShinguTownCommunityBus/0828b3c6-e8e0-49c1-9ea7-17df58bbc72a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 1,
+    "censored": 0,
+    "median": 15,
+    "earliest": 20,
+    "latest": 9
+   }
   },
   {
    "feed": "shingutown/TownFerryShingu",
@@ -8785,7 +11860,15 @@
      "path": "data/timetables/shingutown__TownFerryShingu/2d627920-8d34-4825-83e1-54a89995ce1a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 9,
+    "earliest": 9,
+    "latest": -7
+   }
   },
   {
    "feed": "shinjobankotsu/SHINJOBANKOTSU",
@@ -8804,7 +11887,15 @@
      "path": "data/timetables/shinjobankotsu__SHINJOBANKOTSU/a7da0dc6-c2ca-47df-9833-7c62a90b39ea.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 1,
+    "median": 14,
+    "earliest": 15,
+    "latest": 1
+   }
   },
   {
    "feed": "shinjocity/ShinjoCity",
@@ -8836,7 +11927,16 @@
      "path": "data/revisions/shinjocity__ShinjoCity/2026-11-30__7d028444.json",
      "published_at": "2026-11-19T09:50:32.868599+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     20,
+     11
+    ]
+   }
   },
   {
    "feed": "shinkikanko/limonbus",
@@ -8855,7 +11955,15 @@
      "path": "data/timetables/shinkikanko__limonbus/885b89e7-b28a-4387-a9ec-20f27e3c318c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 4,
+    "earliest": 5,
+    "latest": -3
+   }
   },
   {
    "feed": "shinonsentown/yumetsubame",
@@ -8874,7 +11982,12 @@
      "path": "data/timetables/shinonsentown__yumetsubame/75a7025b-d09a-48c1-8a1d-fe89218c7a12.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 2,
+    "censored": 0
+   }
   },
   {
    "feed": "shinshirocity/sbus",
@@ -8893,7 +12006,16 @@
      "path": "data/timetables/shinshirocity__sbus/8a021d9c-836d-4ef5-a9e3-0fa9d3d47041.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 2,
+    "leads": [
+     64,
+     1
+    ]
+   }
   },
   {
    "feed": "shiojiricity/suteppukunn",
@@ -8912,7 +12034,16 @@
      "path": "data/timetables/shiojiricity__suteppukunn/7f1b6506-e5a5-4817-b7ad-79656ec1a51f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     5,
+     14
+    ]
+   }
   },
   {
    "feed": "shiratakatown/ShiratakaTown",
@@ -8931,7 +12062,16 @@
      "path": "data/timetables/shiratakatown__ShiratakaTown/1469c791-b0dc-4cfe-8ec9-b5f6c0aa986e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     32,
+     38
+    ]
+   }
   },
   {
    "feed": "shirotori-kotsu/shirotorikotsu",
@@ -8950,7 +12090,15 @@
      "path": "data/timetables/shirotori-kotsu__shirotorikotsu/42f385b2-2d72-412d-984a-7a6b8ed6c0c6.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     14
+    ]
+   }
   },
   {
    "feed": "shisocity/shitanbus",
@@ -8969,7 +12117,12 @@
      "path": "data/timetables/shisocity__shitanbus/b2af7d9b-eb34-4bd6-9295-a49c0f6c84ab.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "shisocity/shitanbus-wingshinki",
@@ -8988,7 +12141,15 @@
      "path": "data/timetables/shisocity__shitanbus-wingshinki/ba459cad-f989-4817-b77b-63982092efe3.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 28,
+    "earliest": 42,
+    "latest": 2
+   }
   },
   {
    "feed": "shizuokacity/ikawa",
@@ -9007,7 +12168,15 @@
      "path": "data/timetables/shizuokacity__ikawa/dddefc91-1229-4e70-88e6-30e968709af8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     5
+    ]
+   }
   },
   {
    "feed": "shizuokacity/iryo-fukushi",
@@ -9019,6 +12188,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -9031,6 +12205,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -9050,7 +12229,12 @@
      "path": "data/timetables/shizuokacity__ryougouchi/d286ec4a-77de-4329-919e-73fca6b1fda9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "shizuokacity/sunpu-roman",
@@ -9062,6 +12246,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -9081,7 +12270,15 @@
      "path": "data/timetables/shizuokacity__yui/3c11ec25-25cf-431d-8420-3723aee96282.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     6
+    ]
+   }
   },
   {
    "feed": "shizuokacity/yui-kanbara",
@@ -9100,7 +12297,12 @@
      "path": "data/timetables/shizuokacity__yui-kanbara/951ae436-dd24-40b0-81b7-eb0124273975.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "shonaikotsu/SHONAIKOTSU",
@@ -9119,7 +12321,15 @@
      "path": "data/timetables/shonaikotsu__SHONAIKOTSU/26556798-431b-4e73-bea6-e4120849ff79.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 2,
+    "censored": 0,
+    "leads": [
+     4
+    ]
+   }
   },
   {
    "feed": "shonaitown/ShonaiTown",
@@ -9138,7 +12348,15 @@
      "path": "data/timetables/shonaitown__ShonaiTown/214b8a12-6c62-45bf-96ed-8bc92934f518.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 0,
+    "earliest": 4,
+    "latest": 0
+   }
   },
   {
    "feed": "shootown/shoochofureaibus",
@@ -9157,7 +12375,15 @@
      "path": "data/timetables/shootown__shoochofureaibus/4e3cf3dd-1d41-447f-ae0a-2b0c2724c151.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "soedatown/soedamachibus",
@@ -9176,7 +12402,15 @@
      "path": "data/timetables/soedatown__soedamachibus/f901a41b-751f-44e6-b6a4-c5602d215f68.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 6,
+    "late": 0,
+    "censored": 0,
+    "median": 36,
+    "earliest": 52,
+    "latest": 15
+   }
   },
   {
    "feed": "sotogahamatown/sotogahama-townbus",
@@ -9195,7 +12429,12 @@
      "path": "data/timetables/sotogahamatown__sotogahama-townbus/25f8e981-a261-4733-82d5-5fce9749f3dd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "suetown/SueTownCommunityBus",
@@ -9214,7 +12453,15 @@
      "path": "data/timetables/suetown__SueTownCommunityBus/ae6f9046-dc3b-4fc0-9c92-d82b32d43bd3.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     42
+    ]
+   }
   },
   {
    "feed": "sukumocity/GTFS-Sukumocity_Ferry",
@@ -9233,7 +12480,15 @@
      "path": "data/timetables/sukumocity__GTFS-Sukumocity_Ferry/b8f159d6-0771-4022-8837-f3c0058867d9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     7
+    ]
+   }
   },
   {
    "feed": "sukumocity/GTFS-Sukumocity_Hanabus",
@@ -9252,7 +12507,15 @@
      "path": "data/timetables/sukumocity__GTFS-Sukumocity_Hanabus/cf580063-c4a9-408f-b8b6-b3084bb9929b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     17
+    ]
+   }
   },
   {
    "feed": "sukumocity/GTFS-Sukumocity_Yururinbus",
@@ -9271,7 +12534,12 @@
      "path": "data/timetables/sukumocity__GTFS-Sukumocity_Yururinbus/ba08004b-aa70-4250-9d8d-f9f8e2bafba7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "sumotocity/communitybus",
@@ -9290,7 +12558,15 @@
      "path": "data/timetables/sumotocity__communitybus/7effbf74-e57e-4f53-8f53-b20aab0c03ee.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 6,
+    "earliest": 16,
+    "latest": 2
+   }
   },
   {
    "feed": "susamitown/Communitybus",
@@ -9302,6 +12578,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -9321,7 +12602,15 @@
      "path": "data/timetables/suwacity__karinchanbas/c541f9a6-d584-445a-8e97-798036982837.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 34,
+    "earliest": 54,
+    "latest": 3
+   }
   },
   {
    "feed": "suzakicity/suzakashiminbus",
@@ -9340,7 +12629,15 @@
      "path": "data/timetables/suzakicity__suzakashiminbus/5d46fe55-7f62-4865-879a-ecaa26eb42ed.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 0,
+    "earliest": 6,
+    "latest": 0
+   }
   },
   {
    "feed": "suzukacity/communitybus",
@@ -9359,7 +12656,12 @@
      "path": "data/timetables/suzukacity__communitybus/0a23b1b9-1dd0-4cc8-9d0b-4b806eb1ec4a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tachikawacity/kururinbus",
@@ -9378,7 +12680,12 @@
      "path": "data/timetables/tachikawacity__kururinbus/593967fd-2228-42f0-bb3a-4c8e81cb9c78.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tagawacity/TagawaCityCommunityBus",
@@ -9404,7 +12711,15 @@
      "path": "data/timetables/tagawacity__TagawaCityCommunityBus/d321e088-0021-4989-b1f9-d80d3996a433.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     48
+    ]
+   }
   },
   {
    "feed": "taiyo-koutu/taiyo-koutu",
@@ -9423,7 +12738,12 @@
      "path": "data/timetables/taiyo-koutu__taiyo-koutu/80d0d348-9522-4c23-87d4-3a21bde31d85.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tajimicity/kikyobus",
@@ -9442,7 +12762,12 @@
      "path": "data/timetables/tajimicity__kikyobus/2f4b53b8-08e6-4a62-b03e-949ef16fa7e6.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "takaokacity/koueibus",
@@ -9461,7 +12786,15 @@
      "path": "data/timetables/takaokacity__koueibus/b8e544e6-4667-4959-9206-ff403ba9e1ac.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     11
+    ]
+   }
   },
   {
    "feed": "takarazukacity/runrunbus",
@@ -9480,7 +12813,16 @@
      "path": "data/timetables/takarazukacity__runrunbus/e9cf7329-07e9-4aa5-a5d7-2fede60900a1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     41,
+     40
+    ]
+   }
   },
   {
    "feed": "takasagocity/jotonbus",
@@ -9499,7 +12841,15 @@
      "path": "data/timetables/takasagocity__jotonbus/3e18abff-33fd-4686-beff-dc62c06038a2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 6,
+    "earliest": 28,
+    "latest": 4
+   }
   },
   {
    "feed": "takashimacity/takasimasicommunitybus",
@@ -9518,7 +12868,16 @@
      "path": "data/timetables/takashimacity__takasimasicommunitybus/97e8aa0f-4f31-4033-b864-e86ce51724be.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     5,
+     -15
+    ]
+   }
   },
   {
    "feed": "takayamacity/noramaicar",
@@ -9537,7 +12896,15 @@
      "path": "data/timetables/takayamacity__noramaicar/1e8b5e16-2767-4da8-94fe-ee24f4511751.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 1,
+    "earliest": 17,
+    "latest": 0
+   }
   },
   {
    "feed": "takayamacity/takanego",
@@ -9556,7 +12923,15 @@
      "path": "data/timetables/takayamacity__takanego/bce5d1bb-60f8-4d56-932b-be1f06ebacd7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 6,
+    "earliest": 11,
+    "latest": -3
+   }
   },
   {
    "feed": "taketoyotown/communitybus",
@@ -9575,7 +12950,15 @@
      "path": "data/timetables/taketoyotown__communitybus/f203088c-9525-40f5-b9c6-bbd27eb889c9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     11
+    ]
+   }
   },
   {
    "feed": "takeyakoutu/takeyakotsu",
@@ -9594,7 +12977,15 @@
      "path": "data/timetables/takeyakoutu__takeyakotsu/44f88d5c-5d53-406f-baea-6ff3f63dc925.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 7,
+    "late": 1,
+    "censored": 1,
+    "median": 0,
+    "earliest": 17,
+    "latest": -29
+   }
   },
   {
    "feed": "takitown/choeibus",
@@ -9613,7 +13004,12 @@
      "path": "data/timetables/takitown__choeibus/84b6d094-f163-42ac-bdda-0c876d7aa035.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tambasasayamacity/communitybusheartrun",
@@ -9625,6 +13021,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -9644,7 +13045,15 @@
      "path": "data/timetables/tanabecity__Jumin-Bus/3a46f8d9-7b1f-4a3a-92c0-8016362db084.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "tanotown/GTFS-Tanotown_Bus",
@@ -9663,7 +13072,12 @@
      "path": "data/timetables/tanotown__GTFS-Tanotown_Bus/d8fe51da-3764-4525-8339-b551c65fa297.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tateshinatown/tateshinasmile",
@@ -9675,6 +13089,14 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -9694,7 +13116,15 @@
      "path": "data/timetables/tateyamatown__tateyama/7073f1e0-a326-4aa5-a3c2-5190642880ae.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 8,
+    "late": 0,
+    "censored": 0,
+    "median": 10,
+    "earliest": 27,
+    "latest": 0
+   }
   },
   {
    "feed": "tatsunocity/communitybus",
@@ -9713,7 +13143,16 @@
      "path": "data/timetables/tatsunocity__communitybus/12ed4186-192c-4a7e-b87b-94ea850a6273.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     18,
+     15
+    ]
+   }
   },
   {
    "feed": "tendocity/TendoCity",
@@ -9732,7 +13171,15 @@
      "path": "data/timetables/tendocity__TendoCity/51db5de0-3040-485b-8fe4-521ee8618da0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     40
+    ]
+   }
   },
   {
    "feed": "tobacity/communitybus",
@@ -9751,7 +13198,16 @@
      "path": "data/timetables/tobacity__communitybus/2b903489-8bb7-49cb-8803-6fab798db17b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     4,
+     11
+    ]
+   }
   },
   {
    "feed": "tobacity/teikisen",
@@ -9770,7 +13226,16 @@
      "path": "data/timetables/tobacity__teikisen/0518a882-1f2b-4c3a-b63a-bc569d0a23f1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     4,
+     14
+    ]
+   }
   },
   {
    "feed": "tochigi-nakagawatown/nakagawamaticommunitybus",
@@ -9782,6 +13247,14 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     5
+    ]
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -9801,7 +13274,15 @@
      "path": "data/timetables/tohokutown__tohoku-town-bus/57e031d3-5ec8-48fa-bda7-8a905e73ee6c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 3,
+    "earliest": 3,
+    "latest": -3
+   }
   },
   {
    "feed": "tohtetsu/tohtetsu_ena",
@@ -9820,7 +13301,12 @@
      "path": "data/timetables/tohtetsu__tohtetsu_ena/13bbec45-c42a-4397-94da-0494c9c8f6b6.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tohtetsu/tohtetsu_kani",
@@ -9846,7 +13332,12 @@
      "path": "data/timetables/tohtetsu__tohtetsu_kani/700b5e9c-e6c5-4ce5-aa0f-8bda8770327f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tohtetsu/tohtetsu_tajimi",
@@ -9865,7 +13356,15 @@
      "path": "data/timetables/tohtetsu__tohtetsu_tajimi/c4d1ed37-8e25-4acb-855d-2b1e6e7b554a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     17
+    ]
+   }
   },
   {
    "feed": "tointown/communitybus",
@@ -9884,7 +13383,12 @@
      "path": "data/timetables/tointown__communitybus/84a6058e-761c-4309-a05e-c40a677d469c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tokaicity/tokai-ranranbus",
@@ -9903,7 +13407,15 @@
      "path": "data/timetables/tokaicity__tokai-ranranbus/0f828e1f-291f-4240-ab42-8061b0387541.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     7
+    ]
+   }
   },
   {
    "feed": "tokicity/communitybus",
@@ -9922,7 +13434,15 @@
      "path": "data/timetables/tokicity__communitybus/1d9e1250-0543-45e0-bf7b-4ab78c81b9b7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 19,
+    "earliest": 22,
+    "latest": 11
+   }
   },
   {
    "feed": "tokonamecity/Gruun",
@@ -9954,7 +13474,15 @@
      "path": "data/revisions/tokonamecity__Gruun/2026-12-01__06caf724.json",
      "published_at": "2026-11-10T17:08:13.030298+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     21
+    ]
+   }
   },
   {
    "feed": "tokubus-anan/tokushimabusanan",
@@ -9966,6 +13494,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -9985,7 +13518,15 @@
      "path": "data/timetables/tokubus-nanbu__tokushimabusnanbu/af217a35-bbfb-4f11-b6d9-a9dcfab7c712.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -5
+    ]
+   }
   },
   {
    "feed": "tokubus/tokushimabus",
@@ -10004,7 +13545,15 @@
      "path": "data/timetables/tokubus__tokushimabus/d6b7a3ae-3501-4040-9d50-060bb872b27c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 7,
+    "late": 0,
+    "censored": 0,
+    "median": 6,
+    "earliest": 13,
+    "latest": 0
+   }
   },
   {
    "feed": "tokushima-minamitown/minabubyoinrenrakubus",
@@ -10016,6 +13565,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -10035,7 +13589,16 @@
      "path": "data/timetables/tokushima-miyoshicity__miyoshicitybus/12c810bc-1183-4fff-917b-88bf14a127c1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     7,
+     9
+    ]
+   }
   },
   {
    "feed": "tokushima-shiei/tokushimacitybus",
@@ -10054,7 +13617,15 @@
      "path": "data/timetables/tokushima-shiei__tokushimacitybus/414de2ed-3de0-412e-a1e0-438f62759bb1.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 9,
+    "earliest": 13,
+    "latest": 5
+   }
   },
   {
    "feed": "tokushimacity/kamihachimanbus",
@@ -10073,7 +13644,15 @@
      "path": "data/timetables/tokushimacity__kamihachimanbus/ca69ee7b-4ac2-454c-84ad-082890e87564.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     21
+    ]
+   }
   },
   {
    "feed": "tokushimacity/oujinfureaibus",
@@ -10085,6 +13664,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -10104,7 +13688,12 @@
      "path": "data/timetables/tonamicity__tonamishieibasu/ac56f18b-4fda-4e0a-ad1c-72c8d2a62be4.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tosacity/GTFS-Tosacity_Bus",
@@ -10123,7 +13712,16 @@
      "path": "data/timetables/tosacity__GTFS-Tosacity_Bus/22c146c9-9e7f-480d-bb84-de8c5211947d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -20,
+     26
+    ]
+   }
   },
   {
    "feed": "tosaden-kotsu/GTFS-Tosadentraffic_Airportbus",
@@ -10142,7 +13740,15 @@
      "path": "data/timetables/tosaden-kotsu__GTFS-Tosadentraffic_Airportbus/98c87b94-cb54-46a4-8bf4-8238ef8e8f38.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 11,
+    "late": 0,
+    "censored": 3,
+    "median": 7,
+    "earliest": 57,
+    "latest": -3
+   }
   },
   {
    "feed": "tosaden-kotsu/GTFS-Tosadentraffic_Regularbus",
@@ -10161,7 +13767,15 @@
      "path": "data/timetables/tosaden-kotsu__GTFS-Tosadentraffic_Regularbus/89ea5822-8509-43a5-b210-5a171e31f347.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 9,
+    "earliest": 16,
+    "latest": 0
+   }
   },
   {
    "feed": "tosaden-kotsu/GTFS-Tosadentraffic_Streetcar",
@@ -10180,7 +13794,15 @@
      "path": "data/timetables/tosaden-kotsu__GTFS-Tosadentraffic_Streetcar/e30063ee-668f-4a14-b280-743910b85c51.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     4
+    ]
+   }
   },
   {
    "feed": "tosashimizucity/GTFS-Tosashimizucity_Bus",
@@ -10199,7 +13821,12 @@
      "path": "data/timetables/tosashimizucity__GTFS-Tosashimizucity_Bus/11e5a048-e690-49fc-9d6e-b141d2c4ba0f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "toshinkanko-bus/rosenbus",
@@ -10218,7 +13845,15 @@
      "path": "data/timetables/toshinkanko-bus__rosenbus/d4949f9e-9efa-4e9f-afc6-a31662e3f3cd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -11
+    ]
+   }
   },
   {
    "feed": "towadacity/towadacity_communitybus",
@@ -10237,7 +13872,12 @@
      "path": "data/timetables/towadacity__towadacity_communitybus/587d341b-106e-48e6-b6ff-9af93efbbd61.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "towadakankodentetsu/toutetsu",
@@ -10256,7 +13896,15 @@
      "path": "data/timetables/towadakankodentetsu__toutetsu/cf903418-1593-4a4d-8a4d-8fdcb28c1f1d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     13
+    ]
+   }
   },
   {
    "feed": "towadakankodentetsu/toutetsu_airport_line",
@@ -10288,7 +13936,15 @@
      "path": "data/revisions/towadakankodentetsu__toutetsu_airport_line/2026-12-01__8ba49830.json",
      "published_at": "2026-11-17T11:56:23.369927+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 7,
+    "late": 0,
+    "censored": 0,
+    "median": 14,
+    "earliest": 22,
+    "latest": 6
+   }
   },
   {
    "feed": "toyama-asahitown/asahimachibus",
@@ -10307,7 +13963,16 @@
      "path": "data/timetables/toyama-asahitown__asahimachibus/51d03588-0d35-4252-81dc-284aadaa1ad2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     20,
+     3
+    ]
+   }
   },
   {
    "feed": "toyamacity/fuchucommunitybus",
@@ -10326,7 +13991,12 @@
      "path": "data/timetables/toyamacity__fuchucommunitybus/bcabca58-0b40-4620-8cd0-38c4373d64d9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "toyamacity/horikawaminamicommunitybus",
@@ -10345,7 +14015,16 @@
      "path": "data/timetables/toyamacity__horikawaminamicommunitybus/3f721a67-e4e5-4335-8421-f98010b720ec.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     11,
+     0
+    ]
+   }
   },
   {
    "feed": "toyamacity/jojocommunitybus",
@@ -10357,6 +14036,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -10376,7 +14060,12 @@
      "path": "data/timetables/toyamacity__kurehaikiikibus/9f285d88-b5aa-4403-a235-2681cf677537.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "toyamacity/maidohayabus",
@@ -10395,7 +14084,12 @@
      "path": "data/timetables/toyamacity__maidohayabus/78db53e0-74f9-4b1b-90bd-94062a7336a9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "toyamacity/mizuhashifureaicommunitybus",
@@ -10407,6 +14101,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -10426,7 +14125,16 @@
      "path": "data/timetables/toyamacity__oyamacommunitybus/928d6a38-e1ba-47e3-b18a-8b08569f2451.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -3,
+     8
+    ]
+   }
   },
   {
    "feed": "toyamacity/yamadacommunitybus",
@@ -10445,7 +14153,16 @@
      "path": "data/timetables/toyamacity__yamadacommunitybus/d5e6552d-e229-44a6-9403-e51b6ada14c5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 1,
+    "leads": [
+     -4,
+     8
+    ]
+   }
   },
   {
    "feed": "toyamacity/yatsuocommunitybus",
@@ -10464,7 +14181,15 @@
      "path": "data/timetables/toyamacity__yatsuocommunitybus/98fb29f4-a328-4d28-a3d8-bd33d5249f0a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 1,
+    "censored": 0,
+    "median": 8,
+    "earliest": 11,
+    "latest": 4
+   }
   },
   {
    "feed": "toyoakecity/himawaribus",
@@ -10483,7 +14208,12 @@
      "path": "data/timetables/toyoakecity__himawaribus/7bcb0756-1670-4278-89a6-678d9119c848.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "toyookacity/inacar",
@@ -10502,7 +14232,15 @@
      "path": "data/timetables/toyookacity__inacar/bd97775b-cf27-425d-bc07-dd8ddb975e2b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 21,
+    "earliest": 33,
+    "latest": 11
+   }
   },
   {
    "feed": "toyookacity/kobus",
@@ -10521,7 +14259,12 @@
      "path": "data/timetables/toyookacity__kobus/b08b66d5-af93-421f-b02c-6f02f4f41b5e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "toyotacity/chiikibus",
@@ -10540,7 +14283,16 @@
      "path": "data/timetables/toyotacity__chiikibus/4c50b8a5-b1a9-483b-a054-8db1108ccedd.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     8,
+     14
+    ]
+   }
   },
   {
    "feed": "toyotacity/kikanbus",
@@ -10572,7 +14324,15 @@
      "path": "data/revisions/toyotacity__kikanbus/2026-12-01__f84814a5.json",
      "published_at": "2026-10-14T20:49:02.458333+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 7,
+    "late": 0,
+    "censored": 0,
+    "median": 19,
+    "earliest": 48,
+    "latest": 3
+   }
   },
   {
    "feed": "toyoyamatown/communitybus",
@@ -10598,7 +14358,12 @@
      "path": "data/timetables/toyoyamatown__communitybus/8021865b-7244-4048-bc92-4d27df8e0448.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tozawavillage/tozawavillagebus",
@@ -10617,7 +14382,15 @@
      "path": "data/timetables/tozawavillage__tozawavillagebus/a1f9f554-d8ff-4be1-88f0-6d4e65089fea.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     16
+    ]
+   }
   },
   {
    "feed": "tsu-airportline/airportline",
@@ -10636,7 +14409,15 @@
      "path": "data/timetables/tsu-airportline__airportline/40d54aec-e07e-469f-9b55-02a613377753.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 1,
+    "censored": 0,
+    "median": 6,
+    "earliest": 16,
+    "latest": -11
+   }
   },
   {
    "feed": "tsubamecity/tsubame_bus",
@@ -10655,7 +14436,16 @@
      "path": "data/timetables/tsubamecity__tsubame_bus/632496ee-350a-4c65-858b-e104d6fb4c3d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     15,
+     18
+    ]
+   }
   },
   {
    "feed": "tsuchiuracity/tsuchimarubus",
@@ -10674,7 +14464,15 @@
      "path": "data/timetables/tsuchiuracity__tsuchimarubus/f7da6083-e618-4cb1-86a0-f7ee8e7eced6.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 1,
+    "leads": [
+     -5
+    ]
+   }
   },
   {
    "feed": "tsucity/communitybus",
@@ -10693,7 +14491,15 @@
      "path": "data/timetables/tsucity__communitybus/5b9f12f1-dbd7-483f-bb3f-d09902cf55fc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 1,
+    "median": 21,
+    "earliest": 22,
+    "latest": 5
+   }
   },
   {
    "feed": "tsugarucity/tsugarucity_localtransportation",
@@ -10712,7 +14518,12 @@
      "path": "data/timetables/tsugarucity__tsugarucity_localtransportation/75e0011d-0d4a-471d-b0ab-610bf0942c39.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tsukubacity/TSUKUBANEGO",
@@ -10731,7 +14542,16 @@
      "path": "data/timetables/tsukubacity__TSUKUBANEGO/385fddee-0be6-4894-bfc0-261b15673ca7.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     3,
+     3
+    ]
+   }
   },
   {
    "feed": "tsukubacity/TSUKUBUS",
@@ -10750,7 +14570,15 @@
      "path": "data/timetables/tsukubacity__TSUKUBUS/4b29a7aa-c83a-47f6-b0bd-13a9b9e023c2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": -1,
+    "earliest": 8,
+    "latest": -28
+   }
   },
   {
    "feed": "tsurugitown/tsurugitownbus",
@@ -10769,7 +14597,16 @@
      "path": "data/timetables/tsurugitown__tsurugitownbus/e52f729e-eaf1-47ca-959a-bf399d186237.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     27,
+     28
+    ]
+   }
   },
   {
    "feed": "tsuruokacity/TsuruokaCity",
@@ -10788,7 +14625,15 @@
      "path": "data/timetables/tsuruokacity__TsuruokaCity/8021ccdd-a7b4-4636-a961-dab02ed61993.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 0,
+    "censored": 0,
+    "median": 6,
+    "earliest": 28,
+    "latest": 0
+   }
   },
   {
    "feed": "tsurutatown/tsuruta-townbus",
@@ -10807,7 +14652,12 @@
      "path": "data/timetables/tsurutatown__tsuruta-townbus/48f39053-6bf9-4f02-8dec-e3f292aeada0.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "tsuyamacity/bus-tsuyamacity-okayama-jp",
@@ -10819,6 +14669,15 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     -6,
+     26
+    ]
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -10845,7 +14704,12 @@
      "path": "data/timetables/uchinadatown__communitybus/1f140d00-5de6-4638-8ca4-262af566570e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "uedabus/noriai_bus",
@@ -10864,7 +14728,12 @@
      "path": "data/timetables/uedabus__noriai_bus/6f17cfc8-697b-4106-bae1-4bfea6c0c70d.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "uedacity/uedashigaitizyunkanbus",
@@ -10883,7 +14752,15 @@
      "path": "data/timetables/uedacity__uedashigaitizyunkanbus/48cec01f-a7de-4eba-8e6c-f2048e633250.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 5,
+    "earliest": 6,
+    "latest": -5
+   }
   },
   {
    "feed": "ugokotsu/ugokotsu_honjo",
@@ -10927,7 +14804,15 @@
      "path": "data/revisions/ugokotsu__ugokotsu_honjo/2027-03-23__ad35c1ae.json",
      "published_at": "2026-09-03T15:05:00.090136+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 9,
+    "late": 3,
+    "censored": 0,
+    "median": 7,
+    "earliest": 201,
+    "latest": -2
+   }
   },
   {
    "feed": "ugokotsu/ugokotsu_tazawako",
@@ -10959,7 +14844,15 @@
      "path": "data/revisions/ugokotsu__ugokotsu_tazawako/2026-12-01__51e79a8f.json",
      "published_at": "2026-08-10T14:49:00.137952+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 10,
+    "late": 3,
+    "censored": 1,
+    "median": 60,
+    "earliest": 207,
+    "latest": 6
+   }
   },
   {
    "feed": "uozucity/junkai",
@@ -10978,7 +14871,15 @@
      "path": "data/timetables/uozucity__junkai/6e2f3b1b-6e6e-42af-9d59-2a8d2a4142d2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 4,
+    "late": 1,
+    "censored": 0,
+    "median": 2,
+    "earliest": 4,
+    "latest": -6
+   }
   },
   {
    "feed": "uozucity/omotenashi",
@@ -10990,6 +14891,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -11002,6 +14908,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -11021,7 +14932,12 @@
      "path": "data/timetables/wakocity__Wako-City-junkanbus/13046a05-50fb-4173-b99d-73b3c70f7224.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 1,
+    "censored": 0
+   }
   },
   {
    "feed": "wataraitown/choeibus",
@@ -11040,7 +14956,15 @@
      "path": "data/timetables/wataraitown__choeibus/497286c1-d604-4fa8-b225-3b58fc15256f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     7
+    ]
+   }
   },
   {
    "feed": "yabucity/waiwai-sekimiya-yoka",
@@ -11052,6 +14976,11 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -11071,7 +15000,12 @@
      "path": "data/timetables/yaesetown__yaese-town-bus/b06279d1-5f8e-43d4-8ac6-1b2dc5e2849f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "yaitacity/chuuou-junkan",
@@ -11090,7 +15024,15 @@
      "path": "data/timetables/yaitacity__chuuou-junkan/7e703286-61a4-4f70-8e21-8601056ce0b2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     0
+    ]
+   }
   },
   {
    "feed": "yamagata-asahitown/AsahiTown",
@@ -11109,7 +15051,16 @@
      "path": "data/timetables/yamagata-asahitown__AsahiTown/13348b23-4242-4d16-bed6-0f1de3dd5abc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     17,
+     28
+    ]
+   }
   },
   {
    "feed": "yamagata-kaneyamatown/KaneyamaTown",
@@ -11128,7 +15079,15 @@
      "path": "data/timetables/yamagata-kaneyamatown__KaneyamaTown/e0cbbc85-705c-45bc-ac19-0edf3630789a.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     25
+    ]
+   }
   },
   {
    "feed": "yamagata-ogunitown/OguniTown",
@@ -11147,7 +15106,15 @@
      "path": "data/timetables/yamagata-ogunitown__OguniTown/5fe8468b-bcdf-4923-aaf2-2d9c66cc3b08.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 4,
+    "earliest": 21,
+    "latest": -19
+   }
   },
   {
    "feed": "yamagata-yamagatacity/YamagataCity",
@@ -11166,7 +15133,15 @@
      "path": "data/timetables/yamagata-yamagatacity__YamagataCity/a329e905-2409-4dea-ae40-e54f26d04a88.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 1,
+    "censored": 0,
+    "median": 23,
+    "earliest": 29,
+    "latest": 23
+   }
   },
   {
    "feed": "yamagatatetsudo/flowerliner",
@@ -11185,7 +15160,15 @@
      "path": "data/timetables/yamagatatetsudo__flowerliner/f62087b1-e6f3-4d37-b6fa-b3fc18020d75.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 5,
+    "earliest": 10,
+    "latest": 0
+   }
   },
   {
    "feed": "yamakobus/YAMAKOBUS",
@@ -11204,7 +15187,15 @@
      "path": "data/timetables/yamakobus__YAMAKOBUS/d906f637-f479-4d37-90e7-6100bd0d4222.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 2,
+    "censored": 1,
+    "median": -6,
+    "earliest": 8,
+    "latest": -12
+   }
   },
   {
    "feed": "yamanashi-hokutocity/hokuto-bus",
@@ -11223,7 +15214,12 @@
      "path": "data/timetables/yamanashi-hokutocity__hokuto-bus/f32be0ba-8dd9-4ada-a6aa-732c07a5e9f8.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "yamanashi-nanbutown/nanbucyoueibasu",
@@ -11232,7 +15228,7 @@
    "pref": 19,
    "license": "CC BY 4.0",
    "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
-   "usable": true,
+   "usable": false,
    "timetables": [
     {
      "uid": "b049fd43-594f-49f2-b346-0502645b90d3",
@@ -11242,7 +15238,16 @@
      "path": "data/timetables/yamanashi-nanbutown__nanbucyoueibasu/b049fd43-594f-49f2-b346-0502645b90d3.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     1
+    ]
+   },
+   "note": "このバスの時刻表のデータは、期限が切れています。そのため、まだ使えません"
   },
   {
    "feed": "yamanobetown/YamanobeTown",
@@ -11261,7 +15266,15 @@
      "path": "data/timetables/yamanobetown__YamanobeTown/d6dbb780-51ad-4989-a838-ebfeac7a4bc9.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     39
+    ]
+   }
   },
   {
    "feed": "yamatokoriyamacity/kingyobus",
@@ -11280,7 +15293,12 @@
      "path": "data/timetables/yamatokoriyamacity__kingyobus/f7523f13-4613-4a78-8649-2ba495b0a883.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "yamatotakadacity/communitybuskibougou",
@@ -11299,7 +15317,15 @@
      "path": "data/timetables/yamatotakadacity__communitybuskibougou/170b32f6-d4b1-4d27-a529-afc334368401.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     34
+    ]
+   }
   },
   {
    "feed": "yanagawacity/YanagawaCityCommunityBus",
@@ -11311,6 +15337,14 @@
    "usable": false,
    "timetables": [],
    "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 2,
+    "censored": 0,
+    "leads": [
+     71
+    ]
+   },
    "note": "このバスの、いま使える時刻表のデータがありません"
   },
   {
@@ -11337,7 +15371,16 @@
      "path": "data/timetables/yanaizutown__yanaizutown-bus/77c6e8a9-ce02-4bfe-99da-80958b4df7e5.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 2,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     2,
+     0
+    ]
+   }
   },
   {
    "feed": "yanbaru-expressbus/yanbaru-express-bus",
@@ -11356,7 +15399,15 @@
      "path": "data/timetables/yanbaru-expressbus__yanbaru-express-bus/a7c163a7-1744-4557-9e67-434f37e88f1c.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 1,
+    "censored": 0,
+    "median": -4,
+    "earliest": 4,
+    "latest": -8
+   }
   },
   {
    "feed": "yaotsutown/communitybus",
@@ -11375,7 +15426,15 @@
      "path": "data/timetables/yaotsutown__communitybus/c4a78015-5d3c-4d69-9dbd-e5069eaae1dc.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     5
+    ]
+   }
   },
   {
    "feed": "yaotsutown/yaobus",
@@ -11394,7 +15453,15 @@
      "path": "data/timetables/yaotsutown__yaobus/0c9bf512-83fb-4c2c-bf73-e6181895de82.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 3,
+    "late": 0,
+    "censored": 0,
+    "median": 5,
+    "earliest": 11,
+    "latest": 5
+   }
   },
   {
    "feed": "yasucity/onoriyasu",
@@ -11413,7 +15480,12 @@
      "path": "data/timetables/yasucity__onoriyasu/314ed09f-3aa8-41a1-85d5-be88c048c65f.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "yasudatown/GTFS-Yasudatown_Bus",
@@ -11432,7 +15504,12 @@
      "path": "data/timetables/yasudatown__GTFS-Yasudatown_Bus/8f3ff1aa-41b8-456c-9c29-0161c8f43c55.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "yokkaichicity/communitybus",
@@ -11451,7 +15528,12 @@
      "path": "data/timetables/yokkaichicity__communitybus/36a337c6-acf6-4881-b26d-190cca14ac25.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "yokosukacity/hamachanbus",
@@ -11470,7 +15552,12 @@
      "path": "data/timetables/yokosukacity__hamachanbus/b11e5c54-2a75-4f8b-bec9-f225a2f5bc46.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "yomogitavillage/yomogita-communitybus",
@@ -11489,7 +15576,12 @@
      "path": "data/timetables/yomogitavillage__yomogita-communitybus/8ca6acae-cc64-45ba-abcd-892cc6aa5b13.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "yonezawacity/Yonezawa",
@@ -11521,7 +15613,15 @@
      "path": "data/revisions/yonezawacity__Yonezawa/2026-12-01__be34d058.json",
      "published_at": "2026-11-19T10:32:56.948204+09:00"
     }
-   ]
+   ],
+   "lead": {
+    "n": 5,
+    "late": 0,
+    "censored": 0,
+    "median": 11,
+    "earliest": 23,
+    "latest": 4
+   }
   },
   {
    "feed": "yoshinogawacity/yoshinogawacitybus",
@@ -11540,7 +15640,15 @@
      "path": "data/timetables/yoshinogawacity__yoshinogawacitybus/557df7f5-8546-4cd9-b4c9-b5f6af9eed9e.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 1,
+    "censored": 0,
+    "leads": [
+     16
+    ]
+   }
   },
   {
    "feed": "yotsukaidocity/yoppii",
@@ -11559,7 +15667,12 @@
      "path": "data/timetables/yotsukaidocity__yoppii/07ebe4dd-9c57-44d9-b7ce-82d1638365b2.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
+   }
   },
   {
    "feed": "yukicity/junkaibus",
@@ -11578,7 +15691,15 @@
      "path": "data/timetables/yukicity__junkaibus/94aaa964-d706-48ba-b42d-fd84bd9c155b.json"
     }
    ],
-   "revisions": []
+   "revisions": [],
+   "lead": {
+    "n": 1,
+    "late": 0,
+    "censored": 0,
+    "leads": [
+     47
+    ]
+   }
   }
  ],
  "holidays": {

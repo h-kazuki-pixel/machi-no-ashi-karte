@@ -440,5 +440,84 @@
    "old_days": 33,
    "new_days": 29
   }
+ },
+ {
+  "feed": "omachicity/omachiraicholiner",
+  "feed_name": "特急バス「雷鳥ライナー」",
+  "operator": "大町市",
+  "change_date": "2026-12-01",
+  "published_at": "2026-11-02T10:42:50.580176+09:00",
+  "first_seen_at": "2026-11-02T10:42:50+09:00",
+  "first_seen_basis": "API の公開日時（見る仕組みを始める前に出ていた版。初めて見た日時は分からない）",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+  "path": "data/revisions/omachicity__omachiraicholiner/2026-12-01__f65b2c54.json",
+  "old_uid": "29c03abf-9efb-474f-b4fd-7aa10ed48009",
+  "new_uid": "f65b2c54-0c33-4adb-b830-008b72a257c5",
+  "change_date_known": true,
+  "check": {
+   "revision": "data/revisions/omachicity__omachiraicholiner/2026-12-01__f65b2c54.json",
+   "n": 200,
+   "counts": {
+    "will_be_able": 200
+   },
+   "shares": {
+    "will_be_able": 1
+   },
+   "examples": {
+    "will_be_able": [
+     {
+      "from": "美麻ぽかぽかランド",
+      "to": "信濃大町駅",
+      "day": "sat",
+      "date": "2026-12-26",
+      "cond": "21:03までに着く",
+      "before": null,
+      "after": {
+       "dep": "20:35",
+       "arr": "20:59",
+       "route": "特急バス 長野―大町線「雷鳥ライナー」"
+      },
+      "notes": [
+       "route_starts"
+      ]
+     },
+     {
+      "from": "日影",
+      "to": "大町温泉郷",
+      "day": "thu",
+      "date": "2026-12-03",
+      "cond": "17:08までに着く",
+      "before": null,
+      "after": {
+       "dep": "16:19",
+       "arr": "17:02",
+       "route": "特急バス 長野―大町線「雷鳥ライナー」"
+      },
+      "notes": [
+       "route_starts"
+      ]
+     },
+     {
+      "from": "大町温泉郷",
+      "to": "新行",
+      "day": "wed",
+      "date": "2026-12-09",
+      "cond": "13:29よりあとに乗る",
+      "before": null,
+      "after": {
+       "dep": "13:35",
+       "arr": "14:04",
+       "route": "特急バス 長野―大町線「雷鳥ライナー」"
+      },
+      "notes": [
+       "route_starts"
+      ]
+     }
+    ]
+   },
+   "old_days": 0,
+   "new_days": 29
+  }
  }
 ]
