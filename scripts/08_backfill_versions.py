@@ -127,8 +127,7 @@ def rebuild(site):
     w.write_csv(watch.state / "versions_seen.csv", w.SEEN_COLS, watch.seen)
     w.write_csv(watch.data / "found.csv", w.FOUND_COLS, found)
     w.write_json(watch.data / "revisions" / "index.json", watch.index)
-    if watch.held_rows:
-        w.append_csv(watch.data / "held.csv", w.HELD_COLS, watch.held_rows)
+    w.write_held(watch.data, watch.held, watch.held_examples)
     w.write_attributions(site)
     shutil.rmtree(watch.tmp, ignore_errors=True)
     print(f"リクエスト {REQUESTS['count']}、エラー {len(watch.errors)}")

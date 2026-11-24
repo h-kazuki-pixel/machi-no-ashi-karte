@@ -335,6 +335,14 @@ export function judge(P, reg) {
       if (wasServed && !isServed) out.notes.push({ kind: "stop_not_served", role, name });
     }
   }
+  // 路線の運行が始まる・終わる（比べる日＝登録した曜日の日に、その路線のバスが1本も走らない側がある）
+  const routeRuns = (dates, route) => dates.some((d) => P.patterns[P.days[d].p].some((ti) => P.tripObjs[ti].route === route));
+  if (c.level === "will_be_able" && a.ride && !routeRuns(b.dates, a.ride.route)) {
+    out.notes.push({ kind: "route_starts", route: a.ride.route });
+  }
+  if (c.level === "cannot" && b.ride && !routeRuns(a.dates, b.ride.route)) {
+    out.notes.push({ kind: "route_ends", route: b.ride.route });
+  }
   for (const m of movedStops(P, reg)) out.notes.push({ kind: "stop_moved", ...m });
   if (b.split) out.notes.push({ kind: "split", side: "before" });
   if (a.split) out.notes.push({ kind: "split", side: "after" });

@@ -35,6 +35,9 @@ const sideDays = (side) => Object.keys(P.days).filter((d) => {
 });
 const days = { old: sideDays("old"), new: sideDays("new") };
 const counts = {};
+const examples = {}; // 段階ごとの例（各 EXAMPLES 件）：承認するときに見る
+const EXAMPLES = 3;
+const rideOut = (r) => (r ? { dep: J.hhmm(r.dep), arr: J.hhmm(r.arr), route: r.route } : null);
 let tried = 0, used = 0;
 while (used < N && tried < N * 20) {
   tried++;
@@ -54,7 +57,14 @@ while (used < N && tried < N * 20) {
     : { type: "departAfter", time: t.stops[i].dep - Math.floor(rand() * 11) };
   const r = J.judge(P, { from, to, days: [J.weekdayKey(date)], cond });
   counts[r.level] = (counts[r.level] || 0) + 1;
+  examples[r.level] = examples[r.level] || [];
+  if (examples[r.level].length < EXAMPLES) {
+    examples[r.level].push({ from, to, day: J.weekdayKey(date), date,
+      cond: `${J.hhmm(cond.time)}${cond.type === "arriveBy" ? "までに着く" : "よりあとに乗る"}`,
+      before: rideOut(r.before.ride), after: rideOut(r.after.ride),
+      notes: r.notes.map((n) => n.kind) });
+  }
   used++;
 }
 const shares = Object.fromEntries(Object.entries(counts).map(([k, v]) => [k, Math.round((v / used) * 1000) / 1000]));
-console.log(JSON.stringify({ revision: revPath, n: used, counts, shares, old_days: days.old.length, new_days: days.new.length }));
+console.log(JSON.stringify({ revision: revPath, n: used, counts, shares, examples, old_days: days.old.length, new_days: days.new.length }));

@@ -17,7 +17,16 @@ const RECENT_DAYS = 30; // 変更日からこの日数までは、改正の知�
 // URL で「今日」を切り替えられる（例：?today=2026-11-25）。?demo=1 で例の移動を表示（保存しない）
 const params = new URLSearchParams(location.search);
 const TODAY = params.get("today") || new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Tokyo" }).format(new Date());
-const DEMO = params.get("demo") === "1";
+// ?try=[{登録}, ...]（JSON）で、その登録を保存せずに表示する（確認用）
+const TRY = (() => {
+  try {
+    const t = JSON.parse(params.get("try") || "null");
+    return Array.isArray(t) ? t.map((r, i) => ({ id: `t${i + 1}`, ...r })) : null;
+  } catch {
+    return null;
+  }
+})();
+const DEMO = params.get("demo") === "1" || !!TRY;
 
 const YZ = "yonezawacity/Yonezawa";
 const WK = ["mon", "tue", "wed", "thu", "fri"];
@@ -40,6 +49,7 @@ const cache = new Map(); // パス → JSON
 
 // ---------- 保存 ----------
 function loadRegs() {
+  if (TRY) return TRY;
   if (DEMO) return DEMO_REGS;
   try {
     return JSON.parse(localStorage.getItem(STORE_KEY) || "[]");
@@ -57,9 +67,70 @@ function saveRegs(regs) {
 }
 
 // ---------- データ ----------
+// 版ごとの時刻表は、版の番号（uid）ごとに中身が変わらないので、一度読んだら端末（Cache Storage）に残す。
+// 版が変わるとファイルの名前が変わるので、そのときだけ取り直す。一覧と改正のデータは毎回取る。
+const TT_CACHE = "machi-no-ashi-karte-timetables-v1";
+// Cache Storage が開けない・返事が無い環境（一部のブラウザの設定など）では、端末に残さずに読む
+function openCache() {
+  if (typeof caches === "undefined") return Promise.reject(new Error("no-cache-storage"));
+  return Promise.race([caches.open(TT_CACHE), new Promise((_, rej) => setTimeout(() => rej(new Error("cache-timeout")), 1500))]);
+}
+async function fetchTimetable(path) {
+  try {
+    const c = await openCache();
+    const hit = await c.match(path);
+    if (hit) return hit.json();
+    const r = await fetch(path);
+    if (!r.ok) throw new Error(path);
+    await c.put(path, r.clone());
+    return r.json();
+  } catch (e) {
+    if (e.message === path) throw e;
+    const r = await fetch(path); // Cache Storage が使えないとき（プライベートブラウズなど）
+    if (!r.ok) throw new Error(path);
+    return r.json();
+  }
+}
 async function getJSON(path) {
-  if (!cache.has(path)) cache.set(path, fetch(path).then((r) => (r.ok ? r.json() : Promise.reject(new Error(path)))));
+  if (!cache.has(path)) {
+    const p = path.startsWith("data/timetables/")
+      ? fetchTimetable(path)
+      : fetch(path, { cache: "no-cache" }).then((r) => (r.ok ? r.json() : Promise.reject(new Error(path))));
+    cache.set(path, p);
+  }
   return cache.get(path);
+}
+
+// 一覧にも改正のデータにも出てこない版の時刻表を、端末から消す
+async function pruneTimetableCache() {
+  try {
+    const keep = new Set();
+    for (const f of CATALOG.feeds) for (const t of f.timetables) keep.add(new URL(t.path, location.href).href);
+    const c = await openCache();
+    const used = await usedByRevisions(); // 登録したバスの改正のデータが使う古い版は残す
+    for (const req of await c.keys()) {
+      if (!keep.has(req.url) && !used.has(req.url)) await c.delete(req);
+    }
+  } catch {
+    /* Cache Storage が使えないときは何もしない */
+  }
+}
+let usedCache = null;
+async function usedByRevisions() {
+  if (usedCache) return usedCache;
+  usedCache = new Set();
+  for (const reg of loadRegs()) {
+    const item = feedItem(reg.feed);
+    for (const r of item ? item.revisions : []) {
+      try {
+        const raw = await getJSON(r.path);
+        for (const p of Object.values(raw.meta.timetables)) usedCache.add(new URL(p, location.href).href);
+      } catch {
+        /* 読めない改正は飛ばす */
+      }
+    }
+  }
+  return usedCache;
 }
 const feedItem = (key) => CATALOG.feeds.find((f) => f.feed === key);
 
@@ -163,9 +234,21 @@ function firstDay(res) {
   return res.after.dates[0] || res.P.meta.change_date;
 }
 
+const hasNote = (res, kind) => res.notes && res.notes.some((n) => n.kind === kind);
+
+// 見出し：「12月1日（火）から、『名前』が変わります」。路線の運行が始まる・終わるときは、そう書く
+function headline(res, name) {
+  const past = res.ph === "after";
+  if (hasNote(res, "route_starts")) return `${jDate(firstDay(res))}から、このバスの運行が始まり${past ? "ました" : "ます"}（『${name}』）`;
+  if (hasNote(res, "route_ends")) return `${jDate(firstDay(res))}から、このバスの運行が終わり${past ? "ました" : "ます"}（『${name}』）`;
+  return `${jDate(firstDay(res))}から、『${name}』が${past ? "変わりました" : "変わります"}`;
+}
+
 function levelInfo(res) {
   const past = res.ph === "after";
   const L = res.level;
+  if (hasNote(res, "route_starts")) return { cls: "lv-better", badge: past ? "運行が始まりました" : "運行が始まります" };
+  if (hasNote(res, "route_ends")) return { cls: "lv-cannot", badge: past ? "運行が終わりました" : "運行が終わります" };
   if (L === "will_be_able") {
     return past ? { cls: "lv-better", badge: "1本で行けるようになりました" } : { cls: "lv-better", badge: "1本で行けるようになります" };
   }
@@ -186,6 +269,18 @@ function levelInfo(res) {
 function detailLines(res) {
   const m = res.P.meta;
   const out = [];
+  const ends = res.notes.find((n) => n.kind === "route_ends");
+  const starts = res.notes.find((n) => n.kind === "route_starts");
+  if (ends) {
+    out.push(`${daysText(res.reg.days)}は、「${ends.route}」が走らなくなります。`);
+    out.push(`${m.feed_name}では、この移動に1本で行けるバスがなくなります。`);
+    return out;
+  }
+  if (starts) {
+    out.push(`${daysText(res.reg.days)}に、「${starts.route}」が走り始めます。`);
+    out.push(`${jDate(firstDay(res))}からは、${busText(res.after.ride)} のバスがあります。`);
+    return out;
+  }
   if (res.level === "cannot") {
     out.push(`${m.feed_name}では、1本で行けるバスがなくなります。`);
     const firstSunEnds = res.notes.some((n) => n.kind === "first_sunday_service_ends");
@@ -334,7 +429,7 @@ async function homeView() {
       const verb = n.ph === "after" ? "変わりました" : "変わります";
       html += `<a class="card notice ${li.cls}" href="${href}">
         <span class="badge ${li.cls}">${esc(li.badge)}</span>
-        <div class="name" style="color:var(--fg)">${jDate(firstDay(n))}から、『${esc(x.reg.name)}』が${verb}</div>
+        <div class="name" style="color:var(--fg)">${esc(headline(n, x.reg.name))}</div>
         <div style="color:var(--fg)">${esc(nowLine)}</div></a>`;
     }
   }
@@ -352,7 +447,7 @@ function revisionHtml(res) {
   } else if (res.level === "no_route") {
     html += `<h1>『${esc(res.reg.name)}』</h1>`;
   } else {
-    html += `<span class="badge ${li.cls}">${esc(li.badge)}</span><h1>${jDate(firstDay(res))}から、『${esc(res.reg.name)}』が${verb}</h1>`;
+    html += `<span class="badge ${li.cls}">${esc(li.badge)}</span><h1>${esc(headline(res, res.reg.name))}</h1>`;
   }
   if (res.level !== "no_route") {
     const col = (label, r, cls) => `<div class="col ${cls}"><div class="label">${label}</div>${r ? `<div class="time">${busText(r)}</div><div class="muted">${esc(r.route)}</div>` : `<div class="time">バスがありません</div>`}</div>`;
@@ -559,6 +654,7 @@ async function main() {
     return alertBox("バスの一覧を読みこめませんでした。");
   }
   showChecked();
+  pruneTimetableCache();
   window.addEventListener("hashchange", route);
   route();
 }

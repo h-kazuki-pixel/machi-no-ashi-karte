@@ -74,6 +74,8 @@ test("6. 第1日曜の万世線：12月からは第1日曜の運行が無い", (
   assert.equal(fmt(r.before.ride), "9:00→9:20");
   assert.equal(r.level, "cannot");
   assert.ok(r.notes.some((n) => n.kind === "first_sunday_service_ends"));
+  // 第1日曜には、万世線が1本も走らなくなる → 「運行が終わる」
+  assert.ok(r.notes.some((n) => n.kind === "route_ends" && n.route === "万世線"));
   assert.ok(r.notes.some((n) => n.kind === "too_few_dates"));
 });
 
@@ -139,4 +141,14 @@ test("前の版の有効期間の外の日は比べず、比べる日が無け�
   assert.equal(r.level, "no_compare");
   assert.equal(r.missing, "before");
   assert.deepEqual(r.before.dates, []);
+});
+
+test("運行が始まる・終わるの印は、路線がもう片方の側でも走っているときには付かない", () => {
+  // 国立米沢病院前：学園都市線は12月からも走る（止まらなくなるだけ）→ 運行が終わる、ではない
+  const r = J.judge(P, { from: "米沢駅前", to: "国立米沢病院前", days: ["tue"], cond: { type: "arriveBy", time: t(10, 0) } });
+  assert.equal(r.level, "cannot");
+  assert.equal(r.notes.some((n) => n.kind === "route_ends"), false);
+  // 鶴城高校前：直行便は新しい路線 → 運行が始まる
+  const b = J.judge(P, { from: "米沢駅前", to: "鶴城高校前", days: WEEKDAYS, cond: { type: "arriveBy", time: t(8, 30) } });
+  assert.ok(b.notes.some((n) => n.kind === "route_starts" && n.route === "万世線（直行便）"));
 });

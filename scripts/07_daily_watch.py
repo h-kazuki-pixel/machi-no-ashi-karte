@@ -62,7 +62,21 @@ PAST_LIMIT_DAYS = 30  # 変更日がこれより前の改正は、改正のデ�
 FOUND_COLS = ["found_at", "found_at_basis", "category", "feed", "feed_name", "operator", "new_uid", "published_at", "from_date",
               "to_date", "change_date", "lead_days_seen", "lead_days_published", "change_censored", "late_publish",
               "license", "revision"]
-HELD_COLS = ["held_at", "feed", "feed_name", "operator", "change_date", "old_uid", "new_uid", "reason", "shares"]
+HELD_COLS = ["held_at", "feed", "feed_name", "operator", "change_date", "old_uid", "new_uid", "reason", "shares",
+             "approved_at", "published_path"]
+APPROVALS_PATH = ROOT / "approvals" / "approved.txt"
+
+
+def read_approvals():
+    """承認の一覧（main の approvals/approved.txt）。1行に改正の番号（新しい版の uid の先頭8文字以上）。# から後はメモ"""
+    if not APPROVALS_PATH.exists():
+        return []
+    out = []
+    for line in APPROVALS_PATH.read_text(encoding="utf-8").splitlines():
+        t = line.split("#", 1)[0].strip()
+        if len(t) >= 8:
+            out.append(t)
+    return out
 RULES_PATH = ROOT / "scripts" / "publish_rules.json"
 
 
@@ -216,7 +230,9 @@ class Watch:
         self.status = read_json(self.data / "status.json", {})
         self.index = read_json(self.data / "revisions" / "index.json", [])
         self.daily = daily_feed_keys()
-        self.new_rows, self.found_rows, self.held_rows = [], [], []
+        self.new_rows, self.found_rows = [], []
+        self.held = read_csv(self.data / "held.csv")
+        self.held_examples = read_json(self.data / "held_examples.json", {})
         self._feeds = {}
 
     # zip は一時フォルダにだけ置く
@@ -256,6 +272,7 @@ class Watch:
             except Exception as e:  # noqa: BLE001
                 self.errors.append(f"{key}: {e!r}"[:200])  # 次の回に取り直す（一覧を書き換えない）
         self.prev_feeds = new_snapshot
+        self.process_approvals()
         return self.finish(feeds_checked=checked)
 
     def check_feed(self, key, f):
@@ -408,8 +425,9 @@ class Watch:
             p.parent.mkdir(parents=True, exist_ok=True)
             p.write_text(json.dumps(tt, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
-    def publish_revision(self, key, m, change, found_at, basis):
-        """改正のデータを作り、点検に通れば公開する（目次に載せる）。止めたら held.csv に記録する。"""
+    def publish_revision(self, key, m, change, found_at, basis, approved=False):
+        """改正のデータを作り、点検に通れば公開する（目次に載せる）。止めたら held.csv に記録する。
+        approved=True（人が承認した改正）は、点検の結果を記録するが止めない。"""
         rev, tts = rv.build_revision2(key, m, self.feed_versions(key), change, self.zip_for, self.started.isoformat())
         rev["meta"]["first_seen_at"] = found_at.isoformat()
         rev["meta"]["first_seen_basis"] = basis
@@ -420,7 +438,7 @@ class Watch:
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(json.dumps(rev, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         check = run_check(self.site, rel)
-        held = hold_reason(check)
+        held = "" if approved else hold_reason(check)
         entry = {"feed": key, "feed_name": m["feed_name"], "operator": m["organization_name"],
                  "change_date": change.isoformat(), "published_at": m["published_at"],
                  "first_seen_at": found_at.isoformat(), "first_seen_basis": basis,
@@ -432,13 +450,54 @@ class Watch:
             p.unlink()  # 公開しない（Pages に出さない）。版の番号から、いつでも作り直せる
             if p.parent.exists() and not any(p.parent.iterdir()):
                 p.parent.rmdir()
-            self.held_rows.append({"held_at": self.started.isoformat(), "feed": key, "feed_name": m["feed_name"],
-                                   "operator": m["organization_name"], "change_date": change.isoformat(),
-                                   "old_uid": entry["old_uid"], "new_uid": entry["new_uid"], "reason": held,
-                                   "shares": json.dumps(check.get("shares", {}), ensure_ascii=False)})
+            self.held = [h for h in self.held if not (h["new_uid"] == entry["new_uid"] and h["change_date"] == entry["change_date"])]
+            self.held.append({"held_at": self.started.isoformat(), "feed": key, "feed_name": m["feed_name"],
+                              "operator": m["organization_name"], "change_date": change.isoformat(),
+                              "old_uid": entry["old_uid"], "new_uid": entry["new_uid"], "reason": held,
+                              "shares": json.dumps(check.get("shares", {}), ensure_ascii=False),
+                              "approved_at": "", "published_path": ""})
+            self.held_examples[entry["new_uid"]] = {"feed_name": m["feed_name"], "change_date": change.isoformat(),
+                                                   "shares": check.get("shares", {}), "examples": check.get("examples", {})}
             return f"止めた（点検）: {held}"
         self.index.append(entry)
         return rel
+
+    def process_approvals(self):
+        """承認の一覧に書かれた、止めた改正を公開する（作り直して、点検の結果は記録するが止めない）"""
+        approvals = read_approvals()
+        if not approvals:
+            return
+        found = read_csv(self.data / "found.csv")
+        for h in self.held:
+            if h.get("approved_at") or not any(h["new_uid"].startswith(a) for a in approvals):
+                continue
+            key = h["feed"]
+            r = self.seen_by_uid.get(h["new_uid"])
+            if r is None:
+                self.errors.append(f"承認：{h['new_uid'][:8]} が見た版の一覧にない")
+                continue
+            f = self.prev_feeds.get(key, {})
+            org, fid = key.split("/")
+            m = {**r, "feed": key, "feed_name": h["feed_name"], "organization_name": h["operator"],
+                 "feed_license": r.get("license") or f.get("feed_license"), "feed_license_url": f.get("feed_license_url", ""),
+                 "memo": "", "gtfs_url": f"{API}/organizations/{org}/feeds/{fid}/files/feed.zip?uid={h['new_uid']}"}
+            fr = next((x for x in found if x["new_uid"] == h["new_uid"]), {})
+            found_at = dt.datetime.fromisoformat(fr.get("found_at") or self.started.isoformat())
+            try:
+                rel = self.publish_revision(key, m, dt.date.fromisoformat(h["change_date"]), found_at,
+                                            fr.get("found_at_basis", FOUND_BASIS_WATCH), approved=True)
+            except Exception as e:  # noqa: BLE001
+                self.errors.append(f"承認 {h['new_uid'][:8]}: {e!r}"[:200])
+                continue
+            h["approved_at"] = self.started.isoformat()
+            h["published_path"] = rel
+            r["revision"] = rel
+            for x in found:
+                if x["new_uid"] == h["new_uid"]:
+                    x["revision"] = f"{rel}（承認して公開）"
+            self.held_examples.pop(h["new_uid"], None)
+            print(f"  承認して公開: {h['feed_name']} {h['change_date']} → {rel}")
+        write_csv(self.data / "found.csv", FOUND_COLS, found)
 
     def migrate_found(self):
         """前の決まりで書いた found.csv に種類の列を足し、作らない決まりに当たる改正のデータを取り下げる"""
@@ -483,8 +542,7 @@ class Watch:
         elif not (self.data / "found.csv").exists():
             write_csv(self.data / "found.csv", FOUND_COLS, [])
         write_json(self.data / "revisions" / "index.json", self.index)
-        if self.held_rows:
-            append_csv(self.data / "held.csv", HELD_COLS, self.held_rows)
+        write_held(self.data, self.held, self.held_examples)
         write_attributions(self.site, self.index)
         try:  # バスの一覧を作り直し、使われなくなった時刻表を消す
             cat = import_module("09_build_catalog")
@@ -525,6 +583,43 @@ class Watch:
         for e in self.errors[:10]:
             print("  エラー:", e)
         return 0 if ok else 1
+
+
+def write_held(data, held, examples):
+    """止めた改正の一覧（held.csv）、段階ごとの例（held_examples.json）、人が読む形（held_review.md）"""
+    write_csv(data / "held.csv", HELD_COLS, held)
+    write_json(data / "held_examples.json", examples)
+    names = {"same": "変わらない", "tiny": "ほぼ同じ", "small": "少し変わる", "big": "大きく変わる", "better": "良くなる",
+             "cannot": "行けなくなる", "will_be_able": "行けるようになる", "no_compare": "くらべられない",
+             "no_route": "1本では行けない"}
+    note_names = {"route_starts": "運行が始まる", "route_ends": "運行が終わる", "stop_not_served": "止まらなくなる停留所",
+                  "stop_moved": "のりばが動いた", "too_few_dates": "比べた日が少ない", "split": "日によって分かれた"}
+    lines = ["# 止めた改正（承認を待つもの）", "",
+             "承認するときは、main ブランチの `approvals/approved.txt` に「改正の番号」を1行ずつ書いて push してください。"
+             "次の実行（6時間ごと）で作り直して公開します。", ""]
+    waiting = [h for h in held if not h.get("approved_at")]
+    if not waiting:
+        lines.append("いま承認を待つ改正はありません。")
+    for h in waiting:
+        ex = examples.get(h["new_uid"], {})
+        lines += [f"## {h['feed_name']}（{h['operator']}） {h['change_date']}", "",
+                  f"- 改正の番号：`{h['new_uid'][:8]}`（新しい版 {h['new_uid']}）",
+                  f"- 止めた理由：{h['reason']}",
+                  "- 段階ごとの割合：" + "、".join(f"{names.get(k, k)} {v:.0%}" for k, v in
+                                          sorted(ex.get("shares", {}).items(), key=lambda kv: -kv[1])), ""]
+        for lv, xs in ex.get("examples", {}).items():
+            lines.append(f"### {names.get(lv, lv)}（例 {len(xs)}件）")
+            lines.append("")
+            lines.append("| 乗る → 降りる | 日・条件 | 前 | 後 | 印 |")
+            lines.append("|---|---|---|---|---|")
+            for x in xs:
+                b = f"{x['before']['dep']}発→{x['before']['arr']}着（{x['before']['route']}）" if x["before"] else "なし"
+                a = f"{x['after']['dep']}発→{x['after']['arr']}着（{x['after']['route']}）" if x["after"] else "なし"
+                wd = {"mon": "月", "tue": "火", "wed": "水", "thu": "木", "fri": "金", "sat": "土", "sun": "日"}.get(x["day"], x["day"])
+                marks = "、".join(note_names.get(n, n) for n in x.get("notes", []) if n in note_names)
+                lines.append(f"| {x['from']} → {x['to']} | {x['date']}（{wd}）・{x['cond']} | {b} | {a} | {marks} |")
+            lines.append("")
+    (data / "held_review.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def write_attributions(site, index=None):
