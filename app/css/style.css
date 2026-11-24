@@ -151,3 +151,10 @@ input[type="text"], input[type="search"], input[type="time"] {
 .sheet.fixed .psame { font-size: 11pt; margin: 2px 0; }
 .sheet.fixed .pfoot { font-size: 9pt; margin-top: 12px; }
 @media print { .sheet-wrap { overflow: visible; } }
+
+/* 知らせ（通知） */
+.pushbox { border: 2px solid var(--line); border-radius: 12px; padding: 14px 16px; margin: 20px 0; background: var(--card); }
+.pushbox h2 { font-size: 1.1rem; margin: 0 0 8px; }
+.howto { padding-left: 1.4em; line-height: 1.8; }
+.verdict { font-weight: 700; font-size: 1.1rem; margin-bottom: 4px; }
+.verdict.same { color: var(--same); }

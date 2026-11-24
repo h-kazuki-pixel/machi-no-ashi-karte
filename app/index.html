@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>まちの足カルテ</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#1f5e46">
+  <meta name="apple-mobile-web-app-title" content="まちの足">
 </head>
 <body>
   <header class="bar">
@@ -13,7 +17,7 @@
   </header>
   <main id="view" aria-live="polite"><p class="lead">読みこんでいます…</p></main>
   <footer class="foot">
-    <p>あなたが登録した内容は、この端末の中だけに保存されます。どこにも送りません。</p>
+    <p>あなたが登録した内容（停留所・曜日・時刻）は、この端末の中だけに保存されます。どこにも送りません。</p>
     <p id="checked"></p>
   </footer>
   <script type="module" src="js/app.js"></script>

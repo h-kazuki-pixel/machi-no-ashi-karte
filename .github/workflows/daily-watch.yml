@@ -88,3 +88,17 @@ jobs:
           path: site
       - id: deploy
         uses: actions/deploy-pages@v5
+
+      - name: 知らせを送る（通知のサーバーが設定されているときだけ。Pages に出したあとで送る）
+        env:
+          NOTIFY_URL: ${{ secrets.NOTIFY_URL }}
+          NOTIFY_TOKEN: ${{ secrets.NOTIFY_TOKEN }}
+        run: python3 scripts/10_notify.py --site site
+
+      - name: 待ち行列を site ブランチにコミットする
+        if: always() && steps.deploy.outcome == 'success'
+        run: |
+          cd site
+          git add -A state/notify_queue.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -q -m "知らせを送った記録 $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push origin site

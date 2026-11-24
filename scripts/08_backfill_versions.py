@@ -38,6 +38,7 @@ def main():
     uids = args.uids or [u for u, r in survey.items() if r["rid"].startswith("next")]
 
     watch = w.Watch(site, full=False)
+    watch.queue_notices = False  # 前に出ていた版の作り直しでは、通知を送らない
     already = {r["new_uid"] for r in w.read_csv(watch.data / "found.csv")}
     done = []
     for uid in sorted(uids, key=lambda u: survey[u]["published_at"]):
@@ -102,6 +103,7 @@ def main():
 def rebuild(site):
     """目次にある改正のデータを、いまの作り方（revision-2：前の版をつなげる、点検つき）で作り直す"""
     watch = w.Watch(site, full=False)
+    watch.queue_notices = False  # 前に出ていた版の作り直しでは、通知を送らない
     survey = {r["gtfs_file_uid"]: r for r in csv.DictReader(open(DATA / "versions.csv", encoding="utf-8"))}
     old_index = list(watch.index)
     found = w.read_csv(watch.data / "found.csv")

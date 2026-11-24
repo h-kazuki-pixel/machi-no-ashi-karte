@@ -8,6 +8,7 @@
 import * as J from "./judge.js";
 import { searchStops } from "./search.js";
 import { assembleRevision, assembleTimetables } from "./timetable.js";
+import { pushConfigured, pushSupported, isIos, isStandalone, registerSw, currentSubscription, enablePush, disablePush, syncPush } from "./push.js";
 
 const STORE_KEY = "machi-no-ashi-karte.regs.v2";
 const DAY_LABELS = [["mon", "月"], ["tue", "火"], ["wed", "水"], ["thu", "木"], ["fri", "金"], ["sat", "土"], ["sun", "日"]];
@@ -72,6 +73,7 @@ function saveRegs(regs) {
   } catch {
     alertBox("この端末に保存できませんでした。");
   }
+  if (CATALOG) syncPush(regs, CATALOG); // 通知を受け取っていれば、登録したバスの一覧をサーバーに伝える
 }
 
 // ---------- データ ----------
@@ -214,6 +216,8 @@ function jDateShort(s) {
   const d = J.parseDate(s);
   return `${d.getUTCMonth() + 1}月${d.getUTCDate()}日`;
 }
+// 名前を「」でくくる。名前の中にかぎかっこがあるときは、外側を『』にする（「特急バス「雷鳥ライナー」」にしない）
+const kq = (s) => (/[「」]/.test(String(s)) ? `『${s}』` : `「${s}」`);
 const busText = (r) => `${J.hhmm(r.dep)}発 → ${J.hhmm(r.arr)}着`;
 function condText(c) {
   return c.type === "arriveBy" ? `${J.hhmm(c.time)}までに着きたい` : `${J.hhmm(c.time)}よりあとに乗りたい`;
@@ -280,12 +284,12 @@ function detailLines(res) {
   const ends = res.notes.find((n) => n.kind === "route_ends");
   const starts = res.notes.find((n) => n.kind === "route_starts");
   if (ends) {
-    out.push(`${daysText(res.reg.days)}は、「${ends.route}」が走らなくなります。`);
+    out.push(`${daysText(res.reg.days)}は、${kq(ends.route)}が走らなくなります。`);
     out.push(`${m.feed_name}では、この移動に1本で行けるバスがなくなります。`);
     return out;
   }
   if (starts) {
-    out.push(`${daysText(res.reg.days)}に、「${starts.route}」が走り始めます。`);
+    out.push(`${daysText(res.reg.days)}に、${kq(starts.route)}が走り始めます。`);
     out.push(`${jDate(firstDay(res))}からは、${busText(res.after.ride)} のバスがあります。`);
     return out;
   }
@@ -294,9 +298,9 @@ function detailLines(res) {
     const firstSunEnds = res.notes.some((n) => n.kind === "first_sunday_service_ends");
     if (firstSunEnds) out.push("第1日曜だけ走っていたバスが、なくなります。");
     for (const n of res.notes) {
-      if (n.kind === "stop_not_served" && !firstSunEnds) out.push(`${daysText(res.reg.days)}は、バスが「${n.name}」に止まりません。`);
+      if (n.kind === "stop_not_served" && !firstSunEnds) out.push(`${daysText(res.reg.days)}は、バスが${kq(n.name)}に止まりません。`);
     }
-    if (out.length === 1) out.push(`「${condText(res.reg.cond)}」に合うバスが、なくなります。`);
+    if (out.length === 1) out.push(`${kq(condText(res.reg.cond))}に合うバスが、なくなります。`);
     return out;
   }
   if (res.level === "will_be_able") {
@@ -322,7 +326,7 @@ function detailLines(res) {
   if (res.dRide >= 5) out.push(`乗っている時間が${res.dRide}分長くなります。`);
   if (res.dRide <= -5) out.push(`乗っている時間が${-res.dRide}分短くなります。`);
   if (res.before.ride && res.after.ride && res.before.ride.route !== res.after.ride.route) {
-    out.push(`乗るバスが「${res.after.ride.route}」に変わります。`);
+    out.push(`乗るバスが${kq(res.after.ride.route)}に変わります。`);
   }
   return out;
 }
@@ -342,7 +346,7 @@ function sourceLine(res) {
 }
 
 function attribution(item) {
-  return `出典：${item.operator}「${item.name}」GTFSデータ（${item.license}）、GTFSデータリポジトリ（https://gtfs-data.jp/）。まちの足カルテが加工して作成。`;
+  return `出典：${item.operator}${kq(item.name)}GTFSデータ（${item.license}）、GTFSデータリポジトリ（https://gtfs-data.jp/）。まちの足カルテが加工して作成。`;
 }
 
 function kmText(m) {
@@ -358,7 +362,7 @@ function rideText(r, res) {
 
 function movedHtml(res) {
   return res.notes.filter((n) => n.kind === "stop_moved")
-    .map((n) => `<p class="warn">「${esc(n.name)}」ののりばの場所が、データの上で${kmText(n.meters)} 動いています。現地の案内を確かめてください。</p>`).join("");
+    .map((n) => `<p class="warn">${kq(esc(n.name))}ののりばの場所が、データの上で${kmText(n.meters)} 動いています。現地の案内を確かめてください。</p>`).join("");
 }
 
 function altHtml(res) {
@@ -375,13 +379,13 @@ function altHtml(res) {
   if (a.nearby.length) {
     html += `<p class="muted">近くのバス停を使うと（300m以内）</p>`;
     for (const r of a.nearby) {
-      const where = r.note.changed === "from" ? `「${r.from}」から乗る（${kmText(r.note.meters)}）` : `「${r.to}」で降りる（${kmText(r.note.meters)}）`;
+      const where = r.note.changed === "from" ? `${kq(r.from)}から乗る（${kmText(r.note.meters)}）` : `${kq(r.to)}で降りる（${kmText(r.note.meters)}）`;
       html += `<div class="alt">${esc(where)}<br><strong>${busText(r)}</strong>　<span class="muted">${esc(r.route)}</span><br><span class="muted">${esc(rideText(r, res))}</span></div>`;
     }
   }
   if (!a.nearby.length) {
     html += `<h2>近くのバス停</h2><p>300m以内に、バスが止まるバス停はありません。</p>`;
-    for (const n of a.nearest) html += `<p>「${esc(n.of)}」からいちばん近いバス停は、「${esc(n.name)}」（${kmText(n.meters)}）です。</p>`;
+    for (const n of a.nearest) html += `<p>${kq(esc(n.of))}からいちばん近いバス停は、${kq(esc(n.name))}（${kmText(n.meters)}）です。</p>`;
   }
   if (!a.same.length && !a.nearby.length) html += `<p>${esc(res.P.meta.operator)}やバス会社に、ほかの行き方を相談してください。</p>`;
   return html;
@@ -443,9 +447,96 @@ async function homeView() {
     }
   }
   html += `<a class="btn secondary" href="#add/pref">移動を登録する</a>`;
+  if (pushConfigured() && !DEMO) html += `<div id="push" class="pushbox"></div>`;
   html += `<a class="btn secondary" href="#biz/pref">お店や施設の方へ</a>`;
   if (DEMO) html += `<p class="muted small">例の表示です（保存されません）。</p>`;
   render(html);
+  if (pushConfigured() && !DEMO) pushBox(document.getElementById("push"));
+}
+
+// ---------- 知らせ（通知） ----------
+const PUSH_NOTE = "サーバーに送るのは、知らせの宛先と、登録したバスの番号だけです。行き先や時刻は送りません。";
+async function pushBox(el) {
+  if (!el) return;
+  const head = `<h2>時刻表が変わるときに知らせる</h2>`;
+  if (!pushSupported()) {
+    if (isIos() && !isStandalone()) {
+      el.innerHTML = `${head}<p>iPhone・iPad で知らせを受け取るには、このアプリをホーム画面に追加してください。</p>
+        <ol class="howto"><li>下の共有ボタン（四角から上向きの矢印）を押す</li><li>「ホーム画面に追加」を押す</li>
+        <li>ホーム画面の「まちの足」のアイコンから開く</li><li>この画面の「知らせを受け取る」を押す</li></ol>
+        <p class="muted small">iOS 16.4 以降で使えます。</p>`;
+    } else {
+      el.innerHTML = `${head}<p class="muted">この端末のブラウザでは、知らせを受け取れません。アプリを開くと、変わることが出ます。</p>`;
+    }
+    return;
+  }
+  if (Notification.permission === "denied") {
+    el.innerHTML = `${head}<p>通知が許可されていません。${isIos() ? "iPhone の「設定 → 通知 → まちの足」" : "ブラウザの設定"}から許可してください。</p>`;
+    return;
+  }
+  const sub = await currentSubscription();
+  if (sub) {
+    el.innerHTML = `${head}<p><strong>知らせを受け取っています。</strong>登録したバスの時刻表が変わるとき、この端末に知らせます。</p>
+      <button class="btn secondary" id="push-off">知らせを止める</button><p class="muted small">${PUSH_NOTE}</p>`;
+    el.querySelector("#push-off").addEventListener("click", async (e) => {
+      e.target.disabled = true;
+      try {
+        await disablePush();
+      } catch {
+        /* サーバーに届かなくても、端末の受け取りはやめる。宛先は、届かなくなったときにサーバーが消す */
+      }
+      pushBox(el);
+    });
+    return;
+  }
+  el.innerHTML = `${head}<p>登録したバスの時刻表が変わるとき、この端末に知らせます。</p>
+    <button class="btn" id="push-on">知らせを受け取る</button><p class="muted small">${PUSH_NOTE}</p>`;
+  el.querySelector("#push-on").addEventListener("click", async (e) => {
+    e.target.disabled = true;
+    try {
+      const r = await enablePush(loadRegs(), CATALOG);
+      if (r !== "granted") e.target.insertAdjacentHTML("afterend", `<p class="warn">通知が許可されませんでした。</p>`);
+      else pushBox(el);
+    } catch {
+      e.target.disabled = false;
+      e.target.insertAdjacentHTML("afterend", `<p class="warn">知らせの登録ができませんでした。しばらくしてから、もう一度押してください。</p>`);
+    }
+  });
+}
+
+// 通知を押して開く画面：そのバスの、登録した移動ごとの結果。変わらない移動は、最初に「あなたの移動は変わりません」
+async function noticeView(feed, change) {
+  const item = feedItem(feed);
+  if (!item) return alertBox("このバスのデータが見つかりません。");
+  const verb = TODAY < change ? `${jDateShort(change)}から変わります` : `${jDateShort(change)}に変わりました`;
+  render(`<p class="muted">読みこんでいます…</p>`);
+  const regs = loadRegs().filter((r) => r.feed === feed);
+  let html = `<h1>${esc(item.name)}の時刻表が、${esc(verb)}。</h1>`;
+  if (!regs.length) {
+    html += `<p class="lead">この端末には、このバスの移動が登録されていません。</p>`;
+    return render(html + `<a class="btn secondary" href="#home">わたしの移動へ</a>`);
+  }
+  const items = await Promise.all(regs.map(evaluate));
+  const rows = items.map((x) => ({ x, res: (x.results || []).find((r) => r.P.meta.change_date === change) || null }));
+  const unchanged = (res) => !!res && ["same", "tiny"].includes(res.level);
+  const n = rows.filter((r) => r.res && !unchanged(r.res) && r.res.level !== "no_route").length;
+  html += `<p class="lead">${n ? `登録した移動 ${rows.length}件のうち、${n}件 に関係があります。` : "登録した移動は、どれも変わりません。"}</p>`;
+  for (const { x, res } of rows) {
+    const href = `#trip/${esc(x.reg.id)}`;
+    if (res && unchanged(res)) {
+      const nowLine = x.now && x.now.ride ? `いまのバス　${busText(x.now.ride)}` : "";
+      html += `<a class="card" href="${href}"><div class="verdict same">あなたの移動は変わりません${res.level === "tiny" ? `<span class="small">（${res.shift}分ほどのちがい）</span>` : ""}</div><div class="name">${esc(x.reg.name)}</div><div class="muted nowrap">${esc(nowLine)}</div></a>`;
+    } else if (!res) {
+      html += `<a class="card" href="${href}"><div class="verdict">この移動は、くらべられませんでした</div><div class="name">${esc(x.reg.name)}</div></a>`;
+    } else if (res.level === "no_route") {
+      html += `<a class="card" href="${href}"><div class="verdict">いまも、変わったあとも、1本で行けるバスがありません</div><div class="name">${esc(x.reg.name)}</div></a>`;
+    } else {
+      const li = levelInfo(res);
+      html += `<a class="card notice ${li.cls}" href="${href}"><span class="badge ${li.cls}">${esc(li.badge)}</span>
+        <div class="name" style="color:var(--fg)">${esc(headline(res, x.reg.name))}</div></a>`;
+    }
+  }
+  render(html + `<a class="btn secondary" href="#home">わたしの移動へ</a>`);
 }
 
 function revisionHtml(res) {
@@ -702,7 +793,7 @@ async function bizResultView() {
   const reg = { days: dt.days };
   const P = await bizRevision(item);
   const tm = (v) => (v == null ? "なし" : J.hhmm(v));
-  let html = `<p class="muted">${esc(item.name)}<br>「${esc(bizDraft.stop)}」バス停・${dt.label}<br>開く ${J.hhmm(bizDraft.open)}・閉まる ${J.hhmm(bizDraft.close)}</p>`;
+  let html = `<p class="muted">${esc(item.name)}<br>${kq(esc(bizDraft.stop))}バス停・${dt.label}<br>開く ${J.hhmm(bizDraft.open)}・閉まる ${J.hhmm(bizDraft.close)}</p>`;
   if (!P) {
     const tp = await timetableP(item);
     const h = J.stopHours(tp, bizDraft.stop, nextDates(tp, reg), bizDraft.open, bizDraft.close);
@@ -771,7 +862,7 @@ async function posterView() {
   view().innerHTML = `<section id="screen" class="poster">
     <p class="noprint"><button class="btn" onclick="window.print()">印刷する</button><a class="btn secondary" href="#biz/result">もどる</a></p>
     <div class="sheet-wrap"><div class="sheet fixed">
-      <p class="pkicker">「${esc(bizDraft.stop)}」バス停（${esc(item.name)}）</p>
+      <p class="pkicker">${kq(esc(bizDraft.stop))}バス停（${esc(item.name)}）</p>
       <h1 class="ptitle">${jDate(first)}から<br>${dt.label}のバスの時刻が変わります</h1>
       <p class="plead">このバス停から出るバスのうち、時刻が変わるもの（いまの時刻 → ${jDateShort(first)}からの時刻）です。</p>
       ${body}
@@ -802,6 +893,10 @@ function route() {
   const h = location.hash || "#home";
   if (h === "#home") return homeView();
   if (h.startsWith("#trip/")) return tripView(decodeURIComponent(h.slice(6)));
+  if (h.startsWith("#notice/")) {
+    const [feed, change] = h.slice(8).split("/");
+    return noticeView(decodeURIComponent(feed), change);
+  }
   if (h === "#add/pref") return prefView();
   if (h.startsWith("#add/feed/")) return feedView(h.slice(10));
   if (h === "#biz/pref") return prefView("biz");
@@ -846,6 +941,8 @@ async function main() {
   }
   showChecked();
   pruneTimetableCache();
+  registerSw(); // ホーム画面のアプリとして動かす・通知を受ける
+  if (!DEMO) syncPush(loadRegs(), CATALOG);
   window.addEventListener("hashchange", route);
   route();
 }

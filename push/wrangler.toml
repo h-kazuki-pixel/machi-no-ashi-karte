@@ -1,0 +1,31 @@
+# まちの足カルテ：通知のサーバー（載せる前に、KV の id を入れる）
+name = "machi-no-ashi-push"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+# 呼び出しの記録（ログ）は取らない
+[observability]
+enabled = false
+
+[[kv_namespaces]]
+binding = "SUBS"
+id = "REPLACE_WITH_KV_ID"
+
+[vars]
+ALLOWED_ORIGIN = "https://h-kazuki-pixel.github.io"
+PAGES_BASE = "https://h-kazuki-pixel.github.io/machi-no-ashi-karte"
+# VAPID の連絡先（メールアドレスではなく、リポジトリの URL）
+VAPID_SUBJECT = "https://github.com/h-kazuki-pixel/machi-no-ashi-karte"
+
+# 1年間更新の無い宛先を消す（毎日 3:23 JST）
+[triggers]
+crons = ["23 18 * * *"]
+
+# /subscribe・/unsubscribe：同じところから60秒に10回まで
+[[ratelimits]]
+name = "SUB_LIMIT"
+namespace_id = "1001"
+simple = { limit = 10, period = 60 }
+
+# Secrets（wrangler secret put で入れる。ファイルには書かない）：VAPID_PRIVATE_JWK、NOTIFY_TOKEN

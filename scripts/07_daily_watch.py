@@ -15,6 +15,7 @@ site/ は GitHub Pages の中身そのもの（Actions では main と別のブ�
   state/versions_seen.csv              見た版の一覧（初めて見た日時）
   state/fingerprints.json              毎日更新のフィードの「便と時刻の指紋」（zip は残さない）
   state/runs.csv                       実行の記録
+  state/notify_queue.json              通知を送る改正の待ち行列（10_notify.py が送ったら消す）
 
 決まり:
   - 1.2秒以上あけて順番に取る。User-Agent の連絡先は環境変数 GTFS_CONTACT（ログに出さない）。
@@ -154,6 +155,9 @@ def read_json(p, default):
     return json.loads(p.read_text(encoding="utf-8")) if p.exists() else default
 
 
+NOTIFY_RECENT_DAYS = 30  # アプリが改正の知らせを出し続ける日数と同じ
+
+
 def write_json(p, obj):
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -232,6 +236,9 @@ class Watch:
         self.daily = daily_feed_keys()
         self.new_rows, self.found_rows = [], []
         self.held = read_csv(self.data / "held.csv")
+        # 通知を送る改正の待ち行列（scripts/10_notify.py が、Pages に出したあとで送る）
+        self.notify_queue = read_json(self.state / "notify_queue.json", [])
+        self.queue_notices = True  # 作り直し（08 の --rebuild など）では False にする
         self.held_examples = read_json(self.data / "held_examples.json", {})
         self._feeds = {}
 
@@ -460,7 +467,16 @@ class Watch:
                                                    "shares": check.get("shares", {}), "examples": check.get("examples", {})}
             return f"止めた（点検）: {held}"
         self.index.append(entry)
+        self.queue_notice(key, change)
         return rel
+
+    def queue_notice(self, key, change):
+        """公開した改正を、通知の待ち行列に入れる（変わる日から30日より前の改正は、知らせない）"""
+        if not self.queue_notices or (self.started.date() - change).days > NOTIFY_RECENT_DAYS:
+            return
+        if any(q["feed"] == key and q["change_date"] == change.isoformat() for q in self.notify_queue):
+            return
+        self.notify_queue.append({"feed": key, "change_date": change.isoformat(), "queued_at": self.started.isoformat(), "after": None})
 
     def process_approvals(self):
         """承認の一覧に書かれた、止めた改正を公開する（作り直して、点検の結果は記録するが止めない）"""
@@ -543,6 +559,7 @@ class Watch:
             write_csv(self.data / "found.csv", FOUND_COLS, [])
         write_json(self.data / "revisions" / "index.json", self.index)
         write_held(self.data, self.held, self.held_examples)
+        write_json(self.state / "notify_queue.json", self.notify_queue)
         write_attributions(self.site, self.index)
         try:  # バスの一覧を作り直し、使われなくなった時刻表を消す
             cat = import_module("09_build_catalog")
@@ -634,7 +651,7 @@ def write_attributions(site, index=None):
             continue
         feeds.setdefault(m["feed"], {"operator": m["operator"], "feed_name": m["feed_name"],
                                      "license": m["license"], "license_url": m["license_url"]})
-    items = [{"feed": k, **v, "text": f"{v['operator']}「{v['feed_name']}」GTFSデータ（{v['license']}）"}
+    items = [{"feed": k, **v, "text": f"{v['operator']}{br.kq(v['feed_name'])}GTFSデータ（{v['license']}）"}
              for k, v in sorted(feeds.items())]
     write_json(site / "data" / "attributions.json", {
         "note": "このサイトの改正のデータは、GTFSデータリポジトリ（https://gtfs-data.jp/）で公開されている次のGTFSデータを、まちの足カルテが加工して作成したものです。",
@@ -666,9 +683,9 @@ def bootstrap(site):
 def publish_app(site):
     """main の app/ をサイトに写す（dev/ と test/ は写さない）"""
     app = ROOT / "app"
-    for name in ("index.html",):
+    for name in ("index.html", "sw.js", "manifest.webmanifest"):
         shutil.copy2(app / name, site / name)
-    for d in ("js", "css"):
+    for d in ("js", "css", "icons"):
         if (site / d).exists():
             shutil.rmtree(site / d)
         shutil.copytree(app / d, site / d)
