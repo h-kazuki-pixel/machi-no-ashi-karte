@@ -1,2 +1,2 @@
-held_at,feed,feed_name,operator,change_date,old_uid,new_uid,reason,shares
-2026-11-24T10:13:46+09:00,omachicity/omachiraicholiner,特急バス「雷鳥ライナー」,大町市,2026-12-01,29c03abf-9efb-474f-b4fd-7aa10ed48009,f65b2c54-0c33-4adb-b830-008b72a257c5,will_be_able 100%（上限 40%）、cannot＋will_be_able 100%（上限 60%）,"{""will_be_able"": 1}"
+held_at,feed,feed_name,operator,change_date,old_uid,new_uid,reason,shares,approved_at,published_path
+2026-11-24T10:39:14+09:00,omachicity/omachiraicholiner,特急バス「雷鳥ライナー」,大町市,2026-12-01,29c03abf-9efb-474f-b4fd-7aa10ed48009,f65b2c54-0c33-4adb-b830-008b72a257c5,will_be_able 100%（上限 40%）、cannot＋will_be_able 100%（上限 60%）,"{""will_be_able"": 1}",,
