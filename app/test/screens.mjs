@@ -42,7 +42,7 @@ const catalog = {
     revisions: variants[feed] ? [{ change_date: base.meta.change_date, path: revPath(feed), published_at: base.meta.new.published_at,
                   ...(feed === "test/unknown" ? { change_date_known: false } : {}) }] : [],
     // 「ふだん何日前に分かるか」：米沢だけ試しの数を入れる（ほかは記録が少ない）
-    lead: feed === "yonezawacity/Yonezawa" ? { n: 5, late: 1, censored: 2, median: 12, earliest: 20, latest: 3 } : { n: 1, late: 0, censored: 0 },
+    lead: feed === "yonezawacity/Yonezawa" ? { n: 5, late: 1, censored: 2, median: 12, earliest: 257, latest: 3 } : { n: 1, late: 0, censored: 0 },
   })),
   holidays,
 };
@@ -102,7 +102,7 @@ const cases = [
   { name: "ホーム（全部の移動）", hash: "#home", want: ["わたしの移動", ...regs.map((r) => `例${r.id}`)] },
   { name: "通知を押して開く画面", hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["米沢市営バスの時刻表が、12月1日から変わります。", "あなたの移動は変わりません"] },
   { name: "通知を押して開く画面（変わる日が分からない）", hash: `#notice/${encodeURIComponent("test/unknown")}/2026-12-01`, want: ["米沢市営バスの時刻表が変わりました。"] },
-  { name: "バスを選ぶ画面（ふだん何日前）", hash: "#add/feed/6", want: ["このバスの新しい時刻表は、ふだん、変わる日の約12日前に出ています（これまでの5回。早いときは20日前、遅いときは3日前）"] },
+  { name: "バスを選ぶ画面（ふだん何日前）", hash: "#add/feed/6", want: ["このバスの新しい時刻表は、ふだん、変わる日の約12日前に出ています（これまでの5回。早いときは3か月以上前、遅いときは3日前）"] },
   { name: "改正の知らせの出典の行（ふだん何日前）", hash: "#trip/big", want: ["約12日前に出ています"] },
   // 変わる日を過ぎたあと（12/2）：「変わりました」。古い版はバスの一覧に無いが、改正のデータは古い版の時刻表を読む
   { today: "2026-12-02", name: "12/2 移動の画面：行けなくなる（国立米沢病院前）", hash: "#trip/cannot", want: ["1本で行けるバスがなくなりました", "12月1日（火）から、『例cannot』が変わりました", "9:00発 → 9:13着"] },

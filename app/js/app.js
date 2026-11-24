@@ -450,6 +450,9 @@ function cautionDates(x) {
 
 // バスごとの「ふだん、変わる日の何日前に新しい時刻表が出るか」（catalog の lead。公開が遅い版・変わる日がはっきりしない組は除いた回数と日数）
 function leadDayText(d) {
+  // 90日を超える回は「3か月以上前（あと）」とまとめる（「257日前」のような回）
+  if (d > 90) return "3か月以上前";
+  if (d < -90) return "3か月以上あと";
   return d > 0 ? `${d}日前` : d === 0 ? "当日" : `${-d}日あと`;
 }
 function leadText(item) {
