@@ -124,3 +124,14 @@ test("毎週の移動は前後35日から選ぶ", () => {
   const d = J.compareDates(P, { days: ["tue"], from: "米沢駅前", to: "上杉神社前" });
   assert.ok(d.before[0] >= "2026-10-27" && d.after.at(-1) <= "2027-01-04");
 });
+
+test("前の版の有効期間の外の日は比べず、比べる日が無ければ「くらべられない」", () => {
+  const Q = J.prepare(JSON.parse(JSON.stringify(rev)));
+  for (const [d, v] of Object.entries(Q.days)) {
+    if (d < Q.meta.change_date) v.marks.push({ kind: "outside", label: "この版の有効期間の外" });
+  }
+  const r = J.judge(Q, { from: "上杉神社前", to: "米沢駅前", days: WEEKDAYS, cond: { type: "arriveBy", time: t(8, 0) } });
+  assert.equal(r.level, "no_compare");
+  assert.equal(r.missing, "before");
+  assert.deepEqual(r.before.dates, []);
+});

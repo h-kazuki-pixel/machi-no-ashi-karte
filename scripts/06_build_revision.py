@@ -163,7 +163,11 @@ def build_revision(feed_key, mo, mn, change, old_path=None, new_path=None, built
         if key not in pidx:
             pidx[key] = len(patterns)
             patterns.append(tl)
-        days[day.isoformat()] = {"v": label, "p": pidx[key], "marks": day_marks(v.feed, day, lo, hi)}
+        marks = day_marks(v.feed, day, lo, hi)
+        if not (lo <= day <= hi):
+            # 版の有効期間の外の日（その版にはバスが無い）。比べる日から外す
+            marks.append({"kind": "outside", "label": "この版の有効期間の外"})
+        days[day.isoformat()] = {"v": label, "p": pidx[key], "marks": marks}
 
     def pub(m):
         return dt.datetime.fromisoformat(m["published_at"]).astimezone(dt.timezone(dt.timedelta(hours=9)))

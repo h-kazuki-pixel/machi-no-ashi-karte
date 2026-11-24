@@ -53,8 +53,10 @@ BOOTSTRAP_CHECKED_AT = "2026-11-23T12:00:00+09:00"  # 調査で全部の版を�
 SEEN_COLS = ["feed", "gtfs_file_uid", "first_seen_at", "source", "published_at", "from_date", "to_date",
              "rid_at_first_seen", "declared_kind", "license", "kind", "actual_change_date", "lead_days_seen",
              "revision", "gone_at"]
+FOUND_BASIS_WATCH = "見る仕組みが見つけた日時"
+FOUND_BASIS_API = "API の公開日時（見る仕組みを始める前に出ていた版。初めて見た日時は分からない）"
 PAST_LIMIT_DAYS = 30  # 変更日がこれより前の改正は、改正のデータを作らない
-FOUND_COLS = ["found_at", "category", "feed", "feed_name", "operator", "new_uid", "published_at", "from_date",
+FOUND_COLS = ["found_at", "found_at_basis", "category", "feed", "feed_name", "operator", "new_uid", "published_at", "from_date",
               "to_date", "change_date", "lead_days_seen", "lead_days_published", "change_censored", "late_publish",
               "license", "revision"]
 RUN_COLS = ["started_at", "finished_at", "mode", "feeds_checked", "requests", "new_versions", "found", "errors"]
@@ -81,6 +83,16 @@ def write_csv(p, cols, rows):
 
 
 def append_csv(p, cols, rows):
+    """行を足す。前の版の列のファイルなら、新しい列の見出しに直してから足す"""
+    if p.exists():
+        with open(p, encoding="utf-8") as fp:
+            header = next(csv.reader(fp), [])
+        if header != cols:
+            old = read_csv(p)
+            for r in old:
+                if "found_at_basis" in cols and not r.get("found_at_basis"):
+                    r["found_at_basis"] = FOUND_BASIS_WATCH
+            write_csv(p, cols, old)
     new = not p.exists()
     p.parent.mkdir(parents=True, exist_ok=True)
     with open(p, "a", newline="", encoding="utf-8") as fp:
@@ -288,9 +300,10 @@ class Watch:
             row["kind"] = "error"
             self.errors.append(f"{key} {m['gtfs_file_uid'][:8]}: {e!r}"[:200])
 
-    def found(self, key, f, prev, m, res, row):
+    def found(self, key, f, prev, m, res, row, found_at=None, basis=FOUND_BASIS_WATCH):
+        found_at = found_at or self.started
         change = dt.date.fromisoformat(res["actual_change_date"])
-        seen_date = self.started.date()
+        seen_date = found_at.astimezone(JST).date()
         row["actual_change_date"] = change.isoformat()
         row["lead_days_seen"] = (change - seen_date).days
         lic_ok = m["feed_license"] in br.ALLOWED_LICENSES and prev.get("feed_license", m["feed_license"]) in br.ALLOWED_LICENSES
@@ -306,7 +319,8 @@ class Watch:
                              "organization_name": m["organization_name"], "feed_name": m["feed_name"], "memo": prev.get("memo", "")}
                 out, _ = br.build_revision(key, prev_meta, m, change, self.zip_path(prev["gtfs_file_uid"]),
                                            self.zip_path(m["gtfs_file_uid"]), built_at=self.started.isoformat())
-                out["meta"]["first_seen_at"] = self.started.isoformat()
+                out["meta"]["first_seen_at"] = found_at.isoformat()
+                out["meta"]["first_seen_basis"] = basis
                 org, fid = key.split("/")
                 rel = f"data/revisions/{org}__{fid}/{change.isoformat()}__{m['gtfs_file_uid'][:8]}.json"
                 p = self.site / rel
@@ -315,7 +329,8 @@ class Watch:
                 revision = rel
                 self.index.append({"feed": key, "feed_name": m["feed_name"], "operator": m["organization_name"],
                                    "change_date": change.isoformat(), "published_at": m["published_at"],
-                                   "first_seen_at": self.started.isoformat(), "license": m["feed_license"],
+                                   "first_seen_at": found_at.isoformat(), "first_seen_basis": basis,
+                                   "license": m["feed_license"],
                                    "license_url": m["feed_license_url"], "path": rel,
                                    "old_uid": prev["gtfs_file_uid"], "new_uid": m["gtfs_file_uid"]})
             except Exception as e:  # noqa: BLE001
@@ -325,7 +340,7 @@ class Watch:
             revision = "作らない（ライセンス）"
         row["revision"] = revision
         self.found_rows.append({
-            "found_at": self.started.isoformat(), "category": category, "feed": key, "feed_name": m["feed_name"],
+            "found_at": found_at.isoformat(), "found_at_basis": basis, "category": category, "feed": key, "feed_name": m["feed_name"],
             "operator": m["organization_name"], "new_uid": m["gtfs_file_uid"], "published_at": m["published_at"],
             "from_date": m["from_date"], "to_date": m["to_date"], "change_date": change.isoformat(),
             "lead_days_seen": (change - seen_date).days,
@@ -337,6 +352,11 @@ class Watch:
         """前の決まりで書いた found.csv に種類の列を足し、作らない決まりに当たる改正のデータを取り下げる"""
         p = self.data / "found.csv"
         rows = read_csv(p)
+        if rows and "category" in rows[0] and "found_at_basis" not in rows[0]:
+            for r in rows:
+                r["found_at_basis"] = FOUND_BASIS_WATCH
+            write_csv(p, FOUND_COLS, rows)  # 見つけた日時の根拠の列を足す
+            return
         if not rows or "category" in rows[0]:
             return
         seen = {r["gtfs_file_uid"]: r for r in self.seen}
@@ -346,6 +366,7 @@ class Watch:
             r["to_date"] = to
             change = dt.date.fromisoformat(r["change_date"])
             r["category"] = found_category(change, fd, dt.date.fromisoformat(to))
+            r["found_at_basis"] = FOUND_BASIS_WATCH
             skip = skip_reason(r["category"], change, fd)
             if skip and r["revision"].startswith("data/revisions/"):
                 f = self.site / r["revision"]

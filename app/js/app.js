@@ -3,7 +3,11 @@
 import * as J from "./judge.js";
 import { searchStops } from "./search.js";
 
-const REVISION_URL = "data/revisions/yonezawa_20261201.json";
+// ?rev=data/revisions/... で、ほかの改正のデータを開ける（確認用）
+const REVISION_URL = (() => {
+  const r = new URLSearchParams(location.search).get("rev");
+  return r && /^data\/revisions\/[\w./-]+\.json$/.test(r) ? r : "data/revisions/yonezawa_20261201.json";
+})();
 const STORE_KEY = "machi-no-ashi-karte.regs.v1";
 const DAY_LABELS = [["mon", "月"], ["tue", "火"], ["wed", "水"], ["thu", "木"], ["fri", "金"], ["sat", "土"], ["sun", "日"]];
 const WD_JP = ["日", "月", "火", "水", "木", "金", "土"];
@@ -81,6 +85,7 @@ function levelInfo(res, ph = phase()) {
     return past ? { cls: "lv-better", badge: "1本で行けるようになりました" } : { cls: "lv-better", badge: "1本で行けるようになります" };
   }
   if (L === "no_route") return { cls: "lv-none", badge: "いまは1本では行けません" };
+  if (L === "no_compare") return { cls: "lv-none", badge: "くらべられません" };
   const map = {
     cannot: ["lv-cannot", "1本で行けるバスがなくなります", "1本で行けるバスがなくなりました"],
     big: ["lv-big", "時刻が大きく変わります", "時刻が大きく変わりました"],
@@ -108,6 +113,13 @@ function detailLines(res) {
   if (res.level === "will_be_able") {
     out.push(`いままでは、${P.meta.feed_name}に1本で行けるバスがありませんでした。`);
     out.push(`${jDate(firstDay(res))}からは、${busText(res.after.ride)} のバスがあります。`);
+    return out;
+  }
+  if (res.level === "no_compare") {
+    out.push(res.missing === "before"
+      ? `${jDate(P.meta.change_date)}より前の時刻表のデータが無いため、くらべられません。`
+      : `${jDate(P.meta.change_date)}からの時刻表のデータが無いため、くらべられません。`);
+    if (res.after.ride) out.push(`${jDate(firstDay(res))}からは、${busText(res.after.ride)} のバスがあります。`);
     return out;
   }
   if (res.level === "no_route") {
@@ -190,7 +202,7 @@ function homeView() {
     const verb = ph === "after" ? "変わりました" : "変わります";
     html += `<p class="lead"><strong>${jDate(P.meta.change_date)}から、バスの時刻表が${verb}。</strong>あなたの移動のうち ${changing.length}件 に関係があります。</p>`;
   }
-  const order = { cannot: 0, big: 1, small: 2, will_be_able: 3, better: 4, no_route: 5, tiny: 6, same: 7 };
+  const order = { cannot: 0, big: 1, small: 2, will_be_able: 3, better: 4, no_compare: 5, no_route: 6, tiny: 7, same: 8 };
   items.sort((a, b) => order[a.res.level] - order[b.res.level]);
   for (const x of items) {
     const li = levelInfo(x.res);
@@ -441,7 +453,9 @@ async function showChecked() {
     const st = await (await fetch("data/status.json", { cache: "no-store" })).json();
     if (!st.last_checked_at) return;
     const t = new Date(st.last_checked_at);
-    const jst = new Intl.DateTimeFormat("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit" }).format(t);
+    // ほかの画面と同じ「11月24日（火）9:35」の書き方（日本時間）
+    const j = new Date(t.getTime() + 9 * 3600000);
+    const jst = `${j.getUTCMonth() + 1}月${j.getUTCDate()}日（${WD_JP[j.getUTCDay()]}）${j.getUTCHours()}:${String(j.getUTCMinutes()).padStart(2, "0")}`;
     const hours = (Date.now() - t.getTime()) / 3600000;
     el.textContent = `時刻表を最後に確かめた日時：${jst}` + (hours > 48 ? "（しばらく確かめられていません）" : "");
   } catch {
