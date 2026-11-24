@@ -2,6 +2,102 @@
  "note": "このサイトの改正のデータは、GTFSデータリポジトリ（https://gtfs-data.jp/）で公開されている次のGTFSデータを、まちの足カルテが加工して作成したものです。",
  "items": [
   {
+   "feed": "kaetsunou/kaetsunouippan",
+   "operator": "加越能バス",
+   "feed_name": "加越能バス（一般路線）",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
+   "text": "加越能バス「加越能バス（一般路線）」GTFSデータ（CC0 1.0）"
+  },
+  {
+   "feed": "kahokutown/KahokuTown",
+   "operator": "河北町",
+   "feed_name": "河北町営バス",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "河北町「河北町営バス」GTFSデータ（CC BY 4.0）"
+  },
+  {
+   "feed": "keneibus/nagasaki-kenei-bus",
+   "operator": "長崎県営バス",
+   "feed_name": "長崎県営バス",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "長崎県営バス「長崎県営バス」GTFSデータ（CC BY 4.0）"
+  },
+  {
+   "feed": "kochi-ekimae-kanko/GTFS-Ekimae_Airportbus",
+   "operator": "株式会社高知駅前観光",
+   "feed_name": "空港連絡バス",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "株式会社高知駅前観光「空港連絡バス」GTFSデータ（CC BY 4.0）"
+  },
+  {
+   "feed": "meikobus/meikobus",
+   "operator": "明光バス株式会社",
+   "feed_name": "明光バス",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "明光バス株式会社「明光バス」GTFSデータ（CC BY 4.0）"
+  },
+  {
+   "feed": "omachicity/omachiraicholiner",
+   "operator": "大町市",
+   "feed_name": "特急バス「雷鳥ライナー」",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "大町市「特急バス「雷鳥ライナー」」GTFSデータ（CC BY 4.0）"
+  },
+  {
+   "feed": "shinjocity/ShinjoCity",
+   "operator": "新庄市",
+   "feed_name": "新庄市営バス",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "新庄市「新庄市営バス」GTFSデータ（CC BY 4.0）"
+  },
+  {
+   "feed": "tokonamecity/Gruun",
+   "operator": "常滑市",
+   "feed_name": "コミュニティバスグルーン",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
+   "text": "常滑市「コミュニティバスグルーン」GTFSデータ（CC0 1.0）"
+  },
+  {
+   "feed": "towadakankodentetsu/toutetsu_airport_line",
+   "operator": "十和田観光電鉄株式会社",
+   "feed_name": "十和田観光電鉄（八戸～三沢空港線）",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "十和田観光電鉄株式会社「十和田観光電鉄（八戸～三沢空港線）」GTFSデータ（CC BY 4.0）"
+  },
+  {
+   "feed": "toyotacity/kikanbus",
+   "operator": "豊田市",
+   "feed_name": "とよたおいでんバス",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "豊田市「とよたおいでんバス」GTFSデータ（CC BY 4.0）"
+  },
+  {
+   "feed": "ugokotsu/ugokotsu_honjo",
+   "operator": "羽後交通株式会社",
+   "feed_name": "羽後交通（本荘地区）",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "羽後交通株式会社「羽後交通（本荘地区）」GTFSデータ（CC BY 4.0）"
+  },
+  {
+   "feed": "ugokotsu/ugokotsu_tazawako",
+   "operator": "羽後交通株式会社",
+   "feed_name": "羽後交通（田沢湖地区）",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "羽後交通株式会社「羽後交通（田沢湖地区）」GTFSデータ（CC BY 4.0）"
+  },
+  {
    "feed": "yonezawacity/Yonezawa",
    "operator": "米沢市",
    "feed_name": "米沢市営バス",

@@ -25,6 +25,7 @@ export const LEVELS = {
   better: { order: 5, label: "良くなる" },
   will_be_able: { order: 6, label: "行けるようになる" }, // 前は1本で行けず、新しい時刻表では行ける
   no_route: { order: 7, label: "1本では行けない" },      // 前も後も1本で行けない（登録はできる）
+  no_compare: { order: 8, label: "くらべられない" },      // 前か後に、比べられる日（時刻表のデータがある日）が無い
 };
 
 const WEEKDAY_KEYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
@@ -318,7 +319,10 @@ export function judge(P, reg) {
   const { before, after } = compareDates(P, reg);
   const b = bestOverDates(P, reg, before);
   const a = bestOverDates(P, reg, after);
-  const c = classify(b.ride, a.ride, reg.cond);
+  // 比べられる日が無い側があるときは、行ける・行けないを言わない
+  const c = !before.length || !after.length
+    ? { level: "no_compare", missing: !before.length ? "before" : "after" }
+    : classify(b.ride, a.ride, reg.cond);
   const out = { reg, before: b, after: a, ...c, notes: [] };
   const hasSpecial = (dates) => dates.some((d) => P.days[d].marks.some((m) => m.kind === "special"));
   if (reg.days.includes("first_sun") && hasSpecial(b.dates) && !hasSpecial(a.dates)) {
