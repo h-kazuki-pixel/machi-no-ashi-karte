@@ -23,7 +23,22 @@ KV `machi-no-ashi-push-SUBS` だけ。回数の制限の番号（namespace_id）
    - `NOTIFY_URL`：`https://machi-no-ashi-push.h-kazuki.workers.dev`
    - `NOTIFY_TOKEN`：5 と同じ合言葉
 8. **Cloudflare の画面で確かめる**（開発者）：Workers & Pages → machi-no-ashi-push → Settings → Observability（ログ）が無効
-9. **手元の iPhone と Android で確かめる**：受け取る・止める・通知を押して開く画面
+9. **手元の iPhone と Android で確かめる**：受け取る・止める・通知を押して開く画面（下の「試しの送り方」）
+
+## 試しの送り方（本物の改正と分ける）
+
+- `/notify` に `"test": true` と `"to": "端末の番号"` を付けると、その1つの宛先だけに送る。送った印（二度送らない記録）は付けない。
+- 端末の番号は、アプリの「知らせを受け取っています」の下に出る8文字（宛先のハッシュの先頭。宛先の URL は出さない）。
+- 通知の文は、本物と同じ形に「（試し）」が付く。押して開く画面の見出しにも「（試し）」が付く。
+- 公開中の改正（一覧にあるもの）でしか送れないのは、本物と同じ。合言葉も要る。
+
+```
+read -s T   # 合言葉を貼って Enter（画面に出ない・履歴に残らない）
+curl -s -X POST -H "Authorization: Bearer $T" -H "Content-Type: application/json" \
+  -d '{"feed":"yonezawacity/Yonezawa","change_date":"2026-12-01","test":true,"to":"端末の番号"}' \
+  https://machi-no-ashi-push.h-kazuki.workers.dev/notify; echo; unset T
+```
+返事：`{"ok":true,"test":true,"sent":1,"status":201,"registered_feed":true}`（registered_feed は、その端末がそのバスを登録しているか）
 
 ## 動き
 

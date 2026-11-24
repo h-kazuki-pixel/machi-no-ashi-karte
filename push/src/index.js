@@ -9,6 +9,7 @@
 //   POST /subscribe     { subscription: {endpoint, keys: {p256dh, auth}}, feeds: [...], old_endpoint? }   アプリから
 //   POST /unsubscribe   { endpoint }                                                                 アプリから
 //   POST /notify        { feed, change_date, after? }  合言葉（Authorization: Bearer）つき                見る仕組みから
+//                       { feed, change_date, test: true, to: "端末の番号（8文字）" }  試し：その1つの宛先だけに送る。送った印は付けない
 //   毎日の定時の処理     1年間更新の無い宛先を消す
 import { sendPush, b64u, unb64u } from "./webpush.js";
 
@@ -140,6 +141,8 @@ async function notify(req, env) {
   const body = await readBody(req);
   const { feed, change_date: change, after } = body || {};
   if (typeof feed !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(change || "")) return json({ error: "bad_request" }, 400);
+  const test = body.test === true;
+  if (test && !/^[0-9a-f]{8}$/.test(body.to || "")) return json({ error: "bad_device_number" }, 400);
   // 合言葉が漏れても、公開中の改正のときにしか送れない：一覧にその改正があり、変わる日が30日より前でないこと
   const cat = await catalog(env, true);
   const item = cat.feeds.find((f) => f.feed === feed);
@@ -148,6 +151,11 @@ async function notify(req, env) {
   if (!rev || daysBetween(change, today) > RECENT_DAYS) {
     return json({ error: "not_published" }, 409);
   }
+  // 中身はバスの番号と変わる日だけ（変わる日が分からない改正は、その印も。一覧から決める）
+  const payload = JSON.stringify({ feed, change_date: change, ...(rev.change_date_known === false ? { known: false } : {}),
+                                   ...(test ? { test: true } : {}) });
+  const authCache = new Map();
+  if (test) return await notifyTest(env, body.to, feed, payload, authCache);
   const mark = `n:${feed}:${change}`;
   if (!after) {
     if (await env.SUBS.get(mark)) return json({ ok: true, already: true, sent: 0, next: null });
@@ -157,9 +165,6 @@ async function notify(req, env) {
   const targets = (await listAll(env, "s:")).filter((k) => k.metadata && k.metadata.h && k.metadata.h.includes(h))
     .map((k) => k.name).sort().filter((n) => !after || n > after);
   const batch = targets.slice(0, BATCH);
-  // 中身はバスの番号と変わる日だけ（変わる日が分からない改正は、その印も。一覧から決める）
-  const payload = JSON.stringify({ feed, change_date: change, ...(rev.change_date_known === false ? { known: false } : {}) });
-  const authCache = new Map();
   let sent = 0, removed = 0, failed = 0;
   for (const name of batch) {
     const v = await env.SUBS.get(name, "json");
@@ -180,6 +185,20 @@ async function notify(req, env) {
   }
   const next = targets.length > BATCH ? batch[batch.length - 1] : null;
   return json({ ok: true, sent, removed, failed, next, remaining: Math.max(0, targets.length - batch.length) });
+}
+
+// 試し：端末の番号（宛先のハッシュの先頭8文字。アプリの画面に出る）の1つの宛先だけに送る。送った印は付けない
+async function notifyTest(env, to, feed, payload, authCache) {
+  const keys = (await env.SUBS.list({ prefix: `s:${to}` })).keys;
+  if (keys.length !== 1) return json({ error: "no_such_device" }, 404);
+  const v = await env.SUBS.get(keys[0].name, "json");
+  const status = await sendPush({ endpoint: v.e, p256dh: v.p, auth: v.a }, payload,
+    { privateJwk: JSON.parse(env.VAPID_PRIVATE_JWK), subject: env.VAPID_SUBJECT, authCache });
+  if (status === 404 || status === 410) {
+    await env.SUBS.delete(keys[0].name);
+    return json({ ok: false, test: true, removed: 1, status });
+  }
+  return json({ ok: status >= 200 && status < 300, test: true, sent: status >= 200 && status < 300 ? 1 : 0, status, registered_feed: v.f.includes(feed) });
 }
 
 // ---------- 毎日の定時の処理 ----------

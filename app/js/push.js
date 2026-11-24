@@ -100,6 +100,12 @@ function writeSync(v) {
 const today = () => new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
 const daysSince = (d) => Math.round((Date.parse(today()) - Date.parse(d)) / 86400000);
 
+// この端末の番号：宛先のハッシュの先頭8文字（サーバーの宛先のキーと同じ計算）。試しの通知を送るときに使う。宛先の URL は出さない
+export async function deviceNumber(sub) {
+  const d = new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(sub.endpoint)));
+  return [...d].slice(0, 4).map((x) => x.toString(16).padStart(2, "0")).join("");
+}
+
 // 「知らせを受け取る」：ボタンを押したときだけ呼ぶ（許可の確認は、押したときにしか出せない決まり）
 export async function enablePush(regs, catalog) {
   const feeds = regFeeds(regs, catalog);

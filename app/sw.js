@@ -1,6 +1,6 @@
 // まちの足カルテ：service worker（通知を受けて表示する。画面やデータの読みこみには関わらない）
 //
-// 届く中身は { feed: バスの番号, change_date: 変わる日 }（変わる日が分からないときは known: false も）だけ。
+// 届く中身は { feed: バスの番号, change_date: 変わる日 }（変わる日が分からないときは known: false、試しは test: true も）だけ。
 // 通知の文は決まった文：変わる日より前「◯◯の時刻表が、◯月◯日から変わります。」
 //                       当日かあと  「◯◯の時刻表が、◯月◯日に変わりました。」
 // バスの名前は、端末の中（IndexedDB）に保存した一覧から引く。行き先や時刻は、通知の文に入れない。
@@ -66,11 +66,12 @@ self.addEventListener("push", (e) => {
     }
     const feed = typeof d.feed === "string" ? d.feed : "";
     const change = typeof d.change_date === "string" ? d.change_date : "";
-    const body = noticeText(await feedName(feed), change, todayJst(), d.known !== false);
+    // 試し（/notify の test）：本物と同じ文に「（試し）」を付ける
+    const body = noticeText(await feedName(feed), change, todayJst(), d.known !== false) + (d.test === true ? "（試し）" : "");
     // iPhone では、届いた通知は必ず表示する決まり
     await self.registration.showNotification("まちの足カルテ", {
-      body, tag: `${feed}|${change}`, icon: "icons/icon-192.png", lang: "ja",
-      data: { url: `./#notice/${encodeURIComponent(feed)}/${change}` },
+      body, tag: `${feed}|${change}${d.test === true ? "|test" : ""}`, icon: "icons/icon-192.png", lang: "ja",
+      data: { url: `./#notice/${encodeURIComponent(feed)}/${change}${d.test === true ? "/test" : ""}` },
     });
   })());
 });

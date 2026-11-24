@@ -186,3 +186,25 @@ test("送る：変わる日が分からない改正（一覧に change_date_know
   const plain = Buffer.concat([d.update(ct.subarray(0, ct.length - 16)), d.final()]).subarray(0, -1).toString();
   assert.deepEqual(JSON.parse(plain), { feed: "yonezawacity/Yonezawa", change_date: "2026-11-24", known: false });
 });
+
+test("試し：端末の番号の1つの宛先だけに送り、送った印は付けない（あとで本物を送れる）", async () => {
+  const e = env();
+  for (let i = 0; i < 3; i++) await call(e, "/subscribe", subBody(i), app);
+  const target = (await subBody(1)).subscription.endpoint;
+  const no = (await subKey(target)).slice(2, 10);
+  const auth = { Authorization: "Bearer secret-token" };
+  pushed.length = 0;
+  await withDate("2026-11-24T03:00:00Z", async () => {
+    const r = await (await call(e, "/notify", { feed: "yonezawacity/Yonezawa", change_date: "2026-12-01", test: true, to: no }, auth)).json();
+    assert.equal(r.sent, 1);
+    assert.equal(pushed.length, 1);
+    assert.equal(pushed[0].url, target);
+    assert.ok(![...e.SUBS.m.keys()].some((k) => k.startsWith("n:")));
+    assert.equal((await call(e, "/notify", { feed: "yonezawacity/Yonezawa", change_date: "2026-12-01", test: true, to: "zzzz" }, auth)).status, 400);
+    assert.equal((await call(e, "/notify", { feed: "yonezawacity/Yonezawa", change_date: "2026-12-01", test: true, to: "00000000" }, auth)).status, 404);
+    assert.equal((await call(e, "/notify", { feed: "yonezawacity/Yonezawa", change_date: "2026-12-01", test: true, to: no })).status, 401);
+    const real = await (await call(e, "/notify", { feed: "yonezawacity/Yonezawa", change_date: "2026-12-01" }, auth)).json();
+    assert.equal(real.already, undefined);
+    assert.equal(real.sent, 3);
+  });
+});

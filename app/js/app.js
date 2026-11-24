@@ -8,7 +8,7 @@
 import * as J from "./judge.js";
 import { searchStops } from "./search.js";
 import { assembleRevision, assembleTimetables } from "./timetable.js";
-import { pushConfigured, pushSupported, isIos, isStandalone, registerSw, currentSubscription, enablePush, disablePush, syncPush } from "./push.js";
+import { pushConfigured, pushSupported, isIos, isStandalone, registerSw, currentSubscription, enablePush, disablePush, syncPush, deviceNumber } from "./push.js";
 
 const STORE_KEY = "machi-no-ashi-karte.regs.v2";
 const DAY_LABELS = [["mon", "月"], ["tue", "火"], ["wed", "水"], ["thu", "木"], ["fri", "金"], ["sat", "土"], ["sun", "日"]];
@@ -517,7 +517,8 @@ async function pushBox(el) {
   const sub = await currentSubscription();
   if (sub) {
     el.innerHTML = `${head}<p><strong>知らせを受け取っています。</strong>登録したバスの時刻表が変わるとき、この端末に知らせます。</p>
-      <button class="btn secondary" id="push-off">知らせを止める</button><p class="muted small">${PUSH_NOTE}</p>`;
+      <button class="btn secondary" id="push-off">知らせを止める</button><p class="muted small">${PUSH_NOTE}</p>
+      <p class="muted small">この端末の番号：<strong>${esc(await deviceNumber(sub))}</strong>（試しの知らせを送るときに使います）</p>`;
     el.querySelector("#push-off").addEventListener("click", async (e) => {
       e.target.disabled = true;
       try {
@@ -545,7 +546,7 @@ async function pushBox(el) {
 }
 
 // 通知を押して開く画面：そのバスの、登録した移動ごとの結果。変わらない移動は、最初に「あなたの移動は変わりません」
-async function noticeView(feed, change) {
+async function noticeView(feed, change, test = false) {
   const item = feedItem(feed);
   if (!item) return alertBox("このバスのデータが見つかりません。");
   // 通知の文と同じ見出し（変わる日が分からないときは、日付を入れない）
@@ -554,7 +555,8 @@ async function noticeView(feed, change) {
     : `${item.name}の時刻表が、${TODAY < change ? `${jDateShort(change)}から変わります` : `${jDateShort(change)}に変わりました`}。`;
   render(`<p class="muted">読みこんでいます…</p>`);
   const regs = loadRegs().filter((r) => r.feed === feed);
-  let html = `<h1>${esc(head)}</h1>`;
+  let html = `<h1>${esc(head)}${test ? "（試し）" : ""}</h1>`;
+  if (test) html += `<p class="muted">これは試しの知らせです。下は、いまの改正のデータでの本当の結果です。</p>`;
   if (!regs.length) {
     html += `<p class="lead">この端末には、このバスの移動が登録されていません。</p>`;
     return render(html + `<a class="btn secondary" href="#home">わたしの移動へ</a>`);
@@ -946,8 +948,8 @@ function route() {
   if (h === "#home") return homeView();
   if (h.startsWith("#trip/")) return tripView(decodeURIComponent(h.slice(6)));
   if (h.startsWith("#notice/")) {
-    const [feed, change] = h.slice(8).split("/");
-    return noticeView(decodeURIComponent(feed), change);
+    const [feed, change, test] = h.slice(8).split("/");
+    return noticeView(decodeURIComponent(feed), change, test === "test");
   }
   if (h === "#add/pref") return prefView();
   if (h.startsWith("#add/feed/")) return feedView(h.slice(10));
