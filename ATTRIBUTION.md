@@ -2,6 +2,7 @@
 
 このサイトの改正のデータは、GTFSデータリポジトリ（https://gtfs-data.jp/）で公開されている次のGTFSデータを、まちの足カルテが加工して作成したものです。
 
+- 北振バス株式会社「北振バス」GTFSデータ（CC0 1.0） — https://creativecommons.org/publicdomain/zero/1.0/deed.ja
 - 加越能バス「加越能バス（一般路線）」GTFSデータ（CC0 1.0） — https://creativecommons.org/publicdomain/zero/1.0/deed.ja
 - 河北町「河北町営バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 長崎県営バス「長崎県営バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja

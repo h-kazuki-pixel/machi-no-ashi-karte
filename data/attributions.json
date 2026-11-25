@@ -2,6 +2,14 @@
  "note": "このサイトの改正のデータは、GTFSデータリポジトリ（https://gtfs-data.jp/）で公開されている次のGTFSデータを、まちの足カルテが加工して作成したものです。",
  "items": [
   {
+   "feed": "hokushin-bus/hokushinbus",
+   "operator": "北振バス株式会社",
+   "feed_name": "北振バス",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
+   "text": "北振バス株式会社「北振バス」GTFSデータ（CC0 1.0）"
+  },
+  {
    "feed": "kaetsunou/kaetsunouippan",
    "operator": "加越能バス",
    "feed_name": "加越能バス（一般路線）",

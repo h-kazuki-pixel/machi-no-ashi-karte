@@ -519,5 +519,148 @@
    "old_days": 0,
    "new_days": 29
   }
+ },
+ {
+  "feed": "hokushin-bus/hokushinbus",
+  "feed_name": "北振バス",
+  "operator": "北振バス株式会社",
+  "change_date": "2026-11-26",
+  "published_at": "2026-11-25T14:46:49.856213+09:00",
+  "first_seen_at": "2026-11-26T02:18:37+09:00",
+  "first_seen_basis": "見る仕組みが見つけた日時",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
+  "path": "data/revisions/hokushin-bus__hokushinbus/2026-11-26__2ec2d971.json",
+  "old_uid": "d511ad16-b024-40e0-990c-49acba9da5d9",
+  "new_uid": "2ec2d971-5c9d-4b49-b110-6c1cbd9f28ea",
+  "change_date_known": true,
+  "check": {
+   "revision": "data/revisions/hokushin-bus__hokushinbus/2026-11-26__2ec2d971.json",
+   "n": 200,
+   "counts": {
+    "same": 196,
+    "better": 4
+   },
+   "shares": {
+    "same": 0.98,
+    "better": 0.02
+   },
+   "examples": {
+    "same": [
+     {
+      "from": "栩木",
+      "to": "谷山",
+      "day": "mon",
+      "date": "2026-11-02",
+      "cond": "14:51までに着く",
+      "before": {
+       "dep": "14:37",
+       "arr": "14:43",
+       "route": "井原～田輪～美星支所"
+      },
+      "after": {
+       "dep": "14:37",
+       "arr": "14:43",
+       "route": "井原～田輪～美星支所"
+      },
+      "notes": []
+     },
+     {
+      "from": "中谷",
+      "to": "米田",
+      "day": "sun",
+      "date": "2026-12-13",
+      "cond": "11:52までに着く",
+      "before": {
+       "dep": "11:37",
+       "arr": "11:48",
+       "route": "矢掛～美砂橋～美星産直プラザ"
+      },
+      "after": {
+       "dep": "11:37",
+       "arr": "11:48",
+       "route": "矢掛～美砂橋～美星産直プラザ"
+      },
+      "notes": []
+     },
+     {
+      "from": "芦原上",
+      "to": "上粟根",
+      "day": "wed",
+      "date": "2026-11-04",
+      "cond": "7:49よりあとに乗る",
+      "before": {
+       "dep": "7:50",
+       "arr": "7:53",
+       "route": "フジグラン前～苅光～楠田"
+      },
+      "after": {
+       "dep": "7:50",
+       "arr": "7:53",
+       "route": "フジグラン前～苅光～楠田"
+      },
+      "notes": []
+     }
+    ],
+    "better": [
+     {
+      "from": "加茂昭和橋",
+      "to": "ビッグローズ前",
+      "day": "thu",
+      "date": "2026-12-03",
+      "cond": "16:58よりあとに乗る",
+      "before": {
+       "dep": "17:45",
+       "arr": "17:52",
+       "route": "フジグラン前～粟根"
+      },
+      "after": {
+       "dep": "17:04",
+       "arr": "17:11",
+       "route": "広瀬中学校前～苅光～フジグラン前"
+      },
+      "notes": []
+     },
+     {
+      "from": "昭和橋",
+      "to": "井原郵便局前",
+      "day": "fri",
+      "date": "2026-11-27",
+      "cond": "8:05よりあとに乗る",
+      "before": {
+       "dep": "9:39",
+       "arr": "9:46",
+       "route": "井原～共和～弥高山入口"
+      },
+      "after": {
+       "dep": "8:14",
+       "arr": "8:21",
+       "route": "井原～簗瀬～佐屋"
+      },
+      "notes": []
+     },
+     {
+      "from": "谷の宮",
+      "to": "芳井支所前",
+      "day": "mon",
+      "date": "2026-12-07",
+      "cond": "8:12までに着く",
+      "before": {
+       "dep": "6:40",
+       "arr": "6:51",
+       "route": "井原～与井～佐屋"
+      },
+      "after": {
+       "dep": "7:54",
+       "arr": "8:05",
+       "route": "井原～簗瀬～佐屋"
+      },
+      "notes": []
+     }
+    ]
+   },
+   "old_days": 33,
+   "new_days": 31
+  }
  }
 ]

@@ -5247,19 +5247,6 @@
   "2028-05-17",
   "2026-10-25"
  ],
- "data/timetables/hokushin-bus__hokushinbus/d511ad16-b024-40e0-990c-49acba9da5d9.json": [
-  67881,
-  154,
-  213,
-  [
-   [
-    "2026-10-25",
-    "2027-03-08"
-   ]
-  ],
-  "2028-05-17",
-  "2026-10-25"
- ],
  "data/timetables/hokushin-bus__ibaraaiaibus/d71c3820-5acd-427b-950f-1e7f4551ca7f.json": [
   36807,
   55,
@@ -33919,5 +33906,31 @@
   ],
   "2028-05-18",
   "2026-10-26"
+ ],
+ "data/timetables/aichi-miyoshicity__sansanbus/7fcbaf15-ace5-4903-bfd6-f1f15037a585.json": [
+  42689,
+  92,
+  137,
+  [
+   [
+    "2026-12-01",
+    "2027-03-31"
+   ]
+  ],
+  "2028-05-19",
+  "2026-10-27"
+ ],
+ "data/timetables/hokushin-bus__hokushinbus/2ec2d971-5c9d-4b49-b110-6c1cbd9f28ea.json": [
+  74882,
+  174,
+  213,
+  [
+   [
+    "2026-11-25",
+    "2027-11-24"
+   ]
+  ],
+  "2028-05-19",
+  "2026-10-27"
  ]
 }
