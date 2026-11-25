@@ -4,6 +4,8 @@
 // 通知の文は決まった文：変わる日より前「◯◯の時刻表が、◯月◯日から変わります。」
 //                       当日かあと  「◯◯の時刻表が、◯月◯日に変わりました。」
 // バスの名前は、端末の中（IndexedDB）に保存した一覧から引く。行き先や時刻は、通知の文に入れない。
+// sw.js の版の番号（画面の app.js の APP_VERSION と同じにする。直したら両方を上げる）
+const SW_VERSION = "2026-11-25.3";
 const DB = "machi-no-ashi-karte";
 const STORE = "kv";
 
@@ -47,7 +49,7 @@ const DEBUG_LOG = true;
 async function debugLog(msg) {
   if (!DEBUG_LOG) return;
   const log = (await idbGet("debugLog")) || [];
-  log.push({ t: new Date().toISOString(), w: "sw", m: msg });
+  log.push({ t: new Date().toISOString(), w: `sw ${SW_VERSION}`, m: msg });
   await idbPut("debugLog", log.slice(-30));
 }
 
@@ -76,8 +78,19 @@ async function feedName(feed) {
   return "登録したバス";
 }
 
-self.addEventListener("install", () => self.skipWaiting());
-self.addEventListener("activate", (e) => e.waitUntil(self.clients.claim()));
+self.addEventListener("install", (e) => {
+  self.skipWaiting();
+  e.waitUntil(debugLog("入った（install）"));
+});
+self.addEventListener("activate", (e) => e.waitUntil((async () => {
+  await self.clients.claim();
+  await debugLog("動き始めた（activate）");
+})()));
+
+// 画面から「いま動いている sw.js の版」を聞かれたら答える
+self.addEventListener("message", (e) => {
+  if (e.data && e.data.type === "sw-version" && e.ports && e.ports[0]) e.ports[0].postMessage({ version: SW_VERSION });
+});
 
 self.addEventListener("push", (e) => {
   e.waitUntil((async () => {
@@ -100,6 +113,7 @@ self.addEventListener("push", (e) => {
       data: { url: `./?notice=${encodeURIComponent(`${feed}/${change}${d.test === true ? "/test" : ""}`)}`,
               feed, change, test: d.test === true },
     });
+    await debugLog(`知らせを受けて出した（${feed || "?"} ${change || "?"}${d.test === true ? " 試し" : ""}）`);
   })());
 });
 
@@ -107,10 +121,12 @@ self.addEventListener("push", (e) => {
 // 最初のページを開くことがある。そのため、URL に頼らず、どの知らせを押したかを IndexedDB に
 // 「開くのを待っている知らせ」（pendingNotice）として書き、画面（app.js）がそれを読んで知らせの画面を出す。
 self.addEventListener("notificationclick", (e) => {
-  e.notification.close();
   const data = e.notification.data || {};
+  const first = debugLog(`notificationclick が呼ばれた（${data.feed ? "どの知らせかあり" : "どの知らせかなし"}）`);
+  e.notification.close();
   const url = new URL(data.url || "./", self.registration.scope).href;
   e.waitUntil((async () => {
+    await first;
     await debugLog(`通知を押した（${data.feed || "?"} ${data.change || "?"}${data.test ? " 試し" : ""}）`);
     if (data.feed && data.change) {
       await idbPut("pendingNotice", { feed: data.feed, change: data.change, test: data.test === true, at: Date.now() });
