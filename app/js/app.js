@@ -1158,10 +1158,9 @@ async function main() {
     history.replaceState(null, "", u.href);
     debugLog("?notice= で開いた");
   }
-  const pending = await takePendingNotice();
-  await debugLog(`起動した：待っている知らせ ${pending ? `あり（${pending.feed} ${pending.change}）` : "なし"}`);
-  if (pending && !notice && freshPending(pending)) history.replaceState(null, "", noticeUrl(pending));
+  // 画面は先に出す（IndexedDB の返事が遅い・来ない環境でも止めない）。待っている知らせがあれば、そのあとで知らせの画面に移る
   route();
+  openPendingNotice("起動した");
 }
 main();
 
@@ -1170,11 +1169,6 @@ const PENDING_MAX_MS = 24 * 3600 * 1000; // 1日より前に押した知らせ�
 const freshPending = (p) => p && p.feed && /^\d{4}-\d{2}-\d{2}$/.test(p.change || "") && Date.now() - (p.at || 0) < PENDING_MAX_MS;
 function noticeHash(p) {
   return `#notice/${encodeURIComponent(p.feed)}/${p.change}${p.test ? "/test" : ""}`;
-}
-function noticeUrl(p) {
-  const u = new URL(location.href);
-  u.hash = noticeHash(p);
-  return u.href;
 }
 async function openPendingNotice(source) {
   const p = await takePendingNotice();
