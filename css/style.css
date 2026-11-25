@@ -172,3 +172,4 @@ input[type="text"], input[type="search"], input[type="time"] {
 .debuglog { margin: 16px 0; font-size: 0.85em; }
 .debuglog ol { padding-left: 1.2em; }
 .debuglog li { margin: 2px 0; word-break: break-all; }
+.warn-text { color: var(--cannot); }

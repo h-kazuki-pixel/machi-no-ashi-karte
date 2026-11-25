@@ -9,7 +9,7 @@ import * as J from "./judge.js";
 import { searchStops } from "./search.js";
 import { assembleRevision, assembleTimetables } from "./timetable.js";
 import { pushConfigured, pushSupported, isIos, isStandalone, registerSw, currentSubscription, enablePush, disablePush, syncPush, deviceNumber,
-  takePendingNotice, debugLog, readDebugLog, clearDebugLog, DEBUG_LOG } from "./push.js";
+  takePendingNotice, debugLog, readDebugLog, clearDebugLog, DEBUG_LOG, APP_VERSION, swVersion, checkSwUpdate } from "./push.js";
 
 const STORE_KEY = "machi-no-ashi-karte.regs.v2";
 const DAY_LABELS = [["mon", "月"], ["tue", "火"], ["wed", "水"], ["thu", "木"], ["fri", "金"], ["sat", "土"], ["sun", "日"]];
@@ -611,13 +611,16 @@ async function homeView() {
 
 // 試しのあいだだけ：通知を押したときの記録（新しい順）
 async function debugBox() {
-  const log = await readDebugLog();
+  const [log, sv] = await Promise.all([readDebugLog(), swVersion()]);
   const el = document.getElementById("view");
-  if (!el || !log.length || location.hash.replace(/^$/, "#home") !== "#home") return;
+  if (!el || location.hash.replace(/^$/, "#home") !== "#home") return;
+  const same = sv === APP_VERSION;
+  const ver = `<p class="small">画面の版：<strong>${esc(APP_VERSION)}</strong>／動いている sw.js の版：<strong>${esc(sv || "動いていない")}</strong>
+    ${same ? "（同じ）" : `<br><strong class="warn-text">食い違っています。</strong>アプリを上にはらって閉じ、開き直してください。`}</p>`;
   const fmt = (t) => new Intl.DateTimeFormat("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit" }).format(new Date(t));
   const box = document.createElement("details");
   box.className = "debuglog";
-  box.innerHTML = `<summary>試しの記録（通知を押したとき）</summary><ol>${log.slice().reverse().map((x) => `<li><span class="muted">${esc(fmt(x.t))} ${esc(x.w)}</span> ${esc(x.m)}</li>`).join("")}</ol>
+  box.innerHTML = `<summary>試しの記録（通知を押したとき）${same ? "" : "：版が食い違っています"}</summary>${ver}<ol>${log.slice().reverse().map((x) => `<li><span class="muted">${esc(fmt(x.t))} ${esc(x.w)}</span> ${esc(x.m)}</li>`).join("")}</ol>
     <button class="btn secondary" type="button">記録を消す</button>`;
   box.querySelector("button").addEventListener("click", async () => {
     await clearDebugLog();
@@ -1141,7 +1144,10 @@ async function main() {
   window.addEventListener("hashchange", route);
   // 通知を押したとき：service worker が書いた「開くのを待っている知らせ」を、前に出たとき・知らせを受けたときにも読む
   document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") openPendingNotice("前に出た");
+    if (document.visibilityState === "visible") {
+      openPendingNotice("前に出た");
+      checkSwUpdate("前に出た");
+    }
   });
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.addEventListener("message", (e) => {

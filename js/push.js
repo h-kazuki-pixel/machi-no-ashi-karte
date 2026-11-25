@@ -2,6 +2,9 @@
 // サーバーに送るのは「通知の宛先（ブラウザが作る URL と鍵）」と「登録したバスの番号」だけ。行き先や時刻は送らない。
 import { PUSH } from "./config.js";
 
+// 画面の版の番号（sw.js の SW_VERSION と同じにする。直したら両方を上げる）
+export const APP_VERSION = "2026-11-25.3";
+
 const DB = "machi-no-ashi-karte";
 const STORE = "kv";
 const SYNC_KEY = "machi-no-ashi-karte.push.v1"; // 最後にサーバーへ送った日とバスの一覧（端末の中）
@@ -73,7 +76,7 @@ export async function debugLog(msg) {
       const tx = db.transaction(STORE, "readwrite");
       const st = tx.objectStore(STORE);
       const q = st.get("debugLog");
-      q.onsuccess = () => st.put([...(q.result || []), { t: new Date().toISOString(), w: "画面", m: msg }].slice(-30), "debugLog");
+      q.onsuccess = () => st.put([...(q.result || []), { t: new Date().toISOString(), w: `画面 ${APP_VERSION}`, m: msg }].slice(-30), "debugLog");
       tx.oncomplete = res;
       tx.onerror = () => rej(tx.error);
     });
@@ -129,11 +132,43 @@ export async function registerSw() {
     if (hadController) showUpdateBar();
   });
   try {
-    swReg = await navigator.serviceWorker.register("sw.js");
+    // updateViaCache: "none"：sw.js（と、その中で読むファイル）を、HTTP のキャッシュを使わずに確かめる
+    swReg = await navigator.serviceWorker.register("sw.js", { updateViaCache: "none" });
+    await checkSwUpdate("起動した");
     return swReg;
-  } catch {
+  } catch (err) {
+    debugLog(`sw.js の登録に失敗：${err && err.name}`);
     return null;
   }
+}
+
+// sw.js に新しい版が出ていないかを確かめる。register() だけでは確かめないため、画面を開いたとき・前に出たときに呼ぶ
+let lastUpdateCheck = 0;
+export async function checkSwUpdate(source) {
+  if (!swReg || Date.now() - lastUpdateCheck < 60000) return;
+  lastUpdateCheck = Date.now();
+  try {
+    await swReg.update();
+    const w = swReg.installing || swReg.waiting;
+    debugLog(`${source}：sw.js の新しい版を確かめた（${w ? "新しい版を入れている" : "新しい版なし"}）`);
+  } catch (err) {
+    debugLog(`${source}：sw.js の新しい版を確かめられなかった（${err && err.name}）`);
+  }
+}
+
+// いま動いている sw.js の版を聞く（答えが無ければ、版の番号を答えない古い sw.js）
+export async function swVersion() {
+  const c = navigator.serviceWorker && navigator.serviceWorker.controller;
+  if (!c) return null;
+  return new Promise((res) => {
+    const ch = new MessageChannel();
+    const t = setTimeout(() => res("答えなし（版の番号を持たない古い sw.js）"), 1500);
+    ch.port1.onmessage = (e) => {
+      clearTimeout(t);
+      res((e.data && e.data.version) || "?");
+    };
+    c.postMessage({ type: "sw-version" }, [ch.port2]);
+  });
 }
 async function readyReg() {
   if (swReg) return swReg;
