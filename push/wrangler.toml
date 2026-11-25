@@ -19,10 +19,15 @@ ALLOWED_ORIGIN = "https://h-kazuki-pixel.github.io"
 PAGES_BASE = "https://h-kazuki-pixel.github.io/machi-no-ashi-karte"
 # VAPID の連絡先（メールアドレスではなく、リポジトリの URL）
 VAPID_SUBJECT = "https://github.com/h-kazuki-pixel/machi-no-ashi-karte"
+# 定時に呼ぶ見る仕組みのリポジトリ
+GH_REPO = "h-kazuki-pixel/machi-no-ashi-karte"
 
-# 1年間更新の無い宛先を消す（毎日 3:23 JST）
+# 定時の仕組み（UTC）
+#   23 18 * * *   毎日 3:23 JST：1年間更新の無い宛先を消す
+#   17 */6 * * *  日本時間 9:17・15:17・21:17・3:17：見る仕組み（daily-watch）を呼ぶ
+#   47 18 * * 6   日本時間 日曜 3:47：見る仕組みを、全フィードの版を取り直す形で呼ぶ
 [triggers]
-crons = ["23 18 * * *"]
+crons = ["23 18 * * *", "17 */6 * * *", "47 18 * * 6"]
 
 # /subscribe・/unsubscribe：同じところから60秒に10回まで
 [[ratelimits]]
@@ -30,4 +35,4 @@ name = "SUB_LIMIT"
 namespace_id = "48213"  # このアカウントのほかの Workers と数を共有しない番号
 simple = { limit = 10, period = 60 }
 
-# Secrets（wrangler secret put で入れる。ファイルには書かない）：VAPID_PRIVATE_JWK、NOTIFY_TOKEN
+# Secrets（wrangler secret put で入れる。ファイルには書かない）：VAPID_PRIVATE_JWK、NOTIFY_TOKEN、GH_DISPATCH_TOKEN

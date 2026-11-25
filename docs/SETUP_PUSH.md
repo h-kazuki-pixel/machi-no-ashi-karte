@@ -75,6 +75,41 @@ IP アドレス・端末の情報・停留所・時刻・移動の名前は残�
 - 定時の処理（Cron Triggers）：アカウントで5つまで。ここで使うのは1つ。
 - 回数の制限（Rate Limiting の仕組み）が無料のプランで使えるかは、説明で確かめられませんでした。載せるときに断られたら、`push/wrangler.toml` の `[[ratelimits]]` を外します（ほかの守りは残ります）。
 
+## 見る仕組みを、Cloudflare の定時の仕組みから呼ぶ（2026-11-25）
+
+GitHub の定時の実行は、遅れたり抜けたりします（11/24〜25 の4回の予定のうち、動いたのは2回で、2時間16分と5時間34分おくれ）。
+そこで、通知のサーバーの Worker が、決まった時刻に daily-watch を `workflow_dispatch` で呼びます。
+
+| 時刻（日本時間） | Worker の cron（UTC） | すること |
+|---|---|---|
+| 9:17・15:17・21:17・3:17 | `17 */6 * * *` | daily-watch を呼ぶ |
+| 日曜 3:47 | `47 18 * * 6` | daily-watch を「点検」（全フィードの版を取り直す）で呼ぶ |
+| 毎日 3:23 | `23 18 * * *` | 1年間更新の無い宛先を消す（前から） |
+
+- GitHub の定時の実行は予備として残します。前の5時間50分のうちに、ほかの実行がもう始まっていれば（点検の予備は、点検の実行があれば）、何もしないで終わります（`guard` のジョブ）。
+- 同時に2つは動かしません（`concurrency`）。
+- zip の置き換えの確かめ（ETag）は、日本時間 3時を過ぎて最初の実行でします（1日1回）。
+
+### GitHub の鍵（GH_DISPATCH_TOKEN）の作り方
+
+鍵は、このリポジトリの Actions を動かす権限だけを持たせます。値は Claude にも、ファイルにも渡しません。
+
+1. GitHub の右上のアイコン →「Settings」→ 左の下の「Developer settings」→「Personal access tokens」→「Fine-grained tokens」→「Generate new token」。
+2. 次のように入れます。
+   - Token name：`machi-no-ashi-dispatch`
+   - Expiration：1年（切れる日の少し前に作り直します。切れると、予備の GitHub の定時の実行だけになります）
+   - Resource owner：`h-kazuki-pixel`
+   - Repository access：「Only select repositories」→ `machi-no-ashi-karte` だけ
+   - Permissions →「Repository permissions」→「Actions」を「Read and write」（ほかは触らない。Metadata の Read-only は自動で付きます）
+3. 「Generate token」を押し、出てきた値をコピーします（この画面を閉じると、二度と見られません）。
+4. Mac のターミナルで、次を打ち、聞かれたら貼りつけて Enter：
+   ```
+   cd ~/machi-no-ashi-karte/push && npx wrangler secret put GH_DISPATCH_TOKEN
+   ```
+5. コピーした値は、クリップボードから消しておきます（別の文字をコピーする）。
+
+鍵が入っていないあいだは、Worker は daily-watch を呼びません（GitHub の定時の実行だけで動きます）。
+
 ## 試験
 
 - `cd push && npm test`：暗号（RFC 8291）の読み戻し、VAPID（RFC 8292）の署名の確認、登録の断り方、30日の決まり、10ずつ送る・404/410 で消す・二度送らない、1年で消す。

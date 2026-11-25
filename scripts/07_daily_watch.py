@@ -292,15 +292,16 @@ class Watch:
                 self.errors.append(f"zip の置き換えの確かめ: {e!r}"[:200])
         return self.finish(feeds_checked=checked)
 
-    # ---------- 同じ版の番号のまま zip が置き換わった（1日1回、3:17 の実行で） ----------
+    # ---------- 同じ版の番号のまま zip が置き換わった（1日1回、日本時間 3時を過ぎて最初の実行で） ----------
 
     def etag_due(self):
-        """日本時間 3時〜9時の実行で、その日まだ確かめていなければ確かめる（定時の実行が遅れても1日1回）"""
+        """日本時間 3時を過ぎた実行で、その日まだ確かめていなければ確かめる。
+        定時の実行が遅れたり抜けたりしても、その日のうちに1回は確かめる（0時〜3時の実行では確かめない）"""
         if self.force_etag:
             return True
         now = self.started.astimezone(JST)
         last = self.status.get("last_etag_check_at")
-        return 3 <= now.hour < 9 and (not last or jst_date(last) < now.date())
+        return now.hour >= 3 and (not last or jst_date(last) < now.date())
 
     def check_replaced(self, only=None):
         """使っている版（site にある時刻表）の zip の印（ETag）を、zip を落とさずに確かめる。毎日更新のフィードは除く。

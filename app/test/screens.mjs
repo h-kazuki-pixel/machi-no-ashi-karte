@@ -104,6 +104,13 @@ const cases = [
   ...regs.map((r) => ({ name: `移動の画面：${r.id}`, hash: `#trip/${r.id}`, want: [expect[r.id]] })),
   { name: "ホーム（全部の移動）", hash: "#home", want: ["わたしの移動", ...regs.map((r) => `例${r.id}`)] },
   { name: "通知を押して開く画面", hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["米沢市営バスの時刻表が、12月1日から変わります。", "あなたの移動は変わりません"] },
+  // 1〜4分の差は「ほとんど変わりません（◯分おそくなります）」。時刻が変わる移動は、いまと変わる日からの時刻を並べる
+  { name: "通知を押して開く画面（並び順・時刻）", hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`,
+    want: ["ほとんど変わりません （2分おそくなります）", "いま 7:47発 → 7:55着 12月1日から 7:49発 → 7:57着", "いま 7:29発 → 7:35着 12月1日から 7:09発 → 7:15着"],
+    order: ["1本で行けるバスがなくなります", "時刻が大きく変わります", "時刻が少し変わります", "ほとんど変わりません", "1本で行けるようになります", "あなたの移動は変わりません"] },
+  // 1〜4分の差と、同じ移動だけのとき：まとめは「大きく変わる移動はありません」。同じ移動だけなら「どれも変わりません」
+  { name: "通知を押して開く画面（ほとんど変わらない移動だけ）", only: ["tiny", "same"], hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["大きく変わる移動はありません。"] },
+  { name: "通知を押して開く画面（変わらない移動だけ）", only: ["same"], hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["登録した移動は、どれも変わりません。"] },
   // 通知を押したときは「?notice=」で開く（iPhone のホーム画面のアプリが「#」より後ろを落とすことがあるため）
   { name: "通知を押して開く画面（?notice= で開く）", hash: "", q: `notice=${encodeURIComponent(`${Y}/2026-12-01`)}`, want: ["米沢市営バスの時刻表が、12月1日から変わります。", "あなたの移動は変わりません"] },
   { name: "通知を押して開く画面（?notice= で開く・試し）", hash: "", q: `notice=${encodeURIComponent(`${Y}/2026-12-01/test`)}`, want: ["（試し）"] },
@@ -148,7 +155,8 @@ let fail = 0;
 for (const c of cases) {
   const hash = c.hash.startsWith("#trip/") ? `#trip/${idOf[c.hash.slice(6)]}` : c.hash;
   const day = c.today || TODAY;
-  const q = (c.biz ? `today=${day}&biz=${biz}` : `today=${day}&try=${tryParam}`) + (c.q ? `&${c.q}` : "");
+  const tp = c.only ? encodeURIComponent(JSON.stringify(regs.filter((r) => c.only.includes(r.id)).map(({ id, ...r }) => r))) : tryParam;
+  const q = (c.biz ? `today=${day}&biz=${biz}` : `today=${day}&try=${tp}`) + (c.q ? `&${c.q}` : "");
   // ヘッドレスの Chrome は、仮想の時間の進み方で、まれに読みこみの途中で打ち切ることがある。
   // 画面の誤りが無いのに止まったときだけ、2回までやり直す（本当に止まる誤りは、何度やっても止まる）
   let html, errs, t, tries = 0;
@@ -161,6 +169,12 @@ for (const c of cases) {
   if (!t.trim()) problems.push("画面が空");
   if (t.includes("読みこんでいます")) problems.push("「読みこんでいます…」で止まった");
   for (const w of c.want) if (!t.includes(w)) problems.push(`「${w}」が無い`);
+  // 並び順：order の言葉が、この順に出る
+  if (c.order) {
+    const at = c.order.map((w) => t.indexOf(w));
+    if (at.some((i, k) => i < 0 || (k && i < at[k - 1]))) problems.push(`並び順がちがう（${c.order.join(" → ")}）`);
+  }
+  if (process.env.SHOW === c.name) console.log(t);
   if (problems.length) fail++;
   console.log(`${problems.length ? "✖" : "✔"} ${c.name}${tries > 1 ? `（${tries}回目）` : ""}${problems.length ? "：" + problems.join("、") : ""}`);
 }

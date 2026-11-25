@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import nodeCrypto from "node:crypto";
-import worker, { BATCH, expire, subKey } from "../src/index.js";
+import worker, { BATCH, expire, subKey, CRON_WATCH, CRON_FULL } from "../src/index.js";
 import { encryptPayload, vapidAuth, b64u, unb64u } from "../src/webpush.js";
 
 // ---------- 偽物 ----------
@@ -207,4 +207,28 @@ test("試し：端末の番号の1つの宛先だけに送り、送った印は�
     assert.equal(real.already, undefined);
     assert.equal(real.sent, 3);
   });
+});
+
+test("定時の処理：見る仕組みを workflow_dispatch で呼ぶ（点検の時刻は full）。鍵が無ければ呼ばない", async () => {
+  const runs = async (e, cron) => {
+    pushed.length = 0;
+    const waits = [];
+    await worker.scheduled({ cron }, e, { waitUntil: (p) => waits.push(p) });
+    await Promise.all(waits);
+    return pushed.filter((x) => x.url.includes("api.github.com"));
+  };
+  const e = { ...env(), GH_REPO: "owner/repo", GH_DISPATCH_TOKEN: "gh-token" };
+  pushStatus = () => 204;
+  let calls = await runs(e, CRON_WATCH);
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, "https://api.github.com/repos/owner/repo/actions/workflows/daily-watch.yml/dispatches");
+  assert.equal(calls[0].init.headers.Authorization, "Bearer gh-token");
+  assert.deepEqual(JSON.parse(calls[0].init.body), { ref: "main", inputs: { full: "false", by: "cloudflare" } });
+  calls = await runs(e, CRON_FULL);
+  assert.equal(JSON.parse(calls[0].init.body).inputs.full, "true");
+  calls = await runs(env(), CRON_WATCH);
+  assert.equal(calls.length, 0);
+  calls = await runs(e, "23 18 * * *"); // 宛先を消す時刻には呼ばない
+  assert.equal(calls.length, 0);
+  pushStatus = () => 201;
 });

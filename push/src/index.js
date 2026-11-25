@@ -213,6 +213,27 @@ export async function expire(env, today = todayJst()) {
   return n;
 }
 
+// ---------- 見る仕組み（GitHub Actions の daily-watch）を、決まった時刻に呼ぶ ----------
+// GitHub の定時の実行は、遅れたり抜けたりするので、Cloudflare の定時の仕組みから workflow_dispatch で呼ぶ。
+// 鍵（GH_DISPATCH_TOKEN）は、このリポジトリの Actions を動かす権限だけを持つ（Secrets に入れる）。
+export const CRON_WATCH = "17 */6 * * *"; // 日本時間 9:17・15:17・21:17・3:17
+export const CRON_FULL = "47 18 * * 6";   // 日本時間 日曜 3:47：全フィードの版を取り直す（点検）
+export async function dispatchWatch(env, full) {
+  if (!env.GH_DISPATCH_TOKEN || !env.GH_REPO) return { ok: false, status: 0 };
+  const res = await fetch(`https://api.github.com/repos/${env.GH_REPO}/actions/workflows/daily-watch.yml/dispatches`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${env.GH_DISPATCH_TOKEN}`,
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "machi-no-ashi-push",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ref: "main", inputs: { full: full ? "true" : "false", by: "cloudflare" } }),
+  });
+  return { ok: res.status === 204, status: res.status };
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
@@ -237,7 +258,9 @@ export default {
     }
     return json({ error: "not_found" }, 404);
   },
-  async scheduled(_event, env, ctx) {
+  async scheduled(event, env, ctx) {
+    if (event.cron === CRON_WATCH) return ctx.waitUntil(dispatchWatch(env, false));
+    if (event.cron === CRON_FULL) return ctx.waitUntil(dispatchWatch(env, true));
     ctx.waitUntil(expire(env));
   },
 };
