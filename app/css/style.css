@@ -167,3 +167,8 @@ input[type="text"], input[type="search"], input[type="time"] {
 .update-bar p { margin: 0 0 8px; font-weight: bold; }
 .update-bar .btn { margin: 0; }
 @media print { .update-bar { display: none; } }
+
+/* 試しのあいだだけ：通知を押したときの記録 */
+.debuglog { margin: 16px 0; font-size: 0.85em; }
+.debuglog ol { padding-left: 1.2em; }
+.debuglog li { margin: 2px 0; word-break: break-all; }

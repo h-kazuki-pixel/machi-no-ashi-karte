@@ -8,7 +8,8 @@
 import * as J from "./judge.js";
 import { searchStops } from "./search.js";
 import { assembleRevision, assembleTimetables } from "./timetable.js";
-import { pushConfigured, pushSupported, isIos, isStandalone, registerSw, currentSubscription, enablePush, disablePush, syncPush, deviceNumber } from "./push.js";
+import { pushConfigured, pushSupported, isIos, isStandalone, registerSw, currentSubscription, enablePush, disablePush, syncPush, deviceNumber,
+  takePendingNotice, debugLog, readDebugLog, clearDebugLog, DEBUG_LOG } from "./push.js";
 
 const STORE_KEY = "machi-no-ashi-karte.regs.v2";
 const DAY_LABELS = [["mon", "月"], ["tue", "火"], ["wed", "水"], ["thu", "木"], ["fri", "金"], ["sat", "土"], ["sun", "日"]];
@@ -605,6 +606,24 @@ async function homeView() {
   if (DEMO) html += `<p class="muted small">例の表示です（保存されません）。</p>`;
   render(html);
   if (pushConfigured() && !DEMO) pushBox(document.getElementById("push"));
+  if (DEBUG_LOG && pushConfigured() && !DEMO) debugBox();
+}
+
+// 試しのあいだだけ：通知を押したときの記録（新しい順）
+async function debugBox() {
+  const log = await readDebugLog();
+  const el = document.getElementById("view");
+  if (!el || !log.length || location.hash.replace(/^$/, "#home") !== "#home") return;
+  const fmt = (t) => new Intl.DateTimeFormat("ja-JP", { timeZone: "Asia/Tokyo", month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit", second: "2-digit" }).format(new Date(t));
+  const box = document.createElement("details");
+  box.className = "debuglog";
+  box.innerHTML = `<summary>試しの記録（通知を押したとき）</summary><ol>${log.slice().reverse().map((x) => `<li><span class="muted">${esc(fmt(x.t))} ${esc(x.w)}</span> ${esc(x.m)}</li>`).join("")}</ol>
+    <button class="btn secondary" type="button">記録を消す</button>`;
+  box.querySelector("button").addEventListener("click", async () => {
+    await clearDebugLog();
+    box.remove();
+  });
+  el.appendChild(box);
 }
 
 // ---------- 知らせ（通知） ----------
@@ -1120,6 +1139,15 @@ async function main() {
   registerSw(); // ホーム画面のアプリとして動かす・通知を受ける
   if (!DEMO) syncPush(loadRegs(), CATALOG);
   window.addEventListener("hashchange", route);
+  // 通知を押したとき：service worker が書いた「開くのを待っている知らせ」を、前に出たとき・知らせを受けたときにも読む
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") openPendingNotice("前に出た");
+  });
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.addEventListener("message", (e) => {
+      if (e.data && e.data.type === "pending-notice") openPendingNotice("postMessage を受けた");
+    });
+  }
   // 通知を押して開いたとき（?notice=バスの番号/変わる日[/test]）：知らせの画面の「#notice/…」に直して開く
   const notice = params.get("notice");
   if (notice && /^[\w.-]+\/[\w.-]+\/\d{4}-\d{2}-\d{2}(\/test)?$/.test(notice)) {
@@ -1128,10 +1156,34 @@ async function main() {
     u.searchParams.delete("notice");
     u.hash = `#notice/${encodeURIComponent(`${org}/${fid}`)}/${rest.join("/")}`;
     history.replaceState(null, "", u.href);
+    debugLog("?notice= で開いた");
   }
+  const pending = await takePendingNotice();
+  await debugLog(`起動した：待っている知らせ ${pending ? `あり（${pending.feed} ${pending.change}）` : "なし"}`);
+  if (pending && !notice && freshPending(pending)) history.replaceState(null, "", noticeUrl(pending));
   route();
 }
 main();
+
+// ---------- 通知を押したときの「開くのを待っている知らせ」 ----------
+const PENDING_MAX_MS = 24 * 3600 * 1000; // 1日より前に押した知らせは、もう開かない
+const freshPending = (p) => p && p.feed && /^\d{4}-\d{2}-\d{2}$/.test(p.change || "") && Date.now() - (p.at || 0) < PENDING_MAX_MS;
+function noticeHash(p) {
+  return `#notice/${encodeURIComponent(p.feed)}/${p.change}${p.test ? "/test" : ""}`;
+}
+function noticeUrl(p) {
+  const u = new URL(location.href);
+  u.hash = noticeHash(p);
+  return u.href;
+}
+async function openPendingNotice(source) {
+  const p = await takePendingNotice();
+  await debugLog(`${source}：待っている知らせ ${p ? `あり（${p.feed} ${p.change}）` : "なし"}`);
+  if (!freshPending(p)) return;
+  const h = noticeHash(p);
+  if (location.hash === h) route();
+  else location.hash = h;
+}
 
 // 「最後に確かめた日時」（GitHub Pages では data/status.json がある）
 async function showChecked() {

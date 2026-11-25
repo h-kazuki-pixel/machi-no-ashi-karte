@@ -28,6 +28,29 @@ async function idbGet(key) {
   }
 }
 
+async function idbPut(key, value) {
+  try {
+    const db = await idb();
+    await new Promise((res, rej) => {
+      const tx = db.transaction(STORE, "readwrite");
+      tx.objectStore(STORE).put(value, key);
+      tx.oncomplete = res;
+      tx.onerror = () => rej(tx.error);
+    });
+  } catch {
+    /* 書けなければ何もしない */
+  }
+}
+
+// 試しのあいだだけの、短い記録（通知を押したときに何が起きたか）。新しい30件だけ残す
+const DEBUG_LOG = true;
+async function debugLog(msg) {
+  if (!DEBUG_LOG) return;
+  const log = (await idbGet("debugLog")) || [];
+  log.push({ t: new Date().toISOString(), w: "sw", m: msg });
+  await idbPut("debugLog", log.slice(-30));
+}
+
 function todayJst() {
   return new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
 }
@@ -74,29 +97,45 @@ self.addEventListener("push", (e) => {
       body, tag: `${feed}|${change}${d.test === true ? "|test" : ""}`, icon: "icons/icon-192.png", lang: "ja",
       // 知らせの画面の URL。iPhone のホーム画面のアプリは、開くときに「#」より後ろを落とすことがあるため、
       // 「?notice=」で渡し、アプリが読みこんだときに「#notice/…」に直す
-      data: { url: `./?notice=${encodeURIComponent(`${feed}/${change}${d.test === true ? "/test" : ""}`)}` },
+      data: { url: `./?notice=${encodeURIComponent(`${feed}/${change}${d.test === true ? "/test" : ""}`)}`,
+              feed, change, test: d.test === true },
     });
   })());
 });
 
+// 通知を押したとき：iPhone のホーム画面のアプリは、openWindow や navigate に渡した URL を使わず、
+// 最初のページを開くことがある。そのため、URL に頼らず、どの知らせを押したかを IndexedDB に
+// 「開くのを待っている知らせ」（pendingNotice）として書き、画面（app.js）がそれを読んで知らせの画面を出す。
 self.addEventListener("notificationclick", (e) => {
   e.notification.close();
-  const url = new URL((e.notification.data && e.notification.data.url) || "./", self.registration.scope).href;
+  const data = e.notification.data || {};
+  const url = new URL(data.url || "./", self.registration.scope).href;
   e.waitUntil((async () => {
-    // アプリが開いたまま（裏にある）とき：その画面を前に出してから、知らせの画面に移る
+    await debugLog(`通知を押した（${data.feed || "?"} ${data.change || "?"}${data.test ? " 試し" : ""}）`);
+    if (data.feed && data.change) {
+      await idbPut("pendingNotice", { feed: data.feed, change: data.change, test: data.test === true, at: Date.now() });
+    }
     const list = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
     const c = list.find((w) => w.url.startsWith(self.registration.scope));
     if (c) {
+      // アプリが開いたまま（裏にある）とき：前に出して、待っている知らせを読むように伝える
       try {
         await c.focus();
-        const moved = await c.navigate(url);
-        if (moved) return;
-      } catch {
-        // 移れなかったときは、下で知らせの画面を開く
+        await debugLog(`開いている画面を前に出した（画面の数 ${list.length}）`);
+      } catch (err) {
+        await debugLog(`前に出せなかった：${err && err.name}`);
       }
+      c.postMessage({ type: "pending-notice" });
+      await debugLog("postMessage を送った");
+      return;
     }
-    // 閉じているとき（または、開いている画面を移せなかったとき）：知らせの画面を開く
-    return self.clients.openWindow(url);
+    // 閉じているとき：アプリを開く（URL が使われなくても、開いた画面が待っている知らせを読む）
+    try {
+      const w = await self.clients.openWindow(url);
+      await debugLog(`openWindow で開いた（${w ? "画面あり" : "画面の返事なし"}）`);
+    } catch (err) {
+      await debugLog(`openWindow が失敗：${err && err.name}`);
+    }
   })());
 });
 

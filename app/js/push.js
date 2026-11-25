@@ -38,6 +38,61 @@ async function idbSet(entries) {
   }
 }
 
+// 通知を押したときに service worker が書く「開くのを待っている知らせ」を読み、読んだ印として消す（1回のやりとりで）
+export async function takePendingNotice() {
+  try {
+    const db = await idb();
+    return await new Promise((res, rej) => {
+      const tx = db.transaction(STORE, "readwrite");
+      const st = tx.objectStore(STORE);
+      let v;
+      const q = st.get("pendingNotice");
+      q.onsuccess = () => {
+        v = q.result;
+        if (v !== undefined) st.delete("pendingNotice");
+      };
+      tx.oncomplete = () => res(v || null);
+      tx.onerror = () => rej(tx.error);
+    });
+  } catch {
+    return null;
+  }
+}
+
+// 試しのあいだだけの、短い記録（service worker と同じ「debugLog」に足す。新しい30件だけ残す）
+export const DEBUG_LOG = true;
+export async function debugLog(msg) {
+  if (!DEBUG_LOG) return;
+  try {
+    const db = await idb();
+    await new Promise((res, rej) => {
+      const tx = db.transaction(STORE, "readwrite");
+      const st = tx.objectStore(STORE);
+      const q = st.get("debugLog");
+      q.onsuccess = () => st.put([...(q.result || []), { t: new Date().toISOString(), w: "画面", m: msg }].slice(-30), "debugLog");
+      tx.oncomplete = res;
+      tx.onerror = () => rej(tx.error);
+    });
+  } catch {
+    /* 記録できなくても、動きは変えない */
+  }
+}
+export async function readDebugLog() {
+  try {
+    const db = await idb();
+    return await new Promise((res, rej) => {
+      const q = db.transaction(STORE).objectStore(STORE).get("debugLog");
+      q.onsuccess = () => res(q.result || []);
+      q.onerror = () => rej(q.error);
+    });
+  } catch {
+    return [];
+  }
+}
+export async function clearDebugLog() {
+  await idbSet({ debugLog: [] });
+}
+
 function regFeeds(regs, catalog) {
   const feeds = [...new Set(regs.map((r) => r.feed))].filter((f) => catalog.feeds.some((x) => x.feed === f && x.usable));
   return feeds.sort();
