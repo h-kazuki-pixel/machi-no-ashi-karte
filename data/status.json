@@ -1,11 +1,13 @@
 {
- "last_checked_at": "2026-11-25T02:51:09+09:00",
+ "last_checked_at": "2026-11-25T10:55:12+09:00",
  "bootstrap": "調査(2026-11-23)の版の一覧から始めた",
- "last_run_started_at": "2026-11-25T02:51:09+09:00",
- "last_run_finished_at": "2026-11-25T02:51:31+09:00",
+ "last_run_started_at": "2026-11-25T10:55:12+09:00",
+ "last_run_finished_at": "2026-11-25T10:56:23+09:00",
  "last_run_mode": "normal",
- "last_run_errors": [],
+ "last_run_errors": [
+  "kamizonokotsu/SuperBanpeiyu 05a13932: RuntimeError(\"<HTTPError 404: 'Not Found'>\")"
+ ],
  "feeds_total": 612,
- "versions_seen": 10051,
+ "versions_seen": 10065,
  "revisions": 14
 }

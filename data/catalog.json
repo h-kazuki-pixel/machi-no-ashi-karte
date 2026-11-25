@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-25T02:51:31+09:00",
+ "built_at": "2026-11-25T10:56:24+09:00",
  "prefs": [
   {
    "code": 1,
@@ -5813,11 +5813,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "e44d355c-68d2-4f0d-8d29-54b5b609d8bf",
+     "uid": "f9d52c35-0423-4673-8d2d-50e907925002",
      "from": "2026-10-01",
-     "to": "2027-02-25",
-     "published_at": "2026-11-24T04:05:44.820697+09:00",
-     "path": "data/timetables/kuma-bus__kuma-bus/e44d355c-68d2-4f0d-8d29-54b5b609d8bf.json"
+     "to": "2027-02-26",
+     "published_at": "2026-11-25T04:05:44.815303+09:00",
+     "path": "data/timetables/kuma-bus__kuma-bus/f9d52c35-0423-4673-8d2d-50e907925002.json"
     }
    ],
    "revisions": [],
@@ -5887,11 +5887,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "c340b426-d603-4467-ad56-3ae0c2bada6a",
+     "uid": "44da4d70-ea9f-4ceb-860c-1b69ef925ef4",
      "from": "2026-06-06",
-     "to": "2027-02-25",
-     "published_at": "2026-11-24T04:05:46.005746+09:00",
-     "path": "data/timetables/kumamoto-toshibus__kumamoto-toshibus/c340b426-d603-4467-ad56-3ae0c2bada6a.json"
+     "to": "2027-02-26",
+     "published_at": "2026-11-25T04:05:47.412058+09:00",
+     "path": "data/timetables/kumamoto-toshibus__kumamoto-toshibus/44da4d70-ea9f-4ceb-860c-1b69ef925ef4.json"
     }
    ],
    "revisions": [],
@@ -5934,11 +5934,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "3c28c886-e8ee-4752-bfd9-0263e5df4723",
+     "uid": "068c4b20-17eb-4724-be17-b67af4b10890",
      "from": "2026-11-23",
      "to": "2027-03-02",
-     "published_at": "2026-11-24T04:05:46.279802+09:00",
-     "path": "data/timetables/kumamotodentetsu__kumamotodentetsu-bus/3c28c886-e8ee-4752-bfd9-0263e5df4723.json"
+     "published_at": "2026-11-25T04:05:47.387631+09:00",
+     "path": "data/timetables/kumamotodentetsu__kumamotodentetsu-bus/068c4b20-17eb-4724-be17-b67af4b10890.json"
     }
    ],
    "revisions": [],
@@ -6731,11 +6731,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "fd6e9597-f565-40e0-9296-f90f9b6c750a",
+     "uid": "9363a5f9-3645-4513-a3f3-47dbe0137034",
      "from": "2026-10-07",
-     "to": "2027-02-24",
-     "published_at": "2026-11-24T04:05:43.214957+09:00",
-     "path": "data/timetables/mie-kotsu__sancochusei/fd6e9597-f565-40e0-9296-f90f9b6c750a.json"
+     "to": "2027-02-25",
+     "published_at": "2026-11-25T04:05:41.163864+09:00",
+     "path": "data/timetables/mie-kotsu__sancochusei/9363a5f9-3645-4513-a3f3-47dbe0137034.json"
     }
    ],
    "revisions": [],
@@ -6751,11 +6751,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "2d40af38-12e7-420d-8408-3ec24dd77687",
+     "uid": "233f8021-6b62-424f-88fe-15bd8ffa9f7c",
      "from": "2026-10-01",
-     "to": "2027-02-24",
-     "published_at": "2026-11-24T04:05:43.142407+09:00",
-     "path": "data/timetables/mie-kotsu__sancoiga/2d40af38-12e7-420d-8408-3ec24dd77687.json"
+     "to": "2027-02-25",
+     "published_at": "2026-11-25T04:05:40.652630+09:00",
+     "path": "data/timetables/mie-kotsu__sancoiga/233f8021-6b62-424f-88fe-15bd8ffa9f7c.json"
     }
    ],
    "revisions": [],
@@ -6771,11 +6771,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "aca25f28-02db-46e4-bd5a-bfde09f81602",
+     "uid": "15fc553d-a0d8-499d-8c94-3ff701dd80db",
      "from": "2026-04-01",
-     "to": "2027-02-24",
-     "published_at": "2026-11-24T04:05:45.653663+09:00",
-     "path": "data/timetables/mie-kotsu__sancoinanki/aca25f28-02db-46e4-bd5a-bfde09f81602.json"
+     "to": "2027-02-25",
+     "published_at": "2026-11-25T04:05:45.215312+09:00",
+     "path": "data/timetables/mie-kotsu__sancoinanki/15fc553d-a0d8-499d-8c94-3ff701dd80db.json"
     }
    ],
    "revisions": [],
@@ -6791,11 +6791,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "d8f348b7-70cc-4541-a2b5-317c1208b83c",
+     "uid": "14cbba7e-bd4f-4afe-bc6f-39127e48e388",
      "from": "2026-10-01",
-     "to": "2027-02-24",
-     "published_at": "2026-11-24T04:05:43.138554+09:00",
-     "path": "data/timetables/mie-kotsu__sancoise/d8f348b7-70cc-4541-a2b5-317c1208b83c.json"
+     "to": "2027-02-25",
+     "published_at": "2026-11-25T04:05:41.142974+09:00",
+     "path": "data/timetables/mie-kotsu__sancoise/14cbba7e-bd4f-4afe-bc6f-39127e48e388.json"
     }
    ],
    "revisions": [],
@@ -6811,11 +6811,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "95e2d541-dc9c-4460-ad06-c567c62a06c4",
+     "uid": "0df40483-255c-4b30-abde-ec4802ce52a4",
      "from": "2026-10-17",
-     "to": "2027-02-24",
-     "published_at": "2026-11-24T04:05:43.159038+09:00",
-     "path": "data/timetables/mie-kotsu__sancokuwana/95e2d541-dc9c-4460-ad06-c567c62a06c4.json"
+     "to": "2027-02-25",
+     "published_at": "2026-11-25T04:05:40.590464+09:00",
+     "path": "data/timetables/mie-kotsu__sancokuwana/0df40483-255c-4b30-abde-ec4802ce52a4.json"
     }
    ],
    "revisions": [],
@@ -6831,11 +6831,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "25d26f27-09b1-4658-911a-3145bb3e2f22",
+     "uid": "62b8c493-9df0-4f05-a11e-40d4e03307dd",
      "from": "2026-10-01",
-     "to": "2027-02-24",
-     "published_at": "2026-11-24T04:05:43.225302+09:00",
-     "path": "data/timetables/mie-kotsu__sancomatsusaka/25d26f27-09b1-4658-911a-3145bb3e2f22.json"
+     "to": "2027-02-25",
+     "published_at": "2026-11-25T04:05:42.000545+09:00",
+     "path": "data/timetables/mie-kotsu__sancomatsusaka/62b8c493-9df0-4f05-a11e-40d4e03307dd.json"
     }
    ],
    "revisions": [],
@@ -6851,11 +6851,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "e5597f04-b25d-4046-829a-e20a3554052c",
+     "uid": "ed26d31a-fa04-427c-97e1-b2e3086a41fe",
      "from": "2026-10-01",
-     "to": "2027-02-24",
-     "published_at": "2026-11-24T04:05:43.230034+09:00",
-     "path": "data/timetables/mie-kotsu__sancoshima/e5597f04-b25d-4046-829a-e20a3554052c.json"
+     "to": "2027-02-25",
+     "published_at": "2026-11-25T04:05:40.127733+09:00",
+     "path": "data/timetables/mie-kotsu__sancoshima/ed26d31a-fa04-427c-97e1-b2e3086a41fe.json"
     }
    ],
    "revisions": [],
@@ -6871,11 +6871,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "181da0b1-dc57-4f30-a47a-96d6338ddaf5",
+     "uid": "cb73e5ef-7edd-4758-9f1f-955bc66a65d1",
      "from": "2026-09-08",
-     "to": "2027-02-24",
-     "published_at": "2026-11-24T04:05:43.188926+09:00",
-     "path": "data/timetables/mie-kotsu__sancoyokkaichi/181da0b1-dc57-4f30-a47a-96d6338ddaf5.json"
+     "to": "2027-02-25",
+     "published_at": "2026-11-25T04:05:40.804653+09:00",
+     "path": "data/timetables/mie-kotsu__sancoyokkaichi/cb73e5ef-7edd-4758-9f1f-955bc66a65d1.json"
     }
    ],
    "revisions": [],
@@ -10590,15 +10590,22 @@
    "pref": 25,
    "license": "CC BY 4.0",
    "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
-   "usable": false,
-   "timetables": [],
+   "usable": true,
+   "timetables": [
+    {
+     "uid": "377b53cb-7ee9-4fb4-a90f-05801f9be74e",
+     "from": "2026-06-04",
+     "to": "2027-03-31",
+     "published_at": "2026-11-25T09:48:55.580443+09:00",
+     "path": "data/timetables/rittocity__rittoukurichanbus/377b53cb-7ee9-4fb4-a90f-05801f9be74e.json"
+    }
+   ],
    "revisions": [],
    "lead": {
     "n": 0,
-    "late": 0,
+    "late": 1,
     "censored": 0
-   },
-   "note": "このバスの、いま使える時刻表のデータがありません"
+   }
   },
   {
    "feed": "rokkashovillage/rokkasho-sharedtaxi",
@@ -11213,11 +11220,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "7e8979a7-8114-44ff-9ead-7e9d19f89556",
+     "uid": "ebbeadf0-5ff5-4b17-b9ac-dbf3ac0a366d",
      "from": "2026-11-04",
-     "to": "2027-02-25",
-     "published_at": "2026-11-24T04:05:51.702572+09:00",
-     "path": "data/timetables/sankobus__sankobus/7e8979a7-8114-44ff-9ead-7e9d19f89556.json"
+     "to": "2027-02-26",
+     "published_at": "2026-11-25T04:05:53.534026+09:00",
+     "path": "data/timetables/sankobus__sankobus/ebbeadf0-5ff5-4b17-b9ac-dbf3ac0a366d.json"
     }
    ],
    "revisions": [],

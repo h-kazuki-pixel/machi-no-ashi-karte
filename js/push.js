@@ -16,7 +16,11 @@ export function isStandalone() {
   return navigator.standalone === true || window.matchMedia("(display-mode: standalone)").matches;
 }
 
+// IndexedDB が返事をしない環境（一部のブラウザの設定など）でも止まらないよう、開くのは1.5秒まで待つ
 function idb() {
+  return Promise.race([idbOpen(), new Promise((_, rej) => setTimeout(() => rej(new Error("idb-timeout")), 1500))]);
+}
+function idbOpen() {
   return new Promise((res, rej) => {
     const r = indexedDB.open(DB, 1);
     r.onupgradeneeded = () => r.result.createObjectStore(STORE);
