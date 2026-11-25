@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-25T10:56:24+09:00",
+ "built_at": "2026-11-25T11:33:22+09:00",
  "prefs": [
   {
    "code": 1,
@@ -4427,11 +4427,11 @@
      "path": "data/timetables/keneibus__nagasaki-kenei-bus/76535bce-a661-4ff3-861f-aaa6b8131b78.json"
     },
     {
-     "uid": "9dc8e290-c7c9-4f6a-9234-5f37605d6d1a",
+     "uid": "777232ab-37e2-43fe-b1b4-4097dc10c255",
      "from": "2026-12-01",
      "to": "2027-01-04",
-     "published_at": "2026-11-19T17:01:20.182837+09:00",
-     "path": "data/timetables/keneibus__nagasaki-kenei-bus/9dc8e290-c7c9-4f6a-9234-5f37605d6d1a.json"
+     "published_at": "2026-11-25T11:14:02.037410+09:00",
+     "path": "data/timetables/keneibus__nagasaki-kenei-bus/777232ab-37e2-43fe-b1b4-4097dc10c255.json"
     }
    ],
    "revisions": [

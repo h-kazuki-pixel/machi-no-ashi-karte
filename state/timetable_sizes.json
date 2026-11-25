@@ -8317,19 +8317,6 @@
   "2028-05-17",
   "2026-10-25"
  ],
- "data/timetables/keneibus__nagasaki-kenei-bus/9dc8e290-c7c9-4f6a-9234-5f37605d6d1a.json": [
-  1531103,
-  3826,
-  1754,
-  [
-   [
-    "2026-12-01",
-    "2027-01-04"
-   ]
-  ],
-  "2028-05-17",
-  "2026-10-25"
- ],
  "data/timetables/khkhokubu-kotsu__GTFS-Hokubutraffic_Localbus/620e5ecf-c58f-47da-8eb5-6e6d493bd9d9.json": [
   133541,
   101,
@@ -33915,6 +33902,19 @@
    [
     "2026-11-04",
     "2027-02-26"
+   ]
+  ],
+  "2028-05-18",
+  "2026-10-26"
+ ],
+ "data/timetables/keneibus__nagasaki-kenei-bus/777232ab-37e2-43fe-b1b4-4097dc10c255.json": [
+  2113124,
+  5367,
+  1754,
+  [
+   [
+    "2026-12-01",
+    "2027-01-04"
    ]
   ],
   "2028-05-18",
