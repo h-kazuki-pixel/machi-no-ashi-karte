@@ -62,6 +62,8 @@
      ]
     }
    ]
-  }
+  },
+  "memo": "デマンド交通の実証運行開始にともない12月1日より休止となります。\nhttps://www.town.tsuruta.lg.jp/kurashi/Aidemand-testrun.html",
+  "all_routes_stop": true
  }
 }
