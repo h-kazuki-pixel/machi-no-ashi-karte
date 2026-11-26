@@ -45,7 +45,8 @@ const catalog = {
     feed, name: "米沢市営バス", operator: "米沢市", pref: 6, license: "CC BY 4.0", license_url: "", usable: true,
     timetables: [{ uid: NEW, from: base.meta.new.from, to: base.meta.new.to, published_at: base.meta.new.published_at, path: base.meta.timetables[NEW] }],
     revisions: variants[feed] ? [{ change_date: base.meta.change_date, path: revPath(feed), published_at: base.meta.new.published_at,
-                  ...(feed === "test/unknown" ? { change_date_known: false } : {}) }] : [],
+                  ...(feed === "test/unknown" ? { change_date_known: false } : {}),
+                  ...(feed === "test/suspend" ? { suspended: true } : {}) }] : [],
     // 「ふだん何日前に分かるか」：米沢だけ試しの数を入れる（ほかは記録が少ない）
     lead: feed === "yonezawacity/Yonezawa" ? { n: 5, late: 1, censored: 2, median: 12, earliest: 257, latest: 3 } : feed === "test/norev" ? { n: 0, late: 0, censored: 0 } : { n: 2, late: 0, censored: 0, leads: [5, 0] },
   })),
@@ -131,7 +132,8 @@ const cases = [
     not: ["https://www.town.tsuruta.lg.jp/kurashi/Aidemand-testrun.html』"] },
   { today: "2026-12-02", name: "12/2 移動の画面：休止している", hash: "#trip/suspend", want: ["12月1日から、このバスは休止しています。"] },
   { name: "ホーム：休止", hash: "#home", want: ["休止します", "12月1日から、このバスは休止します。"] },
-  { name: "知らせの画面：休止", hash: `#notice/${encodeURIComponent("test/suspend")}/2026-12-01`, want: ["12月1日から、このバスは休止します。", "くわしくは町の案内へ"] },
+  { name: "知らせの画面：休止", hash: `#notice/${encodeURIComponent("test/suspend")}/2026-12-01`, want: ["米沢市営バスの運行が、12月1日から休止します。", "12月1日から、このバスは休止します。", "くわしくは町の案内へ", "（GTFSデータリポジトリに登録された、この時刻表のデータのメモです）"] },
+  { today: "2026-12-02", name: "12/2 知らせの画面：休止している", hash: `#notice/${encodeURIComponent("test/suspend")}/2026-12-01`, want: ["米沢市営バスの運行が、12月1日から休止しています。"] },
   // 1〜4分の差と、同じ移動だけのとき：まとめは「大きく変わる移動はありません」。同じ移動だけなら「どれも変わりません」
   { name: "通知を押して開く画面（ほとんど変わらない移動だけ）", only: ["tiny", "same"], hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["大きく変わる移動はありません。"] },
   { name: "通知を押して開く画面（変わらない移動だけ）", only: ["same"], hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["登録した移動は、どれも変わりません。"] },

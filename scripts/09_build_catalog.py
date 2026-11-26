@@ -156,6 +156,13 @@ def build_catalog(site, seen, feeds, index, today):
         r = {"change_date": x["change_date"], "path": x["path"], "published_at": x["published_at"]}
         if x.get("change_date_known") is False:
             r["change_date_known"] = False  # 変わる日が分からない（zip の置き換えを見つけた日にもう違っていた）
+        # 休止：全部の路線が走らなくなり、版のメモに「休止」とある（通知の文を「◯◯の運行が、◯月◯日から休止します。」にする）
+        try:
+            rm = json.loads((site / x["path"]).read_text(encoding="utf-8"))["meta"]
+            if rm.get("all_routes_stop") and "休止" in (rm.get("new", {}).get("memo") or ""):
+                r["suspended"] = True
+        except (OSError, ValueError, KeyError):
+            pass
         revs.setdefault(x["feed"], []).append(r)
     prefs = {}
     items = []
