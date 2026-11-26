@@ -510,8 +510,20 @@ function rideText(r, res) {
 }
 
 function movedHtml(res) {
+  const d = jDateShort(res.P.meta.change_date);
+  const far = (n) => (n.meters == null ? "離れた所" : `${kmText(n.meters)} 離れた所`);
   return res.notes.filter((n) => n.kind === "stop_moved")
-    .map((n) => `<p class="warn">${kq(esc(n.name))}ののりばの場所が、データの上で${kmText(n.meters)} 動いています。現地の案内を確かめてください。</p>`).join("");
+    .map((n) => `<p class="warn">${kq(esc(n.name))}ののりばの場所が、データの上で${kmText(n.meters)} 動いています。現地の案内を確かめてください。</p>`).join("")
+    // C′：別ののりばに移る（50m以上）
+    + res.notes.filter((n) => n.kind === "platform_moved").map((n) => `<p class="warn">${res.ph === "after"
+      ? `『${esc(n.name)}』ののりばが、${d}に、前より${far(n)}に変わりました。`
+      : `『${esc(n.name)}』ののりばが、${d}から、いまより${far(n)}に変わります。`}現地の案内を確かめてください。</p>`).join("");
+}
+// ホームのカードと知らせの画面：段階の名前の下に「のりばが変わります（約80m）」
+function platformLine(res) {
+  if (!res || !res.notes) return "";
+  return res.notes.filter((n) => n.kind === "platform_moved")
+    .map((n) => `<div>のりばが${res.ph === "after" ? "変わりました" : "変わります"}${n.meters == null ? "" : `（${kmText(n.meters)}）`}</div>`).join("");
 }
 
 function altHtml(res) {
@@ -591,7 +603,7 @@ async function homeView() {
       // 向き（◯分おそくなります／早くなります）は、段階の名前の下の行に、ふつうの大きさで
       const shiftHtml = n.level === "tiny" ? `<div>${esc(tinyShiftText(n))}</div>` : "";
       const nextHtml = n.level === "tiny" ? nextLine(n, "muted nowrap") : "";
-      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}　<span class="badge lv-same">${esc(word)}</span></div>${shiftHtml}<div class="muted nowrap">${esc(nowLine)}</div>${nextHtml}${caution}</a>`;
+      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}　<span class="badge lv-same">${esc(word)}</span></div>${shiftHtml}${platformLine(n)}<div class="muted nowrap">${esc(nowLine)}</div>${nextHtml}${caution}</a>`;
     } else {
       const li = levelInfo(n);
       const verb = n.ph === "after" ? "変わりました" : "変わります";
@@ -600,7 +612,7 @@ async function homeView() {
       const nameLine = hl.includes(x.reg.name) ? "" : `<div class="muted">『${esc(x.reg.name)}』</div>`;
       html += `<a class="card notice ${li.cls}" href="${href}">
         <span class="badge ${li.cls}">${esc(li.badge)}</span>${nameLine}
-        <div class="name" style="color:var(--fg)">${esc(hl)}</div>
+        <div class="name" style="color:var(--fg)">${esc(hl)}</div>${platformLine(n)}
         <div style="color:var(--fg)">${esc(nowLine)}</div>${nextLine(n, "nowrap", "color:var(--fg)")}${caution}</a>`;
     }
   }
@@ -758,9 +770,9 @@ async function noticeView(feed, change, test = false) {
     const href = `#trip/${esc(x.reg.id)}`;
     if (res && res.level === "same") {
       const nowLine = x.now && x.now.ride ? `いまのバス　${busText(x.now.ride)}` : "";
-      html += `<a class="card" href="${href}"><div class="verdict same">あなたの移動は変わりません</div><div class="name">${esc(x.reg.name)}</div><div class="muted nowrap">${esc(nowLine)}</div></a>`;
+      html += `<a class="card" href="${href}"><div class="verdict same">あなたの移動は変わりません</div>${platformLine(res)}<div class="name">${esc(x.reg.name)}</div><div class="muted nowrap">${esc(nowLine)}</div></a>`;
     } else if (res && res.level === "tiny") {
-      html += `<a class="card" href="${href}"><div class="verdict same">ほとんど変わりません</div><div>${esc(tinyShiftText(res))}</div><div class="name">${esc(x.reg.name)}</div>${beforeAfterLines(res, change)}</a>`;
+      html += `<a class="card" href="${href}"><div class="verdict same">ほとんど変わりません</div><div>${esc(tinyShiftText(res))}</div>${platformLine(res)}<div class="name">${esc(x.reg.name)}</div>${beforeAfterLines(res, change)}</a>`;
     } else if (!res) {
       html += `<a class="card" href="${href}"><div class="verdict">この移動は、くらべられませんでした</div><div class="name">${esc(x.reg.name)}</div></a>`;
     } else if (res.level === "no_route") {
@@ -770,7 +782,7 @@ async function noticeView(feed, change, test = false) {
       const hl = headline(res, x.reg.name);
       const nameLine = hl.includes(x.reg.name) ? "" : `<div class="muted">『${esc(x.reg.name)}』</div>`;
       html += `<a class="card notice ${li.cls}" href="${href}"><span class="badge ${li.cls}">${esc(li.badge)}</span>${nameLine}
-        <div class="name" style="color:var(--fg)">${esc(hl)}</div>${beforeAfterLines(res, change)}</a>`;
+        <div class="name" style="color:var(--fg)">${esc(hl)}</div>${platformLine(res)}${beforeAfterLines(res, change)}</a>`;
     }
   }
   render(html + `<a class="btn secondary" href="#home">わたしの移動へ</a>`);

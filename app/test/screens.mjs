@@ -19,7 +19,9 @@ const TODAY = "2026-11-25";
 const WK = ["mon", "tue", "wed", "thu", "fri"];
 const base = JSON.parse(fs.readFileSync(path.join(FX, "revision.json"), "utf8"));
 const NEW = base.meta.new.uid;
-const YZ_EXTRA = { route_last_year: { "万世線": { first_sun: "2026-05-03", sun: "2026-05-03" } }, route_last_run: { "万世線（直行便）": "2026-03-31" } };
+const YZ_EXTRA = { route_last_year: { "万世線": { first_sun: "2026-05-03", sun: "2026-05-03" } }, route_last_run: { "万世線（直行便）": "2026-03-31" },
+  // C′：別ののりばに移る（東一丁目は80mで出す。米沢駅前は20mなので出さない）
+  platform_moves: [{ name: "東一丁目", from: "a", to: "b", m: 80, trip_days: 5 }, { name: "米沢駅前", from: "c", to: "d", m: 20, trip_days: 5 }] };
 
 // 段階ごとのバス（改正のデータの変え方）
 const variants = {
@@ -113,6 +115,11 @@ const cases = [
     want: ["ほとんど変わりません 2分おそくなります いまのバス 7:47発 → 7:55着 12月1日から 7:49発 → 7:57着", "いまのバス 7:29発 → 7:35着 12月1日から 7:09発 → 7:15着"] },
   { today: "2026-12-02", name: "12/2 ホーム（変わる日を過ぎたら新しい時刻だけ）", hash: "#home",
     want: ["ほとんど変わりません 2分おそくなります いまのバス 7:49発 → 7:57着"], not: ["12月1日から 7:49発"] },
+  // C′：50m以上離れたのりばに移る（乗る・降りる停留所の名前のものだけ。50m未満は出さない）
+  { name: "移動の画面：のりばが変わる（C′）", hash: "#trip/big", want: ["『東一丁目』ののりばが、12月1日から、いまより約80m 離れた所に変わります。現地の案内を確かめてください。"], not: ["約20m 離れた所"] },
+  { today: "2026-12-02", name: "12/2 移動の画面：のりばが変わった（C′）", hash: "#trip/big", want: ["『東一丁目』ののりばが、12月1日に、前より約80m 離れた所に変わりました。現地の案内を確かめてください。"] },
+  { name: "ホーム：のりばが変わる（C′）", hash: "#home", want: ["のりばが変わります（約80m）"], not: ["のりばが変わります（約20m）"] },
+  { name: "知らせの画面：のりばが変わる（C′）", hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["のりばが変わります（約80m）"] },
   // 1〜4分の差と、同じ移動だけのとき：まとめは「大きく変わる移動はありません」。同じ移動だけなら「どれも変わりません」
   { name: "通知を押して開く画面（ほとんど変わらない移動だけ）", only: ["tiny", "same"], hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["大きく変わる移動はありません。"] },
   { name: "通知を押して開く画面（変わらない移動だけ）", only: ["same"], hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["登録した移動は、どれも変わりません。"] },
