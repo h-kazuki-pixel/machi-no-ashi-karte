@@ -5,7 +5,7 @@
 //                       当日かあと  「◯◯の時刻表が、◯月◯日に変わりました。」
 // バスの名前は、端末の中（IndexedDB）に保存した一覧から引く。行き先や時刻は、通知の文に入れない。
 // sw.js の版の番号（画面の app.js の APP_VERSION と同じにする。直したら両方を上げる）
-const SW_VERSION = "2026-11-26.2";
+const SW_VERSION = "2026-11-26.3";
 const DB = "machi-no-ashi-karte";
 const STORE = "kv";
 
@@ -57,7 +57,12 @@ function todayJst() {
   return new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
 }
 
-function noticeText(name, change, today, known = true) {
+function noticeText(name, change, today, known = true, again = false) {
+  // 公開中の改正が作り直されて、便や時刻が変わった（もう一度だけの知らせ）
+  if (again && /^\d{4}-\d{2}-\d{2}$/.test(change || "")) {
+    const [, m, d] = change.split("-").map(Number);
+    return `${name}の、${m}月${d}日からの時刻表が、もう一度変わりました。`;
+  }
   // 変わる日が分からない（同じ版の番号のまま zip が置き換わった）ときは、日付を入れない
   if (known === false) return `${name}の時刻表が変わりました。`;
   if (!/^\d{4}-\d{2}-\d{2}$/.test(change || "")) return `${name}の時刻表が変わります。`;
@@ -103,11 +108,11 @@ self.addEventListener("push", (e) => {
     const feed = typeof d.feed === "string" ? d.feed : "";
     const change = typeof d.change_date === "string" ? d.change_date : "";
     // 試し（/notify の test）：本物と同じ文に「（試し）」を付ける
-    const body = noticeText(await feedName(feed), change, todayJst(), d.known !== false) + (d.test === true ? "（試し）" : "");
+    const body = noticeText(await feedName(feed), change, todayJst(), d.known !== false, d.again === true) + (d.test === true ? "（試し）" : "");
     // iPhone では、届いた通知は必ず表示する決まり
     // 題名は「時刻表の知らせ」（iPhone は「題名 from ホーム画面の名前」と出すので、アプリの名前と重ねない）
     await self.registration.showNotification("時刻表の知らせ", {
-      body, tag: `${feed}|${change}${d.test === true ? "|test" : ""}`, icon: "icons/icon-192.png", lang: "ja",
+      body, tag: `${feed}|${change}${d.again === true ? "|again" : ""}${d.test === true ? "|test" : ""}`, icon: "icons/icon-192.png", lang: "ja",
       // 知らせの画面の URL。iPhone のホーム画面のアプリは、開くときに「#」より後ろを落とすことがあるため、
       // 「?notice=」で渡し、アプリが読みこんだときに「#notice/…」に直す
       data: { url: `./?notice=${encodeURIComponent(`${feed}/${change}${d.test === true ? "/test" : ""}`)}`,

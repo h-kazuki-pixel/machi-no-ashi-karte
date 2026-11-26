@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-26T15:52:46+09:00",
+ "built_at": "2026-11-26T15:53:40+09:00",
  "prefs": [
   {
    "code": 1,
@@ -14692,11 +14692,11 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "48f39053-6bf9-4f02-8dec-e3f292aeada0",
-     "from": "2026-04-24",
+     "uid": "c75f879e-1ef6-4357-a5b5-ef24d398fee7",
+     "from": "2026-11-26",
      "to": "2027-03-31",
-     "published_at": "2026-05-07T15:13:45.254212+09:00",
-     "path": "data/timetables/tsurutatown__tsuruta-townbus/48f39053-6bf9-4f02-8dec-e3f292aeada0.json"
+     "published_at": "2026-11-26T14:59:26.200478+09:00",
+     "path": "data/timetables/tsurutatown__tsuruta-townbus/c75f879e-1ef6-4357-a5b5-ef24d398fee7.json"
     }
    ],
    "revisions": [],

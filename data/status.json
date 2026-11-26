@@ -1,12 +1,12 @@
 {
- "last_checked_at": "2026-11-26T14:58:25+09:00",
+ "last_checked_at": "2026-11-26T15:53:19+09:00",
  "bootstrap": "調査(2026-11-23)の版の一覧から始めた",
- "last_run_started_at": "2026-11-26T14:58:25+09:00",
- "last_run_finished_at": "2026-11-26T14:58:43+09:00",
+ "last_run_started_at": "2026-11-26T15:53:19+09:00",
+ "last_run_finished_at": "2026-11-26T15:53:40+09:00",
  "last_run_mode": "normal",
  "last_run_errors": [],
  "feeds_total": 613,
- "versions_seen": 10082,
+ "versions_seen": 10083,
  "revisions": 15,
  "last_etag_check_at": "2026-11-26T13:58:03+09:00",
  "last_etag_check": {
