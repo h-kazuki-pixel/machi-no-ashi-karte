@@ -18,6 +18,7 @@ const RECENT_DAYS = 30; // 変更日からこの日数までは、改正の知�
 
 // URL で「今日」を切り替えられる（例：?today=2026-11-25）。?demo=1 で例の移動を表示（保存しない）
 const params = new URLSearchParams(location.search);
+const SHOW_DEBUG = params.get("debug") === "1";
 const TODAY = params.get("today") || new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Tokyo" }).format(new Date());
 // ?try=[{登録}, ...]（JSON）で、その登録を保存せずに表示する（確認用）
 const TRY = (() => {
@@ -586,8 +587,11 @@ async function homeView() {
     } else if (n.level === "no_route") {
       html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}</div><div class="muted">いまは1本で行けるバスがありません。行けるようになったら知らせます。</div>${caution}</a>`;
     } else if (["same", "tiny"].includes(n.level)) {
-      const word = n.level === "same" ? "変わりません" : `ほとんど変わりません（${n.shift}分）`;
-      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}　<span class="badge lv-same">${word}</span></div><div class="muted nowrap">${esc(nowLine)}</div>${caution}</a>`;
+      const word = n.level === "same" ? "変わりません" : "ほとんど変わりません";
+      // 向き（◯分おそくなります／早くなります）は、段階の名前の下の行に、ふつうの大きさで
+      const shiftHtml = n.level === "tiny" ? `<div>${esc(tinyShiftText(n))}</div>` : "";
+      const nextHtml = n.level === "tiny" ? nextLine(n, "muted nowrap") : "";
+      html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}　<span class="badge lv-same">${esc(word)}</span></div>${shiftHtml}<div class="muted nowrap">${esc(nowLine)}</div>${nextHtml}${caution}</a>`;
     } else {
       const li = levelInfo(n);
       const verb = n.ph === "after" ? "変わりました" : "変わります";
@@ -597,7 +601,7 @@ async function homeView() {
       html += `<a class="card notice ${li.cls}" href="${href}">
         <span class="badge ${li.cls}">${esc(li.badge)}</span>${nameLine}
         <div class="name" style="color:var(--fg)">${esc(hl)}</div>
-        <div style="color:var(--fg)">${esc(nowLine)}</div>${caution}</a>`;
+        <div style="color:var(--fg)">${esc(nowLine)}</div>${nextLine(n, "nowrap", "color:var(--fg)")}${caution}</a>`;
     }
   }
   html += `<a class="btn secondary" href="#add/pref">移動を登録する</a>`;
@@ -606,7 +610,8 @@ async function homeView() {
   if (DEMO) html += `<p class="muted small">例の表示です（保存されません）。</p>`;
   render(html);
   if (pushConfigured() && !DEMO) pushBox(document.getElementById("push"));
-  if (DEBUG_LOG && pushConfigured() && !DEMO) debugBox();
+  // 試しの記録は残し続けるが、出すのは URL に ?debug=1 を付けたときだけ
+  if (DEBUG_LOG && SHOW_DEBUG && pushConfigured() && !DEMO) debugBox();
 }
 
 // 試しのあいだだけ：通知を押したときの記録（新しい順）
@@ -680,6 +685,12 @@ async function pushBox(el) {
   });
 }
 
+// ホームのカード：変わる日より前は、「いまのバス」の下に「◯月◯日から」の時刻も出す（変わる日を過ぎたら、いまのバスが新しい時刻）
+function nextLine(n, cls, style = "") {
+  if (n.ph === "after" || !n.after || !n.after.ride) return "";
+  return `<div class="${cls}"${style ? ` style="${style}"` : ""}>${esc(`${jDateShort(n.P.meta.change_date)}から　${busText(n.after.ride)}`)}</div>`;
+}
+
 // 知らせの画面の並び：行けなくなる → 大きく変わる → 少し変わる → ほとんど変わらない → 良くなる → 変わらない
 // → 前も後も1本で行けない（くらべられないものは最後）
 const NOTICE_RANK = { "lv-cannot": 0, "lv-big": 1, "lv-small": 2, "lv-tiny": 3, "lv-better": 4, "lv-same": 5 };
@@ -733,7 +744,7 @@ async function noticeView(feed, change, test = false) {
       const nowLine = x.now && x.now.ride ? `いまのバス　${busText(x.now.ride)}` : "";
       html += `<a class="card" href="${href}"><div class="verdict same">あなたの移動は変わりません</div><div class="name">${esc(x.reg.name)}</div><div class="muted nowrap">${esc(nowLine)}</div></a>`;
     } else if (res && res.level === "tiny") {
-      html += `<a class="card" href="${href}"><div class="verdict same">ほとんど変わりません<span class="small">（${esc(tinyShiftText(res))}）</span></div><div class="name">${esc(x.reg.name)}</div>${beforeAfterLines(res, change)}</a>`;
+      html += `<a class="card" href="${href}"><div class="verdict same">ほとんど変わりません</div><div>${esc(tinyShiftText(res))}</div><div class="name">${esc(x.reg.name)}</div>${beforeAfterLines(res, change)}</a>`;
     } else if (!res) {
       html += `<a class="card" href="${href}"><div class="verdict">この移動は、くらべられませんでした</div><div class="name">${esc(x.reg.name)}</div></a>`;
     } else if (res.level === "no_route") {
