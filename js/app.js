@@ -775,7 +775,8 @@ async function noticeView(feed, change, test = false) {
   if (!item) return alertBox("このバスのデータが見つかりません。");
   // 通知の文と同じ見出し（変わる日が分からないときは、日付を入れない）
   const rv = (item.revisions || []).find((r) => r.change_date === change);
-  const head = rv && rv.change_date_known === false ? `${item.name}の時刻表が変わりました。`
+  const head = rv && rv.suspended ? `${item.name}の運行が、${jDateShort(change)}から休止${TODAY < change ? "します" : "しています"}。`
+    : rv && rv.change_date_known === false ? `${item.name}の時刻表が変わりました。`
     : `${item.name}の時刻表が、${TODAY < change ? `${jDateShort(change)}から変わります` : `${jDateShort(change)}に変わりました`}。`;
   render(`<p class="muted">読みこんでいます…</p>`);
   const regs = loadRegs().filter((r) => r.feed === feed);

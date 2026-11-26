@@ -13,6 +13,7 @@
 - 常滑市「コミュニティバスグルーン」GTFSデータ（CC0 1.0） — https://creativecommons.org/publicdomain/zero/1.0/deed.ja
 - 十和田観光電鉄株式会社「十和田観光電鉄（八戸～三沢空港線）」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 豊田市「とよたおいでんバス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
+- 鶴田町「鶴田町地域巡回バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 羽後交通株式会社「羽後交通（本荘地区）」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 羽後交通株式会社「羽後交通（田沢湖地区）」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 米沢市「米沢市営バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja

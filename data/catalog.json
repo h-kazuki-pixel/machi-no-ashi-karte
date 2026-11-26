@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-26T17:13:24+09:00",
+ "built_at": "2026-11-26T17:31:49+09:00",
  "prefs": [
   {
    "code": 1,
@@ -14723,11 +14723,21 @@
      "path": "data/timetables/tsurutatown__tsuruta-townbus/c75f879e-1ef6-4357-a5b5-ef24d398fee7.json"
     }
    ],
-   "revisions": [],
+   "revisions": [
+    {
+     "change_date": "2026-12-01",
+     "path": "data/revisions/tsurutatown__tsuruta-townbus/2026-12-01__c75f879e.json",
+     "published_at": "2026-11-26T14:59:26.200478+09:00",
+     "suspended": true
+    }
+   ],
    "lead": {
-    "n": 0,
+    "n": 1,
     "late": 0,
-    "censored": 0
+    "censored": 0,
+    "leads": [
+     5
+    ]
    }
   },
   {

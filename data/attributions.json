@@ -90,6 +90,14 @@
    "text": "豊田市「とよたおいでんバス」GTFSデータ（CC BY 4.0）"
   },
   {
+   "feed": "tsurutatown/tsuruta-townbus",
+   "operator": "鶴田町",
+   "feed_name": "鶴田町地域巡回バス",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "鶴田町「鶴田町地域巡回バス」GTFSデータ（CC BY 4.0）"
+  },
+  {
    "feed": "ugokotsu/ugokotsu_honjo",
    "operator": "羽後交通株式会社",
    "feed_name": "羽後交通（本荘地区）",

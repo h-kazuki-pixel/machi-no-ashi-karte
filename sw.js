@@ -5,7 +5,7 @@
 //                       当日かあと  「◯◯の時刻表が、◯月◯日に変わりました。」
 // バスの名前は、端末の中（IndexedDB）に保存した一覧から引く。行き先や時刻は、通知の文に入れない。
 // sw.js の版の番号（画面の app.js の APP_VERSION と同じにする。直したら両方を上げる）
-const SW_VERSION = "2026-11-26.5";
+const SW_VERSION = "2026-11-26.6";
 const DB = "machi-no-ashi-karte";
 const STORE = "kv";
 
@@ -57,7 +57,12 @@ function todayJst() {
   return new Date(Date.now() + 9 * 3600000).toISOString().slice(0, 10);
 }
 
-function noticeText(name, change, today, known = true, again = false) {
+function noticeText(name, change, today, known = true, again = false, suspended = false) {
+  // 休止（全部の路線が走らなくなり、版のメモに「休止」とある）
+  if (suspended && /^\d{4}-\d{2}-\d{2}$/.test(change || "")) {
+    const [, m, d] = change.split("-").map(Number);
+    return today < change ? `${name}の運行が、${m}月${d}日から休止します。` : `${name}の運行が、${m}月${d}日から休止しています。`;
+  }
   // 公開中の改正が作り直されて、便や時刻が変わった（もう一度だけの知らせ）
   if (again && /^\d{4}-\d{2}-\d{2}$/.test(change || "")) {
     const [, m, d] = change.split("-").map(Number);
@@ -81,6 +86,18 @@ async function feedName(feed) {
     /* 読めなければ、決まった言い方にする */
   }
   return "登録したバス";
+}
+
+// その改正が休止か（バスの一覧の revisions[].suspended。読めなければ、休止ではないとみなす）
+async function isSuspendedRev(feed, change) {
+  try {
+    const cat = await (await fetch("data/catalog.json", { cache: "no-cache" })).json();
+    const f = cat.feeds.find((x) => x.feed === feed);
+    const r = f && (f.revisions || []).find((x) => x.change_date === change);
+    return !!(r && r.suspended);
+  } catch {
+    return false;
+  }
 }
 
 self.addEventListener("install", (e) => {
@@ -108,7 +125,8 @@ self.addEventListener("push", (e) => {
     const feed = typeof d.feed === "string" ? d.feed : "";
     const change = typeof d.change_date === "string" ? d.change_date : "";
     // 試し（/notify の test）：本物と同じ文に「（試し）」を付ける
-    const body = noticeText(await feedName(feed), change, todayJst(), d.known !== false, d.again === true) + (d.test === true ? "（試し）" : "");
+    const body = noticeText(await feedName(feed), change, todayJst(), d.known !== false, d.again === true,
+                            d.again !== true && await isSuspendedRev(feed, change)) + (d.test === true ? "（試し）" : "");
     // iPhone では、届いた通知は必ず表示する決まり
     // 題名は「時刻表の知らせ」（iPhone は「題名 from ホーム画面の名前」と出すので、アプリの名前と重ねない）
     await self.registration.showNotification("時刻表の知らせ", {

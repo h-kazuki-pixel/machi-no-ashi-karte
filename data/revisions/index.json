@@ -832,5 +832,90 @@
    "old_days": 33,
    "new_days": 31
   }
+ },
+ {
+  "feed": "tsurutatown/tsuruta-townbus",
+  "feed_name": "鶴田町地域巡回バス",
+  "operator": "鶴田町",
+  "change_date": "2026-12-01",
+  "published_at": "2026-11-26T14:59:26.200478+09:00",
+  "first_seen_at": "2026-11-26T15:53:19+09:00",
+  "first_seen_basis": "見る仕組みが見つけた日時",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+  "path": "data/revisions/tsurutatown__tsuruta-townbus/2026-12-01__c75f879e.json",
+  "old_uid": "48f39053-6bf9-4f02-8dec-e3f292aeada0",
+  "new_uid": "c75f879e-1ef6-4357-a5b5-ef24d398fee7",
+  "change_date_known": true,
+  "check": {
+   "revision": "data/revisions/tsurutatown__tsuruta-townbus/2026-12-01__c75f879e.json",
+   "n": 200,
+   "counts": {
+    "cannot": 200
+   },
+   "shares": {
+    "cannot": 1
+   },
+   "examples": {
+    "cannot": [
+     {
+      "from": "鶴田町役場",
+      "to": "大巻南口",
+      "day": "mon",
+      "date": "2026-11-09",
+      "cond": "14:50までに着く",
+      "before": {
+       "dep": "14:37",
+       "arr": "14:49",
+       "route": "大巻地区線"
+      },
+      "after": null,
+      "notes": [
+       "stop_not_served",
+       "stop_not_served",
+       "route_ends"
+      ]
+     },
+     {
+      "from": "今岡医院前",
+      "to": "大巻分団屯所前",
+      "day": "fri",
+      "date": "2026-11-06",
+      "cond": "14:54までに着く",
+      "before": {
+       "dep": "14:39",
+       "arr": "14:51",
+       "route": "大巻地区線"
+      },
+      "after": null,
+      "notes": [
+       "stop_not_served",
+       "stop_not_served",
+       "route_ends"
+      ]
+     },
+     {
+      "from": "横萢交差点",
+      "to": "中野中央",
+      "day": "fri",
+      "date": "2026-11-06",
+      "cond": "8:48よりあとに乗る",
+      "before": {
+       "dep": "8:48",
+       "arr": "9:04",
+       "route": "上三六郷梅沢地区線"
+      },
+      "after": null,
+      "notes": [
+       "stop_not_served",
+       "stop_not_served",
+       "route_ends"
+      ]
+     }
+    ]
+   },
+   "old_days": 23,
+   "new_days": 0
+  }
  }
 ]
