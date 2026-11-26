@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-26T14:58:43+09:00",
+ "built_at": "2026-11-26T15:52:46+09:00",
  "prefs": [
   {
    "code": 1,
@@ -6705,10 +6705,10 @@
     }
    ],
    "lead": {
-    "n": 11,
+    "n": 10,
     "late": 0,
     "censored": 10,
-    "median": 12,
+    "median": 15,
     "earliest": 32,
     "latest": -21
    }

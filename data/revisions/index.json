@@ -245,25 +245,195 @@
   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
   "path": "data/revisions/meikobus__meikobus/2026-12-05__8af5b399.json",
   "old_uid": "4622628b-120d-4308-8eae-1abbc89f84e0",
-  "new_uid": "8af5b399-00e9-4e8d-b2a6-c2d061393485",
+  "new_uid": "8af5b399-00e9-4e8d-b2a6-c2d061393485.r69aefafd",
   "check": {
    "revision": "data/revisions/meikobus__meikobus/2026-12-05__8af5b399.json",
    "n": 200,
    "counts": {
-    "same": 173,
-    "better": 5,
-    "small": 3,
-    "no_compare": 14,
-    "big": 3,
-    "tiny": 2
+    "same": 188,
+    "no_compare": 9,
+    "small": 2,
+    "better": 1
    },
    "shares": {
-    "same": 0.865,
-    "better": 0.025,
-    "small": 0.015,
-    "no_compare": 0.07,
-    "big": 0.015,
-    "tiny": 0.01
+    "same": 0.94,
+    "no_compare": 0.045,
+    "small": 0.01,
+    "better": 0.005
+   },
+   "examples": {
+    "same": [
+     {
+      "from": "北見草",
+      "to": "松原",
+      "day": "wed",
+      "date": "2026-11-25",
+      "cond": "17:08までに着く",
+      "before": {
+       "dep": "16:51",
+       "arr": "17:05",
+       "route": "63 白浜日置線"
+      },
+      "after": {
+       "dep": "16:51",
+       "arr": "17:05",
+       "route": "63 白浜日置線"
+      },
+      "notes": [
+       "too_few_dates"
+      ]
+     },
+     {
+      "from": "志原",
+      "to": "日置川町役場前",
+      "day": "sat",
+      "date": "2026-12-26",
+      "cond": "11:01までに着く",
+      "before": {
+       "dep": "10:56",
+       "arr": "10:58",
+       "route": "63 白浜日置線"
+      },
+      "after": {
+       "dep": "10:56",
+       "arr": "10:58",
+       "route": "63 白浜日置線"
+      },
+      "notes": []
+     },
+     {
+      "from": "新庄病院前",
+      "to": "紀伊田辺駅",
+      "day": "thu",
+      "date": "2026-11-12",
+      "cond": "10:14よりあとに乗る",
+      "before": {
+       "dep": "10:20",
+       "arr": "10:34",
+       "route": "11 白浜田辺線"
+      },
+      "after": {
+       "dep": "10:20",
+       "arr": "10:34",
+       "route": "11 白浜田辺線"
+      },
+      "notes": [
+       "too_few_dates"
+      ]
+     }
+    ],
+    "no_compare": [
+     {
+      "from": "まぶ湯",
+      "to": "千畳口",
+      "day": "tue",
+      "date": "2026-11-10",
+      "cond": "12:28よりあとに乗る",
+      "before": {
+       "dep": "12:34",
+       "arr": "12:38",
+       "route": "12 白浜田辺線"
+      },
+      "after": null,
+      "notes": [
+       "too_few_dates"
+      ]
+     },
+     {
+      "from": "マーメイドタウン入口前",
+      "to": "橋谷",
+      "day": "tue",
+      "date": "2026-11-10",
+      "cond": "19:47までに着く",
+      "before": {
+       "dep": "19:21",
+       "arr": "19:41",
+       "route": "11 白浜田辺線"
+      },
+      "after": null,
+      "notes": [
+       "too_few_dates"
+      ]
+     },
+     {
+      "from": "平野口",
+      "to": "鎌谷橋",
+      "day": "tue",
+      "date": "2026-11-17",
+      "cond": "15:43までに着く",
+      "before": {
+       "dep": "15:36",
+       "arr": "15:40",
+       "route": "上芳養線"
+      },
+      "after": null,
+      "notes": [
+       "too_few_dates"
+      ]
+     }
+    ],
+    "small": [
+     {
+      "from": "みなべ役場前",
+      "to": "大阪駅ＪＲ高速バスターミナル",
+      "day": "wed",
+      "date": "2026-12-09",
+      "cond": "9:52よりあとに乗る",
+      "before": {
+       "dep": "9:56",
+       "arr": "12:49",
+       "route": "大阪線 白浜エクスプレス大阪号"
+      },
+      "after": {
+       "dep": "9:53",
+       "arr": "12:32",
+       "route": "大阪線 白浜エクスプレス大阪号"
+      },
+      "notes": [
+       "too_few_dates"
+      ]
+     },
+     {
+      "from": "印南",
+      "to": "ＪＲなんば駅（ＯＣＡＴ）",
+      "day": "thu",
+      "date": "2026-11-05",
+      "cond": "10:01よりあとに乗る",
+      "before": {
+       "dep": "10:07",
+       "arr": "12:29",
+       "route": "大阪線 白浜エクスプレス大阪号"
+      },
+      "after": {
+       "dep": "10:04",
+       "arr": "12:12",
+       "route": "大阪線 白浜エクスプレス大阪号"
+      },
+      "notes": [
+       "too_few_dates"
+      ]
+     }
+    ],
+    "better": [
+     {
+      "from": "大阪駅ＪＲ高速バスターミナル",
+      "to": "エクシブ白浜",
+      "day": "fri",
+      "date": "2026-12-18",
+      "cond": "21:07までに着く",
+      "before": {
+       "dep": "15:50",
+       "arr": "19:35",
+       "route": "大阪線 白浜エクスプレス大阪号"
+      },
+      "after": {
+       "dep": "17:15",
+       "arr": "21:00",
+       "route": "大阪線 白浜エクスプレス大阪号"
+      },
+      "notes": []
+     }
+    ]
    },
    "old_days": 29,
    "new_days": 22
