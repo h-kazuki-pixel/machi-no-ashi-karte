@@ -66,7 +66,7 @@ FOUND_COLS = ["found_at", "found_at_basis", "category", "feed", "feed_name", "op
               "to_date", "change_date", "lead_days_seen", "lead_days_published", "change_censored", "late_publish",
               "license", "revision"]
 HELD_COLS = ["held_at", "feed", "feed_name", "operator", "change_date", "old_uid", "new_uid", "reason", "shares",
-             "approved_at", "published_path"]
+             "approved_at", "published_path", "resolved"]  # resolved：承認ではなく、直しで扱った（その中身）
 APPROVALS_PATH = ROOT / "approvals" / "approved.txt"
 
 
@@ -366,14 +366,38 @@ class Watch:
             print(f"  {key} {uid[:8]}: zip は置き換わったが、便と時刻は同じ")
             return
         new_id = rp.content_id(uid, pr["etag"])
+        cur_id = self.alias.get(uid, uid)  # これまで使っていた中身（公開中の改正のデータが指している）
         new_tt["meta"]["content"] = {"of": uid, "etag": pr["etag"], "last_modified": pr["last_modified"].isoformat()}
         self.write_timetable(key, new_id, new_tt)
         self.alias[uid] = new_id  # これから、この版の時刻表は新しい中身を使う
-        change = rp.first_diff_day(old_tt, new_tt, today)
         rep_at = pr["last_modified"].astimezone(JST)
         row = {"found_at": self.started.isoformat(), "found_at_basis": FOUND_BASIS_REPLACED, "feed": key,
                "feed_name": om["feed_name"], "operator": om["operator"], "new_uid": new_id, "published_at": rep_at.isoformat(),
                "from_date": om["from"], "to_date": om["to"], "license": om["license"], "late_publish": ""}
+        # C′：停留所を名前でまとめると便と時刻が同じで、移った先が50m未満なら「のりばだけの変更」
+        moves = rp.platform_changes(old_tt, new_tt, today)
+        platform_only = moves is not None and not rp.far_moves(moves)
+        replaced = {"uid": uid, "etag": pr["etag"], "last_modified": rep_at.isoformat()}
+        # A：まだ有効期間に入っていない版は、別の改正にしない。その版を「後」にする公開中の改正を作り直す
+        if om["from"] > today.isoformat():
+            pubs = [x for x in self.index if x["feed"] == key and x["new_uid"].split(".r")[0] == uid]
+            if pubs:
+                for x in pubs:
+                    res = self.rebuild_with_content(key, x, cur_id, old_tt, new_id, new_tt, today, platform_only, moves, replaced)
+                    change = dt.date.fromisoformat(x["change_date"])
+                    self.found_rows.append({**row, "category": found_category(change, today, dt.date.fromisoformat(om["to"])),
+                                            "change_date": x["change_date"], "lead_days_seen": (change - today).days,
+                                            "lead_days_published": (change - rep_at.date()).days, "change_censored": "",
+                                            "revision": res})
+                    print(f"  {key} {uid[:8]}: zip が置き換わった（まだ走っていない版）→ {res}")
+                return
+        if platform_only:
+            what = "、".join(f"{x['name']} 約{x['m']}m" for x in moves)
+            self.found_rows.append({**row, "category": "", "change_date": "", "lead_days_seen": "", "lead_days_published": "",
+                                    "change_censored": "", "revision": f"作らない（のりばだけの変更：{what}）"})
+            print(f"  {key} {uid[:8]}: zip が置き換わったが、のりばだけの変更（{what}）")
+            return
+        change = rp.first_diff_day(old_tt, new_tt, today)
         if change is None:
             self.found_rows.append({**row, "category": "", "change_date": "", "lead_days_seen": "", "lead_days_published": "",
                                     "change_censored": "", "revision": f"作らない（これから{rp.SEARCH_DAYS}日に、便と時刻の違いが無い）"})
@@ -387,8 +411,10 @@ class Watch:
             info = {"feed_name": om["feed_name"], "organization_name": om["operator"], "feed_license": om["license"],
                     "feed_license_url": om["license_url"], "published_at": om["published_at"],
                     "replaced_at": rep_at.isoformat(), "etag": pr["etag"]}
-            rev = rp.build_revision_from_tts(key, info, uid, old_tt, new_id, new_tt, change, self.started.isoformat(),
-                                             change_known=not censored)
+            rev = rp.build_revision_from_tts(key, info, cur_id, old_tt, new_id, new_tt, change, self.started.isoformat(),
+                                             change_known=not censored, chain=self.replaced_chain(key, uid, om["published_at"]))
+            if moves:  # 50m以上離れたのりばに移る便がある（画面に出す文は、決まってから足す）
+                rev["meta"]["platform_moves"] = moves
             m = {"feed_name": om["feed_name"], "organization_name": om["operator"], "published_at": rep_at.isoformat(),
                  "feed_license": om["license"], "feed_license_url": om["license_url"], "gtfs_file_uid": new_id}
             revision = self.publish_built(key, m, rev, {}, change, self.started, FOUND_BASIS_REPLACED)
@@ -398,6 +424,73 @@ class Watch:
                                 "lead_days_seen": (change - today).days, "lead_days_published": (change - rep_at.date()).days,
                                 "change_censored": censored, "revision": revision})
         print(f"  {key} {uid[:8]}: zip が置き換わった。変わる日 {change}{'（分からない）' if censored else ''} → {revision}")
+
+    def replaced_chain(self, key, uid, published_at):
+        """B：同じフィードのほかの版の時刻表（いま使う中身）から、その日に動いていた版を選ぶ関数"""
+        d = self.site / rv.timetable_path(key, "x").rsplit("/", 1)[0]
+        others = []
+        for p in sorted(d.glob("*.json")) if d.exists() else []:
+            base = p.stem.split(".r")[0]
+            if base == uid or p.stem != self.alias.get(base, base):
+                continue
+            others.append((p.stem, json.loads(p.read_text(encoding="utf-8"))))
+        return rp.old_chain(others, published_at)
+
+    def rebuild_with_content(self, key, x, cur_id, old_tt, new_id, new_tt, today, platform_only, moves, replaced):
+        """A：公開中の改正 x の「後」の中身を、置き換わったあとの中身にして上書きする。
+        変わる日が動いたら上書きせずに止める。便や時刻が違い、その改正の知らせを送ったあとなら、もう一度だけ知らせる"""
+        p = self.site / x["path"]
+        before_text = p.read_text(encoding="utf-8")
+        rev = json.loads(before_text)
+        old_uid = rev["meta"]["old"]["uid"]
+        prev_tt = json.loads((self.site / rev["meta"]["timetables"][old_uid]).read_text(encoding="utf-8"))
+        c1 = rp.first_diff_day(prev_tt, old_tt, today, sig=rp.day_sig_named)
+        c2 = rp.first_diff_day(prev_tt, new_tt, today, sig=rp.day_sig_named)
+        if c1 != c2:
+            reason = f"作り直すと変わる日が動く（{c1} → {c2}）。上書きせずに止めた"
+            self.hold_row(key, x, new_id, reason)
+            return f"止めた：{reason}"
+        new_rev = rp.swap_new_content(rev, cur_id, new_id, new_tt, prev_tt, key, self.started.isoformat(), replaced)
+        if moves:
+            new_rev["meta"]["platform_moves"] = moves
+        p.write_text(json.dumps(new_rev, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+        check = run_check(self.site, x["path"])
+        held = hold_reason(check)
+        if held:
+            p.write_text(before_text, encoding="utf-8")  # 公開中のものを残す
+            reason = f"作り直した改正が点検で止まった：{held}。上書きしなかった"
+            self.hold_row(key, x, new_id, reason, check)
+            return f"止めた：{reason}"
+        x["new_uid"] = new_id
+        x["check"] = check
+        kind = "のりばだけの変更" if platform_only else "便や時刻の変更"
+        again = ""
+        if not platform_only and rp.times_differ(old_tt, new_tt, today):
+            again = "、" + self.queue_again(key, x["change_date"])
+        return f"{x['path']} を新しい中身で作り直した（{kind}）{again}"
+
+    def hold_row(self, key, x, new_id, reason, check=None):
+        self.held = [h for h in self.held if not (h["new_uid"] == new_id and h["change_date"] == x["change_date"])]
+        self.held.append({"held_at": self.started.isoformat(), "feed": key, "feed_name": x["feed_name"], "operator": x["operator"],
+                          "change_date": x["change_date"], "old_uid": x["old_uid"], "new_uid": new_id, "reason": reason,
+                          "shares": json.dumps((check or {}).get("shares", {}), ensure_ascii=False),
+                          "approved_at": "", "published_path": ""})
+        if check:
+            self.held_examples[new_id] = {"feed_name": x["feed_name"], "change_date": x["change_date"],
+                                          "shares": check.get("shares", {}), "examples": check.get("examples", {})}
+
+    def queue_again(self, key, change):
+        """公開中の改正が作り直されて便や時刻が変わったとき、もう一度だけ知らせる（その改正の知らせを送ったあとのときだけ。
+        送ったかどうかは通知のサーバーが決める：前の知らせの印が無ければ送らない）"""
+        if not self.queue_notices:
+            return "作り直しなので知らせない"
+        if any(q["feed"] == key and q["change_date"] == change and not q.get("again") for q in self.notify_queue):
+            return "前の知らせがまだ待ち行列にある（送るときは新しい中身なので、もう一度は送らない）"
+        if any(q["feed"] == key and q["change_date"] == change and q.get("again") for q in self.notify_queue):
+            return "もう一度の知らせは待ち行列にある"
+        self.notify_queue.append({"feed": key, "change_date": change, "queued_at": self.started.isoformat(), "after": None,
+                                  "again": True})
+        return "もう一度の知らせを待ち行列に入れた（前の知らせを送ったあとのときだけ送る）"
 
     def check_feed(self, key, f):
         org, fid = key.split("/")
@@ -607,7 +700,7 @@ class Watch:
             return
         found = read_csv(self.data / "found.csv")
         for h in self.held:
-            if h.get("approved_at") or not any(h["new_uid"].startswith(a) for a in approvals):
+            if h.get("approved_at") or h.get("resolved") or not any(h["new_uid"].startswith(a) for a in approvals):
                 continue
             key = h["feed"]
             if ".r" in h["new_uid"]:  # zip が置き換わった改正：site に残っている前と後の時刻表から作り直す
@@ -652,7 +745,8 @@ class Watch:
                     "feed_license_url": om["license_url"], "published_at": om["published_at"],
                     "replaced_at": c["last_modified"], "etag": c["etag"]}
             rev = rp.build_revision_from_tts(key, info, h["old_uid"], old_tt, h["new_uid"], new_tt, change, self.started.isoformat(),
-                                             change_known=str(fr.get("change_censored")) != "True")
+                                             change_known=str(fr.get("change_censored")) != "True",
+                                             chain=self.replaced_chain(key, h["old_uid"].split(".r")[0], om["published_at"]))
             m = {"feed_name": om["feed_name"], "organization_name": om["operator"], "published_at": c["last_modified"],
                  "feed_license": om["license"], "feed_license_url": om["license_url"], "gtfs_file_uid": h["new_uid"]}
             found_at = dt.datetime.fromisoformat(fr.get("found_at") or self.started.isoformat())
@@ -768,7 +862,7 @@ def write_held(data, held, examples):
     lines = ["# 止めた改正（承認を待つもの）", "",
              "承認するときは、main ブランチの `approvals/approved.txt` に「改正の番号」を1行ずつ書いて push してください。"
              "次の実行（6時間ごと）で作り直して公開します。", ""]
-    waiting = [h for h in held if not h.get("approved_at")]
+    waiting = [h for h in held if not h.get("approved_at") and not h.get("resolved")]
     if not waiting:
         lines.append("いま承認を待つ改正はありません。")
     for h in waiting:

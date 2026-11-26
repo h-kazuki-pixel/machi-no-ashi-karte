@@ -257,3 +257,28 @@ test("定時の処理：GitHub が受け付けなかったら1回だけやり直
   assert.match(log[0].at, /^\d{4}-\d{2}-\d{2}T/);
   pushStatus = () => 201;
 });
+
+test("もう一度の知らせ（again）：前の知らせを送ったあとのときだけ、1回だけ送る。中身に again を入れる", async () => {
+  const e = env();
+  for (let i = 0; i < 3; i++) await call(e, "/subscribe", subBody(i), app);
+  const auth = { Authorization: "Bearer secret-token" };
+  const send = async (body) => (await call(e, "/notify", { feed: "yonezawacity/Yonezawa", change_date: "2026-12-01", ...body }, auth)).json();
+  await withDate("2026-11-24T03:00:00Z", async () => {
+    pushed.length = 0;
+    // 前の知らせを送っていない：送らない
+    let r = await send({ again: true });
+    assert.equal(r.skipped, "not_sent_before");
+    assert.equal(pushed.length, 0);
+    // 前の知らせを送ったあと：送る（宛先 3）
+    await send({});
+    pushed.length = 0;
+    r = await send({ again: true });
+    assert.equal(r.sent, 3);
+    assert.equal(pushed.length, 3);
+    // 二度目は送らない
+    pushed.length = 0;
+    r = await send({ again: true });
+    assert.equal(r.already, true);
+    assert.equal(pushed.length, 0);
+  });
+});

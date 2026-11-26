@@ -152,12 +152,16 @@ async function notify(req, env) {
     return json({ error: "not_published" }, 409);
   }
   // 中身はバスの番号と変わる日だけ（変わる日が分からない改正は、その印も。一覧から決める）
+  // again：公開中の改正が作り直されて便や時刻が変わったときの、もう一度の知らせ（前の知らせを送ったあとのときだけ、1回だけ）
+  const again = body.again === true && !test;
   const payload = JSON.stringify({ feed, change_date: change, ...(rev.change_date_known === false ? { known: false } : {}),
-                                   ...(test ? { test: true } : {}) });
+                                   ...(test ? { test: true } : {}), ...(again ? { again: true } : {}) });
   const authCache = new Map();
   if (test) return await notifyTest(env, body.to, feed, payload, authCache);
-  const mark = `n:${feed}:${change}`;
+  const first = `n:${feed}:${change}`;
+  const mark = again ? `${first}:again` : first;
   if (!after) {
+    if (again && !(await env.SUBS.get(first))) return json({ ok: true, skipped: "not_sent_before", sent: 0, next: null });
     if (await env.SUBS.get(mark)) return json({ ok: true, already: true, sent: 0, next: null });
     await env.SUBS.put(mark, today, { expirationTtl: 60 * 86400 });
   }

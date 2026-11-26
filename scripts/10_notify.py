@@ -10,6 +10,8 @@
 - NOTIFY_URL・NOTIFY_TOKEN が無いとき（通知のサーバーを作る前）は、何もしない。
 - 待ち行列に7日より長くある改正は、送らずに外す。
 - 合言葉はログに出さない。
+- again の付いた行（公開中の改正を作り直して、便や時刻が変わった）は、サーバーが「前の知らせを送ったあと」のときだけ、
+  もう一度だけ送る（「◯◯の、◯月◯日からの時刻表が、もう一度変わりました。」）。
 """
 import argparse
 import datetime as dt
@@ -43,7 +45,10 @@ def send_one(url, token, q, sleep=time.sleep):
     """1つの改正を、最後の宛先まで送る。戻り値：'done' | 'retry'（次の実行に回す）"""
     tries = 0
     while True:
-        status, res = call(url, token, {"feed": q["feed"], "change_date": q["change_date"], "after": q.get("after")})
+        body = {"feed": q["feed"], "change_date": q["change_date"], "after": q.get("after")}
+        if q.get("again"):  # 公開中の改正が作り直されて、便や時刻が変わった：もう一度だけ知らせる
+            body["again"] = True
+        status, res = call(url, token, body)
         if status == 409 and res.get("error") == "not_published" and tries < WAIT_TRIES:
             tries += 1
             sleep(WAIT_SEC)
@@ -51,8 +56,12 @@ def send_one(url, token, q, sleep=time.sleep):
         if status != 200:
             print(f"  {q['feed']} {q['change_date']}: HTTP {status} {res.get('error', '')}")
             return "retry"
+        tag = "（もう一度）" if q.get("again") else ""
         if res.get("already"):
-            print(f"  {q['feed']} {q['change_date']}: 送り済み")
+            print(f"  {q['feed']} {q['change_date']}{tag}: 送り済み")
+            return "done"
+        if res.get("skipped") == "not_sent_before":
+            print(f"  {q['feed']} {q['change_date']}{tag}: 前の知らせを送っていないので、送らない")
             return "done"
         print(f"  {q['feed']} {q['change_date']}: 送った {res.get('sent', 0)}、消した宛先 {res.get('removed', 0)}、"
               f"届かなかった {res.get('failed', 0)}、残り {res.get('remaining', 0)}")

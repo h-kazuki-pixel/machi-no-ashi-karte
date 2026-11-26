@@ -3,7 +3,7 @@
 import { PUSH } from "./config.js";
 
 // 画面の版の番号（sw.js の SW_VERSION と同じにする。直したら両方を上げる）
-export const APP_VERSION = "2026-11-26.2";
+export const APP_VERSION = "2026-11-26.3";
 
 const DB = "machi-no-ashi-karte";
 const STORE = "kv";

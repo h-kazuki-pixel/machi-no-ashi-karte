@@ -117,6 +117,9 @@ def feed_leads(site):
         for r in csv.DictReader(open(fp, encoding="utf-8")):
             if not r.get("change_date") or r.get("lead_days_published") in ("", None):
                 continue
+            # D：止めた改正（公開していない）と、zip の置き換えで見つけたもの（改正の公開日ではない）は数えない
+            if str(r.get("revision", "")).startswith("止めた") or str(r.get("found_at_basis", "")).startswith("同じ版の番号のまま"):
+                continue
             lst = pairs.setdefault(r["feed"], [])
             if any(x["new_uid"] == r["new_uid"] for x in lst):
                 continue
