@@ -680,6 +680,30 @@ async function pushBox(el) {
   });
 }
 
+// 知らせの画面の並び：行けなくなる → 大きく変わる → 少し変わる → ほとんど変わらない → 良くなる → 変わらない
+// → 前も後も1本で行けない（くらべられないものは最後）
+const NOTICE_RANK = { "lv-cannot": 0, "lv-big": 1, "lv-small": 2, "lv-tiny": 3, "lv-better": 4, "lv-same": 5 };
+function noticeRank(res) {
+  if (!res) return 8;
+  if (res.level === "no_route") return 6;
+  if (res.level === "no_compare") return 7;
+  const r = NOTICE_RANK[levelInfo(res).cls];
+  return r == null ? 7 : r;
+}
+// 1〜4分の差：出る時刻と着く時刻のうち、大きくずれるほうで「◯分おそくなります／早くなります」
+function tinyShiftText(res) {
+  const d = Math.abs(res.dArr) > Math.abs(res.dDep) ? res.dArr : res.dDep;
+  return d > 0 ? `${d}分おそくなります` : `${-d}分早くなります`;
+}
+// 時刻が変わる移動：変わる前（いま）と、変わる日からの時刻を並べる
+function beforeAfterLines(res, change) {
+  const b = res.before && res.before.ride, a = res.after && res.after.ride;
+  const lines = [];
+  if (b) lines.push(`${res.ph === "after" ? "前" : "いま"}　${busText(b)}`);
+  if (a) lines.push(`${jDateShort(change)}から　${busText(a)}`);
+  return lines.map((l) => `<div class="nowrap" style="color:var(--fg)">${esc(l)}</div>`).join("");
+}
+
 // 通知を押して開く画面：そのバスの、登録した移動ごとの結果。変わらない移動は、最初に「あなたの移動は変わりません」
 async function noticeView(feed, change, test = false) {
   const item = feedItem(feed);
@@ -698,14 +722,18 @@ async function noticeView(feed, change, test = false) {
   }
   const items = await Promise.all(regs.map(evaluate));
   const rows = items.map((x) => ({ x, res: (x.results || []).find((r) => r.P.meta.change_date === change) || null }));
-  const unchanged = (res) => !!res && ["same", "tiny"].includes(res.level);
-  const n = rows.filter((r) => r.res && !unchanged(r.res) && r.res.level !== "no_route").length;
-  html += `<p class="lead">${n ? `登録した移動 ${rows.length}件のうち、${n}件 に関係があります。` : "登録した移動は、どれも変わりません。"}</p>`;
+  const n = rows.filter((r) => r.res && !["same", "tiny", "no_route"].includes(r.res.level)).length;
+  const anyTiny = rows.some((r) => r.res && r.res.level === "tiny");
+  html += `<p class="lead">${n ? `登録した移動 ${rows.length}件のうち、${n}件 に関係があります。`
+    : anyTiny ? "大きく変わる移動はありません。" : "登録した移動は、どれも変わりません。"}</p>`;
+  rows.sort((a, b) => noticeRank(a.res) - noticeRank(b.res));
   for (const { x, res } of rows) {
     const href = `#trip/${esc(x.reg.id)}`;
-    if (res && unchanged(res)) {
+    if (res && res.level === "same") {
       const nowLine = x.now && x.now.ride ? `いまのバス　${busText(x.now.ride)}` : "";
-      html += `<a class="card" href="${href}"><div class="verdict same">あなたの移動は変わりません${res.level === "tiny" ? `<span class="small">（${res.shift}分ほどのちがい）</span>` : ""}</div><div class="name">${esc(x.reg.name)}</div><div class="muted nowrap">${esc(nowLine)}</div></a>`;
+      html += `<a class="card" href="${href}"><div class="verdict same">あなたの移動は変わりません</div><div class="name">${esc(x.reg.name)}</div><div class="muted nowrap">${esc(nowLine)}</div></a>`;
+    } else if (res && res.level === "tiny") {
+      html += `<a class="card" href="${href}"><div class="verdict same">ほとんど変わりません<span class="small">（${esc(tinyShiftText(res))}）</span></div><div class="name">${esc(x.reg.name)}</div>${beforeAfterLines(res, change)}</a>`;
     } else if (!res) {
       html += `<a class="card" href="${href}"><div class="verdict">この移動は、くらべられませんでした</div><div class="name">${esc(x.reg.name)}</div></a>`;
     } else if (res.level === "no_route") {
@@ -715,7 +743,7 @@ async function noticeView(feed, change, test = false) {
       const hl = headline(res, x.reg.name);
       const nameLine = hl.includes(x.reg.name) ? "" : `<div class="muted">『${esc(x.reg.name)}』</div>`;
       html += `<a class="card notice ${li.cls}" href="${href}"><span class="badge ${li.cls}">${esc(li.badge)}</span>${nameLine}
-        <div class="name" style="color:var(--fg)">${esc(hl)}</div></a>`;
+        <div class="name" style="color:var(--fg)">${esc(hl)}</div>${beforeAfterLines(res, change)}</a>`;
     }
   }
   render(html + `<a class="btn secondary" href="#home">わたしの移動へ</a>`);

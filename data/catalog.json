@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-26T10:49:23+09:00",
+ "built_at": "2026-11-26T14:09:48+09:00",
  "prefs": [
   {
    "code": 1,
@@ -6690,11 +6690,11 @@
      "path": "data/timetables/meikobus__meikobus/4622628b-120d-4308-8eae-1abbc89f84e0.json"
     },
     {
-     "uid": "8af5b399-00e9-4e8d-b2a6-c2d061393485",
+     "uid": "8af5b399-00e9-4e8d-b2a6-c2d061393485.r69aefafd",
      "from": "2026-12-01",
      "to": "2027-12-31",
      "published_at": "2026-11-15T22:48:45.069826+09:00",
-     "path": "data/timetables/meikobus__meikobus/8af5b399-00e9-4e8d-b2a6-c2d061393485.json"
+     "path": "data/timetables/meikobus__meikobus/8af5b399-00e9-4e8d-b2a6-c2d061393485.r69aefafd.json"
     }
    ],
    "revisions": [
@@ -6705,10 +6705,10 @@
     }
    ],
    "lead": {
-    "n": 10,
+    "n": 11,
     "late": 0,
     "censored": 10,
-    "median": 15,
+    "median": 12,
     "earliest": 32,
     "latest": -21
    }
