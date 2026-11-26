@@ -8580,5 +8580,19 @@
   "latest_feed_start_date": "2026-12-01",
   "latest_feed_end_date": "2027-12-01",
   "feed_is_discontinued": false
+ },
+ "soocity/soo_omoiyari": {
+  "organization_id": "soocity",
+  "organization_name": "曽於市",
+  "feed_id": "soo_omoiyari",
+  "feed_name": "曽於市思いやりバス・思いやりタクシー",
+  "feed_pref_id": 46,
+  "feed_license": "CC BY 4.0",
+  "feed_license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+  "last_updated_at": "2026-11-26",
+  "last_published_at": "2026-11-26",
+  "latest_feed_start_date": "2026-11-24",
+  "latest_feed_end_date": "2027-03-31",
+  "feed_is_discontinued": false
  }
 }

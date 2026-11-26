@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-26T15:53:40+09:00",
+ "built_at": "2026-11-26T17:04:36+09:00",
  "prefs": [
   {
    "code": 1,
@@ -195,7 +195,7 @@
   {
    "code": 46,
    "name": "鹿児島県",
-   "feeds": 1
+   "feeds": 2
   },
   {
    "code": 47,
@@ -12457,6 +12457,30 @@
     "median": 36,
     "earliest": 52,
     "latest": 15
+   }
+  },
+  {
+   "feed": "soocity/soo_omoiyari",
+   "name": "曽於市思いやりバス・思いやりタクシー",
+   "operator": "曽於市",
+   "pref": 46,
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "usable": true,
+   "timetables": [
+    {
+     "uid": "ad4e0f04-b3ac-42ef-9fd9-b4c55003ec8e",
+     "from": "2026-11-24",
+     "to": "2027-03-31",
+     "published_at": "2026-11-26T16:22:17.127268+09:00",
+     "path": "data/timetables/soocity__soo_omoiyari/ad4e0f04-b3ac-42ef-9fd9-b4c55003ec8e.json"
+    }
+   ],
+   "revisions": [],
+   "lead": {
+    "n": 0,
+    "late": 0,
+    "censored": 0
    }
   },
   {

@@ -376,6 +376,7 @@ export function judge(P, reg) {
     out.notes.push({ kind: "route_ends", route: b.ride.route, ...(resumed ? { seasonal: { resumed } } : {}) });
   }
   for (const m of movedStops(P, reg)) out.notes.push({ kind: "stop_moved", ...m });
+  for (const m of platformMoves(P, reg)) out.notes.push({ kind: "platform_moved", ...m });
   if (b.split) out.notes.push({ kind: "split", side: "before" });
   if (a.split) out.notes.push({ kind: "split", side: "after" });
   if (b.tooFewDates || a.tooFewDates) out.notes.push({ kind: "too_few_dates", before: b.dates.length, after: a.dates.length });
@@ -396,6 +397,19 @@ export function movedStops(P, reg) {
     }
   }
   return out;
+}
+
+// 同じ名前の、別ののりばに移る便がある（C′：zip の置き換えで、50m以上離れたのりばに移るとき。改正のデータの platform_moves）
+// 乗る停留所か降りる停留所の名前のものだけ。距離が分からないものも出す（meters: null）
+export function platformMoves(P, reg) {
+  const by = new Map();
+  for (const x of P.meta.platform_moves || []) {
+    if (x.m != null && x.m < THRESHOLDS.movedMeters) continue;
+    if (x.name !== reg.from && x.name !== reg.to) continue;
+    const cur = by.get(x.name);
+    if (!cur || (cur.meters != null && (x.m == null || x.m > cur.meters))) by.set(x.name, { name: x.name, meters: x.m });
+  }
+  return [...by.values()];
 }
 
 export function checkRegistration(P, reg, today) {
