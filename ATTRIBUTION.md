@@ -18,4 +18,4 @@
 - 羽後交通株式会社「羽後交通（田沢湖地区）」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 米沢市「米沢市営バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 
-メタデータ（版の一覧など）は、GTFSデータリポジトリの付帯データ（CC BY 4.0）です。
+メタデータ（版の一覧・版のメモ・更新履歴など）は、GTFSデータリポジトリの付帯データ（CC BY 4.0）です（GTFSデータリポジトリ利用規約 第2条・第5条。制定 2023-01-23、改訂 2023-04-21。http://docs.gtfs-data.jp/site/kiyaku.pdf）。
