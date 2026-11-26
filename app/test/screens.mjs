@@ -28,6 +28,9 @@ const variants = {
   "yonezawacity/Yonezawa": (r) => ({ ...r, meta: { ...r.meta, ...YZ_EXTRA } }),
   "test/starts": (r) => r, // 前の運行の記録が無い（ただ「運行が始まります」）
   "test/unknown": (r) => ({ ...r, meta: { ...r.meta, ...YZ_EXTRA, change_date_known: false } }),
+  // 全部の路線が走らなくなり、版のメモに「休止」とある（鶴田町地域巡回バスの形）
+  "test/suspend": (r) => ({ ...r, meta: { ...r.meta, all_routes_stop: true, operator: "鶴田町",
+    new: { ...r.meta.new, memo: "デマンド交通の実証運行開始にともない12月1日より休止となります。\nhttps://www.town.tsuruta.lg.jp/kurashi/Aidemand-testrun.html" } } }),
   "test/norev": null, // 改正のデータが無いバス（「知らせはありません」と「記録がまだ少ない」）
   "test/nocompare": (r) => ({ ...r, days: Object.fromEntries(Object.entries(r.days).map(([d, x]) =>
     [d, x.s === "old" ? { u: null, s: "old", marks: [{ kind: "outside", label: "この日に有効な時刻表のデータが無い" }] } : x])) }),
@@ -93,6 +96,7 @@ const regs = [
   reg("nocompare", "test/nocompare", "上杉神社前", "米沢駅前", WK, "arriveBy", 480),
   reg("unknown", "test/unknown", "米沢駅前", "国立米沢病院前", ["tue"], "arriveBy", 600),
   reg("norev", "test/norev", "上杉神社前", "米沢駅前", WK, "arriveBy", 480),
+  reg("suspend", "test/suspend", "上杉神社前", "米沢駅前", WK, "arriveBy", 480),
 ];
 const expect = {
   same: "は変わりません", tiny: "は変わりません", small: "時刻が少し変わります", big: "時刻が大きく変わります",
@@ -100,6 +104,7 @@ const expect = {
   restarts: "この冬の運行が始まります（前の運行は3月31日まで）", seasonal: "季節の運休",
   nocompare: "くらべられません", unknown: "いまの時刻表は、前と変わっています",
   norev: "このバスは記録がまだ無く、どのくらい前に分かるかは分かりません",
+  suspend: "このバスは休止します",
 };
 const biz = encodeURIComponent(JSON.stringify({ feed: Y, stop: "上杉神社前", open: 540, close: 1080, day: "wk" }));
 const cases = [
@@ -120,6 +125,13 @@ const cases = [
   { today: "2026-12-02", name: "12/2 移動の画面：のりばが変わった（C′）", hash: "#trip/big", want: ["『東一丁目』ののりばが、12月1日に、前より約80m 離れた所に変わりました。現地の案内を確かめてください。"] },
   { name: "ホーム：のりばが変わる（C′）", hash: "#home", want: ["のりばが変わります（約80m）"], not: ["のりばが変わります（約20m）"] },
   { name: "知らせの画面：のりばが変わる（C′）", hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["のりばが変わります（約80m）"] },
+  // 休止：「12月1日から、このバスは休止します。」の下に、町のお知らせ（メモそのまま）と、メモの URL のリンク
+  { name: "移動の画面：休止", hash: "#trip/suspend",
+    want: ["12月1日から、このバスは休止します。", "バスを運行する町のお知らせ：『デマンド交通の実証運行開始にともない12月1日より休止となります。』", "くわしくは町の案内へ"],
+    not: ["https://www.town.tsuruta.lg.jp/kurashi/Aidemand-testrun.html』"] },
+  { today: "2026-12-02", name: "12/2 移動の画面：休止している", hash: "#trip/suspend", want: ["12月1日から、このバスは休止しています。"] },
+  { name: "ホーム：休止", hash: "#home", want: ["休止します", "12月1日から、このバスは休止します。"] },
+  { name: "知らせの画面：休止", hash: `#notice/${encodeURIComponent("test/suspend")}/2026-12-01`, want: ["12月1日から、このバスは休止します。", "くわしくは町の案内へ"] },
   // 1〜4分の差と、同じ移動だけのとき：まとめは「大きく変わる移動はありません」。同じ移動だけなら「どれも変わりません」
   { name: "通知を押して開く画面（ほとんど変わらない移動だけ）", only: ["tiny", "same"], hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["大きく変わる移動はありません。"] },
   { name: "通知を押して開く画面（変わらない移動だけ）", only: ["same"], hash: `#notice/${encodeURIComponent(Y)}/2026-12-01`, want: ["登録した移動は、どれも変わりません。"] },

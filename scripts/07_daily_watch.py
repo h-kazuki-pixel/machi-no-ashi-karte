@@ -66,7 +66,7 @@ FOUND_COLS = ["found_at", "found_at_basis", "category", "feed", "feed_name", "op
               "to_date", "change_date", "lead_days_seen", "lead_days_published", "change_censored", "late_publish",
               "license", "revision"]
 HELD_COLS = ["held_at", "feed", "feed_name", "operator", "change_date", "old_uid", "new_uid", "reason", "shares",
-             "approved_at", "published_path", "resolved"]  # resolved：承認ではなく、直しで扱った（その中身）
+             "approved_at", "published_path", "resolved", "memo"]  # memo：その版のメモ（GTFSデータリポジトリ。承認して作り直すときに使う）  # resolved：承認ではなく、直しで扱った（その中身）
 APPROVALS_PATH = ROOT / "approvals" / "approved.txt"
 
 
@@ -668,6 +668,8 @@ class Watch:
                  "change_date_known": rev["meta"].get("change_date_known", True),
                  "check": check}
         self.index = [x for x in self.index if x["path"] != rel]
+        if held and rev["meta"].get("all_routes_stop"):
+            held = f"全部の路線が{change.isoformat()}から走らない（運行する日を外した）。{held}"
         if held:
             p.unlink()  # 公開しない（Pages に出さない）。版の番号から、いつでも作り直せる
             if p.parent.exists() and not any(p.parent.iterdir()):
@@ -677,9 +679,11 @@ class Watch:
                               "operator": m["organization_name"], "change_date": change.isoformat(),
                               "old_uid": entry["old_uid"], "new_uid": entry["new_uid"], "reason": held,
                               "shares": json.dumps(check.get("shares", {}), ensure_ascii=False),
-                              "approved_at": "", "published_path": ""})
+                              "approved_at": "", "published_path": "", "memo": m.get("memo", "")})
             self.held_examples[entry["new_uid"]] = {"feed_name": m["feed_name"], "change_date": change.isoformat(),
-                                                   "shares": check.get("shares", {}), "examples": check.get("examples", {})}
+                                                   "shares": check.get("shares", {}), "examples": check.get("examples", {}),
+                                                   "memo": m.get("memo", ""),
+                                                   "all_routes_stop": bool(rev["meta"].get("all_routes_stop"))}
             return f"止めた（点検）: {held}"
         self.index.append(entry)
         self.queue_notice(key, change)
@@ -714,7 +718,7 @@ class Watch:
             org, fid = key.split("/")
             m = {**r, "feed": key, "feed_name": h["feed_name"], "organization_name": h["operator"],
                  "feed_license": r.get("license") or f.get("feed_license"), "feed_license_url": f.get("feed_license_url", ""),
-                 "memo": "", "gtfs_url": f"{API}/organizations/{org}/feeds/{fid}/files/feed.zip?uid={h['new_uid']}"}
+                 "memo": h.get("memo", ""), "gtfs_url": f"{API}/organizations/{org}/feeds/{fid}/files/feed.zip?uid={h['new_uid']}"}
             fr = next((x for x in found if x["new_uid"] == h["new_uid"]), {})
             found_at = dt.datetime.fromisoformat(fr.get("found_at") or self.started.isoformat())
             try:
@@ -870,6 +874,8 @@ def write_held(data, held, examples):
         lines += [f"## {h['feed_name']}（{h['operator']}） {h['change_date']}", "",
                   f"- 改正の番号：`{h['new_uid'][:8]}`（新しい版 {h['new_uid']}）",
                   f"- 止めた理由：{h['reason']}",
+                  *([f"- 版のメモ（GTFSデータリポジトリ）：「{' '.join((h.get('memo') or ex.get('memo') or '').split())}」"]
+                    if (h.get("memo") or ex.get("memo")) else []),
                   "- 段階ごとの割合：" + "、".join(f"{names.get(k, k)} {v:.0%}" for k, v in
                                           sorted(ex.get("shares", {}).items(), key=lambda kv: -kv[1])), ""]
         for lv, xs in ex.get("examples", {}).items():

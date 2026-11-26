@@ -92,6 +92,19 @@ def route_last_runs(olds, change, days, timetables, zip_of):
     return out
 
 
+def all_routes_stop(days, timetables, new_uid):
+    """前の側には便の走る日があり、変わる日からの側では、新しい版が有効な日に1本も走らない"""
+    def runs(uid, day):
+        tt = timetables.get(uid)
+        if not tt:
+            return False
+        sv = ttm.services_on_tt(tt, _d(day))
+        return any(t[2] in sv for t in tt["trips"])
+    old_run = any(runs(d["u"], day) for day, d in days.items() if d["s"] == "old" and d["u"])
+    new_days = [day for day, d in days.items() if d["s"] == "new" and d["u"] == new_uid]
+    return bool(old_run and new_days and not any(runs(new_uid, day) for day in new_days))
+
+
 def day_kinds(day):
     """その日に当たる「曜日の種類」：mon〜sun と、第1日曜（first_sun）"""
     k = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"][day.weekday()]
@@ -197,6 +210,7 @@ def build_revision2(feed_key, new, candidates, change, zip_of, built_at):
     for u, m in used.items():
         timetables[u] = ttm.build_timetable(zip_of(m), {**m, **meta_common, "feed": feed_key}, built_at=built_at)
     last_runs = route_last_runs(olds, change, days, timetables, zip_of)
+    all_stop = all_routes_stop(days, timetables, new["gtfs_file_uid"])
     last_year = route_last_year(olds, change, days, timetables, zip_of)
     _, _, report = br.compare_stops(br.Version(prev["gtfs_file_uid"], zip_of(prev)),
                                     br.Version(new["gtfs_file_uid"], zip_of(new)))
@@ -224,6 +238,8 @@ def build_revision2(feed_key, new, candidates, change, zip_of, built_at):
             "route_last_run": last_runs,
             # 後の側で走らなくなる路線（曜日の種類ごと）のうち、1年前の同じ時期も走っていなかったもの：そのあと運行が始まった日
             "route_last_year": last_year,
+            # 全部の路線が、変わる日から（比べる期間の終わりまで）1本も走らない（前の側には走る日がある）
+            "all_routes_stop": all_stop,
         },
         "days": days,
         "stop_report": report,

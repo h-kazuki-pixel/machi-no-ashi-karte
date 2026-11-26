@@ -306,8 +306,32 @@ function prevLastText(prev, first) {
   const y = d.getUTCFullYear() !== J.parseDate(first).getUTCFullYear() ? `${d.getUTCFullYear()}年` : "";
   return `${y}${d.getUTCMonth() + 1}月${d.getUTCDate()}日`;
 }
+// 全部の路線が走らなくなり、版のメモに「休止」とある（鶴田町地域巡回バスなど）
+function isSuspended(res) {
+  const m = res && res.P && res.P.meta;
+  return !!(m && m.all_routes_stop && /休止/.test((m.new && m.new.memo) || ""));
+}
+// 運行するところの呼び方（「町のお知らせ」「町の案内」）：名前の終わりが市・町・村なら、それ。ほかは「事業者」
+function operatorWord(P) {
+  const op = (P.meta.operator || "").trim();
+  const last = op.slice(-1);
+  return ["市", "町", "村"].includes(last) ? last : "事業者";
+}
+// 休止の下に出す、版のメモ（言い換えない。URL は文から外して「くわしくは◯の案内へ」のリンクにする）
+function suspendHtml(res) {
+  const memo = (res.P.meta.new && res.P.meta.new.memo) || "";
+  const urls = memo.match(/https?:\/\/[^\s「」『』（）()]+/g) || [];
+  const text = memo.replace(/https?:\/\/[^\s「」『』（）()]+/g, "").replace(/\s+/g, " ").trim();
+  const w = operatorWord(res.P);
+  let html = `<p class="lead">バスを運行する${w}のお知らせ：『${esc(text)}』</p>`;
+  for (const u of urls.slice(0, 1)) html += `<p><a href="${esc(u)}" target="_blank" rel="noopener noreferrer">くわしくは${w}の案内へ</a></p>`;
+  html += `<p class="muted small">（GTFSデータリポジトリに登録された、この時刻表のデータのメモです）</p>`;
+  return html;
+}
+
 function headline(res, name) {
   if (unknownDate(res.P)) return unknownHead(res.P);
+  if (isSuspended(res)) return `${jDateShort(res.P.meta.change_date)}から、このバスは休止${res.ph === "after" ? "しています" : "します"}。`;
   const past = res.ph === "after";
   const starts = res.notes && res.notes.find((n) => n.kind === "route_starts");
   if (starts && starts.prevLast) {
@@ -330,6 +354,7 @@ function headline(res, name) {
 function levelInfo(res) {
   const past = res.ph === "after";
   const L = res.level;
+  if (isSuspended(res)) return { cls: "lv-cannot", badge: past ? "休止しています" : "休止します" };
   if (hasNote(res, "route_starts")) return { cls: "lv-better", badge: past ? "運行が始まりました" : "運行が始まります" };
   if (res.notes && res.notes.some((n) => n.kind === "route_ends" && n.seasonal)) return { cls: "lv-big", badge: "季節の運休" };
   if (hasNote(res, "route_ends")) return { cls: "lv-cannot", badge: past ? "運行が終わりました" : "運行が終わります" };
@@ -576,12 +601,12 @@ async function homeView() {
   }
   render(`<h1>わたしの移動</h1><p class="muted">読みこんでいます…</p>`);
   const items = await Promise.all(regs.map(evaluate));
-  const changing = items.filter((x) => x.notice && !["same", "tiny", "no_route"].includes(x.notice.level));
+  const changing = items.filter((x) => x.notice && (isSuspended(x.notice) || !["same", "tiny", "no_route"].includes(x.notice.level)));
   if (changing.length) {
     const allPast = changing.every((x) => x.notice.ph === "after");
     html += `<p class="lead"><strong>バスの時刻表が${allPast ? "変わりました" : "変わります"}。</strong>あなたの移動のうち ${changing.length}件 に関係があります。</p>`;
   }
-  const rank = (x) => (x.notice ? ORDER[x.notice.level] : 9);
+  const rank = (x) => (x.notice ? (isSuspended(x.notice) ? -1 : ORDER[x.notice.level]) : 9);
   items.sort((a, b) => rank(a) - rank(b));
   for (const x of items) {
     const href = `#trip/${esc(x.reg.id)}`;
@@ -598,7 +623,7 @@ async function homeView() {
       html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}</div>${nowHtml}<div class="muted small">いまのところ、時刻が変わる知らせはありません</div>${caution}</a>`;
     } else if (n.level === "no_route") {
       html += `<a class="card" href="${href}"><div class="name">${esc(x.reg.name)}</div><div class="muted">いまは1本で行けるバスがありません。行けるようになったら知らせます。</div>${caution}</a>`;
-    } else if (["same", "tiny"].includes(n.level)) {
+    } else if (["same", "tiny"].includes(n.level) && !isSuspended(n)) {
       const word = n.level === "same" ? "変わりません" : "ほとんど変わりません";
       // 向き（◯分おそくなります／早くなります）は、段階の名前の下の行に、ふつうの大きさで
       const shiftHtml = n.level === "tiny" ? `<div>${esc(tinyShiftText(n))}</div>` : "";
@@ -724,6 +749,7 @@ function nextLine(n, cls, style = "") {
 const NOTICE_RANK = { "lv-cannot": 0, "lv-big": 1, "lv-small": 2, "lv-tiny": 3, "lv-better": 4, "lv-same": 5 };
 function noticeRank(res) {
   if (!res) return 8;
+  if (isSuspended(res)) return 0;
   if (res.level === "no_route") return 6;
   if (res.level === "no_compare") return 7;
   const r = NOTICE_RANK[levelInfo(res).cls];
@@ -761,28 +787,33 @@ async function noticeView(feed, change, test = false) {
   }
   const items = await Promise.all(regs.map(evaluate));
   const rows = items.map((x) => ({ x, res: (x.results || []).find((r) => r.P.meta.change_date === change) || null }));
-  const n = rows.filter((r) => r.res && !["same", "tiny", "no_route"].includes(r.res.level)).length;
+  const n = rows.filter((r) => r.res && (isSuspended(r.res) || !["same", "tiny", "no_route"].includes(r.res.level))).length;
   const anyTiny = rows.some((r) => r.res && r.res.level === "tiny");
   html += `<p class="lead">${n ? `登録した移動 ${rows.length}件のうち、${n}件 に関係があります。`
     : anyTiny ? "大きく変わる移動はありません。" : "登録した移動は、どれも変わりません。"}</p>`;
   rows.sort((a, b) => noticeRank(a.res) - noticeRank(b.res));
+  let memoShown = false;
   for (const { x, res } of rows) {
     const href = `#trip/${esc(x.reg.id)}`;
-    if (res && res.level === "same") {
+    if (res && res.level === "same" && !isSuspended(res)) {
       const nowLine = x.now && x.now.ride ? `いまのバス　${busText(x.now.ride)}` : "";
       html += `<a class="card" href="${href}"><div class="verdict same">あなたの移動は変わりません</div>${platformLine(res)}<div class="name">${esc(x.reg.name)}</div><div class="muted nowrap">${esc(nowLine)}</div></a>`;
-    } else if (res && res.level === "tiny") {
+    } else if (res && res.level === "tiny" && !isSuspended(res)) {
       html += `<a class="card" href="${href}"><div class="verdict same">ほとんど変わりません</div><div>${esc(tinyShiftText(res))}</div>${platformLine(res)}<div class="name">${esc(x.reg.name)}</div>${beforeAfterLines(res, change)}</a>`;
     } else if (!res) {
       html += `<a class="card" href="${href}"><div class="verdict">この移動は、くらべられませんでした</div><div class="name">${esc(x.reg.name)}</div></a>`;
-    } else if (res.level === "no_route") {
+    } else if (res.level === "no_route" && !isSuspended(res)) {
       html += `<a class="card" href="${href}"><div class="verdict">いまも、変わったあとも、1本で行けるバスがありません</div><div class="name">${esc(x.reg.name)}</div></a>`;
     } else {
       const li = levelInfo(res);
       const hl = headline(res, x.reg.name);
       const nameLine = hl.includes(x.reg.name) ? "" : `<div class="muted">『${esc(x.reg.name)}』</div>`;
       html += `<a class="card notice ${li.cls}" href="${href}"><span class="badge ${li.cls}">${esc(li.badge)}</span>${nameLine}
-        <div class="name" style="color:var(--fg)">${esc(hl)}</div>${platformLine(res)}${beforeAfterLines(res, change)}</a>`;
+        <div class="name" style="color:var(--fg)">${esc(hl)}</div>${platformLine(res)}${isSuspended(res) ? "" : beforeAfterLines(res, change)}</a>`;
+      if (isSuspended(res) && !memoShown) {
+        memoShown = true; // 同じバスなので、メモは1回だけ
+        html += `<div class="suspend">${suspendHtml(res)}</div>`;
+      }
     }
   }
   render(html + `<a class="btn secondary" href="#home">わたしの移動へ</a>`);
@@ -792,7 +823,7 @@ function revisionHtml(res) {
   const li = levelInfo(res);
   const verb = res.ph === "after" ? "変わりました" : "変わります";
   let html = "";
-  if (["same", "tiny"].includes(res.level)) {
+  if (["same", "tiny"].includes(res.level) && !isSuspended(res)) {
     html += unknownDate(res.P)
       ? `<h1>${esc(unknownHead(res.P))}が、『${esc(res.reg.name)}』は変わりません</h1>`
       : `<h1>${jDate(res.P.meta.change_date)}から時刻表が${verb}が、『${esc(res.reg.name)}』は変わりません</h1>`;
@@ -805,11 +836,12 @@ function revisionHtml(res) {
     const col = (label, r, cls) => `<div class="col ${cls}"><div class="label">${label}</div>${r ? `<div class="time">${busText(r)}</div><div class="muted">${esc(r.route)}</div>` : `<div class="time">バスがありません</div>`}</div>`;
     html += `<div class="compare ${li.cls}" style="background:none">${col("いままで", res.before.ride, "")}${col(unknownDate(res.P) ? "いまの時刻表" : `${jDateShort(firstDay(res))}から`, res.after.ride, "after")}</div>`;
   }
-  for (const l of detailLines(res)) html += `<p class="lead">${esc(l)}</p>`;
+  if (isSuspended(res)) html += suspendHtml(res);
+  else for (const l of detailLines(res)) html += `<p class="lead">${esc(l)}</p>`;
   html += cautionHtml(res.before.ride, res.after.ride);
   if (res.level === "tiny") html += `<p class="muted">（${Math.max(Math.abs(res.dDep), Math.abs(res.dArr))}分ほどのちがいです）</p>`;
   html += movedHtml(res);
-  if (res.alternatives) html += altHtml(res);
+  if (res.alternatives && !isSuspended(res)) html += altHtml(res);
   for (const l of noteLines(res)) html += `<p class="muted">${esc(l)}</p>`;
   const lt = leadOrFewText(feedItem(res.P.meta.feed));
   html += `<div class="source"><p>${esc(sourceLine(res))}${lt ? `${esc(lt)}。` : ""}</p><p class="small">${esc(res.P.meta.attribution)}</p></div>`;
