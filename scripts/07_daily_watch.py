@@ -912,7 +912,8 @@ def write_attributions(site, index=None):
         "items": items})
     lines = ["# 出典", "", "このサイトの改正のデータは、GTFSデータリポジトリ（https://gtfs-data.jp/）で公開されている次のGTFSデータを、まちの足カルテが加工して作成したものです。", ""]
     lines += [f"- {i['text']} — {i['license_url']}" for i in items] or ["- （まだありません）"]
-    lines += ["", "メタデータ（版の一覧など）は、GTFSデータリポジトリの付帯データ（CC BY 4.0）です。", ""]
+    lines += ["", "メタデータ（版の一覧・版のメモ・更新履歴など）は、GTFSデータリポジトリの付帯データ（CC BY 4.0）です"
+              "（GTFSデータリポジトリ利用規約 第2条・第5条。制定 2023-01-23、改訂 2023-04-21。http://docs.gtfs-data.jp/site/kiyaku.pdf）。", ""]
     (site / "ATTRIBUTION.md").write_text("\n".join(lines), encoding="utf-8")
 
 
