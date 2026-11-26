@@ -82,7 +82,7 @@ GitHub の定時の実行は、遅れたり抜けたりします（11/24〜25 �
 
 | 時刻（日本時間） | Worker の cron（UTC） | すること |
 |---|---|---|
-| 9:17・15:17・21:17・3:17 | `17 */6 * * *` | daily-watch を呼ぶ |
+| 9:17・15:17・21:17・3:17 | `17 */6 * * *` | daily-watch を呼ぶ（受け付けられなければ1回だけやり直す） |
 | 日曜 3:47 | `47 18 * * 6` | daily-watch を「点検」（全フィードの版を取り直す）で呼ぶ |
 | 毎日 3:23 | `23 18 * * *` | 1年間更新の無い宛先を消す（前から） |
 
@@ -97,7 +97,7 @@ GitHub の定時の実行は、遅れたり抜けたりします（11/24〜25 �
 1. GitHub の右上のアイコン →「Settings」→ 左の下の「Developer settings」→「Personal access tokens」→「Fine-grained tokens」→「Generate new token」。
 2. 次のように入れます。
    - Token name：`machi-no-ashi-dispatch`
-   - Expiration：1年（切れる日の少し前に作り直します。切れると、予備の GitHub の定時の実行だけになります）
+   - Expiration：「Custom」を選び、**2027年3月31日**（切れる日の少し前に作り直します。切れると、Worker の呼び出しは断られ（401）、予備の GitHub の定時の実行だけになります）
    - Resource owner：`h-kazuki-pixel`
    - Repository access：「Only select repositories」→ `machi-no-ashi-karte` だけ
    - Permissions →「Repository permissions」→「Actions」を「Read and write」（ほかは触らない。Metadata の Read-only は自動で付きます）
@@ -109,6 +109,17 @@ GitHub の定時の実行は、遅れたり抜けたりします（11/24〜25 �
 5. コピーした値は、クリップボードから消しておきます（別の文字をコピーする）。
 
 鍵が入っていないあいだは、Worker は daily-watch を呼びません（GitHub の定時の実行だけで動きます）。
+
+### 呼べなかったときの記録
+
+- GitHub が受け付けなかったとき（2xx 以外、または届かなかったとき）は、20秒待って1回だけやり直します。
+- それでもだめなら、KV の `log:dispatch_failures` に、時刻（UTC）・点検かどうか・返ってきた番号（1回目と2回目。届かなかったときは 0）を残します。新しい順に50件までです。
+- 見るときは、Mac のターミナルで：
+  ```
+  cd ~/machi-no-ashi-karte/push && npx wrangler kv key get --binding SUBS "log:dispatch_failures" --remote
+  ```
+  何も出なければ（「Value not found」）、呼べなかったことはありません。
+- 番号の目安：401 は鍵の期限切れ・まちがい、403・404 は鍵の権限かリポジトリの指定のまちがい、422 は daily-watch の入力のまちがい、5xx と 0 は GitHub の側の一時的な不調。
 
 ## 試験
 

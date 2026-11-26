@@ -218,20 +218,37 @@ export async function expire(env, today = todayJst()) {
 // 鍵（GH_DISPATCH_TOKEN）は、このリポジトリの Actions を動かす権限だけを持つ（Secrets に入れる）。
 export const CRON_WATCH = "17 */6 * * *"; // 日本時間 9:17・15:17・21:17・3:17
 export const CRON_FULL = "47 18 * * 6";   // 日本時間 日曜 3:47：全フィードの版を取り直す（点検）
-export async function dispatchWatch(env, full) {
+export const DISPATCH_LOG = "log:dispatch_failures"; // 呼べなかった記録（新しい順に50件まで）
+async function callDispatch(env, full) {
+  try {
+    const res = await fetch(`https://api.github.com/repos/${env.GH_REPO}/actions/workflows/daily-watch.yml/dispatches`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.GH_DISPATCH_TOKEN}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "machi-no-ashi-push",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ref: "main", inputs: { full: full ? "true" : "false", by: "cloudflare" } }),
+    });
+    return res.status;
+  } catch {
+    return 0; // GitHub に届かなかった
+  }
+}
+// GitHub が受け付けなかった（2xx 以外）ときは、少し待って1回だけやり直す。それでもだめなら、時刻と番号を KV に残す
+export async function dispatchWatch(env, full, waitMs = 20000) {
   if (!env.GH_DISPATCH_TOKEN || !env.GH_REPO) return { ok: false, status: 0 };
-  const res = await fetch(`https://api.github.com/repos/${env.GH_REPO}/actions/workflows/daily-watch.yml/dispatches`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.GH_DISPATCH_TOKEN}`,
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "machi-no-ashi-push",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ ref: "main", inputs: { full: full ? "true" : "false", by: "cloudflare" } }),
-  });
-  return { ok: res.status === 204, status: res.status };
+  const first = await callDispatch(env, full);
+  if (first >= 200 && first < 300) return { ok: true, status: first };
+  if (waitMs) await new Promise((r) => setTimeout(r, waitMs));
+  const second = await callDispatch(env, full);
+  if (second >= 200 && second < 300) return { ok: true, status: second, retried: true };
+  const log = (await env.SUBS.get(DISPATCH_LOG, "json")) || [];
+  log.unshift({ at: new Date().toISOString(), full, status: [first, second] });
+  await env.SUBS.put(DISPATCH_LOG, JSON.stringify(log.slice(0, 50)));
+  return { ok: false, status: second };
 }
 
 export default {

@@ -2,7 +2,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import nodeCrypto from "node:crypto";
-import worker, { BATCH, expire, subKey, CRON_WATCH, CRON_FULL } from "../src/index.js";
+import worker, { BATCH, expire, subKey, CRON_WATCH, CRON_FULL, dispatchWatch, DISPATCH_LOG } from "../src/index.js";
 import { encryptPayload, vapidAuth, b64u, unb64u } from "../src/webpush.js";
 
 // ---------- 偽物 ----------
@@ -230,5 +230,30 @@ test("定時の処理：見る仕組みを workflow_dispatch で呼ぶ（点検�
   assert.equal(calls.length, 0);
   calls = await runs(e, "23 18 * * *"); // 宛先を消す時刻には呼ばない
   assert.equal(calls.length, 0);
+  pushStatus = () => 201;
+});
+
+test("定時の処理：GitHub が受け付けなかったら1回だけやり直し、それでもだめなら時刻と番号を記録する", async () => {
+  const e = { ...env(), GH_REPO: "owner/repo", GH_DISPATCH_TOKEN: "gh-token" };
+  const gh = () => pushed.filter((x) => x.url.includes("api.github.com")).length;
+  // 1回目 503、2回目 204：記録しない
+  pushed.length = 0;
+  let n = 0;
+  pushStatus = () => (n++ === 0 ? 503 : 204);
+  let r = await dispatchWatch(e, false, 0);
+  assert.equal(r.ok, true);
+  assert.equal(gh(), 2);
+  assert.equal(await e.SUBS.get(DISPATCH_LOG, "json"), null);
+  // 2回とも 401：2回だけ呼び、記録する
+  pushed.length = 0;
+  pushStatus = () => 401;
+  r = await dispatchWatch(e, true, 0);
+  assert.equal(r.ok, false);
+  assert.equal(gh(), 2);
+  const log = await e.SUBS.get(DISPATCH_LOG, "json");
+  assert.equal(log.length, 1);
+  assert.deepEqual(log[0].status, [401, 401]);
+  assert.equal(log[0].full, true);
+  assert.match(log[0].at, /^\d{4}-\d{2}-\d{2}T/);
   pushStatus = () => 201;
 });
