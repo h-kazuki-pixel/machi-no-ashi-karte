@@ -608,11 +608,27 @@ async function homeView() {
   if (pushConfigured() && !DEMO) html += `<div id="push" class="pushbox"></div>`;
   html += `<a class="btn secondary" href="#biz/pref">お店や施設の方へ</a>`;
   if (DEMO) html += `<p class="muted small">例の表示です（保存されません）。</p>`;
+  else html += `<p class="muted small appver" id="appver">版 ${esc(APP_VERSION)}</p>`;
   render(html);
   if (pushConfigured() && !DEMO) pushBox(document.getElementById("push"));
-  // 試しの記録は残し続けるが、出すのは URL に ?debug=1 を付けたときだけ
-  if (DEBUG_LOG && SHOW_DEBUG && pushConfigured() && !DEMO) debugBox();
+  // 試しの記録は残し続けるが、出すのは ?debug=1 を付けたときか、いちばん下の版の番号を続けて5回押したときだけ
+  const canDebug = DEBUG_LOG && pushConfigured() && !DEMO;
+  if (canDebug && (SHOW_DEBUG || debugOpened)) debugBox();
+  const ver = document.getElementById("appver");
+  if (canDebug && ver) {
+    let taps = [];
+    ver.addEventListener("click", () => {
+      const now = Date.now();
+      taps = [...taps.filter((t) => now - t < 3000), now];
+      if (taps.length >= 5 && !document.querySelector(".debuglog")) {
+        taps = [];
+        debugOpened = true; // このあいだ（アプリを閉じるまで）は、ホームに戻っても出す
+        debugBox();
+      }
+    });
+  }
 }
+let debugOpened = false;
 
 // 試しのあいだだけ：通知を押したときの記録（新しい順）
 async function debugBox() {

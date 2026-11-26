@@ -173,3 +173,6 @@ input[type="text"], input[type="search"], input[type="time"] {
 .debuglog ol { padding-left: 1.2em; }
 .debuglog li { margin: 2px 0; word-break: break-all; }
 .warn-text { color: var(--cannot); }
+
+/* ホームのいちばん下の版の番号（続けて5回押すと、試しの記録が出る） */
+.appver { text-align: center; margin-top: 24px; -webkit-user-select: none; user-select: none; -webkit-tap-highlight-color: transparent; }

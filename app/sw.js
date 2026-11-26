@@ -5,7 +5,7 @@
 //                       当日かあと  「◯◯の時刻表が、◯月◯日に変わりました。」
 // バスの名前は、端末の中（IndexedDB）に保存した一覧から引く。行き先や時刻は、通知の文に入れない。
 // sw.js の版の番号（画面の app.js の APP_VERSION と同じにする。直したら両方を上げる）
-const SW_VERSION = "2026-11-26.1";
+const SW_VERSION = "2026-11-26.2";
 const DB = "machi-no-ashi-karte";
 const STORE = "kv";
 
