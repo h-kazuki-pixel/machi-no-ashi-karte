@@ -1,16 +1,18 @@
 {
- "last_checked_at": "2026-11-27T21:17:35+09:00",
+ "last_checked_at": "2026-11-28T03:17:34+09:00",
  "bootstrap": "調査(2026-11-23)の版の一覧から始めた",
- "last_run_started_at": "2026-11-27T21:17:35+09:00",
- "last_run_finished_at": "2026-11-27T21:17:53+09:00",
+ "last_run_started_at": "2026-11-28T03:17:34+09:00",
+ "last_run_finished_at": "2026-11-28T03:29:24+09:00",
  "last_run_mode": "normal",
- "last_run_errors": [],
+ "last_run_errors": [
+  "kamizonokotsu/SuperBanpeiyu 67cade4c の印: <HTTPError 404: 'Not Found'>"
+ ],
  "feeds_total": 614,
  "versions_seen": 10097,
  "revisions": 17,
- "last_etag_check_at": "2026-11-27T03:17:37+09:00",
+ "last_etag_check_at": "2026-11-28T03:17:34+09:00",
  "last_etag_check": {
-  "versions": 569,
+  "versions": 570,
   "changed": 0
  }
 }
