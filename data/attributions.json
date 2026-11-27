@@ -50,6 +50,14 @@
    "text": "明光バス株式会社「明光バス」GTFSデータ（CC BY 4.0）"
   },
   {
+   "feed": "nishiocity/meitestu_tobu",
+   "operator": "西尾市",
+   "feed_name": "名鉄東部交通バス",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
+   "text": "西尾市「名鉄東部交通バス」GTFSデータ（CC0 1.0）"
+  },
+  {
    "feed": "omachicity/omachiraicholiner",
    "operator": "大町市",
    "feed_name": "特急バス「雷鳥ライナー」",

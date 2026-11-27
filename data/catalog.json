@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-27T09:18:27+09:00",
+ "built_at": "2026-11-27T15:17:56+09:00",
  "prefs": [
   {
    "code": 1,
@@ -9592,17 +9592,29 @@
      "to": "2027-09-30",
      "published_at": "2026-09-25T15:49:52.310245+09:00",
      "path": "data/timetables/nishiocity__meitestu_tobu/b68ebe60-25fb-472e-9d8e-9ca7af6dee76.json"
+    },
+    {
+     "uid": "4999fe08-d2f1-45d3-8828-b47f039ea6f0",
+     "from": "2026-12-01",
+     "to": "2028-01-31",
+     "published_at": "2026-11-27T13:47:10.703318+09:00",
+     "path": "data/timetables/nishiocity__meitestu_tobu/4999fe08-d2f1-45d3-8828-b47f039ea6f0.json"
     }
    ],
-   "revisions": [],
+   "revisions": [
+    {
+     "change_date": "2026-12-01",
+     "path": "data/revisions/nishiocity__meitestu_tobu/2026-12-01__4999fe08.json",
+     "published_at": "2026-11-27T13:47:10.703318+09:00"
+    }
+   ],
    "lead": {
-    "n": 2,
+    "n": 3,
     "late": 0,
     "censored": 0,
-    "leads": [
-     4,
-     5
-    ]
+    "median": 4,
+    "earliest": 5,
+    "latest": 4
    }
   },
   {

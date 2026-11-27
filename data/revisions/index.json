@@ -917,5 +917,224 @@
    "old_days": 23,
    "new_days": 0
   }
+ },
+ {
+  "feed": "nishiocity/meitestu_tobu",
+  "feed_name": "名鉄東部交通バス",
+  "operator": "西尾市",
+  "change_date": "2026-12-01",
+  "published_at": "2026-11-27T13:47:10.703318+09:00",
+  "first_seen_at": "2026-11-27T15:17:35+09:00",
+  "first_seen_basis": "見る仕組みが見つけた日時",
+  "license": "CC0 1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
+  "path": "data/revisions/nishiocity__meitestu_tobu/2026-12-01__4999fe08.json",
+  "old_uid": "b68ebe60-25fb-472e-9d8e-9ca7af6dee76",
+  "new_uid": "4999fe08-d2f1-45d3-8828-b47f039ea6f0",
+  "change_date_known": true,
+  "check": {
+   "revision": "data/revisions/nishiocity__meitestu_tobu/2026-12-01__4999fe08.json",
+   "n": 200,
+   "counts": {
+    "same": 192,
+    "will_be_able": 2,
+    "tiny": 4,
+    "better": 1,
+    "big": 1
+   },
+   "shares": {
+    "same": 0.96,
+    "will_be_able": 0.01,
+    "tiny": 0.02,
+    "better": 0.005,
+    "big": 0.005
+   },
+   "examples": {
+    "same": [
+     {
+      "from": "矢曽根南",
+      "to": "西尾駅",
+      "day": "mon",
+      "date": "2026-11-30",
+      "cond": "13:59までに着く",
+      "before": {
+       "dep": "13:47",
+       "arr": "13:51",
+       "route": "一色線"
+      },
+      "after": {
+       "dep": "13:47",
+       "arr": "13:51",
+       "route": "一色線"
+      },
+      "notes": []
+     },
+     {
+      "from": "電車通り銭堤",
+      "to": "芦池橋",
+      "day": "mon",
+      "date": "2027-01-04",
+      "cond": "17:05までに着く",
+      "before": {
+       "dep": "16:59",
+       "arr": "17:00",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "after": {
+       "dep": "16:59",
+       "arr": "17:00",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "notes": []
+     },
+     {
+      "from": "熱池",
+      "to": "憩いの農園口",
+      "day": "thu",
+      "date": "2026-11-12",
+      "cond": "6:29よりあとに乗る",
+      "before": {
+       "dep": "6:34",
+       "arr": "6:35",
+       "route": "一色線"
+      },
+      "after": {
+       "dep": "6:34",
+       "arr": "6:35",
+       "route": "一色線"
+      },
+      "notes": []
+     }
+    ],
+    "will_be_able": [
+     {
+      "from": "小園",
+      "to": "柱西",
+      "day": "sat",
+      "date": "2026-12-12",
+      "cond": "18:08よりあとに乗る",
+      "before": null,
+      "after": {
+       "dep": "18:17",
+       "arr": "18:33",
+       "route": "92岡崎・西尾線（西尾～岡崎駅西口）"
+      },
+      "notes": []
+     },
+     {
+      "from": "正名",
+      "to": "柱西",
+      "day": "mon",
+      "date": "2026-12-14",
+      "cond": "15:24までに着く",
+      "before": null,
+      "after": {
+       "dep": "15:07",
+       "arr": "15:15",
+       "route": "92岡崎・西尾線（西尾～岡崎駅西口）"
+      },
+      "notes": []
+     }
+    ],
+    "tiny": [
+     {
+      "from": "下青野",
+      "to": "西善道",
+      "day": "tue",
+      "date": "2026-11-10",
+      "cond": "8:23までに着く",
+      "before": {
+       "dep": "8:08",
+       "arr": "8:13",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "after": {
+       "dep": "8:09",
+       "arr": "8:13",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "notes": []
+     },
+     {
+      "from": "芦池橋",
+      "to": "六ツ美中",
+      "day": "fri",
+      "date": "2026-12-04",
+      "cond": "18:20よりあとに乗る",
+      "before": {
+       "dep": "18:25",
+       "arr": "18:40",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "after": {
+       "dep": "18:25",
+       "arr": "18:42",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "notes": []
+     },
+     {
+      "from": "国立研究所下",
+      "to": "北中島",
+      "day": "mon",
+      "date": "2026-12-14",
+      "cond": "18:27までに着く",
+      "before": {
+       "dep": "17:54",
+       "arr": "18:23",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "after": {
+       "dep": "17:54",
+       "arr": "18:19",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "notes": []
+     }
+    ],
+    "better": [
+     {
+      "from": "下永良",
+      "to": "駒場",
+      "day": "wed",
+      "date": "2026-12-09",
+      "cond": "18:32までに着く",
+      "before": {
+       "dep": "17:21",
+       "arr": "17:22",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "after": {
+       "dep": "18:30",
+       "arr": "18:31",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "notes": []
+     }
+    ],
+    "big": [
+     {
+      "from": "学校前",
+      "to": "善明辻",
+      "day": "fri",
+      "date": "2026-11-13",
+      "cond": "18:16よりあとに乗る",
+      "before": {
+       "dep": "18:17",
+       "arr": "18:39",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "after": {
+       "dep": "19:15",
+       "arr": "19:33",
+       "route": "91岡崎・西尾線（西尾～東岡崎）"
+      },
+      "notes": []
+     }
+    ]
+   },
+   "old_days": 33,
+   "new_days": 29
+  }
  }
 ]

@@ -4571,10 +4571,10 @@
   "feed_pref_id": 23,
   "feed_license": "CC0 1.0",
   "feed_license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.ja",
-  "last_updated_at": "2026-09-25",
-  "last_published_at": "2026-09-25",
-  "latest_feed_start_date": "2026-09-17",
-  "latest_feed_end_date": "2027-09-30",
+  "last_updated_at": "2026-11-27",
+  "last_published_at": "2026-11-27",
+  "latest_feed_start_date": "2026-12-01",
+  "latest_feed_end_date": "2028-01-31",
   "feed_is_discontinued": false
  },
  "nishiocity/tosen": {
