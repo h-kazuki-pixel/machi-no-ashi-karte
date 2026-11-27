@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-27T03:29:21+09:00",
+ "built_at": "2026-11-27T09:18:27+09:00",
  "prefs": [
   {
    "code": 1,
@@ -5902,6 +5902,13 @@
    "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
    "usable": true,
    "timetables": [
+    {
+     "uid": "f62f2088-0a53-4696-8188-06e52a4c8b83",
+     "from": "2026-06-06",
+     "to": "2026-12-30",
+     "published_at": "2026-11-27T04:05:48.728230+09:00",
+     "path": "data/timetables/kumamoto-toshibus__kumamoto-toshibus/f62f2088-0a53-4696-8188-06e52a4c8b83.json"
+    },
     {
      "uid": "44da4d70-ea9f-4ceb-860c-1b69ef925ef4",
      "from": "2026-06-06",
