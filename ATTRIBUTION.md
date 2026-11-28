@@ -7,6 +7,7 @@
 - 河北町「河北町営バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 長崎県営バス「長崎県営バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 株式会社高知駅前観光「空港連絡バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
+- 熊本バス「熊本バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 明光バス株式会社「明光バス」GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja
 - 西尾市「名鉄東部交通バス」GTFSデータ（CC0 1.0） — https://creativecommons.org/publicdomain/zero/1.0/deed.ja
 - 大町市『特急バス「雷鳥ライナー」』GTFSデータ（CC BY 4.0） — https://creativecommons.org/licenses/by/4.0/deed.ja

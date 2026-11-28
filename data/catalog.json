@@ -1,6 +1,6 @@
 {
  "format": "catalog-1",
- "built_at": "2026-11-28T04:00:21+09:00",
+ "built_at": "2026-11-28T09:19:10+09:00",
  "prefs": [
   {
    "code": 1,
@@ -5822,14 +5822,20 @@
    "usable": true,
    "timetables": [
     {
-     "uid": "f9d52c35-0423-4673-8d2d-50e907925002",
+     "uid": "fa93361a-b2cc-4dde-af1e-3c7c64977469",
      "from": "2026-10-01",
-     "to": "2027-02-26",
-     "published_at": "2026-11-25T04:05:44.815303+09:00",
-     "path": "data/timetables/kuma-bus__kuma-bus/f9d52c35-0423-4673-8d2d-50e907925002.json"
+     "to": "2027-03-04",
+     "published_at": "2026-11-28T04:05:46.282382+09:00",
+     "path": "data/timetables/kuma-bus__kuma-bus/fa93361a-b2cc-4dde-af1e-3c7c64977469.json"
     }
    ],
-   "revisions": [],
+   "revisions": [
+    {
+     "change_date": "2026-12-01",
+     "path": "data/revisions/kuma-bus__kuma-bus/2026-12-01__fa93361a.json",
+     "published_at": "2026-11-28T04:05:46.282382+09:00"
+    }
+   ],
    "daily": true
   },
   {

@@ -1136,5 +1136,90 @@
    "old_days": 33,
    "new_days": 29
   }
+ },
+ {
+  "feed": "kuma-bus/kuma-bus",
+  "feed_name": "熊本バス",
+  "operator": "熊本バス",
+  "change_date": "2026-12-01",
+  "published_at": "2026-11-28T04:05:46.282382+09:00",
+  "first_seen_at": "2026-11-28T09:17:32+09:00",
+  "first_seen_basis": "見る仕組みが見つけた日時",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+  "path": "data/revisions/kuma-bus__kuma-bus/2026-12-01__fa93361a.json",
+  "old_uid": "5ce8228d-eb76-40a5-bc88-4b251f327a7c",
+  "new_uid": "fa93361a-b2cc-4dde-af1e-3c7c64977469",
+  "change_date_known": true,
+  "check": {
+   "revision": "data/revisions/kuma-bus__kuma-bus/2026-12-01__fa93361a.json",
+   "n": 200,
+   "counts": {
+    "same": 200
+   },
+   "shares": {
+    "same": 1
+   },
+   "examples": {
+    "same": [
+     {
+      "from": "通町筋",
+      "to": "桜町バスターミナル",
+      "day": "tue",
+      "date": "2026-10-27",
+      "cond": "17:40までに着く",
+      "before": {
+       "dep": "17:27",
+       "arr": "17:33",
+       "route": "L2-2：イオン→セイラタウン→桜町バスターミナル"
+      },
+      "after": {
+       "dep": "17:27",
+       "arr": "17:33",
+       "route": "L2-2：イオン→セイラタウン→桜町バスターミナル"
+      },
+      "notes": []
+     },
+     {
+      "from": "水前寺公園前（ふれあい通り）",
+      "to": "九品寺交差点",
+      "day": "fri",
+      "date": "2026-12-11",
+      "cond": "9:06までに着く",
+      "before": {
+       "dep": "8:54",
+       "arr": "9:03",
+       "route": "L1-1：江津団地→国府→水道町→桜町バスターミナル"
+      },
+      "after": {
+       "dep": "8:54",
+       "arr": "9:03",
+       "route": "L1-1：江津団地→国府→水道町→桜町バスターミナル"
+      },
+      "notes": []
+     },
+     {
+      "from": "田迎小学校前",
+      "to": "下乙（熊本）",
+      "day": "fri",
+      "date": "2026-11-20",
+      "cond": "9:48よりあとに乗る",
+      "before": {
+       "dep": "9:52",
+       "arr": "9:55",
+       "route": "M1-1：桜町バスターミナル→田迎→中の瀬車庫"
+      },
+      "after": {
+       "dep": "9:52",
+       "arr": "9:55",
+       "route": "M1-1：桜町バスターミナル→田迎→中の瀬車庫"
+      },
+      "notes": []
+     }
+    ]
+   },
+   "old_days": 33,
+   "new_days": 29
+  }
  }
 ]

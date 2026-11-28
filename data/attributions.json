@@ -42,6 +42,14 @@
    "text": "株式会社高知駅前観光「空港連絡バス」GTFSデータ（CC BY 4.0）"
   },
   {
+   "feed": "kuma-bus/kuma-bus",
+   "operator": "熊本バス",
+   "feed_name": "熊本バス",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/deed.ja",
+   "text": "熊本バス「熊本バス」GTFSデータ（CC BY 4.0）"
+  },
+  {
    "feed": "meikobus/meikobus",
    "operator": "明光バス株式会社",
    "feed_name": "明光バス",
